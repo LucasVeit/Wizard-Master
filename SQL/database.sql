@@ -1,4 +1,4 @@
-create table Raca (
+create table Raca ( -- ok
 	nomeRaca varchar(30),
 	descricao text not null,
 	idadeAdulto integer not null,
@@ -14,21 +14,21 @@ create table Raca (
 	primary key(nomeRaca)
 );
 
-create table DeslocamentoRaca (
+create table DeslocamentoRaca (-- ok
 	nomeRaca varchar(30),
 	nomeDeslocamento varchar(25),
 	valor integer not null,
 	primary key(nomeRaca, nomeDeslocamento)
 );
 
-create table IdiomaRaca (
+create table IdiomaRaca (-- ok
 	nomeRaca varchar(30),
 	nomeIdioma varchar(25),
 	primary key (nomeRaca, nomeIdioma),
 	foreign key (nomeRaca) references Raca(nomeRaca)
 );
 
-create table TracoEspecialRaca (
+create table TracoEspecialRaca (-- ok
 	nome varchar(30),
 	nomeRaca varchar(30),
 	descricao text not null,
@@ -36,7 +36,7 @@ create table TracoEspecialRaca (
 	foreign key (nomeRaca) references Raca (nomeRaca)
 );
 
-create table Monstro (
+create table Monstro (-- ok
 	nomeMonstro varchar(40),
 	descricao text not null,
 	foto varchar(120),
@@ -51,7 +51,7 @@ create table Monstro (
 	primary key (nomeMonstro)
 );
 
-create table DeslocamentoMonstro (
+create table DeslocamentoMonstro (-- ok
 	nomeMonstro varchar(40),
 	nomeDeslocamento varchar(25),
 	valor integer not null,
@@ -59,14 +59,14 @@ create table DeslocamentoMonstro (
 	foreign key (nomeMonstro) references Monstro(nomeMonstro)
 );
 
-create table IdiomaMonstro (
+create table IdiomaMonstro (-- ok
 	nomeMonstro varchar(40),
 	nomeIdioma varchar(25) not null,
 	primary key (nomeMonstro),
 	foreign key (nomeMonstro) references Monstro(nomeMonstro)
 );
 
-create table SentidoMonstro (
+create table SentidoMonstro (-- ok
 	nomeMonstro varchar(40),
 	nomeSentido varchar(40),
 	descricao varchar(100) not null,
@@ -74,7 +74,7 @@ create table SentidoMonstro (
 	foreign key (nomeMonstro) references Monstro(nomeMonstro)
 );
 
-create table TracoEspecialMonstro (
+create table TracoEspecialMonstro (-- ok
 	nome varchar(30),
 	nomeMonstro varchar(40),
 	descricao text not null,
@@ -82,7 +82,7 @@ create table TracoEspecialMonstro (
 	foreign key (nomeMonstro) references Monstro(nomeMonstro)
 );
 
-create table CaracteristicaMonstro (
+create table CaracteristicaMonstro (-- ok
 	nome varchar(35),
 	nomeMonstro varchar(40),
 	descricao text not null,
@@ -90,7 +90,7 @@ create table CaracteristicaMonstro (
 	foreign key (nomeMonstro) references Monstro(nomeMonstro)
 );
 
-create table Acao (
+create table Acao (-- ok
 	nome varchar(50),
 	nomeMonstro varchar(40),
 	descricao text not null,
@@ -98,7 +98,7 @@ create table Acao (
 	foreign key (nomeMonstro) references Monstro(nomeMonstro)
 );
 
-create table AcaoLendaria (
+create table AcaoLendaria (-- ok
 	nome varchar(40),
 	nomeMonstro varchar(40),
 	descricao text not null,
@@ -106,7 +106,7 @@ create table AcaoLendaria (
 	foreign key (nomeMonstro) references Monstro(nomeMonstro)
 );
 
-create table Classe (
+create table Classe (-- ok
 	nomeClasse varchar(20),
 	descricao text not null,
 	pontosVidaInicial varchar(50) not null,
@@ -114,7 +114,7 @@ create table Classe (
 	primary key (nomeClasse)
 );
 
-create table Proficiencia (
+create table Proficiencia (-- ok
 	nomeProficiencia varchar(35),
 	nomeClasse varchar(20),
 	descricao text not null,
@@ -122,7 +122,7 @@ create table Proficiencia (
 	foreign key (nomeClasse) references Classe (nomeClasse)
 );
 
-create table CaracteristicaClasse (
+create table CaracteristicaClasse (-- ok
 	nomeCaracteristica varchar(60),
 	nomeClasse varchar(20),
 	nivel integer,
@@ -132,7 +132,7 @@ create table CaracteristicaClasse (
 	foreign key (nomeClasse) references Classe (nomeClasse)
 );
 
-create table Atributo (
+create table Atributo (-- ok
 	nivel integer,
 	nomeClasse varchar(20),
 	bonusProficiencia integer not null,
@@ -140,7 +140,7 @@ create table Atributo (
 	foreign key (nomeClasse) references Classe (nomeClasse)
 );
 
-create table Bruxo (
+create table Bruxo (-- ok
 	nomeClasse varchar(20),
 	nivel integer,
 	invocacoesConhecidas integer not null,
@@ -152,7 +152,7 @@ create table Bruxo (
 	foreign key (nomeClasse, nivel) references Atributo (nomeClasse, nivel)
 );
 
-create table Barbaro (
+create table Barbaro (-- ok
 	nomeClasse varchar(20),
 	nivel integer,
 	danoFuria integer not null,
@@ -161,7 +161,7 @@ create table Barbaro (
 	foreign key (nomeClasse, nivel) references Atributo (nomeClasse, nivel)
 );
 
-create table Bardo (
+create table Bardo (-- ok
 	nomeClasse varchar(20),
 	nivel integer,
 	truquesConhecidos integer not null,
@@ -170,7 +170,7 @@ create table Bardo (
 	foreign key (nomeClasse, nivel) references Atributo (nomeClasse, nivel)
 );
 
-create table ClerigoDruidaMago (
+create table ClerigoDruidaMago (-- ok
 	nomeClasse varchar(20),
 	nivel integer,
 	truquesConhecidos integer not null,
@@ -178,7 +178,7 @@ create table ClerigoDruidaMago (
 	foreign key (nomeClasse, nivel) references Atributo (nomeClasse, nivel)
 );
 
-create table Feiticeiro (
+create table Feiticeiro (-- ok
 	nomeClasse varchar(20),
 	nivel integer,
 	pontosFeiticaria integer not null,
@@ -188,7 +188,7 @@ create table Feiticeiro (
 	foreign key (nomeClasse, nivel) references Atributo (nomeClasse, nivel)
 );
 
-create table Monge (
+create table Monge (-- ok
 	nomeClasse varchar(20),
 	nivel integer,
 	deslocamentoSemArmadura integer not null,
@@ -198,7 +198,7 @@ create table Monge (
 	foreign key (nomeClasse, nivel) references Atributo (nomeClasse, nivel)
 );
 
-create table Ladino (
+create table Ladino (-- ok
 	nomeClasse varchar(20),
 	nivel integer,
 	ataqueFurtivo varchar(5) not null,
@@ -206,7 +206,7 @@ create table Ladino (
 	foreign key (nomeClasse, nivel) references Atributo (nomeClasse, nivel)
 );
 
-create table Patrulheiro (
+create table Patrulheiro (-- ok
 	nomeClasse varchar(20),
 	nivel integer,
 	magiasConhecidas integer not null,
@@ -214,7 +214,7 @@ create table Patrulheiro (
 	foreign key (nomeClasse, nivel) references Atributo (nomeClasse, nivel)
 );
 
-create table EspacoMagia (
+create table EspacoMagia (-- ok
 	nomeClasse varchar(20),
 	nivel integer,
 	nivelMagia integer,
