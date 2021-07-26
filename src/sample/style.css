@@ -1,0 +1,35 @@
+.button {
+    -fx-background-color: #F5F5F5;
+    -fx-border-color: #A58155;
+}
+
+.search-box {
+    -fx-background-color: #F5F5F5;
+    -fx-background-radius: 100;
+}
+
+.transparent {
+    -fx-background-color: rgba(0,0,0,0)
+}
+
+.shadow {
+    -fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
+}
+
+.screen-background {
+    -fx-background-color: #EBD9B2;
+    -fx-border-color: #4E442F;
+    -fx-border-width: 15;
+}
+
+.border-background {
+    -fx-border-color: #A58155;
+    -fx-border-width: 3;
+}
+
+.square {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+}
