@@ -26,3 +26,10 @@
     -fx-border-color: #A58155;
     -fx-border-width: 3;
 }
+
+.square {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+}
