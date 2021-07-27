@@ -5,6 +5,13 @@
     -fx-border-radius: 100px;
 }
 
+.book-button {
+    -fx-background-color: #ccb3b3;
+    -fx-border-color: #A58155;
+    -fx-background-radius: 100px;
+    -fx-border-radius: 100px;
+}
+
 .search-box {
     -fx-background-color: #F5F5F5;
     -fx-background-radius: 100px;
@@ -16,12 +23,6 @@
 
 .shadow {
     -fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.1), 10.0, 0.0, 0.0, 10.0);
-}
-
-.screen-background {
-    -fx-background-color: #EBD9B2;
-    -fx-border-color: #4E442F;
-    -fx-border-width: 15;
 }
 
 .border-background {
