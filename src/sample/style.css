@@ -1,15 +1,17 @@
-.button {
-    -fx-background-color: #F5F5F5;
-    -fx-border-color: #A58155;
+.Button {
+      -fx-background-color: #F5F5F5;
+      -fx-border-color: #A58155;
+      -fx-background-radius: 100px;
+      -fx-border-radius: 100px;
 }
 
 .search-box {
     -fx-background-color: #F5F5F5;
-    -fx-background-radius: 100;
+    -fx-background-radius: 100px;
 }
 
 .transparent {
-    -fx-background-color: rgba(0,0,0,0)
+    -fx-background-color: rgba(0,0,0,0);
 }
 
 .shadow {
