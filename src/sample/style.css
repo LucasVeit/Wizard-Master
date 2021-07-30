@@ -29,3 +29,9 @@
     -fx-border-color: #A58155;
     -fx-border-width: 3;
 }
+
+.background {
+    -fx-background-image:url("Resources//papelParede.jpg");
+    -fx-background-size: 100%;
+    -fx-width: 100%;
+}

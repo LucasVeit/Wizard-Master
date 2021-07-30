@@ -11,9 +11,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("telaInicio.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 1174, 773));
-        primaryStage.setResizable(false);
+        primaryStage.setTitle("Wizard Master");
+        primaryStage.setScene(new Scene(root, 1176, 780));
+        //primaryStage.setResizable(false);
         primaryStage.show();
     }
 

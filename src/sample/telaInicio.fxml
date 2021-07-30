@@ -11,13 +11,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1176.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1176.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="785.0" fitWidth="1176.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Resources/papelParede.jpg" />
-         </image>
-      </ImageView>
       <Pane layoutX="23.0" layoutY="23.0" prefHeight="730.0" prefWidth="1131.0" styleClass="border-background" stylesheets="@style.css">
          <children>
             <Pane layoutX="8.0" layoutY="9.0" prefHeight="712.0" prefWidth="1115.0" styleClass="border-background" stylesheets="@style.css">
@@ -67,7 +62,7 @@
                      <graphic>
                         <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Resources/livro.png" />
+                              <Image url="@Resources/livro.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -79,7 +74,7 @@
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Resources/pergaminho.png" />
+                              <Image url="@Resources/pergaminho.png" />
                            </image>
                         </ImageView>
                         <Text fill="#3f0404" layoutX="44.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-vindo">
