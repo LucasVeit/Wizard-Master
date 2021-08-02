@@ -15,6 +15,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1176.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
    <children>
+      <Pane layoutX="36.0" layoutY="32.0" prefHeight="712.0" prefWidth="1100.0" styleClass="border-background" stylesheets="@style.css" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="32.0" />
+      <Pane layoutX="47.0" layoutY="44.0" prefHeight="690.0" prefWidth="1080.0" styleClass="border-background" stylesheets="@style.css" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="44.0" />
       <BorderPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1176.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <bottom>
             <FlowPane alignment="CENTER" columnHalignment="CENTER" BorderPane.alignment="CENTER">
@@ -33,14 +35,14 @@
                         </Label>
                      </children>
                      <padding>
-                        <Insets top="20.0" />
+                        <Insets top="8.0" />
                      </padding>
                   </Pane>
                </children>
             </FlowPane>
          </bottom>
          <right>
-            <FlowPane alignment="BOTTOM_CENTER" columnHalignment="CENTER" prefHeight="708.0" prefWidth="88.0" BorderPane.alignment="CENTER">
+            <FlowPane alignment="BOTTOM_CENTER" columnHalignment="CENTER" prefHeight="717.0" prefWidth="174.0" BorderPane.alignment="CENTER">
                <children>
                   <Pane>
                      <children>
