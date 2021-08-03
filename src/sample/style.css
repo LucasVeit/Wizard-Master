@@ -35,3 +35,7 @@
     -fx-background-size: 100%;
     -fx-width: 100%;
 }
+
+.Button:hover{
+    -fx-background-color: #ccb3b3;
+}
