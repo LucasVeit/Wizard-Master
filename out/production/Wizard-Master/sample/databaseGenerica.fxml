@@ -94,7 +94,7 @@
          <bottom>
             <ScrollPane prefHeight="467.0" BorderPane.alignment="CENTER">
               <content>
-                <AnchorPane prefHeight="467.0" prefWidth="1035.0">
+                <AnchorPane prefHeight="512.0" prefWidth="1530.0">
                      <children>
                         <TableView fx:id="tabelaPesquisa" prefHeight="467.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>

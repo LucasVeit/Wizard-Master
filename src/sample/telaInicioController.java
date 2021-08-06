@@ -22,4 +22,9 @@ public class telaInicioController implements  Initializable, controlledScreen {
     private void goToDatabaseGenerica(ActionEvent event){
         myController.setScreen(main.screen2ID);
     }
+
+    @FXML
+    private void goToNovaCampanha(ActionEvent event){
+        myController.setScreen(main.screen3ID);
+    }
 }

@@ -85,7 +85,7 @@
                   </Label>
                   <HBox alignment="CENTER" spacing="30.0">
                      <children>
-                        <Button fx:id="btnNovaCampanha" mnemonicParsing="false" prefHeight="46.0" prefWidth="188.0" styleClass="Button" stylesheets="@style.css" text="Nova campanha" textFill="#af4044">
+                        <Button fx:id="btnNovaCampanha" mnemonicParsing="false" onAction="#goToNovaCampanha" prefHeight="46.0" prefWidth="188.0" styleClass="Button" stylesheets="@style.css" text="Nova campanha" textFill="#af4044">
                            <font>
                               <Font name="Sylfaen" size="20.0" />
                            </font>
