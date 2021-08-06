@@ -2,91 +2,107 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1176.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1176.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.telaInicioController">
    <children>
-      <Pane layoutX="23.0" layoutY="23.0" prefHeight="730.0" prefWidth="1131.0" styleClass="border-background" stylesheets="@style.css">
-         <children>
-            <Pane layoutX="8.0" layoutY="9.0" prefHeight="712.0" prefWidth="1115.0" styleClass="border-background" stylesheets="@style.css">
+      <Pane layoutX="36.0" layoutY="32.0" prefHeight="712.0" prefWidth="1100.0" styleClass="border-background" stylesheets="@style.css" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="32.0" />
+      <Pane layoutX="47.0" layoutY="44.0" prefHeight="690.0" prefWidth="1080.0" styleClass="border-background" stylesheets="@style.css" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="44.0" />
+      <BorderPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1176.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <bottom>
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" BorderPane.alignment="CENTER">
                <children>
-                  <VBox layoutX="272.0" layoutY="237.0" prefHeight="200.0" prefWidth="572.0">
-                     <children>
-                        <Text fill="#691616" strokeType="OUTSIDE" strokeWidth="0.0" text="Wizard Master" textAlignment="CENTER">
-                           <font>
-                              <Font name="Sylfaen" size="85.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="20.0" right="20.0" top="10.0" />
-                           </VBox.margin>
-                        </Text>
-                        <HBox alignment="CENTER" prefHeight="42.0" prefWidth="455.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="175.0" styleClass="Button" stylesheets="@style.css" text="Nova campanha" textFill="#af4044">
-                                 <font>
-                                    <Font name="Sylfaen" size="20.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets right="25.0" />
-                                 </HBox.margin>
-                              </Button>
-                              <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="199.0" styleClass="Button" stylesheets="@style.css" text="Carregar campanha" textAlignment="CENTER" textFill="#af4044">
-                                 <font>
-                                    <Font name="Sylfaen" size="20.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-                           <padding>
-                              <Insets left="20.0" right="20.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="80.0" />
-                           </VBox.margin>
-                        </HBox>
-                     </children>
-                  </VBox>
-                  <Button layoutX="1006.0" layoutY="622.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="73.0" styleClass="book-button" stylesheets="@style.css" textFill="#af4044">
-                     <font>
-                        <Font name="Sylfaen" size="20.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@Resources/livro.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <padding>
-                        <Insets top="4.0" />
-                     </padding>
-                  </Button>
-                  <Pane layoutX="458.0" layoutY="655.0" prefHeight="87.0" prefWidth="200.0">
+                  <Pane>
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@Resources/pergaminho.png" />
                            </image>
                         </ImageView>
-                        <Text fill="#3f0404" layoutX="44.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-vindo">
+                        <Label layoutX="38.0" layoutY="22.0" text="Bem-vindo" textFill="#3f0404">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets top="8.0" />
+                     </padding>
+                  </Pane>
+               </children>
+            </FlowPane>
+         </bottom>
+         <right>
+            <FlowPane alignment="BOTTOM_CENTER" columnHalignment="CENTER" prefHeight="717.0" prefWidth="174.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane>
+                     <children>
+                        <Button fx:id="btnLivro" mnemonicParsing="false" onAction="#goToDatabaseGenerica" prefHeight="72.0" prefWidth="73.0" styleClass="book-button" stylesheets="@style.css">
                            <font>
                               <Font name="Sylfaen" size="24.0" />
                            </font>
-                        </Text>
+                           <graphic>
+                              <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Resources/livro.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets top="4.0" />
+                           </padding>
+                        </Button>
                      </children>
+                     <FlowPane.margin>
+                        <Insets />
+                     </FlowPane.margin>
+                     <padding>
+                        <Insets right="100.0" />
+                     </padding>
                   </Pane>
                </children>
-            </Pane>
-         </children>
-      </Pane>
+            </FlowPane>
+         </right>
+         <center>
+            <VBox alignment="CENTER" spacing="50.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" prefHeight="106.0" prefWidth="618.0" text="Wizard Master" textFill="#691616">
+                     <font>
+                        <Font name="Sylfaen" size="85.0" />
+                     </font>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </Label>
+                  <HBox alignment="CENTER" spacing="30.0">
+                     <children>
+                        <Button fx:id="btnNovaCampanha" mnemonicParsing="false" prefHeight="46.0" prefWidth="188.0" styleClass="Button" stylesheets="@style.css" text="Nova campanha" textFill="#af4044">
+                           <font>
+                              <Font name="Sylfaen" size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnCarregarCampanha" mnemonicParsing="false" prefHeight="42.0" prefWidth="204.0" styleClass="Button" stylesheets="@style.css" text="Carregar campanha" textFill="#af4044">
+                           <font>
+                              <Font name="Sylfaen" size="20.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets left="195.0" top="50.0" />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>
