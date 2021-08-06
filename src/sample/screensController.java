@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
+import java.net.URL;
 import java.util.HashMap;
 
 public class screensController extends StackPane {
@@ -32,7 +33,8 @@ public class screensController extends StackPane {
     */
     public void loadScreen(String name, String resource){
         try{
-            FXMLLoader myLoader = new FXMLLoader(getClass().getResource(resource));
+            URL url = getClass().getResource(resource);
+            FXMLLoader myLoader = new FXMLLoader(url);
             Parent loadScreen = myLoader.load();
             controlledScreen myScreenController = myLoader.getController();
             myScreenController.setScreenParent(this);
@@ -68,7 +70,7 @@ public class screensController extends StackPane {
                 getChildren().add(screens.get(name)); //no one else been displayed, then just show
                 Timeline fadeIn = new Timeline(
                         new KeyFrame(Duration.ZERO, new KeyValue(opacity, 0.0)),
-                        new KeyFrame(new Duration(1000), new KeyValue(opacity, 1.0)));
+                        new KeyFrame(new Duration(2500), new KeyValue(opacity, 1.0)));
                 fadeIn.play();
             }
         }else {

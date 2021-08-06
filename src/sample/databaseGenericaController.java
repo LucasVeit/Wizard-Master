@@ -14,11 +14,10 @@ public class databaseGenericaController implements  Initializable, controlledScr
     public void initialize(URL url, ResourceBundle resourceBundle) {}
 
     @Override
-    public void setScreenParent(screensController screenPage) {}
-    /*
+    public void setScreenParent(screensController screenPage) { myController = screenPage; }
+
     @FXML
     private void goToTelaInicio(ActionEvent event){
         myController.setScreen(main.screen1ID);
     }
-    */
 }

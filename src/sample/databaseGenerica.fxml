@@ -11,7 +11,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -19,12 +18,24 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1176.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.databaseGenericaController">
    <children>
-      <Pane layoutX="36.0" layoutY="32.0" prefHeight="712.0" prefWidth="1100.0" styleClass="border-background" stylesheets="@style.css" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="28.0" />
-      <Pane layoutX="47.0" layoutY="44.0" prefHeight="890.0" prefWidth="1080.0" styleClass="border-background" stylesheets="@style.css" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="37.0" />
+      <Pane layoutX="36.0" layoutY="52.0" prefHeight="701.0" prefWidth="1117.0" styleClass="border-background" stylesheets="@style.css" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="52.0" />
+      <Pane layoutX="47.0" layoutY="61.0" prefHeight="682.0" prefWidth="1096.0" styleClass="border-background" stylesheets="@style.css" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="61.0" />
       <BorderPane prefHeight="780.0" prefWidth="1176.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <VBox prefHeight="102.0" prefWidth="1032.0" spacing="40.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="102.0" prefWidth="1032.0" spacing="30.0" BorderPane.alignment="CENTER">
                <children>
+                  <Button fx:id="btnVoltar" mnemonicParsing="false" onAction="#goToTelaInicio" prefHeight="10.0" prefWidth="60.0" styleClass="Button" stylesheets="@style.css" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="25.0" top="10.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Resources/left-arrow.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                   <HBox prefHeight="47.0" prefWidth="652.0">
                      <children>
                         <HBox alignment="CENTER" prefHeight="47.0" prefWidth="507.0" styleClass="search-box" stylesheets="@style.css">
@@ -37,7 +48,7 @@
                                     <Image url="@Resources/pesquisaLupa.png" />
                                  </image>
                               </ImageView>
-                              <TextField prefHeight="25.0" prefWidth="467.0" styleClass="transparent" stylesheets="@style.css">
+                              <TextField fx:id="barraPesquisa" prefHeight="25.0" prefWidth="467.0" styleClass="transparent" stylesheets="@style.css">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin>
@@ -47,7 +58,7 @@
                               </TextField>
                            </children>
                         </HBox>
-                        <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="100.0" styleClass="Button" stylesheets="@style.css" text="Pesquisar" textFill="#af4044">
+                        <Button fx:id="btnPesquisar" mnemonicParsing="false" prefHeight="34.0" prefWidth="100.0" styleClass="Button" stylesheets="@style.css" text="Pesquisar" textFill="#9c4c50">
                            <HBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </HBox.margin>
@@ -57,17 +68,17 @@
                         </Button>
                      </children>
                      <VBox.margin>
-                        <Insets left="85.0" top="90.0" />
+                        <Insets left="85.0" top="30.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="47.0" prefWidth="342.0">
                      <children>
-                        <ComboBox prefHeight="30.0" prefWidth="130.0" promptText="CATEGORIA" styleClass="Button" stylesheets="@style.css">
+                        <ComboBox fx:id="dropDownCategoria" prefHeight="30.0" prefWidth="130.0" promptText="CATEGORIA" styleClass="Button" stylesheets="@style.css">
                            <HBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <ComboBox prefHeight="30.0" prefWidth="130.0" promptText="ATRIBUTO" styleClass="Button" stylesheets="@style.css">
+                        <ComboBox fx:id="dropDownAtributo" prefHeight="30.0" prefWidth="130.0" promptText="ATRIBUTO" styleClass="Button" stylesheets="@style.css">
                            <HBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </HBox.margin>
@@ -85,7 +96,7 @@
               <content>
                 <AnchorPane prefHeight="467.0" prefWidth="1035.0">
                      <children>
-                        <TableView prefHeight="467.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="tabelaPesquisa" prefHeight="467.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
                             <TableColumn prefWidth="75.0" text="C1" />
                             <TableColumn prefWidth="75.0" text="C2" />
@@ -100,21 +111,5 @@
             </ScrollPane>
          </bottom>
       </BorderPane>
-      <FlowPane prefHeight="780.0" prefWidth="1176.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" styleClass="transparent" stylesheets="@style.css">
-               <graphic>
-                  <ImageView fitHeight="60.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" rotate="-135.0">
-                     <image>
-                        <Image url="@Resources/seta.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <FlowPane.margin>
-                  <Insets left="16.0" top="8.0" />
-               </FlowPane.margin>
-            </Button>
-         </children>
-      </FlowPane>
    </children>
 </AnchorPane>
