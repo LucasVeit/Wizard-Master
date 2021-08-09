@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1176.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.databaseGenericaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.databaseGenericaController">
     <children>
         <Pane layoutX="36.0" layoutY="52.0" prefHeight="701.0" prefWidth="1117.0" styleClass="border-background" stylesheets="@style.css" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="52.0" />
         <Pane layoutX="47.0" layoutY="61.0" prefHeight="682.0" prefWidth="1096.0" styleClass="border-background" stylesheets="@style.css" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="61.0" />
@@ -33,21 +33,21 @@
                   </Button>
          </top>
          <left>
-            <Pane prefHeight="564.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+            <Pane BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="536.0" fitWidth="303.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="536.0" fitWidth="303.0" layoutX="35.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Resources/Imagem.png" />
                      </image>
                   </ImageView>
                </children>
                <BorderPane.margin>
-                  <Insets bottom="70.0" left="70.0" top="70.0" />
+                  <Insets bottom="40.0" left="40.0" right="20.0" top="20.0" />
                </BorderPane.margin>
             </Pane>
          </left>
          <center>
-            <VBox alignment="CENTER" prefHeight="740.0" prefWidth="727.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER" spacing="20.0" BorderPane.alignment="CENTER">
                <children>
                   <TextFlow textAlignment="CENTER">
                      <children>
@@ -58,13 +58,23 @@
                         </Label>
                      </children>
                   </TextFlow>
-                  <ScrollPane prefHeight="477.0" prefWidth="722.0">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="496.0" prefWidth="1174.0" styleClass="border-background" stylesheets="@style.css" />
-                    </content>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
+                  <ScrollPane prefHeight="505.0" prefWidth="798.0">
+                     <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="502.0" prefWidth="773.0" style="-fx-background-color: #F9EED6;" styleClass="border-background" stylesheets="@style.css">
+                           <children>
+                              <Label alignment="TOP_CENTER" contentDisplay="TOP" layoutX="9.0" layoutY="9.0" prefHeight="502.0" prefWidth="716.0" text="Descrição" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Sylfaen" size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="96.0" prefHeight="502.0" prefWidth="716.0" text="Os pequeninos halflings sobrevivem em um mundo cheio&#10;de criaturas maiores ao evitar serem notados, ou evitando&#10;o combate direto. Com uns 90 centímetros de altura, eles&#10;parecem inofensivos e assim conseguiram sobreviver por&#10;séculos às sombras dos impérios e à margem de guerras e&#10;conflitos políticos. Eles normalmente são robustos,&#10;pesando entre 20 kg e 22,5 kg." textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Sylfaen" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </content>
                   </ScrollPane>
                </children>
                <BorderPane.margin>

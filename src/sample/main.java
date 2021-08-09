@@ -14,6 +14,8 @@ public class main extends Application {
     public static String screen2File = "databaseGenerica.fxml";
     public static String screen3ID = "novaCampanha";
     public static String screen3File = "novaCampanha.fxml";
+    public static String screen4ID = "telaResultado";
+    public static String screen4File = "telaResultado.fxml";
 
 
     @Override
@@ -30,6 +32,7 @@ public class main extends Application {
         mainContainer.loadScreen(main.screen1ID, main.screen1File);
         mainContainer.loadScreen(main.screen2ID, main.screen2File);
         mainContainer.loadScreen(main.screen3ID, main.screen3File);
+        mainContainer.loadScreen(main.screen4ID, main.screen4File);
 
         mainContainer.setScreen(main.screen1ID);
 

@@ -20,4 +20,9 @@ public class databaseGenericaController implements  Initializable, controlledScr
     private void goToTelaInicio(ActionEvent event){
         myController.setScreen(main.screen1ID);
     }
+
+    @FXML
+    private void goToTelaResultado(ActionEvent event){
+        myController.setScreen(main.screen4ID);
+    }
 }
