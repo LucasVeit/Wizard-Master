@@ -40,7 +40,7 @@ public class main extends Application {
         root.getChildren().addAll(mainContainer);
 
         primaryStage.setTitle("Wizard Master");
-        primaryStage.setScene(new Scene(root, 1176, 780));
+        primaryStage.setScene(new Scene(root, 1280, 720));
         primaryStage.show();
     }
 }
