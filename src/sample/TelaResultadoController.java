@@ -1,22 +1,23 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TelaResultadoController implements Initializable, controlledScreen{
 
+    screensController myController;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {}
+
+    @Override
+    public void setScreenParent(screensController screenPage) {myController = screenPage;}
+
     @FXML
-    private TextArea comment;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
+    private void goToDataBaseGenerica(ActionEvent event){
+        myController.setScreen(main.screen2ID);
     }
-
-    @Override
-    public void setScreenParent(screensController screenPage) {}
 }

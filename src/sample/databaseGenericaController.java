@@ -22,7 +22,7 @@ public class databaseGenericaController implements  Initializable, controlledScr
     }
 
     @FXML
-    private void goToTelaResultado(ActionEvent event){
+    private void goToResultado(ActionEvent event){
         myController.setScreen(main.screen4ID);
     }
 }

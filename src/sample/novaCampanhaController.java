@@ -1,12 +1,12 @@
 package sample;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class telaInicioController implements  Initializable, controlledScreen {
+public class novaCampanhaController implements Initializable, controlledScreen {
 
     screensController myController;
 
@@ -17,12 +17,7 @@ public class telaInicioController implements  Initializable, controlledScreen {
     public void setScreenParent(screensController screenPage) { myController = screenPage; }
 
     @FXML
-    private void goToDatabaseGenerica(ActionEvent event){
-        myController.setScreen(main.screen2ID);
-    }
-
-    @FXML
-    private void goToNovaCampanha(ActionEvent event){
-        myController.setScreen(main.screen3ID);
+    private void goToTelaInicio(ActionEvent event){
+        myController.setScreen(main.screen1ID);
     }
 }
