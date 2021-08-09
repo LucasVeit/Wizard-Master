@@ -37,7 +37,7 @@
                <children>
                   <ImageView fitHeight="536.0" fitWidth="303.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@sample/Resources/image%203.png" />
+                        <Image url="@Resources/Imagem.png" />
                      </image>
                   </ImageView>
                </children>
@@ -60,7 +60,7 @@
                   </TextFlow>
                   <ScrollPane prefHeight="477.0" prefWidth="722.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="496.0" prefWidth="1174.0" style="-fx-background-color: #F9EED6;" styleClass="border-background" stylesheets="@style.css" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="496.0" prefWidth="1174.0" styleClass="border-background" stylesheets="@style.css" />
                     </content>
                      <VBox.margin>
                         <Insets />
