@@ -1,12 +1,16 @@
-package sample;
+package Controller;
 
+import Controller.controlledScreen;
+import Controller.screensController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import sample.main;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TelaResultadoController implements Initializable, controlledScreen{
+public class TelaResultadoController implements Initializable, controlledScreen {
 
     screensController myController;
 

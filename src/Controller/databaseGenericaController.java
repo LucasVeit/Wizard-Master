@@ -1,12 +1,14 @@
-package sample;
+package Controller;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import java.net.URL;
-import java.util.ResourceBundle;
+import sample.main;
 
-public class novaCampanhaController implements Initializable, controlledScreen {
+public class databaseGenericaController implements  Initializable, controlledScreen {
 
     screensController myController;
 
@@ -19,5 +21,10 @@ public class novaCampanhaController implements Initializable, controlledScreen {
     @FXML
     private void goToTelaInicio(ActionEvent event){
         myController.setScreen(main.screen1ID);
+    }
+
+    @FXML
+    private void goToResultado(ActionEvent event){
+        myController.setScreen(main.screen4ID);
     }
 }

@@ -1,5 +1,6 @@
-package sample;
+package Controller;
 
+import Controller.controlledScreen;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
