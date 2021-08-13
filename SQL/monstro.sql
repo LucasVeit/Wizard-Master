@@ -5,7 +5,7 @@ create table Monstro (
 	classeArmadura varchar(30) not null,
 	pontosVida varchar(20) not null,
 	tendencia varchar(20) not null,
-	nivel integer not null,
+	nivel numeric(6,3) not null,
 	pontosExperiencia integer not null,
 	formaCorporal varchar(20) not null,
 	tamanho varchar(20) not null,
@@ -52,4 +52,19 @@ create table AcaoLendaria (
 	descricao text not null,
 	primary key (nome, nomeMonstro),
 	foreign key (nomeMonstro) references Monstro(nomeMonstro)
+);
+
+create table Habilidade (
+	valor integer,
+	valorModificador integer not null,
+	primary key (valor)
+);
+
+create table MonstroHabilidade (
+	nomeMonstro varchar(40),
+	nomeHabilidade varchar(15),
+	valor integer not null,
+	primary key (nomeMonstro, nomeHabilidade),
+	foreign key (nomeMonstro) references Monstro (nomeMonstro),
+	foreign key (valor) references Habilidade (valor)
 );
