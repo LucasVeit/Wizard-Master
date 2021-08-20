@@ -4,9 +4,12 @@ import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import Model.ConnectPostgre;
+import Model.DAO.MagiaDAO;
+import Model.Magia;
 import Model.TempMonstro;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -17,9 +20,7 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 import sample.main;
@@ -33,20 +34,32 @@ public class databaseGenericaController implements Initializable, controlledScre
     //private PreparedStatement pst;
 
     //configure the table
-    @FXML private TableView<TempMonstro> tableView;
-    @FXML private TableColumn<TempMonstro, SimpleStringProperty> tableColumn;
+    @FXML private TableView<Magia> tableView;
+    @FXML private TableColumn<Magia, SimpleStringProperty> tableColumn;
+    @FXML private TableColumn<Magia, SimpleStringProperty> tableDescricao;
    // private ObservableList<ObservableList> data;
-   // @FXML private TextField barraPesquisa;
+    @FXML private TextField barraPesquisa;
+    @FXML
+    ComboBox<String> comboBox01;
+    @FXML
+    ComboBox<String> comboBox02;
+    String pesquisa, categoria, atributo;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //set up te columns in the table
-        tableColumn.setCellValueFactory(new PropertyValueFactory<>("nomeMonstro"));
+        InsertChoiceBox();
+        tableColumn.setCellValueFactory(new PropertyValueFactory<>("nomeMagia"));
+        tableDescricao = new TableColumn<>("Descrição");
+        tableDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+        tableDescricao.setPrefWidth(100);
+        tableView.getColumns().add(tableDescricao);
 
         //load data
-        tableView.setItems(getMonstro());
+        tableView.setItems(getMagia());
 
         //pesquisaMonstro();
+
     }
 
     @Override
@@ -58,8 +71,20 @@ public class databaseGenericaController implements Initializable, controlledScre
     }
 
     @FXML
-    private void goToTelaResultado(ActionEvent event){
-        myController.setScreen(main.screen4ID);
+    private void Pesquisar(ActionEvent event){
+        pesquisa = barraPesquisa.getText();
+        System.out.println(pesquisa);
+        categoria = comboBox01.getValue();
+        System.out.println(categoria);
+        atributo = comboBox02.getValue();
+        System.out.println(atributo);
+
+    }
+
+    public ObservableList<Magia> getMagia(){
+        MagiaDAO magiaDAO = new MagiaDAO();
+        ObservableList<Magia> magia = FXCollections.observableArrayList(magiaDAO.List());
+        return magia;
     }
 
     // This method will return an ObservableList of People objects
@@ -74,6 +99,16 @@ public class databaseGenericaController implements Initializable, controlledScre
         monstro.add(new TempMonstro("Adult Green Dragon"));
 
         return monstro;
+    }
+
+    public void InsertChoiceBox(){
+        comboBox01.getItems().add("Apples");
+        comboBox01.getItems().add("Bananas");
+        comboBox01.getItems().addAll("Bacon", "Ham", "Meatballs");
+
+        comboBox02.getItems().add("Maçãs");
+        comboBox02.getItems().add("Bananas");
+        comboBox02.getItems().addAll("Bacon", "Presunto", "Bolinho de carne");
     }
 
     /*

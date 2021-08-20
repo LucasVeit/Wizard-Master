@@ -8,8 +8,8 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.sql.*;
+import Model.DAO.MagiaDAO;
+import Model.Magia;
 import java.util.ArrayList;
 
 public class main extends Application {
@@ -27,12 +27,11 @@ public class main extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        MonstroDAO monstroDAO = new MonstroDAO();
-        ArrayList<Monstro> monstros = monstroDAO.List();
+        MagiaDAO magiaDAO = new MagiaDAO();
+        ArrayList<Magia> magias = magiaDAO.List();
 
-        for (int i = 0; i < monstros.size(); i++){
-            System.out.println(monstros.get(i).getNomeMonstro());
-            System.out.println(monstros.get(i).getAcao());
+        for (int i = 0; i < magias.size(); i++){
+            System.out.println(magias.get(i).getDescricao());
         }
 
         screensController mainContainer = new screensController();
