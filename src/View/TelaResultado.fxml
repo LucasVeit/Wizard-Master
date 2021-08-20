@@ -35,26 +35,12 @@
                </BorderPane.margin>
                 </Button>
          </top>
-         <left>
-            <Pane prefHeight="595.0" prefWidth="330.0" BorderPane.alignment="CENTER">
-               <children>
-                  <ImageView fitHeight="536.0" fitWidth="303.0" layoutX="30.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Resources/Imagem.png" />
-                     </image>
-                  </ImageView>
-               </children>
-               <BorderPane.margin>
-                  <Insets bottom="40.0" left="60.0" right="20.0" />
-               </BorderPane.margin>
-            </Pane>
-         </left>
          <center>
             <VBox alignment="CENTER" prefHeight="605.0" prefWidth="773.0" spacing="20.0" BorderPane.alignment="CENTER">
                <children>
                   <TextFlow textAlignment="CENTER">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" text="TÍTULO" textAlignment="CENTER" textFill="#3f0404">
+                        <Label fx:id="tittle" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" textFill="#3f0404">
                            <font>
                               <Font name="Sylfaen" size="50.0" />
                            </font>
@@ -65,12 +51,12 @@
                      <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="502.0" prefWidth="773.0" style="-fx-background-color: #F9EED6;" styleClass="border-background" stylesheets="@style.css">
                            <children>
-                              <Label alignment="TOP_CENTER" contentDisplay="TOP" layoutX="6.0" layoutY="6.0" prefHeight="60.0" prefWidth="736.0" text="Descrição" textAlignment="CENTER" AnchorPane.bottomAnchor="439.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="3.0">
+                              <Label fx:id="subtittle" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="6.0" layoutY="6.0" prefHeight="60.0" prefWidth="736.0" textAlignment="CENTER" AnchorPane.bottomAnchor="439.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="3.0">
                                  <font>
                                     <Font name="Sylfaen" size="36.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="39.0" layoutY="98.0" prefHeight="313.0" prefWidth="685.0" text="Os pequeninos halflings sobrevivem em um mundo cheio&#10;de criaturas maiores ao evitar serem notados, ou evitando&#10;o combate direto. Com uns 90 centímetros de altura, eles&#10;parecem inofensivos e assim conseguiram sobreviver por&#10;séculos às sombras dos impérios e à margem de guerras e&#10;conflitos políticos. Eles normalmente são robustos,&#10;pesando entre 20 kg e 22,5 kg." textAlignment="CENTER" AnchorPane.bottomAnchor="94.0" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="95.0">
+                              <Label fx:id="text" alignment="CENTER" contentDisplay="CENTER" layoutX="39.0" layoutY="98.0" prefHeight="313.0" prefWidth="685.0" textAlignment="CENTER" AnchorPane.bottomAnchor="94.0" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="95.0">
                                  <font>
                                     <Font name="Sylfaen" size="24.0" />
                                  </font>
@@ -81,10 +67,17 @@
                   </ScrollPane>
                </children>
                <BorderPane.margin>
-                  <Insets bottom="70.0" left="50.0" right="70.0" top="20.0" />
+                  <Insets bottom="80.0" left="50.0" right="70.0" top="20.0" />
                </BorderPane.margin>
             </VBox>
          </center>
+         <left>
+            <Pane prefHeight="508.0" prefWidth="315.0" styleClass="Image-database-generica" stylesheets="@style.css" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="80.0" left="80.0" />
+               </BorderPane.margin>
+            </Pane>
+         </left>
         </BorderPane>
     </children>
 </AnchorPane>
