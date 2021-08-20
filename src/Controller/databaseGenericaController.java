@@ -38,11 +38,12 @@ public class databaseGenericaController implements Initializable, controlledScre
     @FXML private TableColumn<Magia, SimpleStringProperty> tableColumn;
     @FXML private TableColumn<Magia, SimpleStringProperty> tableDescricao;
    // private ObservableList<ObservableList> data;
-   // @FXML private TextField barraPesquisa;
+    @FXML private TextField barraPesquisa;
     @FXML
     ComboBox<String> comboBox01;
     @FXML
     ComboBox<String> comboBox02;
+    String pesquisa, categoria, atributo;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -58,6 +59,7 @@ public class databaseGenericaController implements Initializable, controlledScre
         tableView.setItems(getMagia());
 
         //pesquisaMonstro();
+
     }
 
     @Override
@@ -69,8 +71,14 @@ public class databaseGenericaController implements Initializable, controlledScre
     }
 
     @FXML
-    private void goToTelaResultado(ActionEvent event){
-        myController.setScreen(main.screen4ID);
+    private void Pesquisar(ActionEvent event){
+        pesquisa = barraPesquisa.getText();
+        System.out.println(pesquisa);
+        categoria = comboBox01.getValue();
+        System.out.println(categoria);
+        atributo = comboBox02.getValue();
+        System.out.println(atributo);
+
     }
 
     public ObservableList<Magia> getMagia(){

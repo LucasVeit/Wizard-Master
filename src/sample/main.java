@@ -2,15 +2,14 @@ package sample;
 
 import Controller.screensController;
 import Model.ConnectPostgre;
-//import Model.DAO.MonstroDAO;
-//import Model.Monstro.Monstro;
+import Model.DAO.MonstroDAO;
+import Model.Monstro.Monstro;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import Model.DAO.MagiaDAO;
 import Model.Magia;
-import java.sql.*;
 import java.util.ArrayList;
 
 public class main extends Application {
