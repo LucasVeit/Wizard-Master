@@ -9,8 +9,8 @@ public class Monstro {
     private String classeArmadura;
     private String pontosVida;
     private String tendencia;
-    private String nivel;
-    private String pontosExperiencia;
+    private float nivel;
+    private int pontosExperiencia;
     private String formaCorporal;
     private String tamanho;
     private String descricaoLendaria;
@@ -20,7 +20,12 @@ public class Monstro {
     private ArrayList<AcaoMonstro> acao;
     private ArrayList<AcaoLendariaMonstro> acaoLendaria;
 
-    public Monstro(String nomeMonstro, String introducao, String foto, String classeArmadura, String pontosVida, String tendencia, String nivel, String pontosExperiencia, String formaCorporal, String tamanho, String descricaoLendaria, ArrayList<LoreMonstro> lore, ArrayList<TracoEspecialMonstro> tracoEspecial, ArrayList<CaracteristicaMonstro> caracteristica, ArrayList<AcaoMonstro> acao, ArrayList<AcaoLendariaMonstro> acaoLendaria) {
+    public Monstro(String nomeMonstro, String introducao, String foto, String classeArmadura,
+                   String pontosVida, String tendencia, float nivel, int pontosExperiencia,
+                   String formaCorporal, String tamanho, String descricaoLendaria,
+                   ArrayList<LoreMonstro> lore, ArrayList<TracoEspecialMonstro> tracoEspecial,
+                   ArrayList<CaracteristicaMonstro> caracteristica, ArrayList<AcaoMonstro> acao,
+                   ArrayList<AcaoLendariaMonstro> acaoLendaria) {
         this.nomeMonstro = nomeMonstro;
         this.introducao = introducao;
         this.foto = foto;
@@ -87,19 +92,19 @@ public class Monstro {
         this.tendencia = tendencia;
     }
 
-    public String getNivel() {
+    public float getNivel() {
         return nivel;
     }
 
-    public void setNivel(String nivel) {
+    public void setNivel(float nivel) {
         this.nivel = nivel;
     }
 
-    public String getPontosExperiencia() {
+    public int getPontosExperiencia() {
         return pontosExperiencia;
     }
 
-    public void setPontosExperiencia(String pontosExperiencia) {
+    public void setPontosExperiencia(int pontosExperiencia) {
         this.pontosExperiencia = pontosExperiencia;
     }
 

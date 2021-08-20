@@ -15,7 +15,7 @@ public class MonstroDAO {
 
     public ArrayList<Monstro> List(){
         ArrayList<Monstro> monstros = new ArrayList<>();
-        sql = "select * from monstro";
+        sql = "select * from Monstro";
 
         try{
             declaracao = con.createStatement();
@@ -28,11 +28,11 @@ public class MonstroDAO {
                  String classeArmadura = resultado.getString("classeArmadura");
                  String pontosVida = resultado.getString("pontosVida");
                  String tendencia = resultado.getString("tendencia");
-                 String nivel = resultado.getString("nivel");
-                 String pontosExperiencia = resultado.getString("pontosExperiencia");
+                 float nivel = resultado.getFloat("nivel");
+                 int pontosExperiencia = resultado.getInt("pontosExperiencia");
                  String formaCorporal = resultado.getString("formaCorporal");
                  String tamanho = resultado.getString("tamanho");
-                 String descricaoLendaria = resultado.getString("descricaoLendaria");
+                 String descricaoLendaria = resultado.getString("descricaoAcaoLendaria");
 
                  ArrayList<LoreMonstro> lore = ListLore(nomeMonstro);
                  ArrayList<TracoEspecialMonstro> tracoEspecial = ListTraco(nomeMonstro);
@@ -55,16 +55,15 @@ public class MonstroDAO {
 
     public ArrayList<LoreMonstro> ListLore(String nomeMonstro){
         ArrayList<LoreMonstro> lores = new ArrayList<>();
-        sql = "select * from Lore where nomeMonstro = \"" + nomeMonstro + "\";";
+        sql = "select * from Lore where nomeMonstro = \'" + nomeMonstro + "\';";
 
         try{
             declaracao = con.createStatement();
-            resultado = declaracao.executeQuery(sql);
+            ResultSet rs = declaracao.executeQuery(sql);
 
-            while(resultado.next()){
-                String nome = resultado.getString("nome");
-                String descricao = resultado.getString("descricao");
-
+            while(rs.next()){
+                String nome = rs.getString("nome");
+                String descricao = rs.getString("descricao");
                 LoreMonstro lore = new LoreMonstro(nome, descricao);
                 lores.add(lore);
             }
@@ -78,15 +77,15 @@ public class MonstroDAO {
 
     public ArrayList<TracoEspecialMonstro> ListTraco(String nomeMonstro){
         ArrayList<TracoEspecialMonstro> tracosEspeciais = new ArrayList<>();
-        sql = "select * from TracoEspecialMonstro where nomeMonstro = \"" + nomeMonstro + "\";";
+        sql = "select * from TracoEspecialMonstro where nomeMonstro = \'" + nomeMonstro + "\';";
 
         try{
             declaracao = con.createStatement();
-            resultado = declaracao.executeQuery(sql);
+            ResultSet rs = declaracao.executeQuery(sql);
 
-            while(resultado.next()){
-                String nome = resultado.getString("nome");
-                String descricao = resultado.getString("descricao");
+            while(rs.next()){
+                String nome = rs.getString("nome");
+                String descricao = rs.getString("descricao");
 
                 TracoEspecialMonstro tracoEspecial = new TracoEspecialMonstro(nome, descricao);
                 tracosEspeciais.add(tracoEspecial);
@@ -100,15 +99,15 @@ public class MonstroDAO {
 
     public ArrayList<CaracteristicaMonstro> ListCaracteristica(String nomeMonstro){
         ArrayList<CaracteristicaMonstro> caracteristicas = new ArrayList<>();
-        sql = "select * from CaracteristicaMonstro where nomeMonstro = \"" + nomeMonstro + "\";";
+        sql = "select * from CaracteristicaMonstro where nomeMonstro = \'" + nomeMonstro + "\';";
 
         try{
             declaracao = con.createStatement();
-            resultado = declaracao.executeQuery(sql);
+            ResultSet rs = declaracao.executeQuery(sql);
 
-            while(resultado.next()){
-                String nome = resultado.getString("nome");
-                String descricao = resultado.getString("descricao");
+            while(rs.next()){
+                String nome = rs.getString("nome");
+                String descricao = rs.getString("descricao");
 
                 CaracteristicaMonstro caracteristica = new CaracteristicaMonstro(nome, descricao);
                 caracteristicas.add(caracteristica);
@@ -124,15 +123,15 @@ public class MonstroDAO {
 
     public ArrayList<AcaoMonstro> ListAcao(String nomeMonstro){
         ArrayList<AcaoMonstro> acoes = new ArrayList<>();
-        sql = "select * from Acao where nomeMonstro = \"" + nomeMonstro + "\";";
+        sql = "select * from Acao where nomeMonstro = \'" + nomeMonstro + "\';";
 
         try{
             declaracao = con.createStatement();
-            resultado = declaracao.executeQuery(sql);
+            ResultSet rs = declaracao.executeQuery(sql);
 
-            while(resultado.next()){
-                String nome = resultado.getString("nome");
-                String descricao = resultado.getString("descricao");
+            while(rs.next()){
+                String nome = rs.getString("nome");
+                String descricao = rs.getString("descricao");
 
                 AcaoMonstro acao = new AcaoMonstro(nome, descricao);
                 acoes.add(acao);
@@ -148,15 +147,15 @@ public class MonstroDAO {
 
     public ArrayList<AcaoLendariaMonstro> listAcaoLendaria(String nomeMonstro){
         ArrayList<AcaoLendariaMonstro> acoes = new ArrayList<>();
-        sql = "select * from AcaoLendaria where nomeMonstro = \"" + nomeMonstro + "\";";
+        sql = "select * from AcaoLendaria where nomeMonstro = \'" + nomeMonstro + "\';";
 
         try{
             declaracao = con.createStatement();
-            resultado = declaracao.executeQuery(sql);
+            ResultSet rs = declaracao.executeQuery(sql);
 
-            while(resultado.next()){
-                String nome = resultado.getString("nome");
-                String descricao = resultado.getString("descricao");
+            while(rs.next()){
+                String nome = rs.getString("nome");
+                String descricao = rs.getString("descricao");
 
                 AcaoLendariaMonstro acao = new AcaoLendariaMonstro(nome, descricao);
                 acoes.add(acao);

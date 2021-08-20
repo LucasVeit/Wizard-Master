@@ -27,12 +27,12 @@ public class main extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        Connection con = ConnectPostgre.ConnectDatabase();
         MonstroDAO monstroDAO = new MonstroDAO();
         ArrayList<Monstro> monstros = monstroDAO.List();
 
         for (int i = 0; i < monstros.size(); i++){
             System.out.println(monstros.get(i).getNomeMonstro());
+            System.out.println(monstros.get(i).getAcao());
         }
 
         screensController mainContainer = new screensController();
