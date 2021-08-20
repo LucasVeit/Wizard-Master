@@ -5,7 +5,7 @@ import java.sql.*;
 public class ConnectPostgre {
     private static Connection con = null;
 
-    static final String DB_URL = "jdbc:postgresql://localhost:5432/NewTest";
+    static final String DB_URL = "jdbc:postgresql://localhost:5432/test";
     static final String USER = "postgres";
     static final String PASS = "passgre";
 

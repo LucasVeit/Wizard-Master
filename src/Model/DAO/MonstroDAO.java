@@ -22,27 +22,33 @@ public class MonstroDAO {
             resultado = declaracao.executeQuery(sql);
             
             while(resultado.next()){
-                 String nomeMonstro = resultado.getString("nomeMonstro");
-                 String introducao = resultado.getString("introducao");
-                 String foto = resultado.getString("foto");
-                 String classeArmadura = resultado.getString("classeArmadura");
-                 String pontosVida = resultado.getString("pontosVida");
-                 String tendencia = resultado.getString("tendencia");
-                 float nivel = resultado.getFloat("nivel");
-                 int pontosExperiencia = resultado.getInt("pontosExperiencia");
-                 String formaCorporal = resultado.getString("formaCorporal");
-                 String tamanho = resultado.getString("tamanho");
-                 String descricaoLendaria = resultado.getString("descricaoAcaoLendaria");
+                String nomeMonstro = resultado.getString("nomeMonstro");
+                String introducao = resultado.getString("introducao");
+                String foto = resultado.getString("foto");
+                String classeArmadura = resultado.getString("classeArmadura");
+                String pontosVida = resultado.getString("pontosVida");
+                String tendencia = resultado.getString("tendencia");
+                float nivel = resultado.getFloat("nivel");
+                int pontosExperiencia = resultado.getInt("pontosExperiencia");
+                String formaCorporal = resultado.getString("formaCorporal");
+                String tamanho = resultado.getString("tamanho");
+                String descricaoLendaria = resultado.getString("descricaoAcaoLendaria");
 
-                 ArrayList<LoreMonstro> lore = ListLore(nomeMonstro);
-                 ArrayList<TracoEspecialMonstro> tracoEspecial = ListTraco(nomeMonstro);
-                 ArrayList<CaracteristicaMonstro> caracteristica = ListCaracteristica(nomeMonstro);
-                 ArrayList<AcaoMonstro> acao = ListAcao(nomeMonstro);
-                 ArrayList<AcaoLendariaMonstro> acaoLendaria = listAcaoLendaria(nomeMonstro);
+                ArrayList<LoreMonstro> lore = ListLore(nomeMonstro);
+                ArrayList<TracoEspecialMonstro> tracoEspecial = ListTraco(nomeMonstro);
+                ArrayList<CaracteristicaMonstro> caracteristica = ListCaracteristica(nomeMonstro);
+                ArrayList<AcaoMonstro> acao = ListAcao(nomeMonstro);
+                ArrayList<AcaoLendariaMonstro> acaoLendaria = listAcaoLendaria(nomeMonstro);
+                int constituicao = getHabilidade("Constituição", nomeMonstro);
+                int carisma = getHabilidade("Carisma", nomeMonstro);
+                int destreza = getHabilidade("Destreza", nomeMonstro);
+                int forca = getHabilidade("Força", nomeMonstro);
+                int inteligencia = getHabilidade("Inteligência", nomeMonstro);
+                int sabedoria = getHabilidade("Sabedoria", nomeMonstro);
 
-                 Monstro monstro = new Monstro(nomeMonstro, introducao, foto, classeArmadura, pontosVida,
+                Monstro monstro = new Monstro(nomeMonstro, introducao, foto, classeArmadura, pontosVida,
                          tendencia, nivel, pontosExperiencia, formaCorporal, tamanho, descricaoLendaria, lore,
-                         tracoEspecial, caracteristica, acao, acaoLendaria);
+                         tracoEspecial, caracteristica, acao, acaoLendaria, constituicao, carisma, destreza, forca, inteligencia, sabedoria);
                  monstros.add(monstro);
             }
 
@@ -51,6 +57,27 @@ public class MonstroDAO {
         }
         
         return monstros;
+    }
+
+    public int getHabilidade(String habilidade, String nomeMonstro){
+        sql = "select * from MonstroHabilidade where nomeMonstro = \'" + nomeMonstro + "\' and nomeHabilidade = \'" + habilidade + "\'";
+        int pontosHabilidade = 0;
+
+        try{
+            declaracao = con.createStatement();
+            ResultSet rs = declaracao.executeQuery(sql);
+
+            while(rs.next()){
+                pontosHabilidade  = rs.getInt("valor");
+
+            }
+
+        } catch(SQLException e){
+            System.out.println("Error");
+        }
+
+        return pontosHabilidade;
+
     }
 
     public ArrayList<LoreMonstro> ListLore(String nomeMonstro){

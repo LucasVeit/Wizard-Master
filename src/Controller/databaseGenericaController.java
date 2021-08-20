@@ -4,9 +4,12 @@ import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import Model.ConnectPostgre;
+import Model.DAO.MagiaDAO;
+import Model.Magia;
 import Model.TempMonstro;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -31,8 +34,9 @@ public class databaseGenericaController implements Initializable, controlledScre
     //private PreparedStatement pst;
 
     //configure the table
-    @FXML private TableView<TempMonstro> tableView;
-    @FXML private TableColumn<TempMonstro, SimpleStringProperty> tableColumn;
+    @FXML private TableView<Magia> tableView;
+    @FXML private TableColumn<Magia, SimpleStringProperty> tableColumn;
+    @FXML private TableColumn<Magia, SimpleStringProperty> tableDescricao;
    // private ObservableList<ObservableList> data;
    // @FXML private TextField barraPesquisa;
     @FXML
@@ -44,10 +48,14 @@ public class databaseGenericaController implements Initializable, controlledScre
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //set up te columns in the table
         InsertChoiceBox();
-        tableColumn.setCellValueFactory(new PropertyValueFactory<>("nomeMonstro"));
+        tableColumn.setCellValueFactory(new PropertyValueFactory<>("nomeMagia"));
+        tableDescricao = new TableColumn<>("Descrição");
+        tableDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+        tableDescricao.setPrefWidth(100);
+        tableView.getColumns().add(tableDescricao);
 
         //load data
-        tableView.setItems(getMonstro());
+        tableView.setItems(getMagia());
 
         //pesquisaMonstro();
     }
@@ -63,6 +71,12 @@ public class databaseGenericaController implements Initializable, controlledScre
     @FXML
     private void goToTelaResultado(ActionEvent event){
         myController.setScreen(main.screen4ID);
+    }
+
+    public ObservableList<Magia> getMagia(){
+        MagiaDAO magiaDAO = new MagiaDAO();
+        ObservableList<Magia> magia = FXCollections.observableArrayList(magiaDAO.List());
+        return magia;
     }
 
     // This method will return an ObservableList of People objects

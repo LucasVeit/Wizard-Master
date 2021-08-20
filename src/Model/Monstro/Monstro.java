@@ -19,13 +19,17 @@ public class Monstro {
     private ArrayList<CaracteristicaMonstro> caracteristica;
     private ArrayList<AcaoMonstro> acao;
     private ArrayList<AcaoLendariaMonstro> acaoLendaria;
+    private int constituicao;
+    private int carisma;
+    private int destreza;
+    private int forca;
+    private int inteligencia;
+    private int sabedoria;
 
-    public Monstro(String nomeMonstro, String introducao, String foto, String classeArmadura,
-                   String pontosVida, String tendencia, float nivel, int pontosExperiencia,
-                   String formaCorporal, String tamanho, String descricaoLendaria,
-                   ArrayList<LoreMonstro> lore, ArrayList<TracoEspecialMonstro> tracoEspecial,
-                   ArrayList<CaracteristicaMonstro> caracteristica, ArrayList<AcaoMonstro> acao,
-                   ArrayList<AcaoLendariaMonstro> acaoLendaria) {
+    public Monstro(String nomeMonstro, String introducao, String foto, String classeArmadura, String pontosVida, String tendencia, float nivel, int pontosExperiencia,
+                   String formaCorporal, String tamanho, String descricaoLendaria, ArrayList<LoreMonstro> lore, ArrayList<TracoEspecialMonstro> tracoEspecial,
+                   ArrayList<CaracteristicaMonstro> caracteristica, ArrayList<AcaoMonstro> acao, ArrayList<AcaoLendariaMonstro> acaoLendaria, int constituicao,
+                   int carisma, int destreza, int forca, int inteligencia, int sabedoria) {
         this.nomeMonstro = nomeMonstro;
         this.introducao = introducao;
         this.foto = foto;
@@ -42,6 +46,12 @@ public class Monstro {
         this.caracteristica = caracteristica;
         this.acao = acao;
         this.acaoLendaria = acaoLendaria;
+        this.constituicao = constituicao;
+        this.carisma = carisma;
+        this.destreza = destreza;
+        this.forca = forca;
+        this.inteligencia = inteligencia;
+        this.sabedoria = sabedoria;
     }
 
     public String getNomeMonstro() {
@@ -170,5 +180,53 @@ public class Monstro {
 
     public void setAcaoLendaria(ArrayList<AcaoLendariaMonstro> acaoLendaria) {
         this.acaoLendaria = acaoLendaria;
+    }
+
+    public int getConstituicao() {
+        return constituicao;
+    }
+
+    public void setConstituicao(int constituicao) {
+        this.constituicao = constituicao;
+    }
+
+    public int getCarisma() {
+        return carisma;
+    }
+
+    public void setCarisma(int carisma) {
+        this.carisma = carisma;
+    }
+
+    public int getDestreza() {
+        return destreza;
+    }
+
+    public void setDestreza(int destreza) {
+        this.destreza = destreza;
+    }
+
+    public int getForca() {
+        return forca;
+    }
+
+    public void setForca(int forca) {
+        this.forca = forca;
+    }
+
+    public int getInteligencia() {
+        return inteligencia;
+    }
+
+    public void setInteligencia(int inteligencia) {
+        this.inteligencia = inteligencia;
+    }
+
+    public int getSabedoria() {
+        return sabedoria;
+    }
+
+    public void setSabedoria(int sabedoria) {
+        this.sabedoria = sabedoria;
     }
 }

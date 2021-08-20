@@ -6,13 +6,13 @@ create table Habilidade (
 
 create table Magia (
 	nomeMagia varchar(35),
-	tipo varchar(25) not null,
+	tipo text not null,
 	nivel integer not null,
 	descricao text not null,
-	duracao varchar(20) not null,
-	componentes varchar(15) not null,
-	alcance varchar(20) not null,
-	tempoConjuracao varchar(20) not null,
+	duracao text not null,
+	componentes text not null,
+	alcance text not null,
+	tempoConjuracao text not null,
 	primary key (nomeMagia)
 );
 
@@ -23,7 +23,6 @@ create table Pericia (
 	primary key (nomePericia)
 );
 
-
 create table Talento (
 	nomeTalento varchar(40),
 	preRequisito text,
@@ -31,7 +30,7 @@ create table Talento (
 	primary key (nomeTalento)
 );
 
-create table BonusTalento(
+create table BonusTalento (
 	codigoBonusTalento serial, 
 	nomeTalento varchar(40) not null,
 	descricao text not null,
@@ -42,7 +41,7 @@ create table BonusTalento(
 
 
 -- Tabelas referentes a Raca
-create table Raca(
+create table Raca (
 	nomeRaca varchar(30),
 	caminhoImagem varchar(150),
 	descricao text not null,
@@ -256,23 +255,8 @@ create table ItemMagico (
 );
 
 -- Tabelas referentes a Antecedente
-create table Antecedente(
-	nomeAntecedente varchar(30),
-	primary key (nomeAntecedente)
-);
-
-create table AntecedentePericia (
-	nomeAntecedente varchar(30),
-	nomePericia varchar(30),
-	primary key (nomeAntecedente, nomePericia),
-	foreign key (nomeAntecedente) references Antecedente (nomeAntecedente),
-	foreign key (nomePericia) references Pericia (nomePericia)
-);
-
-/*
 create table Antecedente (
 	nomeAntecedente varchar(30),
-	descricao text not null,
 	primary key (nomeAntecedente)
 );
 
@@ -284,36 +268,7 @@ create table AntecedentePericia (
 	foreign key (nomePericia) references Pericia (nomePericia)
 );
 
-create table AntecedenteProficienciaFerramenta (
-	nomeAntecedente varchar(30),
-	proficienciaFerramentas varchar(25),
-	primary key (nomeAntecedente, proficienciaFerramentas),
-	foreign key (nomeAntecedente) references Antecedente (nomeAntecedente)
-);
 
-create table AntecedenteIdioma (
-	nomeAntecedente varchar(30),
-	nomeIdioma varchar(25),
-	primary key (nomeAntecedente, nomeIdioma),
-	foreign key (nomeAntecedente) references Antecedente (nomeAntecedente)
-);
-
-create table CaracteristicaAntecedente (
-	nomeCaracteristica varchar(30),
-	nomeAntecedente varchar(30),
-	descricao text not null,
-	primary key (nomeCaracteristica, nomeAntecedente),
-	foreign key (nomeAntecedente) references Antecedente (nomeAntecedente)
-);
-
-create table AntecedenteItem (
-	nomeAntecedente varchar(30),
-	nomeItem varchar(35),
-	primary key (nomeAntecedente, nomeItem),
-	foreign key (nomeAntecedente) references Antecedente (nomeAntecedente),
-	foreign key (nomeItem) references Item (nomeItem)
-);
-*/
 -- Tabelas referentes a informações do Mundo e Campanhas
 create table Campanha (
 	nomeCampanha varchar(100),
@@ -388,6 +343,7 @@ create table LiderFaccao (
 create table Deus (
 	codigoDeus serial,
 	nomeDeus varchar(50) not null,
+	mitologia varchar(30) not null,
 	dominio varchar(100) not null,
 	tendencia varchar(20) not null,
 	simbolo varchar(100) not null,
