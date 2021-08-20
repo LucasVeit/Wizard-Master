@@ -17,9 +17,7 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 import sample.main;
@@ -37,10 +35,15 @@ public class databaseGenericaController implements Initializable, controlledScre
     @FXML private TableColumn<TempMonstro, SimpleStringProperty> tableColumn;
    // private ObservableList<ObservableList> data;
    // @FXML private TextField barraPesquisa;
+    @FXML
+    ComboBox<String> comboBox01;
+    @FXML
+    ComboBox<String> comboBox02;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //set up te columns in the table
+        InsertChoiceBox();
         tableColumn.setCellValueFactory(new PropertyValueFactory<>("nomeMonstro"));
 
         //load data
@@ -74,6 +77,16 @@ public class databaseGenericaController implements Initializable, controlledScre
         monstro.add(new TempMonstro("Adult Green Dragon"));
 
         return monstro;
+    }
+
+    public void InsertChoiceBox(){
+        comboBox01.getItems().add("Apples");
+        comboBox01.getItems().add("Bananas");
+        comboBox01.getItems().addAll("Bacon", "Ham", "Meatballs");
+
+        comboBox02.getItems().add("Maçãs");
+        comboBox02.getItems().add("Bananas");
+        comboBox02.getItems().addAll("Bacon", "Presunto", "Bolinho de carne");
     }
 
     /*
