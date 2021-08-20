@@ -1,62 +1,3 @@
-create table Raca(
-	nome varchar(30),
-	caminhoImagem varchar(150),
-	descricao text not null,
-	deslocamento integer not null,
-	idadeAdulto integer not null,
-	idadeExpectativaVida integer not null, 
-	forca integer not null, 
-	destreza integer not null, 
-	constituicao integer not null, 
-	sabedoria integer not null, 
-	inteligencia integer not null,
-	carisma integer not null,
-	primary key(nomeRaca)
-);
-
-create table CaracteristicaRaca(
-	nomeCaracteristica varchar(50),
-	nomeRaca varchar(30),
-	descricao text not null,
-	primary key(nomeRaca, nomeCaracteristica),
-	foreign key (nomeRaca) references Raca(nomeRaca)
-);
-
-create table TracoEspecialRaca(
-	nomeTraco varchar(50),
-	nomeRaca varchar(30),
-	descricao text not null,
-	primary key(nomeRaca, nomeTraco),
-	foreign key (nomeRaca) references Raca(nomeRaca)
-);
-
-create table SubRaca(
-	nomeSubRaca varchar(50),
-	nomeRaca varchar(30),
-	descricao text not null,
-	deslocamento integer not null,
-	forca integer not null, 
-	destreza integer not null, 
-	constituicao integer not null, 
-	sabedoria integer not null, 
-	inteligencia integer not null,
-	carisma integer not null,
-	primary key(nomeRaca, nomeSubRaca),
-	foreign key (nomeRaca) references Raca(nomeRaca)
-);
-
-create table TracoEspecialSubRaca(
-	nomeTraco varchar(50),
-	nomeSubRaca varchar(50),
-	descricao text not null,
-	primary key(nomeSubRaca, nomeTraco),
-	foreign key (nomeSubRaca) references SubRaca(nomeSubRaca)
-);
-
-
---------------------------------------------------------------------------------------------------------------------------------
-
-
 create table Item (
 	nomeItem text,
 	descricao text not null,
@@ -93,6 +34,7 @@ create table Montaria (
 	primary key (nomeItem),
 	foreign key (nomeItem) references Item(nomeItem)
 );
+
 create table Tempo (
 	tipo varchar(20),
 	equipar integer not null,
@@ -113,11 +55,19 @@ create table ArmaduraEscudo (
 	foreign key (tipo) references Tempo(tipo)
 );
 
-create table ItemMagico ( -- FALTA ESSE
+create table ItemMagico (
 	nomeItem text,
 	tipo varchar(20) not null,
 	primary key (nomeItem),
 	foreign key (nomeItem) references Item (nomeItem)
+);
+
+create table AtributoEspecialItemMagico (
+	nomeItem text,
+	nomeAtributo varchar(50),
+	descricao text not null,
+	primary key (nomeItem, nomeAtributo),
+	foreign key (nomeItem) references ItemMagico (nomeItem)
 );
 
 create table Efeito (

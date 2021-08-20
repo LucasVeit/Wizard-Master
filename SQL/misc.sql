@@ -14,18 +14,6 @@ create table Regra ( -- ok
 	foreign key (nomePlano) references Plano (nomePlano)	
 );
 
-create table Magia ( -- ok
-	nomeMagia varchar(35),
-	tipo varchar(25) not null,
-	nivel integer not null,
-	descricao text not null,
-	duracao varchar(20), -- not null,
-	componentes varchar(15), -- not null,
-	alcance varchar(20), -- not null,
-	tempoConjuracao varchar(20), -- not null,
-	primary key (nomeMagia)
-);
-
 create table Cidade ( -- ok
 	codigoCidade serial,
 	nomeCidade varchar(50) not null,

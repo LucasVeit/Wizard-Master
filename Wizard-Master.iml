@@ -23,6 +23,14 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="JavaF" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/Plugins/postgresql-42.2.23.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
