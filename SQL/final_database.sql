@@ -408,6 +408,12 @@ create table Personagem (
 	codigoDeus integer,
 	codigoAparencia integer,
 	classeArmadura integer,
+	--Atts adicionados como text
+	caracteristicaAdicional text,
+	vinculo text,
+	defeito text,
+	ideal text,
+	tracoPersonalidade text,
 	primary key (codigoPersonagem),
 	foreign key (nomeCampanha) references Campanha (nomeCampanha),
 	foreign key (personagemRaca) references Raca (nomeRaca),
@@ -429,12 +435,14 @@ create table Aparencia (
 	primary key (codigoAparencia)
 );
 
+/*
 create table PersonagemCaracteristicaAdicional (
 	codigoPersonagem integer,
 	caracteristicaAdicional text not null,
 	primary key (codigoPersonagem),
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem)
 );
+
 
 create table PersonagemVinculo (
 	codigoPersonagem integer,
@@ -463,6 +471,7 @@ create table PersonagemTracoPersonalidade (
 	primary key (codigoPersonagem),
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem)
 );
+*/
 
 create table PontosExperienciaNivel (
 	pontosExperiencia integer,
