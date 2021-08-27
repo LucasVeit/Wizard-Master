@@ -49,6 +49,7 @@ public class databaseGenericaController implements Initializable, controlledScre
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //set up te columns in the table
         InsertChoiceBox();
+        /*
         tableColumn.setCellValueFactory(new PropertyValueFactory<>("nomeMagia"));
         tableDescricao = new TableColumn<>("Descrição");
         tableDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
@@ -57,6 +58,8 @@ public class databaseGenericaController implements Initializable, controlledScre
 
         //load data
         tableView.setItems(getMagia());
+
+         */
 
         //pesquisaMonstro();
 
@@ -67,7 +70,7 @@ public class databaseGenericaController implements Initializable, controlledScre
 
     @FXML
     private void goToTelaInicio(ActionEvent event){
-        myController.setScreen(main.screen1ID);
+        myController.setScreen(main.screen4ID);
     }
 
     @FXML
@@ -78,7 +81,6 @@ public class databaseGenericaController implements Initializable, controlledScre
         System.out.println(categoria);
         atributo = comboBox02.getValue();
         System.out.println(atributo);
-
     }
 
     public ObservableList<Magia> getMagia(){

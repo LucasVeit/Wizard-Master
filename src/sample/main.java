@@ -27,12 +27,15 @@ public class main extends Application {
     @Override
     public void start(Stage primaryStage) {
 
+        /*
         MagiaDAO magiaDAO = new MagiaDAO();
         ArrayList<Magia> magias = magiaDAO.List();
 
         for (int i = 0; i < magias.size(); i++){
             System.out.println(magias.get(i).getDescricao());
         }
+
+         */
 
         screensController mainContainer = new screensController();
         mainContainer.loadScreen(main.screen1ID, main.screen1File);
