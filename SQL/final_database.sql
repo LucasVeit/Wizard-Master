@@ -1,10 +1,10 @@
-create table Habilidade (
+create table Habilidade ( -- ok
 	valor integer,
 	valorModificador integer not null,
 	primary key (valor)
 );
 
-create table Magia (
+create table Magia ( -- ok
 	nomeMagia varchar(35),
 	tipo text not null,
 	nivel integer not null,
@@ -16,21 +16,21 @@ create table Magia (
 	primary key (nomeMagia)
 );
 
-create table Pericia (
+create table Pericia ( -- ok
 	nomePericia varchar(30),
 	descricao text not null,
 	habilidadeImpacta varchar(15) not null,
 	primary key (nomePericia)
 );
 
-create table Talento (
+create table Talento ( -- ok
 	nomeTalento varchar(40),
 	preRequisito text,
 	descricao text not null,
 	primary key (nomeTalento)
 );
 
-create table BonusTalento (
+create table BonusTalento ( -- ok
 	codigoBonusTalento serial, 
 	nomeTalento varchar(40) not null,
 	descricao text not null,
@@ -41,7 +41,7 @@ create table BonusTalento (
 
 
 -- Tabelas referentes a Raca
-create table Raca (
+create table Raca ( -- revisar
 	nomeRaca varchar(30),
 	caminhoImagem varchar(150),
 	descricao text not null,
@@ -57,7 +57,7 @@ create table Raca (
 	primary key (nomeRaca)
 );
 
-create table CaracteristicaRaca(
+create table CaracteristicaRaca( -- revisar
 	nomeCaracteristica varchar(50),
 	nomeRaca varchar(30),
 	descricao text not null,
@@ -65,7 +65,7 @@ create table CaracteristicaRaca(
 	foreign key (nomeRaca) references Raca(nomeRaca)
 );
 
-create table TracoEspecialRaca(
+create table TracoEspecialRaca( -- revisar
 	nomeTraco varchar(50),
 	nomeRaca varchar(30),
 	descricao text not null,
@@ -73,7 +73,7 @@ create table TracoEspecialRaca(
 	foreign key (nomeRaca) references Raca (nomeRaca)
 );
 
-create table SubRaca(
+create table SubRaca( -- revisar
 	nomeSubRaca varchar(50),
 	nomeRaca varchar(30),
 	descricao text not null,
@@ -88,7 +88,7 @@ create table SubRaca(
 	foreign key (nomeRaca) references Raca (nomeRaca)
 );
 
-create table TracoEspecialSubRaca(
+create table TracoEspecialSubRaca( -- revisar
 	nomeTraco varchar(50),
 	nomeSubRaca varchar(50),
 	nomeRaca varchar(30),
@@ -98,7 +98,7 @@ create table TracoEspecialSubRaca(
 );
 
 -- Tabelas refrentes a Monstro
-create table Monstro (
+create table Monstro ( -- revisar
 	nomeMonstro varchar(40),
 	introducao text not null, --fazer outra tabela
 	foto varchar(120),
@@ -113,7 +113,7 @@ create table Monstro (
 	primary key (nomeMonstro)
 );
 
-create table Lore (
+create table Lore ( -- revisar
 	nome varchar(35),
 	nomeMonstro varchar(40),
 	descricao text not null,
@@ -121,7 +121,7 @@ create table Lore (
 	foreign key (nomeMonstro) references Monstro(nomeMonstro)
 );
 
-create table TracoEspecialMonstro (
+create table TracoEspecialMonstro ( -- revisar
 	nome varchar(35),
 	nomeMonstro varchar(40),
 	descricao text not null,
@@ -129,7 +129,7 @@ create table TracoEspecialMonstro (
 	foreign key (nomeMonstro) references Monstro(nomeMonstro)
 );
 
-create table CaracteristicaMonstro (
+create table CaracteristicaMonstro ( -- revisar
 --texto vermelho, inclui deslocamento
 	nome varchar(35),
 	nomeMonstro varchar(40),
@@ -138,7 +138,7 @@ create table CaracteristicaMonstro (
 	foreign key (nomeMonstro) references Monstro(nomeMonstro)
 );
 
-create table Acao (
+create table Acao ( -- revisar
 	nome varchar(50),
 	nomeMonstro varchar(40),
 	descricao text not null,
@@ -146,7 +146,7 @@ create table Acao (
 	foreign key (nomeMonstro) references Monstro(nomeMonstro)
 );
 
-create table AcaoLendaria (
+create table AcaoLendaria ( -- revisar
 	nome varchar(40),
 	nomeMonstro varchar(40),
 	descricao text not null,
@@ -154,7 +154,7 @@ create table AcaoLendaria (
 	foreign key (nomeMonstro) references Monstro(nomeMonstro)
 );
 
-create table MonstroHabilidade (
+create table MonstroHabilidade ( -- ok
 	nomeMonstro varchar(40),
 	nomeHabilidade varchar(15),
 	valor integer not null,
@@ -166,7 +166,7 @@ create table MonstroHabilidade (
 -- Tabelas referentes a Classe
 
 
-create table ClasseMagia (
+create table ClasseMagia ( -- revisar
 	nomeClasse varchar(20),
 	nomeMagia varchar(35),
 	primary key (nomeClasse, nomeMagia),
@@ -174,7 +174,7 @@ create table ClasseMagia (
 	foreign key (nomeMagia) references Magia (nomeMagia)
 );
 
-create table ClassePericia (
+create table ClassePericia ( -- revisar
 	nomeClasse varchar(20),
 	nomePericia varchar(30),
 	primary key (nomeClasse, nomePericia),
@@ -183,7 +183,7 @@ create table ClassePericia (
 );
 
 -- Tabelas referentes a Item 
-create table Item (
+create table Item ( -- ok
 	nomeItem text,
 	descricao text,
 	categoria text not null, -- ex: arma, montaria e tal
@@ -193,7 +193,7 @@ create table Item (
 	primary key (nomeItem)
 );
 -- To-do : criar constraint que as tabelas de itens tem que ter a categoria
-create table Arma (
+create table Arma ( -- ok
 	nomeItem text,
 	tipo varchar(50) not null,
 	dano varchar(20) not null,
@@ -201,13 +201,13 @@ create table Arma (
 	foreign key (nomeItem) references Item (nomeItem)
 );
 
-create table PropriedadeArma (
+create table PropriedadeArma ( -- ok
 	nomePropriedade varchar(20),
 	descricao text not null,
 	primary key (nomePropriedade)
 );
 
-create table ArmaPropriedadeArma (
+create table ArmaPropriedadeArma ( -- ok
 	nomeItem text,
 	nomePropriedade varchar(20),
 	descricao text,
@@ -216,7 +216,7 @@ create table ArmaPropriedadeArma (
 	foreign key (nomePropriedade) references PropriedadeArma (nomePropriedade)
 );
 
-create table Montaria (
+create table Montaria ( -- ok
 	nomeItem text,
 	deslocamento numeric(7, 2) not null,
 	capacidadeCarga numeric(7, 2) not null,
@@ -224,7 +224,7 @@ create table Montaria (
 	foreign key (nomeItem) references Item(nomeItem)
 );
 
-create table Tempo (
+create table Tempo ( -- ok
 	tipo varchar(20),
 	equipar integer not null,
 	desequipar integer not null,
@@ -232,7 +232,7 @@ create table Tempo (
 	primary key (tipo)
 );
 
-create table ArmaduraEscudo (
+create table ArmaduraEscudo ( -- ok
 	nomeItem text,
 	classeArmadura integer not null,
 	modificadorDes boolean not null, --se possui modificador de des
@@ -245,7 +245,7 @@ create table ArmaduraEscudo (
 	foreign key (tipo) references Tempo(tipo)
 );
 
-create table ItemMagico (
+create table ItemMagico ( -- ok
 	nomeItem text,
 	tipo varchar(30) not null,
 	raridade varchar(20) not null,
@@ -255,12 +255,12 @@ create table ItemMagico (
 );
 
 -- Tabelas referentes a Antecedente
-create table Antecedente (
+create table Antecedente ( -- ok
 	nomeAntecedente varchar(30),
 	primary key (nomeAntecedente)
 );
 
-create table AntecedentePericia (
+create table AntecedentePericia ( -- ok
 	nomeAntecedente varchar(30),
 	nomePericia varchar(30),
 	primary key (nomeAntecedente, nomePericia),
@@ -270,14 +270,14 @@ create table AntecedentePericia (
 
 
 -- Tabelas referentes a informações do Mundo e Campanhas
-create table Campanha (
+create table Campanha ( -- ok
 	nomeCampanha varchar(100),
 	descricao text,
 	mapaAtual integer,
 	primary key (nomeCampanha)
 );
 
-create table Mapa (
+create table Mapa ( -- ok
 	codigoMapa serial,
 	nomeCampanha text not null,
 	mapa text not null,
@@ -285,7 +285,7 @@ create table Mapa (
 	foreign key (nomeCampanha) references Campanha (nomeCampanha)
 );
 
-create table Anotacao (
+create table Anotacao ( -- ok
 	codigoAnotacao serial,
 	nomeCampanha varchar(100) not null,
 	anotacao text,
@@ -293,14 +293,14 @@ create table Anotacao (
 	foreign key (nomeCampanha) references Campanha (nomeCampanha)
 );
 
-create table Lider (
+create table Lider ( -- ok
 	codigoLider serial,
 	nomeLider varchar(50) not null,
 	descricao text,
 	primary key (codigoLider)
 );
 
-create table Cidade (
+create table Cidade ( -- ok
 	codigoCidade serial,
 	nomeCidade varchar(50) not null,
 	nomeCampanha varchar(100) not null,
@@ -314,7 +314,7 @@ create table Cidade (
 	foreign key (nomeCampanha) references Campanha (nomeCampanha)	
 );
 
-create table LiderCidade (
+create table LiderCidade ( -- ok
 	codigoCidade integer,
 	codigoLider integer,
 	primary key (codigoCidade, codigoLider),
@@ -322,7 +322,7 @@ create table LiderCidade (
 	foreign key (codigoLider) references Lider (codigoLider)
 );
 
-create table Faccao (
+create table Faccao ( -- ok
 	codigoFaccao serial,
 	nomeFaccao varchar(30) not null,
 	nomeCampanha varchar(100) not null,
@@ -332,7 +332,7 @@ create table Faccao (
 	foreign key (nomeCampanha) references Campanha (nomeCampanha)	
 );
 
-create table LiderFaccao (
+create table LiderFaccao ( -- ok
 	codigoFaccao integer,
 	codigoLider integer,
 	primary key (codigoFaccao, codigoLider),
@@ -340,7 +340,7 @@ create table LiderFaccao (
 	foreign key (codigoLider) references Lider (codigoLider)
 );
 
-create table Deus (
+create table Deus ( -- ok
 	codigoDeus serial,
 	nomeDeus varchar(50) not null,
 	mitologia varchar(30) not null,
@@ -351,7 +351,7 @@ create table Deus (
 	primary key (codigoDeus)
 );
 
-create table PanteaoCampanha (
+create table PanteaoCampanha ( -- ok
 	nomeCampanha varchar(100),
 	codigoDeus integer,
 	primary key (nomeCampanha, codigoDeus),
@@ -359,7 +359,7 @@ create table PanteaoCampanha (
 	foreign key (codigoDeus) references Deus (codigoDeus)
 );
 
-create table Plano (
+create table Plano ( -- ok
 	nomePlano varchar(50),
 	descricao text, 
 	corCortina varchar(20),
@@ -367,14 +367,14 @@ create table Plano (
 	primary key (nomePlano)
 );
 
-create table Regra (
+create table Regra ( -- ok
 	nomeRegra varchar(50),
 	nomePlano varchar(50),
 	descricao text not null,
 	primary key (nomeRegra, nomePlano),
 	foreign key (nomePlano) references Plano (nomePlano)	
 );
-create table Mundo (
+create table Mundo ( -- ok
 	nomeCampanha varchar(100),
 	nomePlano varchar(50),
 	primary key (nomeCampanha, nomePlano),
@@ -383,7 +383,7 @@ create table Mundo (
 );
 
 -- Tabelas referentes a Personagem
-create table Personagem (
+create table Personagem ( -- ok
 	codigoPersonagem serial,
 	nomeJogador varchar(30) not null,
 	nomeCampanha varchar(100) not null,
@@ -423,7 +423,7 @@ create table Personagem (
 	foreign key (codigoAparencia) references Aparencia (codigoAparencia)
 );
 
-create table Aparencia (
+create table Aparencia ( -- ok
 	codigoAparencia serial,
 	altura numeric(7, 2),
 	peso numeric(7, 2),
@@ -436,7 +436,7 @@ create table Aparencia (
 );
 
 /*
-create table PersonagemCaracteristicaAdicional (
+create table PersonagemCaracteristicaAdicional ( -- revisar
 	codigoPersonagem integer,
 	caracteristicaAdicional text not null,
 	primary key (codigoPersonagem),
@@ -444,28 +444,28 @@ create table PersonagemCaracteristicaAdicional (
 );
 
 
-create table PersonagemVinculo (
+create table PersonagemVinculo ( -- revisar
 	codigoPersonagem integer,
 	vinculo text not null,
 	primary key (codigoPersonagem),
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem)
 );
 
-create table PersonagemDefeito (
+create table PersonagemDefeito ( -- revisar
 	codigoPersonagem integer,
 	defeito text not null,
 	primary key (codigoPersonagem),
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem)
 );
 
-create table PersonagemIdeal (
+create table PersonagemIdeal ( -- revisar
 	codigoPersonagem integer,
 	ideal text not null,
 	primary key (codigoPersonagem),
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem)
 );
 
-create table PersonagemTracoPersonalidade ( 
+create table PersonagemTracoPersonalidade (  -- revisar
 	codigoPersonagem integer,
 	tracoPersonalidade text not null,
 	primary key (codigoPersonagem),
@@ -473,13 +473,13 @@ create table PersonagemTracoPersonalidade (
 );
 */
 
-create table PontosExperienciaNivel (
+create table PontosExperienciaNivel ( -- revisar
 	pontosExperiencia integer,
 	nivel integer not null,
 	primary key (pontosExperiencia)
 );
 
-create table PersonagemTalento ( 
+create table PersonagemTalento ( -- revisar
 	codigoPersonagem integer,
 	nomeTalento varchar(30),
 	primary key (codigoPersonagem, nomeTalento),
@@ -487,7 +487,7 @@ create table PersonagemTalento (
 	foreign key (nomeTalento) references Talento (nomeTalento)
 );
 
-create table PersonagemItem (
+create table PersonagemItem ( -- revisar
 	codigoPersonagem integer,
 	nomeItem varchar(30),
 	quantidade integer,
@@ -497,7 +497,7 @@ create table PersonagemItem (
 	foreign key (nomeItem) references Item (nomeItem)
 );
 
-create table PersonagemPericia (
+create table PersonagemPericia ( -- revisar
 	codigoPersonagem integer,
 	nomePericia varchar(30),
 	modificador integer not null,
@@ -506,7 +506,7 @@ create table PersonagemPericia (
 	foreign key (nomePericia) references Pericia (nomePericia)
 );
 
-create table PersonagemMagia (
+create table PersonagemMagia ( -- revisar
 	codigoPersonagem integer, -- personagem deve possuir nivel maior ou igual que a magia exige
 	nomeMagia varchar(30),
 	primary key (codigoPersonagem, nomeMagia),
@@ -514,7 +514,7 @@ create table PersonagemMagia (
 	foreign key (nomeMagia) references Magia (nomeMagia)
 );
 
-create table PersonagemHabilidade (
+create table PersonagemHabilidade ( -- ok
 	codigoPersonagem integer,
 	nomeHabilidade varchar(15),
 	valor integer not null,
