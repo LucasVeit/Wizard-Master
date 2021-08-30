@@ -79,7 +79,7 @@ public class databaseGenericaController implements Initializable, controlledScre
 
     @FXML
     private void goToTelaInicio(ActionEvent event){
-        myController.setScreen(main.screen4ID);
+        myController.setScreen(main.screen1ID);
     }
 
     @FXML
