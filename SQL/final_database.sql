@@ -295,9 +295,11 @@ create table Anotacao ( -- ok
 
 create table Lider ( -- ok
 	codigoLider serial,
-	nomeLider varchar(50) not null,
-	descricao text,
-	primary key (codigoLider)
+    nomeLider varchar(50) not null,
+    descricao text,
+    nomeCampanha varchar(100) not null,
+    primary key (codigoLider),
+    foreign key (nomeCampanha) references Campanha (nomeCampanha)
 );
 
 create table Cidade ( -- ok
