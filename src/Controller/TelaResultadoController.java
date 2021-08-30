@@ -17,21 +17,14 @@ public class TelaResultadoController implements Initializable, controlledScreen 
 
     screensController myController;
     @FXML
-    private Label tittle;
+    static Label title;
     @FXML
-    Label subtittle;
+    static Label subtitle;
     @FXML
-    Label text;
-    InputStream stream = null;
-    @FXML
-    Image image;
+    static Label text;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        insertText();
-        //insertImage();
-    }
+    public void initialize(URL url, ResourceBundle resourceBundle) {}
 
     @Override
     public void setScreenParent(screensController screenPage) {myController = screenPage;}
@@ -41,24 +34,10 @@ public class TelaResultadoController implements Initializable, controlledScreen 
         myController.setScreen(main.screen2ID);
     }
 
-    private void insertText(){
-        tittle.setText("TÍTULO");
-        subtittle.setText("Descrição");
-        text.setText("Os pequeninos halflings sobrevivem em um mundo cheio\n" +
-                "de criaturas maiores ao evitar serem notados, ou evitando\n" +
-                "o combate direto. Com uns 90 centímetros de altura, eles\n" +
-                "parecem inofensivos e assim conseguiram sobreviver por\n" +
-                "séculos às sombras dos impérios e à margem de guerras e\n" +
-                "conflitos políticos. Eles normalmente são robustos,\n" +
-                "pesando entre 20 kg e 22,5 kg.");
+    public static void insertText(String Title, String Subtitle, String Text){
+        title.setText(Title);
+        subtitle.setText(Subtitle);
+        text.setText(Text);
     }
 
-    private void insertImage(){
-        try {
-            stream = new FileInputStream("Resources//Imagem.png");
-            image = new Image(stream);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
 }
