@@ -79,7 +79,7 @@
                   </HBox>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="47.0" prefWidth="342.0">
                      <children>
-                        <ComboBox fx:id="comboBox01" prefHeight="30.0" prefWidth="130.0" promptText="CATEGORIA" styleClass="Button" stylesheets="@style.css">
+                        <ComboBox fx:id="comboBox01" prefHeight="30.0" prefWidth="130.0" promptText="CATEGORIA" styleClass="Button" stylesheets="@style.css" onAction="#comboAction">
                            <HBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </HBox.margin>
@@ -105,9 +105,6 @@
                       <AnchorPane prefHeight="400.0" prefWidth="1118.0">
                            <children>
                               <TableView fx:id="tableView" prefHeight="400.0" prefWidth="1118.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                <columns>
-                                  <TableColumn fx:id="tableColumn" prefWidth="101.66665649414062" text="Nome" />
-                                </columns>
                               </TableView>
                            </children>
                         </AnchorPane>

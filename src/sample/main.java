@@ -12,6 +12,8 @@ import Model.DAO.MagiaDAO;
 import Model.Magia;
 import java.util.ArrayList;
 
+
+
 public class main extends Application {
 
     public static String screen1ID = "telaInicio";
