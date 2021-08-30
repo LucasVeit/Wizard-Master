@@ -17,21 +17,36 @@ insert into Cidade (codigoCidade, nomeCidade, nomeCampanha,	comercio, clima, veg
 	('Chordata', 'Lorin', 'Inexistente', 'Quente', 'Praia', 6, 'Monarquia', 'Ilha habitada por uma família de cinco pessoas que imaginam ser os únicos a morarem naquela ilha... Mal sabem quem os faz companhia.'),
 	('Viirim', 'Lorin', 'Inexistente', 'Quente', 'Praia', 400, 'Monarquia', 'Cidade que se desenvolveu um pouco mais do que deveria e por isso não tem uma arquitetura muito bem definida. Esse crescimento espontâneo se deve ao fato de ela servir como rota entre a capital e a porção de terra maior onde alguns malucos da capital vão para se aventurar');
 
-insert into Lider (codigoLider,	nomeLider, descricao) values
-	('Areqwa', 'Filha mais nova do grande conquistador Théros, com o exército que ganhou de seu pai quando completou 17 anos, conquistou toda a extensão de Lorin cinco anos atrás em apenas dois meses. Odiada por muitos e bajulada por qualquer um que deseje seguir qualquer carreira política nas terras dominadas por ela.'),
-	('Ninel', 'Criado por um casal de camponeses que foram assassinados durante a invasão de Zhyzhynsk, nutriu tamanho ódio pela rainha que foi capaz de organizar e chefiar vários homens e mulheres repletos de ódio pelo governo para derrubálo de qualquer maneira. Ninguém sabe ao certo sua aparência ou seu paradeiro atual, mas todos sabem que onde quer que esteja ele está tramando algum plano perfeito para a derrubada do governo.');
+insert into Lider (codigoLider,	nomeLider, descricao, nomeCampanha) values
+	('Areqwa', 'Filha mais nova do grande conquistador Théros, com o exército que ganhou de seu pai quando completou 17 anos, conquistou toda a extensão de Lorin cinco anos atrás em apenas dois meses. Odiada por muitos e bajulada por qualquer um que deseje seguir qualquer carreira política nas terras dominadas por ela.', 'Lorin'),
+	('Ninel', 'Criado por um casal de camponeses que foram assassinados durante a invasão de Zhyzhynsk, nutriu tamanho ódio pela rainha que foi capaz de organizar e chefiar vários homens e mulheres repletos de ódio pelo governo para derrubálo de qualquer maneira. Ninguém sabe ao certo sua aparência ou seu paradeiro atual, mas todos sabem que onde quer que esteja ele está tramando algum plano perfeito para a derrubada do governo.', 'Lorin');
 
 insert into Faccao (codigoFaccao, nomeFaccao, nomeCampanha,	formaGoverno, descricao) values
 	('Rebeldes de Zhyzhynsk', 'Lorin', 'Democracia', 'Os Rebeldes de Zhyzhyns surgiram após a mesma ser tomada pela nova governante de Lorin. Seus membros operam nas sombras e recrutando qualquer um que seja revoltado o bastante contra o atual governo. Seu objetivo é apenas um: a derrubada da rainha por qualquer meio e a instauração de uma democracia no arquipélado de Lorin. Seguem fielmente os pensamentos descritos nos pergaminhos do antigo herói da ilha, Faustor.');
 
 insert into LiderFaccao (codigoFaccao, codigoLider) values
-	;
+	((select codigoFaccao from Faccao where nomeFaccao = 'Rebeldes de Zhyzhynsk'),(select codigoLider from Lider where nomeLider = 'Ninel'));
 
 insert into LiderCidade (codigoCidade, codigoLider) values
-	;
+	((select codigoCidade from Cidade where nomeCidade = 'Ardat'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
+	((select codigoCidade from Cidade where nomeCidade = 'Castor'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
+	((select codigoCidade from Cidade where nomeCidade = 'Pollug'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
+	((select codigoCidade from Cidade where nomeCidade = 'Vöcklaheim'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
+	((select codigoCidade from Cidade where nomeCidade = 'Zhyzhynsk'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
+	((select codigoCidade from Cidade where nomeCidade = 'Regenskirck'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
+	((select codigoCidade from Cidade where nomeCidade = 'Hya Alari'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
+	((select codigoCidade from Cidade where nomeCidade = 'Eyrr'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
+	((select codigoCidade from Cidade where nomeCidade = 'Lyros'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
+	((select codigoCidade from Cidade where nomeCidade = 'Toasoalii'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
+	((select codigoCidade from Cidade where nomeCidade = 'Oclesh'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
+	((select codigoCidade from Cidade where nomeCidade = 'Carteia'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
+	((select codigoCidade from Cidade where nomeCidade = 'Chordata'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
+	((select codigoCidade from Cidade where nomeCidade = 'Viirim'),(select codigoLider from Lider where nomeLider = 'Areqwa'));
 
 insert into Mapa (codigoMapa, nomeCampanha,	mapa) values
-	('Lorin', 'lorin.jpg');
+	('Lorin', 'lorin.jpg'),
+	('Lorin', 'climbUpMountain.jpg'),
+	('Lorin', 'hallOfSacredSpells.jpg');
 
 insert into Anotacao (codigoAnotacao, nomeCampanha, anotacao) values
 	('Lorin', 'Podem haver mais comunidades e vilas espalhadas pelo mapa que não são classificadas como cidades pelo mapa político de Lorin'),
