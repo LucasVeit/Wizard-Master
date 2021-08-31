@@ -10,14 +10,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import sample.main;
 
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class screensController extends StackPane {
     //holds the screens to be displayed
     private final HashMap<String, Node> screens = new HashMap<>();
-
     public screensController(){
         super();
     }
@@ -32,6 +34,7 @@ public class screensController extends StackPane {
     /*loads the fxml file, add the screen to the screens collection and
     finally injects the screenPane to the controller
     */
+
     public void loadScreen(String name, String resource){
         try{
             URL url = getClass().getResource(resource);

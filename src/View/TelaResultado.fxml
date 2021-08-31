@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TelaResultadoController">
     <children>
@@ -38,29 +37,34 @@
          <center>
             <VBox alignment="CENTER" prefHeight="605.0" prefWidth="773.0" spacing="20.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextFlow textAlignment="CENTER">
-                     <children>
-                        <Label fx:id="title" alignment="CENTER" contentDisplay="CENTER" text="Título" textAlignment="CENTER" textFill="#3f0404">
-                           <font>
-                              <Font name="Sylfaen" size="50.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </TextFlow>
-                  <ScrollPane prefHeight="505.0" prefWidth="798.0">
+                  <Label fx:id="title" alignment="CENTER" contentDisplay="TOP" prefHeight="60.0" prefWidth="736.0" textAlignment="CENTER">
+                     <font>
+                        <Font name="Sylfaen" size="36.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane prefHeight="440.0" prefWidth="765.0">
                      <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="502.0" prefWidth="773.0" style="-fx-background-color: #F9EED6;" styleClass="border-background" stylesheets="@style.css">
+                        <AnchorPane prefHeight="442.0" prefWidth="750.0" style="-fx-background-color: #F9EED6;" styleClass="border-background" stylesheets="@style.css">
                            <children>
-                              <Label fx:id="subtitle" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="6.0" layoutY="6.0" prefHeight="60.0" prefWidth="736.0" text="Subtítulo" textAlignment="CENTER" AnchorPane.bottomAnchor="439.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="3.0">
-                                 <font>
-                                    <Font name="Sylfaen" size="36.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="text" alignment="CENTER" contentDisplay="CENTER" layoutX="39.0" layoutY="98.0" prefHeight="313.0" prefWidth="685.0" text="Descrição&#10;" textAlignment="CENTER" AnchorPane.bottomAnchor="94.0" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="95.0">
-                                 <font>
-                                    <Font name="Sylfaen" size="24.0" />
-                                 </font>
-                              </Label>
+                              <BorderPane prefHeight="439.0" prefWidth="748.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <top>
+                                    <Label fx:id="subtitle" alignment="CENTER" prefHeight="61.0" prefWidth="739.0" textAlignment="CENTER" BorderPane.alignment="CENTER">
+                                       <font>
+                                          <Font name="Sylfaen" size="36.0" />
+                                       </font>
+                                    </Label>
+                                 </top>
+                                 <center>
+                                    <Label fx:id="text" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="350.0" prefWidth="742.0" wrapText="true" BorderPane.alignment="CENTER">
+                                       <font>
+                                          <Font name="Sylfaen" size="24.0" />
+                                       </font>
+                                       <BorderPane.margin>
+                                          <Insets left="20.0" right="20.0" />
+                                       </BorderPane.margin>
+                                    </Label>
+                                 </center>
+                              </BorderPane>
                            </children>
                         </AnchorPane>
                      </content>

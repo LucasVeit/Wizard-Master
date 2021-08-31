@@ -21,6 +21,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
@@ -28,7 +29,7 @@ import sample.main;
 
 import javax.swing.text.TabableView;
 
-public class databaseGenericaController implements Initializable, controlledScreen {
+public class databaseGenericaController extends TelaResultadoController implements Initializable, controlledScreen {
 
     //Screen controller
     private screensController myController;
@@ -52,13 +53,11 @@ public class databaseGenericaController implements Initializable, controlledScre
     @FXML
     ComboBox<String> comboBox02;
     String pesquisa, categoria, atributo, title, subtitle, text;
-    TelaResultadoController resultadoController;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //set up te columns in the table
         InsertChoiceBox();
-
         tableView.setOnMousePressed(new EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
             public void handle(javafx.scene.input.MouseEvent mouseEvent) {
@@ -68,16 +67,17 @@ public class databaseGenericaController implements Initializable, controlledScre
                     title = magia.getNomeMagia();
                     subtitle = tableColumn4.getText();
                     text = magia.getDescricao();
-
-                    resultadoController.insertText(title, subtitle, text);
                     goToTelaResultado();
+                    staticLabelTitle.setText(title);
+                    staticLabelSubtitle.setText(subtitle);
+                    staticLabelText.setText(text);
                 }
             }
         });
     }
 
     @Override
-    public void setScreenParent(screensController screenPage) { myController = screenPage; }
+    public void setScreenParent(screensController screenPage) {myController = screenPage;}
 
     @FXML
     private void goToTelaInicio(ActionEvent event){
