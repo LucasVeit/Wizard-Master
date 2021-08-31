@@ -1,7 +1,7 @@
 insert into Campanha (nomeCampanha,	descricao, mapaAtual) values
-	('Lorin', 'Campanha que eu mestrei sábado à noite durante o rolê só por diversão', 'lorin.jpg');
+	('Lorin', 'Campanha que eu mestrei sábado à noite durante o rolê só por diversão', (select codigoMapa from Mapa where mapa = 'lorin.jpg'));
 
-insert into Cidade (codigoCidade, nomeCidade, nomeCampanha,	comercio, clima, vegetacao,	populacao, formaGoverno, descricao) values
+insert into Cidade (nomeCidade, nomeCampanha,	comercio, clima, vegetacao,	populacao, formaGoverno, descricao) values
 	('Ardat', 'Lorin', 'Inexistente', 'Quente', 'Praia', 50, 'Monarquia', 'Ilhota pouco habitada. Muitas lendas existem sobre esse lugar, mas porém é lar de muitas criaturas há muito tempo esquecidas pelo homem.'),
 	('Castor', 'Lorin', 'Inexistente', 'Quente', 'Praia', 70, 'Monarquia', 'Vilarejo formada em volta de uma caverna de minério de prata.'),
 	('Pollug', 'Lorin', 'Subdesenvolvido', 'Árido', 'Planície', 200, 'Monarquia', 'Vilarejo formada em volta de uma caverna de minério de ouro.'),
@@ -17,11 +17,11 @@ insert into Cidade (codigoCidade, nomeCidade, nomeCampanha,	comercio, clima, veg
 	('Chordata', 'Lorin', 'Inexistente', 'Quente', 'Praia', 6, 'Monarquia', 'Ilha habitada por uma família de cinco pessoas que imaginam ser os únicos a morarem naquela ilha... Mal sabem quem os faz companhia.'),
 	('Viirim', 'Lorin', 'Inexistente', 'Quente', 'Praia', 400, 'Monarquia', 'Cidade que se desenvolveu um pouco mais do que deveria e por isso não tem uma arquitetura muito bem definida. Esse crescimento espontâneo se deve ao fato de ela servir como rota entre a capital e a porção de terra maior onde alguns malucos da capital vão para se aventurar');
 
-insert into Lider (codigoLider,	nomeLider, descricao, nomeCampanha) values
+insert into Lider (nomeLider, descricao, nomeCampanha) values
 	('Areqwa', 'Filha mais nova do grande conquistador Théros, com o exército que ganhou de seu pai quando completou 17 anos, conquistou toda a extensão de Lorin cinco anos atrás em apenas dois meses. Odiada por muitos e bajulada por qualquer um que deseje seguir qualquer carreira política nas terras dominadas por ela.', 'Lorin'),
 	('Ninel', 'Criado por um casal de camponeses que foram assassinados durante a invasão de Zhyzhynsk, nutriu tamanho ódio pela rainha que foi capaz de organizar e chefiar vários homens e mulheres repletos de ódio pelo governo para derrubálo de qualquer maneira. Ninguém sabe ao certo sua aparência ou seu paradeiro atual, mas todos sabem que onde quer que esteja ele está tramando algum plano perfeito para a derrubada do governo.', 'Lorin');
 
-insert into Faccao (codigoFaccao, nomeFaccao, nomeCampanha,	formaGoverno, descricao) values
+insert into Faccao (nomeFaccao, nomeCampanha, formaGoverno, descricao) values
 	('Rebeldes de Zhyzhynsk', 'Lorin', 'Democracia', 'Os Rebeldes de Zhyzhyns surgiram após a mesma ser tomada pela nova governante de Lorin. Seus membros operam nas sombras e recrutando qualquer um que seja revoltado o bastante contra o atual governo. Seu objetivo é apenas um: a derrubada da rainha por qualquer meio e a instauração de uma democracia no arquipélado de Lorin. Seguem fielmente os pensamentos descritos nos pergaminhos do antigo herói da ilha, Faustor.');
 
 insert into LiderFaccao (codigoFaccao, codigoLider) values
@@ -43,11 +43,11 @@ insert into LiderCidade (codigoCidade, codigoLider) values
 	((select codigoCidade from Cidade where nomeCidade = 'Chordata'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
 	((select codigoCidade from Cidade where nomeCidade = 'Viirim'),(select codigoLider from Lider where nomeLider = 'Areqwa'));
 
-insert into Mapa (codigoMapa, nomeCampanha,	mapa) values
+insert into Mapa (nomeCampanha,	mapa) values
 	('Lorin', 'lorin.jpg'),
 	('Lorin', 'climbUpMountain.jpg'),
 	('Lorin', 'hallOfSacredSpells.jpg');
 
-insert into Anotacao (codigoAnotacao, nomeCampanha, anotacao) values
+insert into Anotacao (nomeCampanha, anotacao) values
 	('Lorin', 'Podem haver mais comunidades e vilas espalhadas pelo mapa que não são classificadas como cidades pelo mapa político de Lorin'),
 	('Lorin', 'É de conhecimento popular que quanto mais a oeste do arquipélago, mais elevado é o perigo que os aventureiros correm');
