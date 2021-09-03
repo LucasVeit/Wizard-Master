@@ -39,45 +39,22 @@ create table BonusTalento ( -- ok
 
 );
 
-
 -- Tabelas referentes a Raca
-create table Raca ( -- revisar
-	nomeRaca varchar(30),
+create table Raca (
+	nomeRaca varchar(50),
 	caminhoImagem varchar(150),
 	descricao text not null,
-	deslocamento integer not null,
+);
+
+create table SubRaca (
+	nomeSubRaca varchar(60),
+	nomeRaca varchar(50),
+	descricao text,
+	deslocamento numeric(5, 2) not null,
 	idadeAdulto integer not null,
 	idadeExpectativaVida integer not null, 
-	forca integer not null, 
-	destreza integer not null, 
-	constituicao integer not null, 
-	sabedoria integer not null, 
-	inteligencia integer not null,
-	carisma integer not null,
-	primary key (nomeRaca)
-);
-
-create table CaracteristicaRaca( -- revisar
-	nomeCaracteristica varchar(50),
-	nomeRaca varchar(30),
-	descricao text not null,
-	primary key(nomeCaracteristica, nomeRaca),
-	foreign key (nomeRaca) references Raca(nomeRaca)
-);
-
-create table TracoEspecialRaca( -- revisar
-	nomeTraco varchar(50),
-	nomeRaca varchar(30),
-	descricao text not null,
-	primary key (nomeTraco, nomeRaca),
-	foreign key (nomeRaca) references Raca (nomeRaca)
-);
-
-create table SubRaca( -- revisar
-	nomeSubRaca varchar(50),
-	nomeRaca varchar(30),
-	descricao text not null,
-	deslocamento integer not null,
+	tamanho varchar(20) not null,
+	tendencia text not null,
 	forca integer not null, 
 	destreza integer not null, 
 	constituicao integer not null, 
@@ -85,16 +62,7 @@ create table SubRaca( -- revisar
 	inteligencia integer not null,
 	carisma integer not null,
 	primary key (nomeSubRaca, nomeRaca),
-	foreign key (nomeRaca) references Raca (nomeRaca)
-);
-
-create table TracoEspecialSubRaca( -- revisar
-	nomeTraco varchar(50),
-	nomeSubRaca varchar(50),
-	nomeRaca varchar(30),
-	descricao text not null,
-	primary key (nomeTraco, nomeSubRaca, nomeRaca),
-	foreign key (nomeSubRaca, nomeRaca) references SubRaca (nomeSubRaca, nomeRaca)
+	foreign key (nomeRaca) references Raca(nomeRaca)
 );
 
 -- Tabelas refrentes a Monstro
@@ -444,29 +412,24 @@ create table PersonagemCaracteristicaAdicional ( -- revisar
 	primary key (codigoPersonagem),
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem)
 );
-
-
 create table PersonagemVinculo ( -- revisar
 	codigoPersonagem integer,
 	vinculo text not null,
 	primary key (codigoPersonagem),
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem)
 );
-
 create table PersonagemDefeito ( -- revisar
 	codigoPersonagem integer,
 	defeito text not null,
 	primary key (codigoPersonagem),
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem)
 );
-
 create table PersonagemIdeal ( -- revisar
 	codigoPersonagem integer,
 	ideal text not null,
 	primary key (codigoPersonagem),
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem)
 );
-
 create table PersonagemTracoPersonalidade (  -- revisar
 	codigoPersonagem integer,
 	tracoPersonalidade text not null,
