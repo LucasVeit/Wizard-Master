@@ -1,6 +1,5 @@
 package Controller;
 
-import Controller.controlledScreen;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -10,12 +9,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
-import sample.main;
-
 import java.net.URL;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 public class screensController extends StackPane {
     //holds the screens to be displayed
