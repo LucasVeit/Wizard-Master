@@ -1,33 +1,25 @@
 package Controller;
 
-import java.awt.event.MouseEvent;
 import java.net.URL;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-
-import Model.ConnectPostgre;
 import Model.DAO.MagiaDAO;
 import Model.Magia;
-import Model.TempMonstro;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Callback;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import sample.main;
-
-import javax.swing.text.TabableView;
 
 public class databaseGenericaController extends TelaResultadoController implements Initializable, controlledScreen {
 
@@ -48,33 +40,98 @@ public class databaseGenericaController extends TelaResultadoController implemen
     @FXML private TableColumn<Magia, SimpleStringProperty> tableColumn7;
     @FXML private TableColumn<Magia, SimpleStringProperty> tableColumn8;
     @FXML private TextField barraPesquisa;
-    @FXML
-    ComboBox<String> comboBox01;
-    @FXML
-    ComboBox<String> comboBox02;
-    String pesquisa, categoria, atributo, title, subtitle, text;
+    @FXML private ComboBox<String> comboBox01;
+    @FXML private ComboBox<String> comboBox02;
+    private String pesquisa, categoria, atributo;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //set up te columns in the table
+
         InsertChoiceBox();
         tableView.setOnMousePressed(new EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
-            public void handle(javafx.scene.input.MouseEvent mouseEvent) {
+            public void handle(MouseEvent mouseEvent) {
                 Magia magia = tableView.getSelectionModel().getSelectedItem();
                 if (mouseEvent.getClickCount() == 2) //Checking double click
                 {
-                    title = magia.getNomeMagia();
-                    subtitle = tableColumn4.getText();
-                    text = magia.getDescricao();
                     goToTelaResultado();
-                    staticLabelTitle.setText(title);
-                    staticLabelSubtitle.setText(subtitle);
-                    staticLabelText.setText(text);
+
+                    staticLabelTitle.setText(magia.getNomeMagia());
+
+                    Text subtitle01 = new Text(tableColumn4.getText() + "\n");
+                    subtitle01.setFont(Font.font("Sylfaen", 30));
+                    subtitle01.setFill(Color.rgb(63, 4, 4));
+
+                    Text description01 = new Text(magia.getDescricao());
+                    description01.setFont(Font.font("Sylfaen", 24));
+                    description01.setFill(Color.rgb(63, 4, 4));
+
+                    Text subtitle02 = new Text("\n" + tableColumn2.getText() + ": ");
+                    subtitle02.setFont(Font.font("Sylfaen", 30));
+                    subtitle02.setFill(Color.rgb(63, 4, 4));
+
+                    Text description02 = new Text(magia.getTipo());
+                    description02.setFont(Font.font("Sylfaen", 24));
+                    description02.setFill(Color.rgb(63, 4, 4));
+
+                    Text subtitle03 = new Text("\n" + tableColumn3.getText() + ": ");
+                    subtitle03.setFont(Font.font("Sylfaen", 30));
+                    subtitle03.setFill(Color.rgb(63, 4, 4));
+
+                    Text description03 = new Text(String.valueOf(magia.getNivel()));
+                    description03.setFont(Font.font("Sylfaen", 24));
+                    description03.setFill(Color.rgb(63, 4, 4));
+
+                    Text subtitle04 = new Text("\n" + tableColumn5.getText() + ": ");
+                    subtitle04.setFont(Font.font("Sylfaen", 30));
+                    subtitle04.setFill(Color.rgb(63, 4, 4));
+
+                    Text description04 = new Text(magia.getDuracao());
+                    description04.setFont(Font.font("Sylfaen", 24));
+                    description04.setFill(Color.rgb(63, 4, 4));
+
+                    Text subtitle05 = new Text("\n" + tableColumn6.getText() + ": ");
+                    subtitle05.setFont(Font.font("Sylfaen", 30));
+                    subtitle05.setFill(Color.rgb(63, 4, 4));
+
+                    Text description05 = new Text(magia.getComponentes());
+                    description05.setFont(Font.font("Sylfaen", 24));
+                    description05.setFill(Color.rgb(63, 4, 4));
+
+                    Text subtitle06 = new Text("\n" + tableColumn7.getText() + ": ");
+                    subtitle06.setFont(Font.font("Sylfaen", 30));
+                    subtitle06.setFill(Color.rgb(63, 4, 4));
+
+                    Text description06 = new Text(magia.getAlcance());
+                    description06.setFont(Font.font("Sylfaen", 24));
+                    description06.setFill(Color.rgb(63, 4, 4));
+
+                    Text subtitle07 = new Text("\n" + tableColumn8.getText() + ": ");
+                    subtitle07.setFont(Font.font("Sylfaen", 30));
+                    subtitle07.setFill(Color.rgb(63, 4, 4));
+
+                    Text description07 = new Text(magia.getTempoConjuracao());
+                    description07.setFont(Font.font("Sylfaen", 24));
+                    description07.setFill(Color.rgb(63, 4, 4));
+
+
+                    ObservableList list = staticTextFlowPane.getChildren();
+                    list.clear();
+                    list.addAll(subtitle01, description01, subtitle02, description02, subtitle03, description03, subtitle04, description04, subtitle05, description05, subtitle06, description06, subtitle07, description07);
+
+                    javafx.scene.image.ImageView view = new ImageView("View\\Resources\\imageMagic.jpg");
+                    staticImageView.setImage(view.getImage());
                 }
             }
         });
     }
+    /*
+        Tipo generico pra tabela
+        criação das colunas conforme o tanto de atributos dessa tabela
+        instanciação dessas colunas como o nome certo das tabelas
+        instaciação dessas colunas com o nome dos atributos no model
+        adicionar essas colunas na tabela
+     */
 
     @Override
     public void setScreenParent(screensController screenPage) {myController = screenPage;}
@@ -92,13 +149,11 @@ public class databaseGenericaController extends TelaResultadoController implemen
     private void Pesquisar(ActionEvent event){
         tableView.getColumns().clear();
         pesquisa = barraPesquisa.getText();
-        //System.out.println(pesquisa);
         categoria = comboBox01.getValue();
-        //System.out.println(categoria);
         atributo = comboBox02.getValue();
-        //System.out.println(atributo);
 
-        if(categoria == "Magia"){ // nao precisa fazer isso toda vez se cada tablecolumn for ser fixo uma tablecolumn de magia
+        if(categoria == "Magia"){
+
             tableColumn1 = new TableColumn<>("Nome Magia");
             tableColumn2 = new TableColumn<>("Tipo");
             tableColumn3 = new TableColumn<>("Nível");
@@ -107,6 +162,7 @@ public class databaseGenericaController extends TelaResultadoController implemen
             tableColumn6 = new TableColumn<>("Componentes");
             tableColumn7 = new TableColumn<>("Alcance");
             tableColumn8 = new TableColumn<>("Tempo Conjuração");
+
             tableColumn1.setCellValueFactory(new PropertyValueFactory<>("nomeMagia"));
             tableColumn2.setCellValueFactory(new PropertyValueFactory<>("tipo"));
             tableColumn3.setCellValueFactory(new PropertyValueFactory<>("nivel"));
@@ -115,6 +171,7 @@ public class databaseGenericaController extends TelaResultadoController implemen
             tableColumn6.setCellValueFactory(new PropertyValueFactory<>("componentes"));
             tableColumn7.setCellValueFactory(new PropertyValueFactory<>("alcance"));
             tableColumn8.setCellValueFactory(new PropertyValueFactory<>("tempoConjuracao"));
+
             tableColumn1.setPrefWidth(100);
             tableColumn2.setPrefWidth(100);
             tableColumn2.setPrefWidth(100);
@@ -136,7 +193,6 @@ public class databaseGenericaController extends TelaResultadoController implemen
     private void comboAction(ActionEvent event) {
         comboBox02.getItems().clear();
 
-        System.out.println(comboBox01.getValue());
         if(comboBox01.getValue() == "Magia"){
             comboBox02.getItems().addAll("nomeMagia", "nivel", "tipo", "descricao"); //SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'some_table';
         }else if(comboBox01.getValue() == "Item"){

@@ -40,11 +40,12 @@
     -fx-width: 100%;
 }
 
-.Image-database-generica {
-    -fx-background-image:url("Resources//Imagem.png");
-    -fx-background-size: 100%;
-}
-
 .Button:hover{
     -fx-background-color: #ccb3b3;
+}
+
+.text-field-with-margin {
+    -fx-padding: 15px;
+    -fx-border-insets: 15px;
+    -fx-background-insets: 15px;
 }
