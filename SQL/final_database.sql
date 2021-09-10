@@ -1,70 +1,3 @@
-create table Habilidade ( -- ok
-	valor integer,
-	valorModificador integer not null,
-	primary key (valor)
-);
-
-create table Magia ( -- ok
-	nomeMagia varchar(35),
-	tipo text not null,
-	nivel integer not null,
-	descricao text not null,
-	duracao text not null,
-	componentes text not null,
-	alcance text not null,
-	tempoConjuracao text not null,
-	primary key (nomeMagia)
-);
-
-create table Pericia ( -- ok
-	nomePericia varchar(30),
-	descricao text not null,
-	habilidadeImpacta varchar(15) not null,
-	primary key (nomePericia)
-);
-
-create table Talento ( -- ok
-	nomeTalento varchar(40),
-	preRequisito text,
-	descricao text not null,
-	primary key (nomeTalento)
-);
-
-create table BonusTalento ( -- ok
-	codigoBonusTalento serial, 
-	nomeTalento varchar(40) not null,
-	descricao text not null,
-	primary key (codigoBonusTalento),
-	foreign key (nomeTalento) references Talento(nomeTalento)
-
-);
-
--- Tabelas referentes a Raca
-create table Raca (
-	nomeRaca varchar(50),
-	caminhoImagem varchar(150),
-	descricao text not null,
-);
-
-create table SubRaca (
-	nomeSubRaca varchar(60),
-	nomeRaca varchar(50),
-	descricao text,
-	deslocamento numeric(5, 2) not null,
-	idadeAdulto integer not null,
-	idadeExpectativaVida integer not null, 
-	tamanho varchar(20) not null,
-	tendencia text not null,
-	forca integer not null, 
-	destreza integer not null, 
-	constituicao integer not null, 
-	sabedoria integer not null, 
-	inteligencia integer not null,
-	carisma integer not null,
-	primary key (nomeSubRaca, nomeRaca),
-	foreign key (nomeRaca) references Raca(nomeRaca)
-);
-
 -- Tabelas refrentes a Monstro
 create table Monstro ( -- revisar
 	nomeMonstro varchar(40),
@@ -133,7 +66,6 @@ create table MonstroHabilidade ( -- ok
 
 -- Tabelas referentes a Classe
 
-
 create table ClasseMagia ( -- revisar
 	nomeClasse varchar(20),
 	nomeMagia varchar(35),
@@ -150,85 +82,14 @@ create table ClassePericia ( -- revisar
 	foreign key (nomePericia) references Pericia(nomePericia)
 );
 
--- Tabelas referentes a Item 
-create table Item ( -- ok
-	nomeItem text,
-	descricao text,
-	categoria text not null, -- ex: arma, montaria e tal
-	custo integer not null,
-	moeda char(2) not null,
-	peso numeric(7,2) not null,
-	primary key (nomeItem)
-);
--- To-do : criar constraint que as tabelas de itens tem que ter a categoria
-create table Arma ( -- ok
-	nomeItem text,
-	tipo varchar(50) not null,
-	dano varchar(20) not null,
-	primary key (nomeItem),
-	foreign key (nomeItem) references Item (nomeItem)
-);
 
-create table PropriedadeArma ( -- ok
-	nomePropriedade varchar(20),
-	descricao text not null,
-	primary key (nomePropriedade)
-);
-
-create table ArmaPropriedadeArma ( -- ok
-	nomeItem text,
-	nomePropriedade varchar(20),
-	descricao text,
-	primary key (nomeItem, nomePropriedade),
-	foreign key (nomeItem) references Arma (nomeItem),
-	foreign key (nomePropriedade) references PropriedadeArma (nomePropriedade)
-);
-
-create table Montaria ( -- ok
-	nomeItem text,
-	deslocamento numeric(7, 2) not null,
-	capacidadeCarga numeric(7, 2) not null,
-	primary key (nomeItem),
-	foreign key (nomeItem) references Item(nomeItem)
-);
-
-create table Tempo ( -- ok
-	tipo varchar(20),
-	equipar integer not null,
-	desequipar integer not null,
-	medida varchar(7) not null,
-	primary key (tipo)
-);
-
-create table ArmaduraEscudo ( -- ok
-	nomeItem text,
-	classeArmadura integer not null,
-	modificadorDes boolean not null, --se possui modificador de des
-	maxModificador integer, --valor maximo do modificador de des
-	forcaNecessaria integer not null,
-	tipo varchar(20) not null,
-	furtividade boolean not null, -- caso true, o atributo possui desvantagem
-	primary key (nomeItem),
-	foreign key (nomeItem) references Item(nomeItem),
-	foreign key (tipo) references Tempo(tipo)
-);
-
-create table ItemMagico ( -- ok
-	nomeItem text,
-	tipo varchar(30) not null,
-	raridade varchar(20) not null,
-	requisito text,
-	primary key (nomeItem),
-	foreign key (nomeItem) references Item (nomeItem)
-);
-
--- Tabelas referentes a Antecedente
-create table Antecedente ( -- ok
+-- Tabelas de Antecedente
+create table Antecedente (
 	nomeAntecedente varchar(30),
 	primary key (nomeAntecedente)
 );
 
-create table AntecedentePericia ( -- ok
+create table AntecedentePericia (
 	nomeAntecedente varchar(30),
 	nomePericia varchar(30),
 	primary key (nomeAntecedente, nomePericia),
