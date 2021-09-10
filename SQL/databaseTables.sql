@@ -199,13 +199,29 @@ create table Bardo (
 	foreign key (nomeClasse, nivel) references Atributo (nomeClasse, nivel)
 );
 
+create table ClasseEspacoMagia(
+    nomeClasse varchar(20),
+    nivel integer,
+    numeroTabela integer,
+    linhaTabela integer,
+    primary key(nomeClasse, nivel, numeroTabela, linhaTabela),
+    foreign key (nomeClasse, nivel) references Atributo (nomeClasse, nivel),
+    foreign key (numeroTabela, linhaTabela) references EspacoMagia (numeroTabela, linhaTabela)
+);
+
 create table EspacoMagia (
-	nomeClasse varchar(20),
-	nivel integer,
-	nivelMagia integer,
-	quantidade integer not null,
-	primary key (nomeClasse, nivel, nivelMagia),
-	foreign key (nomeClasse, nivel) references Atributo (nomeClasse, nivel)
+    numeroTabela integer,
+    linhaTabela integer,
+    nivelMagia1 integer,
+    nivelMagia2 integer,
+    nivelMagia3 integer,
+    nivelMagia4 integer,
+    nivelMagia5 integer,
+    nivelMagia6 integer,
+    nivelMagia7 integer,
+    nivelMagia8 integer,
+    nivelMagia9 integer,
+    primary key (numeroTabela, linhaTabela)
 );
 
 create table Bruxo (
