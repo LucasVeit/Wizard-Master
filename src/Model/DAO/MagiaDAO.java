@@ -42,9 +42,13 @@ public final class MagiaDAO {
         return magias;
     }
 
-    public static ArrayList<Magia> SearchByText(String search, String category, String attribute){
+    public static ArrayList<Magia> Search(String search, String category, String attribute){
         ArrayList<Magia> magias = new ArrayList<>();
-        String sql = "select * from " + category + " where " + attribute + " like '%" + search + "%';";
+        String sql;
+        if(attribute == "nivel")
+            sql = "select * from " + category + " where " + attribute + "=" + search + ";";
+        else
+            sql = "select * from " + category + " where " + attribute + " like '%" + search + "%';";
 
         try{
             Statement declaracao = con.createStatement();

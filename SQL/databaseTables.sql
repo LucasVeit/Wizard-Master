@@ -39,11 +39,37 @@ create table BonusTalento ( -- ok
 
 );
 
+--Tabelas de Monstro
+create table Monstro (
+	nomeMonstro varchar(40),
+	descricao text not null,
+	foto varchar(120),
+	formaCorporal varchar(20) not null,
+	tamanho varchar(20) not null,
+	tendencia varchar(20) not null,
+	classeArmadura integer not null,
+	pontosVidaBase integer not null,
+	deslocamentoBase integer not null,
+	nivel numeric(6,3) not null,
+	pontosExperiencia integer not null,
+	primary key (nomeMonstro)
+);
+
+create table CaracteristicaMonstro (
+--texto vermelho, não inclui deslocamento
+	nome varchar(35),
+	nomeMonstro varchar(40),
+	descricao text not null,
+	primary key (nome, nomeMonstro),
+	foreign key (nomeMonstro) references Monstro(nomeMonstro)
+);
+
 -- Tabelas de Raça
 create table Raca (
 	nomeRaca varchar(50),
 	caminhoImagem varchar(150),
 	descricao text not null,
+	primary key(nomeRaca)
 );
 
 create table SubRaca (
@@ -181,6 +207,31 @@ create table Atributo (
 	foreign key (nomeClasse) references Classe (nomeClasse)
 );
 
+create table EspacoMagia (
+    numeroTabela integer,
+    linhaTabela integer,
+    nivelMagia1 integer,
+    nivelMagia2 integer,
+    nivelMagia3 integer,
+    nivelMagia4 integer,
+    nivelMagia5 integer,
+    nivelMagia6 integer,
+    nivelMagia7 integer,
+    nivelMagia8 integer,
+    nivelMagia9 integer,
+    primary key (numeroTabela, linhaTabela)
+);
+
+create table ClasseEspacoMagia(
+    nomeClasse varchar(20),
+    nivel integer,
+    numeroTabela integer,
+    linhaTabela integer,
+    primary key(nomeClasse, nivel, numeroTabela, linhaTabela),
+    foreign key (nomeClasse, nivel) references Atributo (nomeClasse, nivel),
+    foreign key (numeroTabela, linhaTabela) references EspacoMagia (numeroTabela, linhaTabela)
+);
+
 create table Barbaro (
 	nomeClasse varchar(20),
 	nivel integer,
@@ -197,31 +248,6 @@ create table Bardo (
 	magiasConhecidas integer not null,
 	primary key (nomeClasse, nivel),
 	foreign key (nomeClasse, nivel) references Atributo (nomeClasse, nivel)
-);
-
-create table ClasseEspacoMagia(
-    nomeClasse varchar(20),
-    nivel integer,
-    numeroTabela integer,
-    linhaTabela integer,
-    primary key(nomeClasse, nivel, numeroTabela, linhaTabela),
-    foreign key (nomeClasse, nivel) references Atributo (nomeClasse, nivel),
-    foreign key (numeroTabela, linhaTabela) references EspacoMagia (numeroTabela, linhaTabela)
-);
-
-create table EspacoMagia (
-    numeroTabela integer,
-    linhaTabela integer,
-    nivelMagia1 integer,
-    nivelMagia2 integer,
-    nivelMagia3 integer,
-    nivelMagia4 integer,
-    nivelMagia5 integer,
-    nivelMagia6 integer,
-    nivelMagia7 integer,
-    nivelMagia8 integer,
-    nivelMagia9 integer,
-    primary key (numeroTabela, linhaTabela)
 );
 
 create table Bruxo (
@@ -407,6 +433,18 @@ create table Mundo (
 );
 
 -- Tabelas de Personagem
+create table Aparencia ( -- ok
+	codigoAparencia serial,
+	altura numeric(7, 2),
+	peso numeric(7, 2),
+	foto varchar(150),
+	corOlhos varchar(20),
+	idade integer,
+	corPele varchar(20),
+	corCabelo varchar(20),
+	primary key (codigoAparencia)
+);
+
 create table Personagem ( -- ok
 	codigoPersonagem serial,
 	nomeJogador varchar(30) not null,
@@ -444,18 +482,6 @@ create table Personagem ( -- ok
 	foreign key (nomeAntecedente) references Antecedente (nomeAntecedente),
 	foreign key (codigoDeus) references Deus (codigoDeus),
 	foreign key (codigoAparencia) references Aparencia (codigoAparencia)
-);
-
-create table Aparencia ( -- ok
-	codigoAparencia serial,
-	altura numeric(7, 2),
-	peso numeric(7, 2),
-	foto varchar(150),
-	corOlhos varchar(20),
-	idade integer,
-	corPele varchar(20),
-	corCabelo varchar(20),
-	primary key (codigoAparencia)
 );
 
 create table PontosExperienciaNivel ( -- revisar
