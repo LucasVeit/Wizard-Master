@@ -1,7 +1,9 @@
 package Controller;
 
+import Model.DAO.ItemDAO;
 import Model.DAO.MagiaDAO;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,7 +12,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import sample.main;
 import java.net.URL;
 import java.sql.SQLException;
@@ -27,16 +33,15 @@ public class dataBaseGenericaTeste extends TelaResultadoController implements In
     @FXML private TextField barraPesquisa;
     @FXML private ComboBox<String> comboBox01;
     @FXML private ComboBox<String> comboBox02;
-    private dataResultTableColumn dataColumnMagic;
-    private dataResultTableRow dataRowMagic;
-    private String pesquisa, categoria, atributo;
-    private ArrayList<Object> object;
 
+    private dataResultTableColumn dataColumn;
+    private dataResultTableRow dataRow;
+    private String pesquisa, categoria, atributo;
+    ArrayList<Object> object;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         InsertChoiceBox();
-        /*
         tableView.setOnMousePressed(new EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
@@ -47,10 +52,11 @@ public class dataBaseGenericaTeste extends TelaResultadoController implements In
                     if(categoria.equals("Magia")){
                         magicInfo();
                     }
+                    if(categoria.equals("Item")){
+                        itemInfo();
+                    }
                 }
         }});
-
-         */
     }
 
     @Override
@@ -67,18 +73,17 @@ public class dataBaseGenericaTeste extends TelaResultadoController implements In
 
     @FXML
     private void Pesquisar(ActionEvent event) {
-
-        tableView.getColumns();
+        tableView.getColumns().clear();
         pesquisa = barraPesquisa.getText();
         categoria = comboBox01.getValue();
         atributo = comboBox02.getValue();
 
         if (categoria.equals("Magia")) {
             try {
-                dataColumnMagic = MagiaDAO.getAllColumnData();
+                dataColumn = MagiaDAO.getAllColumnData();
 
-                for (int i = 0; i < dataColumnMagic.getNumColumns(); ++i) {
-                    TableColumn<ArrayList<Object>, Object> column = new TableColumn<>(dataColumnMagic.getColumnName(i));
+                for (int i = 0; i < dataColumn.getNumColumns(); ++i) {
+                    TableColumn<ArrayList<Object>, Object> column = new TableColumn<>(dataColumn.getColumnName(i));
                     int columnIndex = i;
                     column.setCellValueFactory(arrayListObjectCellDataFeatures ->
                             new SimpleObjectProperty<>(arrayListObjectCellDataFeatures.getValue().get(columnIndex)));
@@ -86,13 +91,33 @@ public class dataBaseGenericaTeste extends TelaResultadoController implements In
                     tableView.getColumns().add(column);
                 }
 
-                dataRowMagic = MagiaDAO.getAllRowData(pesquisa, categoria, atributo);
-                tableView.getItems().setAll(dataRowMagic.getData());
+                dataRow = MagiaDAO.getAllRowData(pesquisa, categoria, atributo);
+                tableView.getItems().setAll(dataRow.getData());
 
             } catch (SQLException troubles) {
                 troubles.printStackTrace();
             }
         }
+        if(categoria.equals("Item")){
+            try {
+                dataColumn = ItemDAO.getAllColumnData();
+
+                for (int i = 0; i < dataColumn.getNumColumns(); ++i) {
+                    TableColumn<ArrayList<Object>, Object> column = new TableColumn<>(dataColumn.getColumnName(i));
+                    int columnIndex = i;
+                    column.setCellValueFactory(arrayListObjectCellDataFeatures ->
+                            new SimpleObjectProperty<>(arrayListObjectCellDataFeatures.getValue().get(columnIndex)));
+                    column.setPrefWidth(100);
+                    tableView.getColumns().add(column);
+                }
+                dataRow = ItemDAO.getAllRowData(pesquisa, categoria, atributo);
+                tableView.getItems().setAll(dataRow.getData());
+
+            } catch (SQLException troubles) {
+                troubles.printStackTrace();
+            }
+        }
+
     }
 
     @FXML
@@ -103,7 +128,7 @@ public class dataBaseGenericaTeste extends TelaResultadoController implements In
             comboBox02.getItems().addAll("nomeMagia", "nivel", "tipo", "descricao"); //SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'some_table';
 
         }else if(comboBox01.getValue().equals("Item")){
-            comboBox02.getItems().addAll("nomeMagia", "nivel", "tipo", "descricao");
+            comboBox02.getItems().addAll("nomeItem");
 
         }else if(comboBox01.getValue().equals("Pericia")){
 
@@ -121,12 +146,52 @@ public class dataBaseGenericaTeste extends TelaResultadoController implements In
         // SELECT table_name FROM information_schema.tables WHERE table_type='BASE TABLE' AND table_schema='public';
     }
 
-    /*
+
     public void magicInfo(){
 
-        staticLabelTitle.setText(object);
+        staticLabelTitle.setText(String.valueOf(object.get(0)));
+        ObservableList list = staticTextFlowPane.getChildren();
+        list.clear();
+
+        for(int i = 1; i < object.size(); ++i){
+
+            Text subtitle = new Text( tableView.getColumns().get(i).getText()+ "\n");
+            subtitle.setFont(Font.font("Sylfaen", 30));
+            subtitle.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle);
+
+            Text text = new Text(String.valueOf(object.get(i)) + "\n");
+            text.setFont(Font.font("Sylfaen", 24));
+            text.setFill(Color.rgb(63, 4, 4));
+            list.add(text);
+        }
+
+        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\imageMagic.jpg");
+        staticImageView.setImage(view.getImage());
+    }
+
+    public void itemInfo(){
+
+        staticLabelTitle.setText(String.valueOf(object.get(0)));
+        ObservableList list = staticTextFlowPane.getChildren();
+        list.clear();
+
+        for(int i = 1; i < object.size(); ++i){
+
+            Text subtitle = new Text( tableView.getColumns().get(i).getText()+ "\n");
+            subtitle.setFont(Font.font("Sylfaen", 30));
+            subtitle.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle);
+
+            Text text = new Text(String.valueOf(object.get(i)) + "\n");
+            text.setFont(Font.font("Sylfaen", 24));
+            text.setFill(Color.rgb(63, 4, 4));
+            list.add(text);
+        }
+
+        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\staff.jpg");
+        staticImageView.setImage(view.getImage());
 
     }
 
-     */
 }

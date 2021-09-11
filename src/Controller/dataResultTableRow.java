@@ -18,9 +18,9 @@ public class dataResultTableRow {
     public Object getData(int row, int column) {
         return data.get(row).get(column);
     }
-
     public ArrayList<ArrayList<Object>> getData() {
         return data;
     }
+
 
 }

@@ -181,7 +181,7 @@ public class databaseGenericaController extends TelaResultadoController implemen
             tableView.getColumns().addAll(tableColumn1, tableColumn2, tableColumn3, tableColumn4,
                     tableColumn5, tableColumn6, tableColumn7, tableColumn8);
 
-            ObservableList<Magia> magics = FXCollections.observableArrayList(MagiaDAO.SearchByText(pesquisa, categoria, atributo));
+            ObservableList<Magia> magics = FXCollections.observableArrayList(MagiaDAO.Search(pesquisa, categoria, atributo));
             tableView.setItems(magics);
         }
     }
