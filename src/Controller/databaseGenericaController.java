@@ -25,9 +25,6 @@ public class databaseGenericaController extends TelaResultadoController implemen
 
     //Screen controller
     private screensController myController;
-    //private ConnectPostgre connection;
-    //private ResultSet resultSet;
-    //private PreparedStatement pst;
 
     //configure the table
     @FXML private TableView<Magia> tableView;
@@ -184,8 +181,8 @@ public class databaseGenericaController extends TelaResultadoController implemen
             tableView.getColumns().addAll(tableColumn1, tableColumn2, tableColumn3, tableColumn4,
                     tableColumn5, tableColumn6, tableColumn7, tableColumn8);
 
-            ObservableList<Magia> magias = FXCollections.observableArrayList(MagiaDAO.SearchByText(pesquisa, categoria, atributo));
-            tableView.setItems(magias);
+            ObservableList<Magia> magics = FXCollections.observableArrayList(MagiaDAO.SearchByText(pesquisa, categoria, atributo));
+            tableView.setItems(magics);
         }
     }
 
@@ -195,16 +192,17 @@ public class databaseGenericaController extends TelaResultadoController implemen
 
         if(comboBox01.getValue() == "Magia"){
             comboBox02.getItems().addAll("nomeMagia", "nivel", "tipo", "descricao"); //SELECT column_name FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'some_table';
-        }else if(comboBox01.getValue() == "Item"){
 
-        }else if(comboBox01.getValue() == "Pericia"){
+        }else if(comboBox01.getValue().equals("Item")){
 
-        }else if(comboBox01.getValue() == "Talento"){
+        }else if(comboBox01.getValue().equals("Pericia")){
 
-        }else if(comboBox01.getValue() == "Antecedente"){
+        }else if(comboBox01.getValue().equals("Talento")){
 
-        }else if(comboBox01.getValue() == "Deus"){
+        }else if(comboBox01.getValue().equals("Antecedente")){
 
+        }else {
+            comboBox01.getValue();
         }
 
     }

@@ -7,7 +7,7 @@ public class ConnectPostgre {
 
     static final String DB_URL = "jdbc:postgresql://localhost:5432/test";
     static final String USER = "postgres";
-    static final String PASS = "passgre"; //postgre
+    static final String PASS = "postgre"; //passgre
 
     public static Connection ConnectDatabase(){
        try{
