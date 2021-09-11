@@ -21,7 +21,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import sample.main;
 
-public class databaseGenericaController extends TelaResultadoController implements Initializable, controlledScreen {
+public class databaseGenericaAntiga extends TelaResultadoController implements Initializable, controlledScreen {
 
     //Screen controller
     private screensController myController;

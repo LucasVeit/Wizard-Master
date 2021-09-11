@@ -23,7 +23,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class dataBaseGenericaTeste extends TelaResultadoController implements Initializable, controlledScreen {
+public class dataBaseGenericaController extends TelaResultadoController implements Initializable, controlledScreen {
 
     //Screen controller
     private screensController myController;
@@ -33,7 +33,6 @@ public class dataBaseGenericaTeste extends TelaResultadoController implements In
     @FXML private TextField barraPesquisa;
     @FXML private ComboBox<String> comboBox01;
     @FXML private ComboBox<String> comboBox02;
-
     private dataResultTableColumn dataColumn;
     private dataResultTableRow dataRow;
     private String pesquisa, categoria, atributo;
@@ -72,7 +71,7 @@ public class dataBaseGenericaTeste extends TelaResultadoController implements In
     }
 
     @FXML
-    private void Pesquisar(ActionEvent event) {
+    private void Search(ActionEvent event) {
         tableView.getColumns().clear();
         pesquisa = barraPesquisa.getText();
         categoria = comboBox01.getValue();
