@@ -696,5 +696,36 @@ insert into Patrulheiro (nomeClasse, nivel, magiasConhecidas) values
 	('Patrulheiro', 19, 11),
 	('Patrulheiro', 20, 11);
 
-insert into ClasseMagia (nomeClasse, nivel, nomeMagia) values 
-	('', , '');
+insert into ClasseMagia (nomeClasse, nomeMagia) values 
+	('Bardo', 'Acalmar Emoções'),
+	('Bruxo', 'Acalmar Emoções'),
+	('Clérigo', 'Adivinhação'),
+	('Bardo', 'Ampliar Plantas'),
+	('Druida', 'Ampliar Plantas'),
+	('Patrulheiro', 'Ampliar Plantas'),
+	('Bruxo', 'Braços de Hadar'),
+	('Bardo', 'Cativar'),
+	('Bruxo', 'Cativar'),
+	('Bardo', 'Cegueira/Surdez'),
+	('Clérigo', 'Cegueira/Surdez'),
+	('Feiticeiro', 'Cegueira/Surdez'),
+	('Mago', 'Cegueira/Surdez'),
+	('Clérigo', 'Chama Contínua'),
+	('Mago', 'Chama Contínua'),
+	('Bardo', 'Despistar'),
+	('Mago', 'Despistar'),
+	('Encarnação Fantasmagórica', 'Encarnação Fantasmagórica'),
+	('Bardo', 'Enfraquecer Intelecto'),
+	('Bardo', 'Espada de Mordenkainen'),
+	('Mago', 'Espada de Mordenkainen'),
+	('Feiticeiro', 'Globo de Invulnerabilidade'),
+	('Mago', 'Globo de Invulnerabilidade'),
+	('Bardo', 'Globos de Luz'),
+	('Feiticeiro', 'Globos de Luz'),
+	('Mago', 'Globos de Luz'),
+	('Clérigo', 'Tempestade de Fogo'),
+	('Druida', 'Tempestade de Fogo'),
+	('Feiticeiro', 'Tempestade de Fogo'),
+	('Bardo', 'Ver o Invisível'),
+	('Feiticeiro', 'Ver o Invisível'),
+	('Mago', 'Ver o Invisível');
