@@ -50,7 +50,7 @@ create table Monstro (
 	pontosExperiencia integer not null,
 	formaCorporal varchar(20) not null,
 	tamanho varchar(20) not null,
-	deslocamentoBase integer not null,
+	deslocamentoBase numeric(3, 1) not null,
 	primary key (nomeMonstro)
 );
 
