@@ -310,7 +310,6 @@ create table Patrulheiro (
 
 create table ClasseMagia (
 	nomeClasse varchar(20),
-	nivel integer not null,
 	nomeMagia varchar(35),
 	primary key (nomeClasse, nomeMagia),
 	foreign key (nomeClasse) references Classe (nomeClasse),
