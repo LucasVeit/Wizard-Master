@@ -1,5 +1,7 @@
 package Model.DAO;
 
+import Controller.dataResultTableColumn;
+import Controller.dataResultTableRow;
 import Model.ConnectPostgre;
 import Model.Magia;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -10,6 +12,54 @@ import java.util.ArrayList;
 
 public final class MagiaDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
+
+    public MagiaDAO(){
+
+    }
+    //Amanda's code
+    public static dataResultTableColumn getAllColumnData() throws SQLException {
+        ArrayList<String> columnNames = new ArrayList<>();
+        try (
+                Statement declaracao = con.createStatement();
+                ResultSet resultado = declaracao.executeQuery("select * from Magia")) {
+
+
+            int columnCount = resultado.getMetaData().getColumnCount();
+
+            for (int i = 1 ; i <= columnCount ; i++) {
+                columnNames.add(resultado.getMetaData().getColumnName(i));
+            }
+        }
+
+        return new dataResultTableColumn(columnNames);
+    }
+
+    public static dataResultTableRow getAllRowData(String search, String category, String attribute) throws SQLException {
+        ArrayList<ArrayList<Object>> data = new ArrayList<>();
+        ArrayList<Object> magias;
+        String sql = "select * from " + category + " where " + attribute + " like '%" + search + "%';";
+
+        try(
+                Statement declaracao = con.createStatement();
+                ResultSet resultado = declaracao.executeQuery(sql)){
+
+            while(resultado.next()) {
+                magias = new ArrayList<>();
+                for (int i = 1; i <= resultado.getMetaData().getColumnCount(); ++i) {
+                    magias.add(resultado.getObject(i));
+                }
+                data.add(magias);
+            }
+
+
+        }catch(SQLException e) {
+            System.out.println("Error");
+        }
+
+        return new dataResultTableRow(data);
+    }
+
+    //Amanda's code
 
     public static ArrayList<Magia> List(){
         ArrayList<Magia> magias = new ArrayList<>();
@@ -42,9 +92,13 @@ public final class MagiaDAO {
         return magias;
     }
 
-    public static ArrayList<Magia> SearchByText(String search, String category, String attribute){
+    public static ArrayList<Magia> Search(String search, String category, String attribute){
         ArrayList<Magia> magias = new ArrayList<>();
-        String sql = "select * from " + category + " where " + attribute + " like '%" + search + "%';";
+        String sql;
+        if(attribute == "nivel")
+            sql = "select * from " + category + " where " + attribute + "=" + search + ";";
+        else
+            sql = "select * from " + category + " where " + attribute + " like '%" + search + "%';";
 
         try{
             Statement declaracao = con.createStatement();
