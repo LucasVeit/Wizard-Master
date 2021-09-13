@@ -152,11 +152,11 @@ create table Tempo (
 create table ArmaduraEscudo (
 	nomeItem text,
 	classeArmadura integer not null,
-	modificadorDes boolean not null, --se possui modificador de des
-	maxModificador integer, --valor maximo do modificador de des
+	modificadorDes boolean not null,
+	maxModificador integer,
 	forcaNecessaria integer not null,
 	tipo varchar(30) not null,
-	furtividade boolean not null, -- caso true, o atributo possui desvantagem
+	furtividade boolean not null,
 	primary key (nomeItem),
 	foreign key (nomeItem) references Item(nomeItem),
 	foreign key (tipo) references Tempo(tipo)
@@ -343,7 +343,7 @@ create table Campanha (
 
 create table Mapa (
 	codigoMapa serial,
-	nomeCampanha text not null,
+	nomeCampanha varchar(100) not null,
 	mapa text not null,
 	primary key (codigoMapa),
 	foreign key (nomeCampanha) references Campanha (nomeCampanha)
@@ -503,13 +503,13 @@ create table Personagem ( -- ok
 	foreign key (codigoAparencia) references Aparencia (codigoAparencia)
 );
 
-create table PontosExperienciaNivel ( -- revisar
+create table PontosExperienciaNivel (
 	pontosExperiencia integer,
 	nivel integer not null,
 	primary key (pontosExperiencia)
 );
 
-create table PersonagemTalento ( -- revisar
+create table PersonagemTalento (
 	codigoPersonagem integer,
 	nomeTalento varchar(30),
 	primary key (codigoPersonagem, nomeTalento),
@@ -517,7 +517,7 @@ create table PersonagemTalento ( -- revisar
 	foreign key (nomeTalento) references Talento (nomeTalento)
 );
 
-create table PersonagemItem ( -- revisar
+create table PersonagemItem (
 	codigoPersonagem integer,
 	nomeItem varchar(30),
 	quantidade integer,
@@ -527,7 +527,7 @@ create table PersonagemItem ( -- revisar
 	foreign key (nomeItem) references Item (nomeItem)
 );
 
-create table PersonagemPericia ( -- revisar
+create table PersonagemPericia (
 	codigoPersonagem integer,
 	nomePericia varchar(30),
 	modificador integer not null,
@@ -536,7 +536,7 @@ create table PersonagemPericia ( -- revisar
 	foreign key (nomePericia) references Pericia (nomePericia)
 );
 
-create table PersonagemMagia ( -- revisar
+create table PersonagemMagia (
 	codigoPersonagem integer, -- personagem deve possuir um espaço de magia para aquele nivel para poder usar ela
 	nomeMagia varchar(30),
 	primary key (codigoPersonagem, nomeMagia),
