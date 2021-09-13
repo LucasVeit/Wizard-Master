@@ -16,7 +16,6 @@ insert into Magia (nomeMagia, nivel, tipo, descricao, alcance, componentes, dura
 	('Tempestade de Fogo', 7, 'Evocação', 'Uma tempestade feita de camadas de chamas crepitantes aparece num local, à sua escolha, dentro do alcance. A área da tempestade consiste de até dez cubos de 3 metros, que você pode organizar como desejar. Cada cubo deve ter, pelo menos, uma face adjacente a face de outro cubo. Cada criatura na área deve realizar um teste de resistência de Destreza. Ela sofre 7d10 de dano de fogo se falhar na resistência, ou metade desse dano se obtiver sucesso.<br /> O fogo causa dano aos objetos na área e incendeia objetos inflamáveis que não estejam sendo vestidos ou carregados. Se desejar, a vida vegetal na área pode não ser afetada por essa magia.', '45 metros', 'V, S', 'Instantânea', '1 ação'),
 	('Ver o Invisível', 2, 'Adivinhação', 'Pela duração, você vê criaturas e objetos invisíveis como se eles fossem visíveis e você pode ver no Plano Etéreo. Criaturas e objetos etéreos parecem espectrais e translúcidos.', 'Pessoal', 'V, S, M (um pouco de talco e um pó de prata polvilhado)', '1 hora', '1 ação');
 
-
 insert into Pericia (nomePericia, descricao, habilidadeImpacta)
 	values
 	('Atletismo', 'abrange as situações difíceis que você encontra ao escalar, saltar ou nadar', 'Força'),
