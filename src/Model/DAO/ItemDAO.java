@@ -1,5 +1,7 @@
 package Model.DAO;
 
+import Controller.dataResultTableColumn;
+import Controller.dataResultTableRow;
 import Model.ConnectPostgre;
 import Model.Item.*;
 import Model.Magia;
@@ -16,6 +18,52 @@ import java.util.ArrayList;
 
 public class ItemDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
+
+    //Amanda's code
+    public static dataResultTableColumn getAllColumnData() throws SQLException {
+        ArrayList<String> columnNames = new ArrayList<>();
+        try (
+                Statement declaracao = con.createStatement();
+                ResultSet resultado = declaracao.executeQuery("select * from Item")) {
+
+
+            int columnCount = resultado.getMetaData().getColumnCount();
+
+            for (int i = 1 ; i <= columnCount ; ++i) {
+                columnNames.add(resultado.getMetaData().getColumnName(i));
+            }
+        }
+
+        return new dataResultTableColumn(columnNames);
+    }
+
+    public static dataResultTableRow getAllRowData(String search, String category, String attribute) throws SQLException {
+        ArrayList<ArrayList<Object>> data = new ArrayList<>();
+
+        String sql = "select * from " + category + " where " + attribute + " like '%" + search + "%';";
+
+        try(
+                Statement declaracao = con.createStatement();
+                ResultSet resultado = declaracao.executeQuery(sql)){
+
+            while(resultado.next()) {
+                ArrayList<Object> item = new ArrayList<>();
+                for (int i = 1; i <= resultado.getMetaData().getColumnCount(); ++i) {
+                    item.add(resultado.getObject(i));
+                }
+                data.add(item);
+            }
+
+
+        }catch(SQLException e) {
+            System.out.println("Error");
+        }
+
+        return new dataResultTableRow(data);
+    }
+
+    //Amanda's code
+
 
     public static ArrayList<Item> List(){
         ArrayList<Item> itens = new ArrayList<>();
