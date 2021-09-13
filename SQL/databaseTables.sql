@@ -1,6 +1,6 @@
 create table Habilidade (
-	valor integer,
-	valorModificador integer not null,
+	valor integer CHECK (valor>=1 AND valor<=30),
+	valorModificador integer not null CHECK (valorModificador>=-5 AND valorModificador<=10),
 	primary key (valor)
 );
 
@@ -25,7 +25,7 @@ create table Pericia (
 
 create table Talento (
 	nomeTalento varchar(40),
-	preRequisito text,
+	preRequisito text DEFAULT 'Não há pré requisitos para este talento',
 	descricao text not null,
 	primary key (nomeTalento)
 );
@@ -42,7 +42,7 @@ create table BonusTalento (
 create table Monstro (
 	nomeMonstro varchar(40),
 	descricao text not null,
-	foto varchar(120),
+	foto varchar(120) DEFAULT 'monstro_padrao.jpg',
 	classeArmadura integer not null,
 	pontosVidaBase integer not null,
 	tendencia varchar(30) not null,
@@ -66,7 +66,7 @@ create table CaracteristicaMonstro (
 create table MonstroHabilidade (
 	nomeMonstro varchar(40),
 	nomeHabilidade varchar(15),
-	valor integer not null,
+	valor integer not null CHECK (valor>=1 AND valor<=30),
 	primary key (nomeMonstro, nomeHabilidade),
 	foreign key (nomeMonstro) references Monstro (nomeMonstro),
 	foreign key (valor) references Habilidade (valor)
@@ -75,7 +75,7 @@ create table MonstroHabilidade (
 -- Tabelas de Raça
 create table Raca (
 	nomeRaca varchar(50),
-	caminhoImagem varchar(150),
+	caminhoImagem varchar(150) DEFAULT 'raca_padrao.jpg',
 	descricao text not null,
 	primary key(nomeRaca)
 );
@@ -102,7 +102,7 @@ create table SubRaca (
 -- Tabelas de Item 
 create table Item (
 	nomeItem text,
-	descricao text,
+	descricao text DEFAULT 'Este item é tão misterioso que nem nossos magos mais sábios fazem ideia do que se trata.',
 	categoria text not null,
 	custo integer not null,
 	moeda char(2) not null,
@@ -166,7 +166,7 @@ create table ItemMagico (
 	nomeItem text,
 	tipo varchar(30) not null,
 	raridade varchar(30) not null,
-	requisito text,
+	requisito text DEFAULT 'Não há nenhum requisito para ser usado',
 	primary key (nomeItem),
 	foreign key (nomeItem) references Item (nomeItem)
 );
@@ -191,7 +191,7 @@ create table Classe (
 	descricao text,
 	habilidadePrimaria varchar(15) not null,
 	habilidadeSecundaria varchar(15),
-	habilidadeSecundariaOpcional boolean,
+	habilidadeSecundariaOpcional boolean DEFAULT FALSE,
 	testeResistenciaPrimario varchar(15) not null,
 	testeResistenciaSecundario varchar(15) not null,
 	dadoVida integer not null,
@@ -336,7 +336,7 @@ create table ClassePericia (
 -- Tabelas de Campanha
 create table Campanha (
 	nomeCampanha varchar(100),
-	descricao text,
+	descricao text DEFAULT 'Os aventureiros se esqueceram de incluir um bom bardo na caravana, portanto os acontecimentos dessa aventura foram esquecidos há muito tempo',
 	mapaAtual integer,
 	primary key (nomeCampanha)
 );
@@ -413,7 +413,7 @@ create table Deus (
 	dominio varchar(100) not null,
 	tendencia varchar(30) not null,
 	simbolo varchar(100) not null,
-	descricao text,
+	descricao text DEFAULT 'Segundo nossos sábios, ou essa entidade foi esquecida há muito tempo ou é é conhecida mais a fundo apenas por um seleto grupo de adoradores',
 	primary key (codigoDeus)
 );
 
@@ -455,7 +455,7 @@ create table Aparencia ( -- ok
 	nomePersonagem varchar(30),
 	altura numeric(7, 2),
 	peso numeric(7, 2),
-	foto varchar(150),
+	foto varchar(150) DEFAULT 'player_padrao.jpg',
 	corOlhos varchar(30),
 	idade integer,
 	corPele varchar(30),
@@ -475,10 +475,10 @@ create table Personagem ( -- ok
 	coordenadaY integer,
 	tendencia varchar(30) not null,
 	percepcaoPassiva integer not null,
-	numeroInspiracao integer,
+	numeroInspiracao integer DEFAULT 0,
 	pontosVidaAtual integer,
 	pontosVidaTotal integer,
-	pontosExperiencia integer,
+	pontosExperiencia integer DEFAULT 0,
 	capacidadeCarga integer,
 	cobre integer,
 	prata integer,
@@ -488,7 +488,7 @@ create table Personagem ( -- ok
 	codigoDeus integer,
 	codigoAparencia integer,
 	classeArmadura integer,
-	deslocamento integer,
+	deslocamento numeric(3,1),
 	caracteristicaAdicional text,
 	vinculo text,
 	defeito text,
