@@ -1,10 +1,10 @@
-create table Habilidade ( -- ok
+create table Habilidade (
 	valor integer,
 	valorModificador integer not null,
 	primary key (valor)
 );
 
-create table Magia ( -- ok
+create table Magia (
 	nomeMagia varchar(35),
 	tipo text not null,
 	nivel integer not null,
@@ -16,27 +16,26 @@ create table Magia ( -- ok
 	primary key (nomeMagia)
 );
 
-create table Pericia ( -- ok
+create table Pericia (
 	nomePericia varchar(30),
 	descricao text not null,
 	habilidadeImpacta varchar(15) not null,
 	primary key (nomePericia)
 );
 
-create table Talento ( -- ok
+create table Talento (
 	nomeTalento varchar(40),
 	preRequisito text,
 	descricao text not null,
 	primary key (nomeTalento)
 );
 
-create table BonusTalento ( -- ok
+create table BonusTalento (
 	codigoBonusTalento serial, 
 	nomeTalento varchar(40) not null,
 	descricao text not null,
 	primary key (codigoBonusTalento),
 	foreign key (nomeTalento) references Talento(nomeTalento)
-
 );
 
 --Tabelas de Monstro
@@ -44,14 +43,14 @@ create table Monstro (
 	nomeMonstro varchar(40),
 	descricao text not null,
 	foto varchar(120),
-	formaCorporal varchar(20) not null,
-	tamanho varchar(20) not null,
-	tendencia varchar(20) not null,
 	classeArmadura integer not null,
 	pontosVidaBase integer not null,
-	deslocamentoBase integer not null,
+	tendencia varchar(20) not null,
 	nivel numeric(6,3) not null,
 	pontosExperiencia integer not null,
+	formaCorporal varchar(20) not null,
+	tamanho varchar(20) not null,
+	deslocamentoBase integer not null,
 	primary key (nomeMonstro)
 );
 
@@ -62,6 +61,15 @@ create table CaracteristicaMonstro (
 	descricao text not null,
 	primary key (nome, nomeMonstro),
 	foreign key (nomeMonstro) references Monstro(nomeMonstro)
+);
+
+create table MonstroHabilidade (
+	nomeMonstro varchar(40),
+	nomeHabilidade varchar(15),
+	valor integer not null,
+	primary key (nomeMonstro, nomeHabilidade),
+	foreign key (nomeMonstro) references Monstro (nomeMonstro),
+	foreign key (valor) references Habilidade (valor)
 );
 
 -- Tabelas de Raça
@@ -95,13 +103,13 @@ create table SubRaca (
 create table Item (
 	nomeItem text,
 	descricao text,
-	categoria text not null, -- ex: arma, montaria e tal
+	categoria text not null,
 	custo integer not null,
 	moeda char(2) not null,
 	peso numeric(7,2) not null,
 	primary key (nomeItem)
 );
--- To-do : criar constraint que as tabelas de itens tem que ter a categoria
+-- To-do : criar assertion que o item sendo inserido nas tabelas de itens tem que ter a categoria em item
 create table Arma (
 	nomeItem text,
 	tipo varchar(50) not null,
@@ -316,6 +324,15 @@ create table ClasseMagia (
 	foreign key (nomeMagia) references Magia (nomeMagia)
 );
 
+create table ClassePericia (
+	nomeClasse varchar(20),
+	nomePericia varchar(30),
+	primary key (nomeClasse, nomePericia),
+	foreign key (nomeClasse) references Classe (nomeClasse),
+	foreign key (nomePericia) references Pericia (nomePericia)
+
+);
+
 -- Tabelas de Campanha
 create table Campanha (
 	nomeCampanha varchar(100),
@@ -435,6 +452,7 @@ create table Mundo (
 -- Tabelas de Personagem
 create table Aparencia ( -- ok
 	codigoAparencia serial,
+	nomePersonagem varchar(30),
 	altura numeric(7, 2),
 	peso numeric(7, 2),
 	foto varchar(150),
@@ -449,7 +467,6 @@ create table Personagem ( -- ok
 	codigoPersonagem serial,
 	nomeJogador varchar(30) not null,
 	nomeCampanha varchar(100) not null,
-	nomePersonagem varchar(30),
 	personagemRaca varchar(30) not null,
 	personagemClasse varchar(20) not null,
 	arquetipo varchar(30),
@@ -460,6 +477,7 @@ create table Personagem ( -- ok
 	percepcaoPassiva integer not null,
 	numeroInspiracao integer,
 	pontosVidaAtual integer,
+	pontosVidaTotal integer,
 	pontosExperiencia integer,
 	capacidadeCarga integer,
 	cobre integer,
@@ -470,6 +488,7 @@ create table Personagem ( -- ok
 	codigoDeus integer,
 	codigoAparencia integer,
 	classeArmadura integer,
+	deslocamento integer,
 	caracteristicaAdicional text,
 	vinculo text,
 	defeito text,
@@ -518,14 +537,14 @@ create table PersonagemPericia ( -- revisar
 );
 
 create table PersonagemMagia ( -- revisar
-	codigoPersonagem integer, -- personagem deve possuir nivel maior ou igual que a magia exige
+	codigoPersonagem integer, -- personagem deve possuir um espaço de magia para aquele nivel para poder usar ela
 	nomeMagia varchar(30),
 	primary key (codigoPersonagem, nomeMagia),
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem),
 	foreign key (nomeMagia) references Magia (nomeMagia)
 );
 
-create table PersonagemHabilidade ( -- ok
+create table PersonagemHabilidade (
 	codigoPersonagem integer,
 	nomeHabilidade varchar(15),
 	valor integer not null,
