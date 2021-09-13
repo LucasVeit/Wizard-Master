@@ -45,12 +45,12 @@ create table Monstro (
 	foto varchar(120),
 	classeArmadura integer not null,
 	pontosVidaBase integer not null,
-	tendencia varchar(20) not null,
+	tendencia varchar(30) not null,
 	nivel numeric(6,3) not null,
 	pontosExperiencia integer not null,
-	formaCorporal varchar(20) not null,
-	tamanho varchar(20) not null,
-	deslocamentoBase integer not null,
+	formaCorporal varchar(30) not null,
+	tamanho varchar(30) not null,
+	deslocamentoBase numeric(3, 1) not null,
 	primary key (nomeMonstro)
 );
 
@@ -87,7 +87,7 @@ create table SubRaca (
 	deslocamento numeric(5, 2) not null,
 	idadeAdulto integer not null,
 	idadeExpectativaVida integer not null, 
-	tamanho varchar(20) not null,
+	tamanho varchar(30) not null,
 	tendencia text not null,
 	forca integer not null, 
 	destreza integer not null, 
@@ -113,20 +113,20 @@ create table Item (
 create table Arma (
 	nomeItem text,
 	tipo varchar(50) not null,
-	dano varchar(20) not null,
+	dano varchar(30) not null,
 	primary key (nomeItem),
 	foreign key (nomeItem) references Item (nomeItem)
 );
 
 create table PropriedadeArma (
-	nomePropriedade varchar(20),
+	nomePropriedade varchar(30),
 	descricao text not null,
 	primary key (nomePropriedade)
 );
 
 create table ArmaPropriedadeArma (
 	nomeItem text,
-	nomePropriedade varchar(20),
+	nomePropriedade varchar(30),
 	descricao text,
 	primary key (nomeItem, nomePropriedade),
 	foreign key (nomeItem) references Arma (nomeItem),
@@ -142,7 +142,7 @@ create table Montaria (
 );
 
 create table Tempo (
-	tipo varchar(20),
+	tipo varchar(30),
 	equipar integer not null,
 	desequipar integer not null,
 	medida varchar(7) not null,
@@ -152,10 +152,10 @@ create table Tempo (
 create table ArmaduraEscudo (
 	nomeItem text,
 	classeArmadura integer not null,
-	modificadorDes boolean not null, 
-	maxModificador integer, 
+	modificadorDes boolean not null,
+	maxModificador integer,
 	forcaNecessaria integer not null,
-	tipo varchar(20) not null,
+	tipo varchar(30) not null,
 	furtividade boolean not null,
 	primary key (nomeItem),
 	foreign key (nomeItem) references Item(nomeItem),
@@ -165,7 +165,7 @@ create table ArmaduraEscudo (
 create table ItemMagico (
 	nomeItem text,
 	tipo varchar(30) not null,
-	raridade varchar(20) not null,
+	raridade varchar(30) not null,
 	requisito text,
 	primary key (nomeItem),
 	foreign key (nomeItem) references Item (nomeItem)
@@ -187,7 +187,7 @@ create table AntecedentePericia (
 
 --Tabelas de Classe
 create table Classe (
-	nomeClasse varchar(20),
+	nomeClasse varchar(30),
 	descricao text,
 	habilidadePrimaria varchar(15) not null,
 	habilidadeSecundaria varchar(15),
@@ -202,14 +202,14 @@ create table Classe (
 
 create table Arquetipo( 
 	nomeArquetipo varchar(30),
-	nomeClasse varchar(20),
+	nomeClasse varchar(30),
 	primary key (nomeArquetipo, nomeClasse),
 	foreign key (nomeClasse) references Classe(nomeClasse)
 );
 
 create table Atributo (
 	nivel integer,
-	nomeClasse varchar(20),
+	nomeClasse varchar(30),
 	bonusProficiencia integer not null,
 	primary key (nivel, nomeClasse),
 	foreign key (nomeClasse) references Classe (nomeClasse)
@@ -231,7 +231,7 @@ create table EspacoMagia (
 );
 
 create table ClasseEspacoMagia(
-    nomeClasse varchar(20),
+    nomeClasse varchar(30),
     nivel integer,
     numeroTabela integer,
     linhaTabela integer,
@@ -241,7 +241,7 @@ create table ClasseEspacoMagia(
 );
 
 create table Barbaro (
-	nomeClasse varchar(20),
+	nomeClasse varchar(30),
 	nivel integer,
 	danoFuria integer not null,
 	furias integer not null,
@@ -250,7 +250,7 @@ create table Barbaro (
 );
 
 create table Bardo (
-	nomeClasse varchar(20),
+	nomeClasse varchar(30),
 	nivel integer,
 	truquesConhecidos integer not null,
 	magiasConhecidas integer not null,
@@ -259,7 +259,7 @@ create table Bardo (
 );
 
 create table Bruxo (
-	nomeClasse varchar(20),
+	nomeClasse varchar(30),
 	nivel integer,
 	truquesConhecidos integer not null,
 	magiasConhecidas integer not null,
@@ -271,7 +271,7 @@ create table Bruxo (
 );
 
 create table ClerigoDruidaMago (
-	nomeClasse varchar(20),
+	nomeClasse varchar(30),
 	nivel integer,
 	truquesConhecidos integer not null,
 	primary key (nomeClasse, nivel),
@@ -279,7 +279,7 @@ create table ClerigoDruidaMago (
 );
 
 create table Feiticeiro (
-	nomeClasse varchar(20),
+	nomeClasse varchar(30),
 	nivel integer,
 	pontosFeiticaria integer not null,
 	truquesConhecidos integer not null,
@@ -289,7 +289,7 @@ create table Feiticeiro (
 );
 
 create table Ladino (
-	nomeClasse varchar(20),
+	nomeClasse varchar(30),
 	nivel integer,
 	quantidadeDadosAtaqueFurtivo integer not null,
 	grandezaDadoAtaqueFurtivo integer not null,
@@ -298,7 +298,7 @@ create table Ladino (
 );
 
 create table Monge (
-	nomeClasse varchar(20),
+	nomeClasse varchar(30),
 	nivel integer,
 	deslocamentoSemArmadura numeric(2, 1) not null,
 	quantidadeDadosArtesMarciais integer not null,
@@ -309,7 +309,7 @@ create table Monge (
 );
 
 create table Patrulheiro (
-	nomeClasse varchar(20),
+	nomeClasse varchar(30),
 	nivel integer,
 	magiasConhecidas integer not null,
 	primary key (nomeClasse, nivel),
@@ -317,7 +317,7 @@ create table Patrulheiro (
 );
 
 create table ClasseMagia (
-	nomeClasse varchar(20),
+	nomeClasse varchar(30),
 	nomeMagia varchar(35),
 	primary key (nomeClasse, nomeMagia),
 	foreign key (nomeClasse) references Classe (nomeClasse),
@@ -325,7 +325,7 @@ create table ClasseMagia (
 );
 
 create table ClassePericia (
-	nomeClasse varchar(20),
+	nomeClasse varchar(30),
 	nomePericia varchar(30),
 	primary key (nomeClasse, nomePericia),
 	foreign key (nomeClasse) references Classe (nomeClasse),
@@ -374,7 +374,7 @@ create table Cidade (
 	clima varchar(30) not null,
 	vegetacao varchar(30) not null,
 	populacao integer not null,
-	formaGoverno varchar(20) not null,
+	formaGoverno varchar(30) not null,
 	descricao text,
 	primary key (codigoCidade),
 	foreign key (nomeCampanha) references Campanha (nomeCampanha)	
@@ -392,7 +392,7 @@ create table Faccao (
 	codigoFaccao serial,
 	nomeFaccao varchar(30) not null,
 	nomeCampanha varchar(100) not null,
-	formaGoverno varchar(20) not null,
+	formaGoverno varchar(30) not null,
 	descricao text,
 	primary key (codigoFaccao),
 	foreign key (nomeCampanha) references Campanha (nomeCampanha)	
@@ -411,7 +411,7 @@ create table Deus (
 	nomeDeus varchar(50) not null,
 	mitologia varchar(30) not null,
 	dominio varchar(100) not null,
-	tendencia varchar(20) not null,
+	tendencia varchar(30) not null,
 	simbolo varchar(100) not null,
 	descricao text,
 	primary key (codigoDeus)
@@ -428,8 +428,8 @@ create table PanteaoCampanha (
 create table Plano (
 	nomePlano varchar(50),
 	descricao text, 
-	corCortina varchar(20),
-	corPoco varchar(20),
+	corCortina varchar(30),
+	corPoco varchar(30),
 	primary key (nomePlano)
 );
 
@@ -456,10 +456,10 @@ create table Aparencia ( -- ok
 	altura numeric(7, 2),
 	peso numeric(7, 2),
 	foto varchar(150),
-	corOlhos varchar(20),
+	corOlhos varchar(30),
 	idade integer,
-	corPele varchar(20),
-	corCabelo varchar(20),
+	corPele varchar(30),
+	corCabelo varchar(30),
 	primary key (codigoAparencia)
 );
 
@@ -468,12 +468,12 @@ create table Personagem ( -- ok
 	nomeJogador varchar(30) not null,
 	nomeCampanha varchar(100) not null,
 	personagemRaca varchar(30) not null,
-	personagemClasse varchar(20) not null,
+	personagemClasse varchar(30) not null,
 	arquetipo varchar(30),
 	nomeAntecedente varchar(30),
 	coordenadaX integer,
 	coordenadaY integer,
-	tendencia varchar(20) not null,
+	tendencia varchar(30) not null,
 	percepcaoPassiva integer not null,
 	numeroInspiracao integer,
 	pontosVidaAtual integer,
