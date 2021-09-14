@@ -2,7 +2,10 @@ package Controller;
 
 import Model.DAO.ItemDAO;
 import Model.DAO.MagiaDAO;
-import javafx.beans.property.SimpleObjectProperty;
+import Model.Item.ArmaduraEscudo;
+import Model.Item.Item;
+import Model.Item.ItemMagico;
+import javafx.beans.property.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -186,10 +189,158 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             text.setFont(Font.font("Sylfaen", 24));
             text.setFill(Color.rgb(63, 4, 4));
             list.add(text);
-        }
 
+        }
         javafx.scene.image.ImageView view = new ImageView("View\\Resources\\staff.jpg");
         staticImageView.setImage(view.getImage());
+
+        /*
+
+        SimpleStringProperty nomeItem = new SimpleStringProperty(String.valueOf(object.get(0)));
+        SimpleStringProperty descricao = new SimpleStringProperty(String.valueOf(object.get(1)));
+        SimpleStringProperty categoria = new SimpleStringProperty(String.valueOf(object.get(2)));
+        SimpleIntegerProperty custo = new SimpleIntegerProperty(Integer.valueOf(object.get(3)));
+        SimpleStringProperty moeda = new SimpleStringProperty(String.valueOf(object.get(4)));
+        SimpleFloatProperty peso = new SimpleFloatProperty(Float.valueOf(object.get(5)));
+
+        Item item = new Item(nomeItem, descricao, categoria, custo, moeda, peso);
+        ItemMagico itemMagico;
+        ArmaduraEscudo armaduraEscudo;
+
+        if(item.getCategoria().equals("Item Mágico")){
+            itemMagico = ItemDAO.getItemMagico(item);
+
+            Text subtitle01 = new Text( "Tipo" + "\n");
+            subtitle01.setFont(Font.font("Sylfaen", 30));
+            subtitle01.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle01);
+
+            Text text01 = new Text(itemMagico.getTipo() + "\n");
+            text01.setFont(Font.font("Sylfaen", 24));
+            text01.setFill(Color.rgb(63, 4, 4));
+            list.add(text01);
+
+            Text subtitle02 = new Text( "Raridade" + "\n");
+            subtitle02.setFont(Font.font("Sylfaen", 30));
+            subtitle02.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle02);
+
+            Text text02 = new Text(itemMagico.getRaridade() + "\n");
+            text02.setFont(Font.font("Sylfaen", 24));
+            text02.setFill(Color.rgb(63, 4, 4));
+            list.add(text02);
+
+            Text subtitle03 = new Text( "Requisito" + "\n");
+            subtitle03.setFont(Font.font("Sylfaen", 30));
+            subtitle03.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle03);
+
+            Text text04 = new Text(itemMagico.getRequisito() + "\n");
+            text04.setFont(Font.font("Sylfaen", 24));
+            text04.setFill(Color.rgb(63, 4, 4));
+            list.add(text04);
+        }
+
+        if(item.getCategoria().equals("ArmaduraEscudo")){
+            armaduraEscudo = ItemDAO.getArmaduraEscudo(item);
+
+            Text subtitle01 = new Text( "Classe Armadura" + "\n");
+            subtitle01.setFont(Font.font("Sylfaen", 30));
+            subtitle01.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle01);
+
+            Text text01 = new Text(armaduraEscudo.getClasseArmadura() + "\n");
+            text01.setFont(Font.font("Sylfaen", 24));
+            text01.setFill(Color.rgb(63, 4, 4));
+            list.add(text01);
+
+            Text subtitle02 = new Text( "Possui modificar de destreza?" + "\n");
+            subtitle02.setFont(Font.font("Sylfaen", 30));
+            subtitle02.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle02);
+
+            if(armaduraEscudo.isModificadorDes()){
+                Text text02 = new Text("Sim"+ "\n");
+                text02.setFont(Font.font("Sylfaen", 24));
+                text02.setFill(Color.rgb(63, 4, 4));
+                list.add(text02);
+            }else{
+                Text text02 = new Text("Não"+ "\n");
+                text02.setFont(Font.font("Sylfaen", 24));
+                text02.setFill(Color.rgb(63, 4, 4));
+                list.add(text02);
+            }
+
+            Text subtitle03 = new Text( "Modificador máximo de destreza" + "\n");
+            subtitle03.setFont(Font.font("Sylfaen", 30));
+            subtitle03.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle03);
+
+            Text text03 = new Text(armaduraEscudo.getMaxModificador() + "\n");
+            text03.setFont(Font.font("Sylfaen", 24));
+            text03.setFill(Color.rgb(63, 4, 4));
+            list.add(text03);
+
+            Text subtitle04 = new Text( "Força necessária" + "\n");
+            subtitle04.setFont(Font.font("Sylfaen", 30));
+            subtitle04.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle03);
+
+            Text text04 = new Text(armaduraEscudo.getForcaNecessaria() + "\n");
+            text04.setFont(Font.font("Sylfaen", 24));
+            text04.setFill(Color.rgb(63, 4, 4));
+            list.add(text03);
+
+            Text subtitle05 = new Text( "Tipo" + "\n");
+            subtitle05.setFont(Font.font("Sylfaen", 30));
+            subtitle05.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle03);
+
+            Text text05 = new Text(armaduraEscudo.getTipo() + "\n");
+            text05.setFont(Font.font("Sylfaen", 24));
+            text05.setFill(Color.rgb(63, 4, 4));
+            list.add(text03);
+
+            Text subtitle06 = new Text( "Possui desvantagem para furtividade?" + "\n");
+            subtitle06.setFont(Font.font("Sylfaen", 30));
+            subtitle06.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle03);
+
+            if(armaduraEscudo.isFurtividade()){
+                Text text06 = new Text("Sim" + "\n");
+                text06.setFont(Font.font("Sylfaen", 24));
+                text06.setFill(Color.rgb(63, 4, 4));
+                list.add(text03);
+            }else{
+                Text text06 = new Text("Não" + "\n");
+                text06.setFont(Font.font("Sylfaen", 24));
+                text06.setFill(Color.rgb(63, 4, 4));
+                list.add(text03);
+            }
+
+            Text subtitle07 = new Text( "Tempo para equipar" + "\n");
+            subtitle07.setFont(Font.font("Sylfaen", 30));
+            subtitle07.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle03);
+
+            Text text07 = new Text(armaduraEscudo.getPeriodoEquipar() + " " + armaduraEscudo.getMedidaPeriodo() + "\n");
+            text07.setFont(Font.font("Sylfaen", 24));
+            text07.setFill(Color.rgb(63, 4, 4));
+            list.add(text03);
+
+            Text subtitle08 = new Text( "Tempo para desequipar" + "\n");
+            subtitle08.setFont(Font.font("Sylfaen", 30));
+            subtitle08.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle03);
+
+            Text text08 = new Text(armaduraEscudo.getPeriodoDesequipar() + " " + armaduraEscudo.getMedidaPeriodo() + "\n");
+            text08.setFont(Font.font("Sylfaen", 24));
+            text08.setFill(Color.rgb(63, 4, 4));
+            list.add(text03);
+
+        }
+
+         */
 
     }
 
