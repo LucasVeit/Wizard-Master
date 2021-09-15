@@ -392,6 +392,7 @@ create table Faccao (
 	codigoFaccao serial,
 	nomeFaccao varchar(30) not null,
 	nomeCampanha varchar(100) not null,
+	populacao integer not null,
 	formaGoverno varchar(30) not null,
 	descricao text,
 	primary key (codigoFaccao),
@@ -450,7 +451,7 @@ create table Mundo (
 );
 
 -- Tabelas de Personagem
-create table Aparencia ( -- ok
+create table Aparencia (
 	codigoAparencia serial,
 	nomePersonagem varchar(30),
 	altura numeric(7, 2),
@@ -463,7 +464,7 @@ create table Aparencia ( -- ok
 	primary key (codigoAparencia)
 );
 
-create table Personagem ( -- ok
+create table Personagem (
 	codigoPersonagem serial,
 	nomeJogador varchar(30) not null,
 	nomeCampanha varchar(100) not null,
