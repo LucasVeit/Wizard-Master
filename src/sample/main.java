@@ -52,6 +52,7 @@ public class main extends Application {
 
         primaryStage.setTitle("Wizard Master");
         primaryStage.setScene(new Scene(root, 1280, 720));
+
         primaryStage.show();
     }
 }
