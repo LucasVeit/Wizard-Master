@@ -553,3 +553,29 @@ create table PersonagemHabilidade (
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem),
 	foreign key (valor) references Habilidade (valor)
 );
+
+--Trigger
+create or replace function atualiza_armadura() 
+    returns trigger 
+    as 
+$$
+begin
+    update Personagem 
+    set classeArmadura = (
+    	select COALESCE(SUM(foo.classeArmadura),0)
+    	from PersonagemItem join (
+    			select ArmaduraEscudo.nomeItem as nomeItem, ArmaduraEscudo.classeArmadura as classeArmadura
+    			from Item join ArmaduraEscudo on Item.nomeItem = ArmaduraEscudo.nomeItem
+    		)as foo on PersonagemItem.nomeItem = foo.nomeItem
+    	where PersonagemItem.equipado = TRUE AND PersonagemItem.codigoPersonagem = NEW.codigoPersonagem
+    	)
+    where codigoPersonagem = NEW.codigoPersonagem;
+    return new;
+end;
+$$ language plpgsql;
+
+
+create trigger atualizar_classe_de_armadura 
+    after insert or update on PersonagemItem
+    for each row
+    	execute procedure atualiza_armadura();

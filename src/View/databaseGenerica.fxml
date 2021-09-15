@@ -4,15 +4,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -79,7 +76,7 @@
                   </HBox>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="47.0" prefWidth="342.0">
                      <children>
-                        <ComboBox fx:id="comboBox01" prefHeight="30.0" prefWidth="130.0" promptText="CATEGORIA" styleClass="Button" stylesheets="@style.css" onAction="#comboAction">
+                        <ComboBox fx:id="comboBox01" onAction="#comboAction" prefHeight="30.0" prefWidth="130.0" promptText="CATEGORIA" styleClass="Button" stylesheets="@style.css">
                            <HBox.margin>
                               <Insets left="20.0" right="20.0" />
                            </HBox.margin>
@@ -98,23 +95,15 @@
             </VBox>
          </top>
          <bottom>
-            <FlowPane prefHeight="415.0" prefWidth="1120.0" BorderPane.alignment="BOTTOM_CENTER">
+          <AnchorPane prefHeight="400.0" prefWidth="1118.0">
                <children>
-                  <ScrollPane>
-                    <content>
-                      <AnchorPane prefHeight="400.0" prefWidth="1118.0">
-                           <children>
-                              <TableView fx:id="tableView" prefHeight="400.0" prefWidth="1118.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="tableView" prefHeight="400.0" prefWidth="1118.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                               </TableView>
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </ScrollPane>
                </children>
                <BorderPane.margin>
                   <Insets bottom="60.0" left="80.0" right="80.0" />
                </BorderPane.margin>
-            </FlowPane>
+            </AnchorPane>
          </bottom>
       </BorderPane>
    </children>
