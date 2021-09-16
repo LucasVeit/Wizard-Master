@@ -4,21 +4,16 @@ import java.util.ArrayList;
 
 public class Monstro {
     private String nomeMonstro;
-    private String introducao;
+    private String descricao;
     private String foto;
-    private String classeArmadura;
-    private String pontosVida;
+    private int classeArmadura;
+    private int pontosVidaBase;
     private String tendencia;
     private float nivel;
     private int pontosExperiencia;
     private String formaCorporal;
     private String tamanho;
-    private String descricaoLendaria;
-    private ArrayList<LoreMonstro> lore;
-    private ArrayList<TracoEspecialMonstro> tracoEspecial;
-    private ArrayList<CaracteristicaMonstro> caracteristica;
-    private ArrayList<AcaoMonstro> acao;
-    private ArrayList<AcaoLendariaMonstro> acaoLendaria;
+    private float deslocamentoBase;
     private int constituicao;
     private int carisma;
     private int destreza;
@@ -26,26 +21,21 @@ public class Monstro {
     private int inteligencia;
     private int sabedoria;
 
-    public Monstro(String nomeMonstro, String introducao, String foto, String classeArmadura, String pontosVida, String tendencia, float nivel, int pontosExperiencia,
-                   String formaCorporal, String tamanho, String descricaoLendaria, ArrayList<LoreMonstro> lore, ArrayList<TracoEspecialMonstro> tracoEspecial,
-                   ArrayList<CaracteristicaMonstro> caracteristica, ArrayList<AcaoMonstro> acao, ArrayList<AcaoLendariaMonstro> acaoLendaria, int constituicao,
-                   int carisma, int destreza, int forca, int inteligencia, int sabedoria) {
+    public Monstro() {
+    }
+
+    public Monstro(String nomeMonstro, String descricao, String foto, int classeArmadura, int pontosVidaBase, String tendencia, float nivel, int pontosExperiencia, String formaCorporal, String tamanho, float deslocamentoBase, int constituicao, int carisma, int destreza, int forca, int inteligencia, int sabedoria) {
         this.nomeMonstro = nomeMonstro;
-        this.introducao = introducao;
+        this.descricao = descricao;
         this.foto = foto;
         this.classeArmadura = classeArmadura;
-        this.pontosVida = pontosVida;
+        this.pontosVidaBase = pontosVidaBase;
         this.tendencia = tendencia;
         this.nivel = nivel;
         this.pontosExperiencia = pontosExperiencia;
         this.formaCorporal = formaCorporal;
         this.tamanho = tamanho;
-        this.descricaoLendaria = descricaoLendaria;
-        this.lore = lore;
-        this.tracoEspecial = tracoEspecial;
-        this.caracteristica = caracteristica;
-        this.acao = acao;
-        this.acaoLendaria = acaoLendaria;
+        this.deslocamentoBase = deslocamentoBase;
         this.constituicao = constituicao;
         this.carisma = carisma;
         this.destreza = destreza;
@@ -62,12 +52,12 @@ public class Monstro {
         this.nomeMonstro = nomeMonstro;
     }
 
-    public String getIntroducao() {
-        return introducao;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setIntroducao(String introducao) {
-        this.introducao = introducao;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public String getFoto() {
@@ -78,20 +68,20 @@ public class Monstro {
         this.foto = foto;
     }
 
-    public String getClasseArmadura() {
+    public int getClasseArmadura() {
         return classeArmadura;
     }
 
-    public void setClasseArmadura(String classeArmadura) {
+    public void setClasseArmadura(int classeArmadura) {
         this.classeArmadura = classeArmadura;
     }
 
-    public String getPontosVida() {
-        return pontosVida;
+    public int getPontosVidaBase() {
+        return pontosVidaBase;
     }
 
-    public void setPontosVida(String pontosVida) {
-        this.pontosVida = pontosVida;
+    public void setPontosVidaBase(int pontosVidaBase) {
+        this.pontosVidaBase = pontosVidaBase;
     }
 
     public String getTendencia() {
@@ -134,52 +124,12 @@ public class Monstro {
         this.tamanho = tamanho;
     }
 
-    public String getDescricaoLendaria() {
-        return descricaoLendaria;
+    public float getDeslocamentoBase() {
+        return deslocamentoBase;
     }
 
-    public void setDescricaoLendaria(String descricaoLendaria) {
-        this.descricaoLendaria = descricaoLendaria;
-    }
-
-    public ArrayList<LoreMonstro> getLore() {
-        return lore;
-    }
-
-    public void setLore(ArrayList<LoreMonstro> lore) {
-        this.lore = lore;
-    }
-
-    public ArrayList<TracoEspecialMonstro> getTracoEspecial() {
-        return tracoEspecial;
-    }
-
-    public void setTracoEspecial(ArrayList<TracoEspecialMonstro> tracoEspecial) {
-        this.tracoEspecial = tracoEspecial;
-    }
-
-    public ArrayList<CaracteristicaMonstro> getCaracteristica() {
-        return caracteristica;
-    }
-
-    public void setCaracteristica(ArrayList<CaracteristicaMonstro> caracteristica) {
-        this.caracteristica = caracteristica;
-    }
-
-    public ArrayList<AcaoMonstro> getAcao() {
-        return acao;
-    }
-
-    public void setAcao(ArrayList<AcaoMonstro> acao) {
-        this.acao = acao;
-    }
-
-    public ArrayList<AcaoLendariaMonstro> getAcaoLendaria() {
-        return acaoLendaria;
-    }
-
-    public void setAcaoLendaria(ArrayList<AcaoLendariaMonstro> acaoLendaria) {
-        this.acaoLendaria = acaoLendaria;
+    public void setDeslocamentoBase(float deslocamentoBase) {
+        this.deslocamentoBase = deslocamentoBase;
     }
 
     public int getConstituicao() {

@@ -2,6 +2,7 @@ package Controller;
 
 import Model.DAO.ItemDAO;
 import Model.DAO.MagiaDAO;
+import Model.DAO.MonstroDAO;
 import Model.Item.ArmaduraEscudo;
 import Model.Item.Item;
 import Model.Item.ItemMagico;
@@ -54,8 +55,10 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
                     if(categoria.equals("Magia")){
                         magicInfo();
                     }
-                    if(categoria.equals("Item")){
+                    else if(categoria.equals("Item")){
                         itemInfo();
+                    }else if(categoria.equals("Monstro")){
+                        monstroInfo();
                     }
                 }
         }});
@@ -119,6 +122,25 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
                 troubles.printStackTrace();
             }
         }
+        if(categoria.equals("Monstro")){
+            try {
+                dataColumn = MonstroDAO.getAllColumnData();
+
+                for (int i = 0; i < dataColumn.getNumColumns(); ++i) {
+                    TableColumn<ArrayList<Object>, Object> column = new TableColumn<>(dataColumn.getColumnName(i));
+                    int columnIndex = i;
+                    column.setCellValueFactory(arrayListObjectCellDataFeatures ->
+                            new SimpleObjectProperty<>(arrayListObjectCellDataFeatures.getValue().get(columnIndex)));
+                    column.setPrefWidth(100);
+                    tableView.getColumns().add(column);
+                }
+                dataRow = MonstroDAO.getAllRowData(pesquisa, categoria, atributo);
+                tableView.getItems().setAll(dataRow.getData());
+
+            } catch (SQLException troubles) {
+                troubles.printStackTrace();
+            }
+        }
 
     }
 
@@ -132,22 +154,27 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
         }else if(comboBox01.getValue().equals("Item")){
             comboBox02.getItems().addAll("nomeItem");
 
+        }else if(comboBox01.getValue().equals("Monstro")){
+            comboBox02.getItems().addAll("NomeMonstro", "descricao", "classeArmadura", "pontosVidaBase", "tendencia", "nivel", "pontosExperiencia", "formaCorporal", "tamanho", "deslocamentoBase");
+
         }else if(comboBox01.getValue().equals("Pericia")){
-
+            comboBox02.getItems().addAll("nomePericia", "descricao", "habilidadeImpacta");
         }else if(comboBox01.getValue().equals("Talento")){
+            comboBox02.getItems().addAll("nomeTalento", "preRequisito", "descricao");
+        }else if(comboBox01.getValue().equals("Raca")){
 
-        }else if(comboBox01.getValue().equals("Antecedente")){
+        }else if(comboBox01.getValue().equals("Classe")){
 
         }else {
             comboBox01.getValue();
         }
 
     }
+
     public void InsertChoiceBox(){
-        comboBox01.getItems().addAll("Magia", "Item", "Pericia", "Talento", "Antecedente", "Deus");
+        comboBox01.getItems().addAll("Magia", "Item", "Monstro", "Pericia", "Talento", "Antecedente", "Deus");
         // SELECT table_name FROM information_schema.tables WHERE table_type='BASE TABLE' AND table_schema='public';
     }
-
 
     public void magicInfo(){
 
@@ -342,6 +369,76 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
 
          */
 
+    }
+
+    public void monstroInfo(){
+
+        staticLabelTitle.setText(String.valueOf(object.get(0)));
+        ObservableList list = staticTextFlowPane.getChildren();
+        list.clear();
+
+        for(int i = 1; i < object.size(); ++i){
+
+            Text subtitle = new Text( tableView.getColumns().get(i).getText()+ "\n");
+            subtitle.setFont(Font.font("Sylfaen", 30));
+            subtitle.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle);
+
+            Text text = new Text(String.valueOf(object.get(i)) + "\n");
+            text.setFont(Font.font("Sylfaen", 24));
+            text.setFill(Color.rgb(63, 4, 4));
+            list.add(text);
+
+        }
+
+        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\staff.jpg");
+        staticImageView.setImage(view.getImage());
+    }
+
+    public void classeInfo(){
+        staticLabelTitle.setText(String.valueOf(object.get(0)));
+        ObservableList list = staticTextFlowPane.getChildren();
+        list.clear();
+
+        for(int i = 1; i < object.size(); ++i){
+
+            Text subtitle = new Text( tableView.getColumns().get(i).getText()+ "\n");
+            subtitle.setFont(Font.font("Sylfaen", 30));
+            subtitle.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle);
+
+            Text text = new Text(String.valueOf(object.get(i)) + "\n");
+            text.setFont(Font.font("Sylfaen", 24));
+            text.setFill(Color.rgb(63, 4, 4));
+            list.add(text);
+
+        }
+
+        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\staff.jpg");
+        staticImageView.setImage(view.getImage());
+    }
+
+    public void deusInfo(){
+        staticLabelTitle.setText(String.valueOf(object.get(0)));
+        ObservableList list = staticTextFlowPane.getChildren();
+        list.clear();
+
+        for(int i = 1; i < object.size(); ++i){
+
+            Text subtitle = new Text( tableView.getColumns().get(i).getText()+ "\n");
+            subtitle.setFont(Font.font("Sylfaen", 30));
+            subtitle.setFill(Color.rgb(40, 2, 2));
+            list.add(subtitle);
+
+            Text text = new Text(String.valueOf(object.get(i)) + "\n");
+            text.setFont(Font.font("Sylfaen", 24));
+            text.setFill(Color.rgb(63, 4, 4));
+            list.add(text);
+
+        }
+
+        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\staff.jpg");
+        staticImageView.setImage(view.getImage());
     }
 
 }

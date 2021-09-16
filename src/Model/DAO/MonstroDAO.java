@@ -1,5 +1,7 @@
 package Model.DAO;
 
+import Controller.dataResultTableColumn;
+import Controller.dataResultTableRow;
 import Model.ConnectPostgre;
 import Model.Monstro.*;
 
@@ -8,10 +10,53 @@ import java.util.ArrayList;
 
 
 public class MonstroDAO {
-    Connection con = ConnectPostgre.ConnectDatabase();
+    private static Connection con = ConnectPostgre.ConnectDatabase();
     String sql = null;
     Statement declaracao;
     ResultSet resultado;
+
+    //Amanda's code
+    public static dataResultTableColumn getAllColumnData() throws SQLException {
+        ArrayList<String> columnNames = new ArrayList<>();
+        try (
+                Statement declaracao = con.createStatement();
+                ResultSet resultado = declaracao.executeQuery("select * from Monstro")) {
+
+
+            int columnCount = resultado.getMetaData().getColumnCount();
+
+            for (int i = 1 ; i <= columnCount ; ++i) {
+                columnNames.add(resultado.getMetaData().getColumnName(i));
+            }
+        }
+
+        return new dataResultTableColumn(columnNames);
+    }
+
+    public static dataResultTableRow getAllRowData(String search, String category, String attribute) throws SQLException {
+        ArrayList<ArrayList<Object>> data = new ArrayList<>();
+
+        String sql = "select * from " + category + " where " + attribute + " like '%" + search + "%';";
+
+        try(
+                Statement declaracao = con.createStatement();
+                ResultSet resultado = declaracao.executeQuery(sql)){
+
+            while(resultado.next()) {
+                ArrayList<Object> monstro = new ArrayList<>();
+                for (int i = 1; i <= resultado.getMetaData().getColumnCount(); ++i) {
+                    monstro.add(resultado.getObject(i));
+                }
+                data.add(monstro);
+            }
+
+
+        }catch(SQLException e) {
+            System.out.println("Error");
+        }
+
+        return new dataResultTableRow(data);
+    }
 
     public ArrayList<Monstro> List(){
         ArrayList<Monstro> monstros = new ArrayList<>();
@@ -23,22 +68,17 @@ public class MonstroDAO {
             
             while(resultado.next()){
                 String nomeMonstro = resultado.getString("nomeMonstro");
-                String introducao = resultado.getString("introducao");
+                String descricao = resultado.getString("descricao");
                 String foto = resultado.getString("foto");
-                String classeArmadura = resultado.getString("classeArmadura");
-                String pontosVida = resultado.getString("pontosVida");
+                int classeArmadura = resultado.getInt("classeArmadura");
+                int pontosVidaBase = resultado.getInt("pontosVidaBase");
                 String tendencia = resultado.getString("tendencia");
                 float nivel = resultado.getFloat("nivel");
                 int pontosExperiencia = resultado.getInt("pontosExperiencia");
                 String formaCorporal = resultado.getString("formaCorporal");
                 String tamanho = resultado.getString("tamanho");
-                String descricaoLendaria = resultado.getString("descricaoAcaoLendaria");
+                float deslocamentoBase = resultado.getFloat("deslocamentoBase");
 
-                ArrayList<LoreMonstro> lore = ListLore(nomeMonstro);
-                ArrayList<TracoEspecialMonstro> tracoEspecial = ListTraco(nomeMonstro);
-                ArrayList<CaracteristicaMonstro> caracteristica = ListCaracteristica(nomeMonstro);
-                ArrayList<AcaoMonstro> acao = ListAcao(nomeMonstro);
-                ArrayList<AcaoLendariaMonstro> acaoLendaria = listAcaoLendaria(nomeMonstro);
                 int constituicao = getHabilidade("Constituição", nomeMonstro);
                 int carisma = getHabilidade("Carisma", nomeMonstro);
                 int destreza = getHabilidade("Destreza", nomeMonstro);
@@ -46,9 +86,8 @@ public class MonstroDAO {
                 int inteligencia = getHabilidade("Inteligência", nomeMonstro);
                 int sabedoria = getHabilidade("Sabedoria", nomeMonstro);
 
-                Monstro monstro = new Monstro(nomeMonstro, introducao, foto, classeArmadura, pontosVida,
-                         tendencia, nivel, pontosExperiencia, formaCorporal, tamanho, descricaoLendaria, lore,
-                         tracoEspecial, caracteristica, acao, acaoLendaria, constituicao, carisma, destreza, forca, inteligencia, sabedoria);
+                Monstro monstro = new Monstro(nomeMonstro, descricao, foto, classeArmadura, pontosVidaBase, tendencia, nivel, pontosExperiencia,
+                formaCorporal, tamanho, deslocamentoBase, constituicao, carisma, destreza, forca, inteligencia, sabedoria);
                  monstros.add(monstro);
             }
 
@@ -75,53 +114,8 @@ public class MonstroDAO {
         } catch(SQLException e){
             System.out.println("Error");
         }
-
         return pontosHabilidade;
 
-    }
-
-    public ArrayList<LoreMonstro> ListLore(String nomeMonstro){
-        ArrayList<LoreMonstro> lores = new ArrayList<>();
-        sql = "select * from Lore where nomeMonstro = \'" + nomeMonstro + "\';";
-
-        try{
-            declaracao = con.createStatement();
-            ResultSet rs = declaracao.executeQuery(sql);
-
-            while(rs.next()){
-                String nome = rs.getString("nome");
-                String descricao = rs.getString("descricao");
-                LoreMonstro lore = new LoreMonstro(nome, descricao);
-                lores.add(lore);
-            }
-
-        } catch (SQLException e){
-            System.out.println("Error");
-        }
-
-        return lores;
-    }
-
-    public ArrayList<TracoEspecialMonstro> ListTraco(String nomeMonstro){
-        ArrayList<TracoEspecialMonstro> tracosEspeciais = new ArrayList<>();
-        sql = "select * from TracoEspecialMonstro where nomeMonstro = \'" + nomeMonstro + "\';";
-
-        try{
-            declaracao = con.createStatement();
-            ResultSet rs = declaracao.executeQuery(sql);
-
-            while(rs.next()){
-                String nome = rs.getString("nome");
-                String descricao = rs.getString("descricao");
-
-                TracoEspecialMonstro tracoEspecial = new TracoEspecialMonstro(nome, descricao);
-                tracosEspeciais.add(tracoEspecial);
-            }
-        } catch(SQLException e){
-            System.out.println("Error");
-        }
-
-        return tracosEspeciais;
     }
 
     public ArrayList<CaracteristicaMonstro> ListCaracteristica(String nomeMonstro){
@@ -145,54 +139,6 @@ public class MonstroDAO {
         }
 
         return caracteristicas;
-
-    }
-
-    public ArrayList<AcaoMonstro> ListAcao(String nomeMonstro){
-        ArrayList<AcaoMonstro> acoes = new ArrayList<>();
-        sql = "select * from Acao where nomeMonstro = \'" + nomeMonstro + "\';";
-
-        try{
-            declaracao = con.createStatement();
-            ResultSet rs = declaracao.executeQuery(sql);
-
-            while(rs.next()){
-                String nome = rs.getString("nome");
-                String descricao = rs.getString("descricao");
-
-                AcaoMonstro acao = new AcaoMonstro(nome, descricao);
-                acoes.add(acao);
-            }
-
-        } catch(SQLException e){
-            System.out.println("Error");
-        }
-
-        return acoes;
-
-    }
-
-    public ArrayList<AcaoLendariaMonstro> listAcaoLendaria(String nomeMonstro){
-        ArrayList<AcaoLendariaMonstro> acoes = new ArrayList<>();
-        sql = "select * from AcaoLendaria where nomeMonstro = \'" + nomeMonstro + "\';";
-
-        try{
-            declaracao = con.createStatement();
-            ResultSet rs = declaracao.executeQuery(sql);
-
-            while(rs.next()){
-                String nome = rs.getString("nome");
-                String descricao = rs.getString("descricao");
-
-                AcaoLendariaMonstro acao = new AcaoLendariaMonstro(nome, descricao);
-                acoes.add(acao);
-            }
-
-        } catch(SQLException e){
-            System.out.println("Error");
-        }
-
-        return acoes;
 
     }
 }
