@@ -22,4 +22,35 @@ public class novaCampanhaController implements Initializable, controlledScreen {
     private void goToTelaInicio(ActionEvent event){
         myController.setScreen(main.screen1ID);
     }
+
+    @FXML
+    private void goToTelaCriarCidade(ActionEvent event){
+        myController.setScreen(main.screen5ID);
+    }
+
+    @FXML
+    private void goToTelaCriarFaccao(ActionEvent event){
+        myController.setScreen(main.screen6ID);
+    }
+
+    @FXML
+    private void goToTelaCriarLider(ActionEvent event){
+        myController.setScreen(main.screen7ID);
+    }
+
+    @FXML
+    private void goToTelaCriarMundo(ActionEvent event){
+        myController.setScreen(main.screen8ID);
+    }
+
+    @FXML
+    private void goToTelaCriarPanteao(ActionEvent event){
+        myController.setScreen(main.screen9ID);
+    }
+
+    @FXML
+    private void goToTelaCriarPersonagem(ActionEvent event){
+        myController.setScreen(main.screen10ID);
+    }
+
 }

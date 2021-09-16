@@ -576,6 +576,6 @@ $$ language plpgsql;
 
 
 create trigger atualizar_classe_de_armadura 
-    after insert or update on PersonagemItem
+    after insert or update or delete on PersonagemItem
     for each row
     	execute procedure atualiza_armadura();
