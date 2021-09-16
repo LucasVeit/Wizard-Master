@@ -1470,6 +1470,28 @@ insert into CaracteristicaMonstro(nome, nomeMonstro, descricao) values
 	('Perícias', 'Chefe Goblin', 'Furtividade +6'),
 	('Deslocamento', 'Chefe Goblin', '9 m');
 
+insert into PontosExperienciaNivel (pontosExperiencia, nivel) values 
+	(0, 1),
+	(300, 2),
+	(900, 3),
+	(2700, 4),
+	(6500, 5),
+	(14000, 6),
+	(23000, 7),
+	(34000, 8),
+	(48000, 9),
+	(64000, 10),
+	(85000, 11),
+	(100000, 12),
+	(120000, 13),
+	(140000, 14),
+	(165000, 15),
+	(195000, 16),
+	(225000, 17),
+	(265000, 18),
+	(305000, 19),
+	(355000, 20);
+
 --Campanha Dummy
 insert into Campanha (nomeCampanha,	descricao, mapaAtual) values
 	('Lorin', 'Campanha que eu mestrei sábado à noite durante o rolê só por diversão', (select codigoMapa from Mapa where mapa = 'lorin.jpg'));
@@ -1494,8 +1516,8 @@ insert into Lider (nomeLider, descricao, nomeCampanha) values
 	('Areqwa', 'Filha mais nova do grande conquistador Théros, com o exército que ganhou de seu pai quando completou 17 anos, conquistou toda a extensão de Lorin cinco anos atrás em apenas dois meses. Odiada por muitos e bajulada por qualquer um que deseje seguir qualquer carreira política nas terras dominadas por ela.', 'Lorin'),
 	('Ninel', 'Criado por um casal de camponeses que foram assassinados durante a invasão de Zhyzhynsk, nutriu tamanho ódio pela rainha que foi capaz de organizar e chefiar vários homens e mulheres repletos de ódio pelo governo para derrubálo de qualquer maneira. Ninguém sabe ao certo sua aparência ou seu paradeiro atual, mas todos sabem que onde quer que esteja ele está tramando algum plano perfeito para a derrubada do governo.', 'Lorin');
 
-insert into Faccao (nomeFaccao, nomeCampanha, formaGoverno, descricao) values
-	('Rebeldes de Zhyzhynsk', 'Lorin', 'Democracia', 'Os Rebeldes de Zhyzhyns surgiram após a mesma ser tomada pela nova governante de Lorin. Seus membros operam nas sombras e recrutando qualquer um que seja revoltado o bastante contra o atual governo. Seu objetivo é apenas um: a derrubada da rainha por qualquer meio e a instauração de uma democracia no arquipélado de Lorin. Seguem fielmente os pensamentos descritos nos pergaminhos do antigo herói da ilha, Faustor.');
+insert into Faccao (nomeFaccao, nomeCampanha, populacao, formaGoverno, descricao) values
+	('Rebeldes de Zhyzhynsk', 'Lorin', 300, 'Democracia', 'Os Rebeldes de Zhyzhyns surgiram após a mesma ser tomada pela nova governante de Lorin. Seus membros operam nas sombras e recrutando qualquer um que seja revoltado o bastante contra o atual governo. Seu objetivo é apenas um: a derrubada da rainha por qualquer meio e a instauração de uma democracia no arquipélado de Lorin. Seguem fielmente os pensamentos descritos nos pergaminhos do antigo herói da ilha, Faustor.');
 
 insert into LiderFaccao (codigoFaccao, codigoLider) values
 	((select codigoFaccao from Faccao where nomeFaccao = 'Rebeldes de Zhyzhynsk'),(select codigoLider from Lider where nomeLider = 'Ninel'));
