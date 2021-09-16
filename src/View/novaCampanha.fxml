@@ -26,7 +26,7 @@
                   <Insets left="40.0" right="55.0" top="55.0" />
                </BorderPane.margin>
                <buttons>
-                   <Button fx:id="btnVoltar" mnemonicParsing="false" onAction="#goToTelaInicio" prefHeight="10.0" prefWidth="60.0" styleClass="Button" stylesheets="@style.css" textFill="WHITE">
+                   <Button mnemonicParsing="false" onAction="#goToTelaInicio" prefHeight="10.0" prefWidth="60.0" styleClass="Button" stylesheets="@style.css" textFill="WHITE">
                       <graphic>
                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -48,32 +48,32 @@
                      <children>
                         <VBox alignment="CENTER" prefHeight="466.0" prefWidth="248.0" spacing="30.0">
                            <children>
-                              <Button mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar personagem" textFill="#af4044">
+                              <Button onAction="#goToTelaCriarPersonagem" mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar personagem" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar mundo" textFill="#af4044">
+                              <Button onAction="#goToTelaCriarMundo" mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar mundo" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar cidade" textFill="#af4044">
+                              <Button onAction="#goToTelaCriarCidade" mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar cidade" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar panteão" textFill="#af4044">
+                              <Button onAction="#goToTelaCriarPanteao" mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar panteão" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar facção" textFill="#af4044">
+                              <Button onAction="#goToTelaCriarFaccao" mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar facção" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar líder" textFill="#af4044">
+                              <Button onAction="#goToTelaCriarLider" mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar líder" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
