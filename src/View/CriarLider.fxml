@@ -54,7 +54,7 @@
                                                         <Font name="Sylfaen" size="18.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField prefHeight="74.0" prefWidth="806.0" />
+                                                <TextField prefHeight="0.0" prefWidth="810.0" />
                                             </children>
                                         </VBox>
                                   </children>
