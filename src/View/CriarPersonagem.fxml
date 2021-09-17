@@ -32,9 +32,9 @@
                <children>
                   <ScrollPane prefHeight="100.0" prefWidth="954.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1021.0" prefWidth="938.0" style="-fx-background-color: #F9EED6;">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1021.0" prefWidth="938.0" styleClass="background" stylesheets="@style.css">
                            <children>
-                              <VBox layoutX="10.0" layoutY="10.0" prefHeight="1021.0" prefWidth="938.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                              <VBox layoutX="10.0" layoutY="10.0" prefHeight="1021.0" prefWidth="938.0" spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                                  <children>
                                     <HBox spacing="20.0">
                                        <children>
@@ -55,6 +55,40 @@
                                        <VBox.margin>
                                           <Insets bottom="20.0" />
                                        </VBox.margin>
+                                    </HBox>
+                                    <HBox spacing="30.0">
+                                       <children>
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label text="Coordenada X">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField editable="false" prefHeight="25.0" prefWidth="200.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label text="Coordenada Y">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField editable="false" prefHeight="25.0" prefWidth="200.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label text="Classe da armadura">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField editable="false" prefHeight="25.0" prefWidth="200.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
                                     </HBox>
                                     <HBox spacing="30.0">
                                        <children>
@@ -392,7 +426,7 @@
                                           </VBox>
                                        </children>
                                     </HBox>
-                                    <Label text="Ideal">
+                                    <Label text="Traço de personalidade">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -485,10 +519,159 @@
                   <TableColumn prefWidth="75.0" text="Inteligência" />
               </columns>
                <BorderPane.margin>
-                  <Insets bottom="50.0" left="50.0" right="50.0" />
+                  <Insets bottom="50.0" left="55.0" right="130.0" />
                </BorderPane.margin>
             </TableView>
          </bottom>
+         <left>
+            <ScrollPane BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="15.0" left="55.0" top="15.0" />
+               </BorderPane.margin>
+               <content>
+                  <AnchorPane styleClass="background" stylesheets="@style.css">
+                     <children>
+                        <VBox layoutX="20.0" layoutY="20.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                           <children>
+                              <HBox prefHeight="200.0" prefWidth="1053.0" spacing="20.0">
+                                 <children>
+                                    <TableView prefHeight="175.0" prefWidth="237.0">
+                                      <columns>
+                                        <TableColumn prefWidth="72.0" text="Item" />
+                                        <TableColumn prefWidth="82.0" text="Quantidade" />
+                                          <TableColumn prefWidth="82.0" text="Equipado" />
+                                      </columns>
+                                    </TableView>
+                                    <VBox prefHeight="195.0" prefWidth="129.0" spacing="20.0">
+                                       <children>
+                                          <ComboBox prefWidth="150.0" promptText="Equipado" styleClass="Button" stylesheets="@style.css" />
+                                          <VBox>
+                                             <children>
+                                                <Label text="Nome do item">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="25.0" prefWidth="121.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                                <Label text="Quantidade">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="25.0" prefWidth="121.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="195.0" prefWidth="129.0" spacing="20.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
+                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
+                                       </children>
+                                    </VBox>
+                                    <TableView prefHeight="200.0" prefWidth="200.0">
+                                      <columns>
+                                        <TableColumn prefWidth="100.0" text="Perícia" />
+                                        <TableColumn prefWidth="99.0" text="Modificador" />
+                                      </columns>
+                                    </TableView>
+                                    <VBox prefHeight="195.0" prefWidth="129.0" spacing="20.0">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label text="Nome da Perícia">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="25.0" prefWidth="121.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox>
+                                             <children>
+                                                <Label text="Modificador">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField editable="false" prefHeight="25.0" prefWidth="121.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="195.0" prefWidth="129.0" spacing="20.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
+                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="200.0" prefWidth="1053.0" spacing="20.0">
+                                 <children>
+                                    <TableView prefHeight="175.0" prefWidth="237.0">
+                                       <columns>
+                                          <TableColumn prefWidth="237.0" text="Magia" />
+                                       </columns>
+                                    </TableView>
+                                    <VBox prefHeight="195.0" prefWidth="129.0" spacing="20.0">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label text="Nome da Magia">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="25.0" prefWidth="121.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="195.0" prefWidth="129.0" spacing="20.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
+                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
+                                       </children>
+                                    </VBox>
+                                    <TableView prefHeight="200.0" prefWidth="200.0">
+                                       <columns>
+                                          <TableColumn prefWidth="200.0" text="Talento" />
+                                       </columns>
+                                    </TableView>
+                                    <VBox prefHeight="195.0" prefWidth="129.0" spacing="20.0">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <Label text="Nome do talento">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField editable="false" prefHeight="25.0" prefWidth="121.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="195.0" prefWidth="129.0" spacing="20.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
+                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+         </left>
       </BorderPane>
     </children>
 </AnchorPane>
