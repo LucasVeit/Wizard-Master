@@ -42,8 +42,8 @@
                                     <ComboBox fx:id="comboBox" prefHeight="35.0" prefWidth="252.0" styleClass="Button" stylesheets="@style.css" />
                                  </children>
                               </VBox>
-                              <Button onAction="#adicionarLider" fx:id="adicionarLider" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
-                              <Button onAction="#removerLider" fx:id="removerLider" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
+                              <Button fx:id="adicionarLider" mnemonicParsing="false" onAction="#adicionarLider" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
+                              <Button fx:id="removerLider" mnemonicParsing="false" onAction="#removerLider" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
                            </children>
                         </VBox>
                         <TableView fx:id="tableViewLider" prefHeight="189.0" prefWidth="366.0">
@@ -70,7 +70,7 @@
                                           <Font name="Sylfaen" size="18.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="nomeCidade"/>
+                                    <TextField fx:id="nomeCidade" />
                                  </children>
                               </VBox>
                               <VBox spacing="5.0">
@@ -80,7 +80,7 @@
                                           <Font name="Sylfaen" size="18.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="comercio"/>
+                                    <TextField fx:id="comercio" />
                                  </children>
                               </VBox>
                               <VBox spacing="5.0">
@@ -90,7 +90,7 @@
                                           <Font name="Sylfaen" size="18.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="clima"/>
+                                    <TextField fx:id="clima" />
                                  </children>
                               </VBox>
                               <VBox spacing="5.0">
@@ -100,7 +100,7 @@
                                           <Font name="Sylfaen" size="18.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="vegetacao"/>
+                                    <TextField fx:id="vegetacao" />
                                  </children>
                               </VBox>
                            </children>
@@ -114,7 +114,7 @@
                                           <Font name="Sylfaen" size="18.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="populacao"/>
+                                    <TextField fx:id="populacao" />
                                  </children>
                               </VBox>
                               <VBox spacing="5.0">
@@ -124,7 +124,7 @@
                                           <Font name="Sylfaen" size="18.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="formaGoverno"/>
+                                    <TextField fx:id="formaGoverno" />
                                  </children>
                               </VBox>
                               <VBox spacing="5.0">
@@ -146,8 +146,8 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="216.0" prefWidth="84.0" spacing="20.0">
                      <children>
-                        <Button onAction="#adicionar" fx:id="adicionar" mnemonicParsing="false" prefHeight="40.0" prefWidth="73.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
-                        <Button onAction="#atualizar" fx:id="atualizar" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Atualizar" />
+                        <Button fx:id="adicionar" mnemonicParsing="false" onAction="#adicionar" prefHeight="40.0" prefWidth="73.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
+                        <Button fx:id="atualizar" mnemonicParsing="false" onAction="#atualizar" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Atualizar" />
                      </children>
                      <HBox.margin>
                         <Insets top="30.0" />
@@ -171,11 +171,11 @@
                               <Insets />
                            </VBox.margin>
                         </ButtonBar>
-                        <Button onAction="#remover" fx:id="remover" mnemonicParsing="false" prefHeight="42.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" text="Remover">
+                        <Button fx:id="remover" mnemonicParsing="false" onAction="#remover" prefHeight="42.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" text="Remover">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin></Button>
-                        <Button onAction="#limpar" fx:id="limpar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" text="Limpar">
+                        <Button fx:id="limpar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#limpar" prefHeight="40.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" text="Limpar">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
@@ -194,13 +194,15 @@
                   <Insets bottom="70.0" left="150.0" right="150.0" />
                </BorderPane.margin>
                <columns>
-                  <TableColumn fx:id="column1" prefWidth="123.0" text="Nome da Cidade" />
-                  <TableColumn fx:id="column2" prefWidth="81.0" text="Comércio" />
-                  <TableColumn fx:id="column3" prefWidth="58.0" text="Clima" />
-                  <TableColumn fx:id="column4" prefWidth="97.0" text="Vegetação" />
-                  <TableColumn fx:id="column5" prefWidth="94.0" text="População" />
-                  <TableColumn fx:id="column6" prefWidth="136.0" text="Forma de governo" />
-                  <TableColumn fx:id="column7" prefWidth="136.0" text="Descrição" />
+                  <TableColumn fx:id="column1" prefWidth="118.0" text="Código da Cidade" />
+                  <TableColumn fx:id="column2" prefWidth="112.0" text="Nome da Cidade" />
+                  <TableColumn fx:id="column3" prefWidth="139.0" text="Nome da campanha" />
+                  <TableColumn fx:id="column4" prefWidth="92.0" text="Comércio" />
+                  <TableColumn fx:id="column5" minWidth="0.0" prefWidth="74.0" text="Clima" />
+                  <TableColumn fx:id="column6" minWidth="0.0" prefWidth="88.0" text="Vegetação" />
+                  <TableColumn fx:id="column7" prefWidth="95.0" text="População" />
+                  <TableColumn fx:id="column8" minWidth="0.0" prefWidth="131.0" text="Forma de governo" />
+                  <TableColumn fx:id="column9" prefWidth="130.0" text="Descrição" />
                </columns>
             </TableView>
          </bottom>

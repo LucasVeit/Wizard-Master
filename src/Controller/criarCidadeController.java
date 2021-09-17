@@ -3,9 +3,8 @@ package Controller;
 import Model.ConnectPostgre;
 import Model.Cidade;
 import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,11 +14,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import sample.main;
 
-import java.io.PipedOutputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
@@ -41,11 +38,15 @@ public class criarCidadeController implements Initializable, controlledScreen {
     @FXML
     TableColumn<Cidade, SimpleStringProperty>  column4;
     @FXML
-    TableColumn<Cidade, SimpleStringProperty>  column5;
+    TableColumn<Cidade, SimpleIntegerProperty>  column5;
     @FXML
     TableColumn<Cidade, SimpleStringProperty>  column6;
     @FXML
     TableColumn<Cidade, SimpleStringProperty>  column7;
+    @FXML
+    TableColumn<Cidade, SimpleStringProperty>  column8;
+    @FXML
+    TableColumn<Cidade, SimpleStringProperty>  column9;
     @FXML
     private TextField nomeCidade;
     @FXML
@@ -99,7 +100,6 @@ public class criarCidadeController implements Initializable, controlledScreen {
                     adicionar.setDisable(true);
                     remover.setDisable(false);
                     atualizar.setDisable(false);
-
                     nomeCidade.setText(cidadeAntiga.getNomeCidade());
                     comercio.setText(cidadeAntiga.getComercio());
                     clima.setText(cidadeAntiga.getClima());
@@ -128,13 +128,15 @@ public class criarCidadeController implements Initializable, controlledScreen {
 
     public void initTable(){
 
-        column1.setCellValueFactory(new PropertyValueFactory<>("nomeCidade"));
-        column2.setCellValueFactory(new PropertyValueFactory<>("comercio"));
-        column3.setCellValueFactory(new PropertyValueFactory<>("clima"));
-        column4.setCellValueFactory(new PropertyValueFactory<>("vegetacao"));
-        column5.setCellValueFactory(new PropertyValueFactory<>("populacao"));
-        column6.setCellValueFactory(new PropertyValueFactory<>("formaGoverno"));
-        column7.setCellValueFactory(new PropertyValueFactory<>("descricao"));
+        column1.setCellValueFactory(new PropertyValueFactory<>("codigoCidade"));
+        column2.setCellValueFactory(new PropertyValueFactory<>("nomeCidade"));
+        column3.setCellValueFactory(new PropertyValueFactory<>("nomeCampanha"));
+        column4.setCellValueFactory(new PropertyValueFactory<>("comercio"));
+        column5.setCellValueFactory(new PropertyValueFactory<>("clima"));
+        column6.setCellValueFactory(new PropertyValueFactory<>("vegetacao"));
+        column7.setCellValueFactory(new PropertyValueFactory<>("populacao"));
+        column8.setCellValueFactory(new PropertyValueFactory<>("formaGoverno"));
+        column9.setCellValueFactory(new PropertyValueFactory<>("descricao"));
 
         columnLider.setCellValueFactory(stringStringCellDataFeatures -> new ReadOnlyStringWrapper(stringStringCellDataFeatures.getValue()));
         /*
@@ -150,7 +152,7 @@ public class criarCidadeController implements Initializable, controlledScreen {
     }
 
     private void pegarValores(){
-        cidadeAtual = new Cidade(0, nomeCidade.getText(), comercio.getText(), clima.getText(), vegetacao.getText(), Integer.parseInt(populacao.getText()), formaGoverno.getText(), descricao.getText());
+        cidadeAtual = new Cidade(0, nomeCidade.getText(), "nome campanha", comercio.getText(), clima.getText(), vegetacao.getText(), Integer.parseInt(populacao.getText()), formaGoverno.getText(), descricao.getText());
     }
 
     @FXML
