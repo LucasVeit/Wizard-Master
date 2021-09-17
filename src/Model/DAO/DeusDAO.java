@@ -3,6 +3,8 @@ package Model.DAO;
 import Controller.dataResultTableColumn;
 import Controller.dataResultTableRow;
 import Model.ConnectPostgre;
+import Model.Deus;
+import Model.Plano;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -60,5 +62,29 @@ public class DeusDAO {
         }
 
         return new dataResultTableRow(data);
+    }
+
+    public static Deus GetDeus(String nomeDeus){
+
+        String sql = "select * from Deus where nomeDeus = '" + nomeDeus + "';";
+        Deus deus = new Deus();
+        try{
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while(resultado.next()) {
+                int codigo = resultado.getInt("codigoDeus");
+                String nome = resultado.getString("nomeDeus");
+                String mitologia = resultado.getString("mitologia");
+                String dominio = resultado.getString("dominio");
+                String tendencia = resultado.getString("tendencia");
+                String simbolo = resultado.getString("simbolo");
+                String descricao = resultado.getString("descricao");
+                deus = new Deus(codigo, nome, mitologia, dominio, tendencia, simbolo, descricao);
+            }
+        }catch(SQLException e){
+            System.out.println("Error");
+        }
+        return deus;
     }
 }

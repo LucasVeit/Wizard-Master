@@ -37,7 +37,7 @@ public class CidadeDAO {
                 cidades.add(cidade);
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Erro ao recuperar lista de clientes!");
+            JOptionPane.showMessageDialog(null, "Erro ao recuperar lista!");
             e.printStackTrace();
         }
 
@@ -70,14 +70,45 @@ public class CidadeDAO {
         }
     }
 
-    public static void Atualizar(){
-        String sql = "UPDATE cidade SET nome = ?, email = ?, "
-                + "telefone = ?, curso = ?, ra = ?, anoIngresso = ? WHERE codigo = ?"; //salvar no banco de dados
+    public static void Atualizar(Cidade cidade){
+        String sql = "UPDATE cidade SET nomeCidade = ?, nomeCampanha = ?, comercio = ?, clima = ?, vegetacao = ?, populacao = ?, formaGoverno = ?, descricao = ?" +
+                " WHERE codigoCidade = ?";
 
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, cidade.getNomeCidade());
+            ps.setString(2, cidade.getNomeCampanha());
+            ps.setString(3, cidade.getComercio());
+            ps.setString(4, cidade.getClima());
+            ps.setString(5, cidade.getVegetacao());
+            ps.setInt(6, cidade.getPopulacao());
+            ps.setString(7, cidade.getFormaGoverno());
+            ps.setString(8, cidade.getDescricao());
+            ps.setInt(9, cidade.getCodigo());
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar!");
+            e.printStackTrace();
+        }
     }
 
-    public static void Remover(){
+    public static void Remover(Cidade cidade){
+        String sql = "DELETE FROM cidade WHERE codigoCidade = ?";
 
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, cidade.getCodigo());
+
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir!");
+            e.printStackTrace();
+        }
     }
-
 }

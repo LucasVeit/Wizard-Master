@@ -7,17 +7,19 @@ public class Deus {
     private String dominio;
     private String tendencia;
     private String simbolo;
+    private String descricao;
 
     public Deus() {
     }
 
-    public Deus(int codigoDeus, String nomeDeus, String mitologia, String dominio, String tendencia, String simbolo) {
+    public Deus(int codigoDeus, String nomeDeus, String mitologia, String dominio, String tendencia, String simbolo, String descricao) {
         this.codigoDeus = codigoDeus;
         this.nomeDeus = nomeDeus;
         this.mitologia = mitologia;
         this.dominio = dominio;
         this.tendencia = tendencia;
         this.simbolo = simbolo;
+        this.descricao = descricao;
     }
 
     public int getCodigoDeus() {
@@ -66,5 +68,13 @@ public class Deus {
 
     public void setSimbolo(String simbolo) {
         this.simbolo = simbolo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }
