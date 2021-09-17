@@ -1,54 +1,41 @@
 package Model.Item;
 
-import javafx.beans.property.SimpleStringProperty;
 
 public class PropriedadeArma {
-    private SimpleStringProperty nome;
-    private SimpleStringProperty descricaoPropriedade;
-    private SimpleStringProperty descricaoCaracteristica;
+    private String nome;
+    private String descricaoPropriedade;
+    private String descricaoCaracteristica;
 
     public PropriedadeArma() {
     }
 
-    public PropriedadeArma(SimpleStringProperty nome, SimpleStringProperty descricaoPropriedade, SimpleStringProperty descricaoCaracteristica) {
+    public PropriedadeArma(String nome, String descricaoPropriedade, String descricaoCaracteristica) {
         this.nome = nome;
         this.descricaoPropriedade = descricaoPropriedade;
         this.descricaoCaracteristica = descricaoCaracteristica;
     }
 
     public String getNome() {
-        return nome.get();
-    }
-
-    public SimpleStringProperty nomeProperty() {
         return nome;
     }
 
     public void setNome(String nome) {
-        this.nome.set(nome);
+        this.nome = nome;
     }
 
     public String getDescricaoPropriedade() {
-        return descricaoPropriedade.get();
-    }
-
-    public SimpleStringProperty descricaoPropriedadeProperty() {
         return descricaoPropriedade;
     }
 
     public void setDescricaoPropriedade(String descricaoPropriedade) {
-        this.descricaoPropriedade.set(descricaoPropriedade);
+        this.descricaoPropriedade = descricaoPropriedade;
     }
 
     public String getDescricaoCaracteristica() {
-        return descricaoCaracteristica.get();
-    }
-
-    public SimpleStringProperty descricaoCaracteristicaProperty() {
         return descricaoCaracteristica;
     }
 
     public void setDescricaoCaracteristica(String descricaoCaracteristica) {
-        this.descricaoCaracteristica.set(descricaoCaracteristica);
+        this.descricaoCaracteristica = descricaoCaracteristica;
     }
 }

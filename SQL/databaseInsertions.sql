@@ -1428,14 +1428,12 @@ insert into MonstroHabilidade(nomeMonstro, nomeHabilidade, valor) values
 	('Chefe Goblin', 'Carisma', 10);
 
 insert into CaracteristicaMonstro(nome, nomeMonstro, descricao) values
-	('Deslocamento', 'Inumano', '9 m'),
 	('Perícias', 'Inumano', 'Furtividade +4, Percepção +3'),
 	('Resistência a Dano', 'Inumano', 'necrótico; concussão, cortante e perfurante de armas não-mágicas que não sejam de prata'),
 	('Imunidade a Dano', 'Inumano', 'veneno'),
 	('Imunidade a Condição', 'Inumano', 'envenenado, exausto'),
 	('Sentidos', 'Inumano', 'visão no escuro 18 m, Percepção passiva 13'),
 	('Idiomas', 'Inumano', 'os idiomas que conhecia em vida'),
-	('Deslocamento', 'Guinchador', '0 m'),
 	('Imunidade a Condição', 'Guinchador', 'amedrontado, cego, surdo'),
 	('Sentidos', 'Guinchador', 'percepção às cegas 9 m (cego além desse raio), Percepção passiva 6'),
 	('Idiomas', 'Guinchador', '-'),
@@ -1443,8 +1441,6 @@ insert into CaracteristicaMonstro(nome, nomeMonstro, descricao) values
 	('Vulnerabilidade a Dano', 'Flumph', 'psíquico'),
 	('Sentidos', 'Flumph', 'visão no escuro 18 m, Percepção passiva 12'),
 	('Idiomas', 'Flumph', 'compreende Subcomum mas não pode falar, telepatia 18 m'),
-	('Deslocamento', 'Flumph', '1,5 m, voo 9 m'),
-	('Deslocamento', 'Abolete', '3 m, natação 12 m'),
 	('Testes de Resistência', 'Abolete', 'Con +6, Int +8, Sab +6'),
 	('Perícias', 'Abolete', 'História +12, Percepção +10'),
 	('Sentidos', 'Abolete', 'visão no escuro 36 m, Percepção passiva 20'),
@@ -1453,13 +1449,10 @@ insert into CaracteristicaMonstro(nome, nomeMonstro, descricao) values
 	('Sentidos', 'Dao', 'visão no escuro 36 m, Percepção passiva 11'),
 	('Imunidade a Condição', 'Dao', 'petrificado'),
 	('Testes de Resistência', 'Dao', 'Int +5, Sab +5, Car +6'),
-	('Deslocamento', 'Dao', '9 m, escavação 9 m, voo 9 m'),
-	('Deslocamento', 'Efreeti', '12 m, voo 18 m'),
 	('Testes de Resistência', 'Efreeti', 'Int +7, Sab +6, Car +7'),
 	('Imunidade a Dano', 'Efreeti', 'fogo'),
 	('Sentidos', 'Efreeti', 'visão no escuro 36 m, Percepção passiva 12'),
 	('Idiomas', 'Efreeti', 'Ignan'),
-	('Deslocamento', 'Dragão Azul Ancião', '12 m, escavação 12 m, voo 24 m'),
 	('Testes de Resistência', 'Dragão Azul Ancião', 'Des +7, Con +15, Sab +10, Car +12'),
 	('Perícias', 'Dragão Azul Ancião', 'Furtividade +7, Percepção +17'),
 	('Imunidade a Dano', 'Dragão Azul Ancião', 'elétrico'),
@@ -1468,7 +1461,6 @@ insert into CaracteristicaMonstro(nome, nomeMonstro, descricao) values
 	('Idiomas', 'Chefe Goblin', 'Comum, Goblin'),
 	('Sentidos', 'Chefe Goblin', 'visão no escuro 18 m, Percepção passiva 9'),
 	('Perícias', 'Chefe Goblin', 'Furtividade +6'),
-	('Deslocamento', 'Chefe Goblin', '9 m');
 
 insert into PontosExperienciaNivel (pontosExperiencia, nivel) values 
 	(0, 1),

@@ -15,7 +15,7 @@ public class MonstroDAO {
     Statement declaracao;
     ResultSet resultado;
 
-    //Amanda's code
+
     public static dataResultTableColumn getAllColumnData() throws SQLException {
         ArrayList<String> columnNames = new ArrayList<>();
         try (
@@ -33,21 +33,24 @@ public class MonstroDAO {
         return new dataResultTableColumn(columnNames);
     }
 
-    public static dataResultTableRow getAllRowData(String search, String category, String attribute) throws SQLException {
+    public static dataResultTableRow getAllRowData(String search, String category, String attribute, String type) throws SQLException {
         ArrayList<ArrayList<Object>> data = new ArrayList<>();
-
-        String sql = "select * from " + category + " where " + attribute + " like '%" + search + "%';";
+        String sql;
+        if(type == "String")
+            sql = "select * from " + category + " where " + attribute + " like '%" + search + "%';";
+        else
+            sql = "select * from " + category + " where " + attribute + "=" + search + ";";
 
         try(
                 Statement declaracao = con.createStatement();
                 ResultSet resultado = declaracao.executeQuery(sql)){
 
             while(resultado.next()) {
-                ArrayList<Object> monstro = new ArrayList<>();
+                ArrayList<Object> table = new ArrayList<>();
                 for (int i = 1; i <= resultado.getMetaData().getColumnCount(); ++i) {
-                    monstro.add(resultado.getObject(i));
+                    table.add(resultado.getObject(i));
                 }
-                data.add(monstro);
+                data.add(table);
             }
 
 
@@ -87,7 +90,7 @@ public class MonstroDAO {
                 int sabedoria = getHabilidade("Sabedoria", nomeMonstro);
 
                 Monstro monstro = new Monstro(nomeMonstro, descricao, foto, classeArmadura, pontosVidaBase, tendencia, nivel, pontosExperiencia,
-                formaCorporal, tamanho, deslocamentoBase, constituicao, carisma, destreza, forca, inteligencia, sabedoria);
+                formaCorporal, tamanho, deslocamentoBase, ListCaracteristica(nomeMonstro), constituicao, carisma, destreza, forca, inteligencia, sabedoria);
                  monstros.add(monstro);
             }
 
@@ -118,12 +121,12 @@ public class MonstroDAO {
 
     }
 
-    public ArrayList<CaracteristicaMonstro> ListCaracteristica(String nomeMonstro){
+    public static ArrayList<CaracteristicaMonstro> ListCaracteristica(String nomeMonstro){
         ArrayList<CaracteristicaMonstro> caracteristicas = new ArrayList<>();
-        sql = "select * from CaracteristicaMonstro where nomeMonstro = \'" + nomeMonstro + "\';";
+        String sql = "select * from CaracteristicaMonstro where nomeMonstro = \'" + nomeMonstro + "\';";
 
         try{
-            declaracao = con.createStatement();
+            Statement declaracao = con.createStatement();
             ResultSet rs = declaracao.executeQuery(sql);
 
             while(rs.next()){

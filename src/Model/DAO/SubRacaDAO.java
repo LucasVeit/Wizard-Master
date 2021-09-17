@@ -2,7 +2,9 @@ package Model.DAO;
 
 import Controller.dataResultTableColumn;
 import Controller.dataResultTableRow;
+import Model.BonusTalento;
 import Model.ConnectPostgre;
+import Model.Raca;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -10,7 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class DeusDAO {
+public class SubRacaDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
     String sql = null;
     Statement declaracao;
@@ -21,7 +23,7 @@ public class DeusDAO {
         ArrayList<String> columnNames = new ArrayList<>();
         try (
                 Statement declaracao = con.createStatement();
-                ResultSet resultado = declaracao.executeQuery("select * from Deus")) {
+                ResultSet resultado = declaracao.executeQuery("select * from SubRaca")) {
 
 
             int columnCount = resultado.getMetaData().getColumnCount();
@@ -60,5 +62,27 @@ public class DeusDAO {
         }
 
         return new dataResultTableRow(data);
+    }
+
+    public static Raca GetRaca(String nomeRaca){
+        Raca raca = null;
+        String sql = "select * from Raca where nomeRaca = \'" + nomeRaca + "\';";
+
+        try{
+            Statement declaracao = con.createStatement();
+            ResultSet rs = declaracao.executeQuery(sql);
+
+            while(rs.next()){
+
+                String nome = rs.getString("nomeRaca");
+                String caminhoImagem = rs.getString("caminhoImagem");
+                String descricao = rs.getString("descricao");
+                raca = new Raca(nome, caminhoImagem, descricao);
+            }
+
+        } catch(SQLException e){
+            System.out.println("Error");
+        }
+        return raca;
     }
 }

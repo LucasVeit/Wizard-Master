@@ -10,13 +10,13 @@ import javafx.beans.property.SimpleStringProperty;
 import java.sql.*;
 import java.util.ArrayList;
 
-public final class MagiaDAO {
+public class MagiaDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
+    String sql = null;
+    Statement declaracao;
+    ResultSet resultado;
 
-    public MagiaDAO(){
 
-    }
-    //Amanda's code
     public static dataResultTableColumn getAllColumnData() throws SQLException {
         ArrayList<String> columnNames = new ArrayList<>();
         try (
@@ -26,7 +26,7 @@ public final class MagiaDAO {
 
             int columnCount = resultado.getMetaData().getColumnCount();
 
-            for (int i = 1 ; i <= columnCount ; i++) {
+            for (int i = 1 ; i <= columnCount ; ++i) {
                 columnNames.add(resultado.getMetaData().getColumnName(i));
             }
         }
@@ -34,21 +34,24 @@ public final class MagiaDAO {
         return new dataResultTableColumn(columnNames);
     }
 
-    public static dataResultTableRow getAllRowData(String search, String category, String attribute) throws SQLException {
+    public static dataResultTableRow getAllRowData(String search, String category, String attribute, String type) throws SQLException {
         ArrayList<ArrayList<Object>> data = new ArrayList<>();
-        ArrayList<Object> magias;
-        String sql = "select * from " + category + " where " + attribute + " like '%" + search + "%';";
+        String sql;
+        if(type == "String")
+            sql = "select * from " + category + " where " + attribute + " like '%" + search + "%';";
+        else
+            sql = "select * from " + category + " where " + attribute + "=" + search + ";";
 
         try(
                 Statement declaracao = con.createStatement();
                 ResultSet resultado = declaracao.executeQuery(sql)){
 
             while(resultado.next()) {
-                magias = new ArrayList<>();
+                ArrayList<Object> table = new ArrayList<>();
                 for (int i = 1; i <= resultado.getMetaData().getColumnCount(); ++i) {
-                    magias.add(resultado.getObject(i));
+                    table.add(resultado.getObject(i));
                 }
-                data.add(magias);
+                data.add(table);
             }
 
 
@@ -59,7 +62,6 @@ public final class MagiaDAO {
         return new dataResultTableRow(data);
     }
 
-    //Amanda's code
 
     public static ArrayList<Magia> List(){
         ArrayList<Magia> magias = new ArrayList<>();

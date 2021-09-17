@@ -14,6 +14,7 @@ public class Monstro {
     private String formaCorporal;
     private String tamanho;
     private float deslocamentoBase;
+    private ArrayList<CaracteristicaMonstro> caracteristicaMonstros;
     private int constituicao;
     private int carisma;
     private int destreza;
@@ -24,7 +25,7 @@ public class Monstro {
     public Monstro() {
     }
 
-    public Monstro(String nomeMonstro, String descricao, String foto, int classeArmadura, int pontosVidaBase, String tendencia, float nivel, int pontosExperiencia, String formaCorporal, String tamanho, float deslocamentoBase, int constituicao, int carisma, int destreza, int forca, int inteligencia, int sabedoria) {
+    public Monstro(String nomeMonstro, String descricao, String foto, int classeArmadura, int pontosVidaBase, String tendencia, float nivel, int pontosExperiencia, String formaCorporal, String tamanho, float deslocamentoBase, ArrayList<CaracteristicaMonstro> caracteristicaMonstros, int constituicao, int carisma, int destreza, int forca, int inteligencia, int sabedoria) {
         this.nomeMonstro = nomeMonstro;
         this.descricao = descricao;
         this.foto = foto;
@@ -36,6 +37,7 @@ public class Monstro {
         this.formaCorporal = formaCorporal;
         this.tamanho = tamanho;
         this.deslocamentoBase = deslocamentoBase;
+        this.caracteristicaMonstros = caracteristicaMonstros;
         this.constituicao = constituicao;
         this.carisma = carisma;
         this.destreza = destreza;
@@ -130,6 +132,14 @@ public class Monstro {
 
     public void setDeslocamentoBase(float deslocamentoBase) {
         this.deslocamentoBase = deslocamentoBase;
+    }
+
+    public ArrayList<CaracteristicaMonstro> getCaracteristicaMonstros() {
+        return caracteristicaMonstros;
+    }
+
+    public void setCaracteristicaMonstros(ArrayList<CaracteristicaMonstro> caracteristicaMonstros) {
+        this.caracteristicaMonstros = caracteristicaMonstros;
     }
 
     public int getConstituicao() {

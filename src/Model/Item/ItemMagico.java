@@ -1,64 +1,42 @@
 package Model.Item;
 
-import javafx.beans.property.SimpleStringProperty;
 
 public class ItemMagico {
-    private Item itemMagico;
-    private SimpleStringProperty tipo;
-    private SimpleStringProperty raridade;
-    private SimpleStringProperty requisito;
+    private String tipo;
+    private String raridade;
+    private String requisito;
 
     public ItemMagico() {
     }
 
-    public ItemMagico(Item itemMagico, SimpleStringProperty tipo, SimpleStringProperty raridade, SimpleStringProperty requisito) {
-        this.itemMagico = itemMagico;
+    public ItemMagico(String tipo, String raridade, String requisito) {
         this.tipo = tipo;
         this.raridade = raridade;
         this.requisito = requisito;
     }
 
-    public Item getItemMagico() {
-        return itemMagico;
-    }
-
-    public void setItemMagico(Item itemMagico) {
-        this.itemMagico = itemMagico;
-    }
-
     public String getTipo() {
-        return tipo.get();
-    }
-
-    public SimpleStringProperty tipoProperty() {
         return tipo;
     }
 
     public void setTipo(String tipo) {
-        this.tipo.set(tipo);
+        this.tipo = tipo;
     }
 
     public String getRaridade() {
-        return raridade.get();
-    }
-
-    public SimpleStringProperty raridadeProperty() {
         return raridade;
     }
 
     public void setRaridade(String raridade) {
-        this.raridade.set(raridade);
+        this.raridade = raridade;
     }
 
     public String getRequisito() {
-        return requisito.get();
-    }
-
-    public SimpleStringProperty requisitoProperty() {
         return requisito;
     }
 
     public void setRequisito(String requisito) {
-        this.requisito.set(requisito);
+        this.requisito = requisito;
     }
 }
+
