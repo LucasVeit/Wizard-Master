@@ -1,5 +1,6 @@
 package Model.DAO.New;
 
+import Model.Cidade;
 import Model.Faccao;
 import Model.ConnectPostgre;
 
@@ -9,10 +10,6 @@ import java.util.ArrayList;
 
 public class FaccaoDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
-    //String sql = null;
-    //Statement declaracao;
-    //ResultSet resultado;
-
     public static ArrayList<Faccao> Listar(){
         ArrayList<Faccao> faccoes = new ArrayList<>();
         String sql = "select * from Faccao";
@@ -42,7 +39,7 @@ public class FaccaoDAO {
 
     public static void Inserir(Faccao faccao){
         String sql = "insert into faccao (nomeFaccao, nomeCampanha, populacao, formaGoverno, descricao)" +
-                "VALUES" +
+                " VALUES" +
                 "(?,?,?,?,?);";
 
         try {
@@ -94,6 +91,44 @@ public class FaccaoDAO {
             ps.setInt(1, faccao.getCodigo());
 
             ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir!");
+            e.printStackTrace();
+        }
+    }
+
+    public static void InserirLider(Faccao faccao, String lider){
+        String sql = "insert into LiderFaccao (codigoFaccao, codigoLider)" +
+                " VALUES" +
+                "(?,?);";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, faccao.getCodigo());
+            ps.setInt(2, LiderDAO.GetLider(lider, faccao.getNomeCampanha()).getCodigoLider());
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao inserir!");
+            e.printStackTrace();
+        }
+    }
+
+    public static void RemoverLider(Faccao faccao, String lider){
+        String sql = "delete from LiderFaccao where codigoFaccao = ? and codigoLider = ?;";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, faccao.getCodigo());
+            ps.setInt(2, LiderDAO.GetLider(lider, faccao.getNomeCampanha()).getCodigoLider());
+
+            ps.executeUpdate();
+
             JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
 
         } catch (SQLException e) {

@@ -9,9 +9,6 @@ import java.util.ArrayList;
 
 public class PanteaoDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
-    //String sql = null;
-    //Statement declaracao;
-    //ResultSet resultado;
 
     public static ArrayList<Panteao> Listar(){
         ArrayList<Panteao> pantoes = new ArrayList<>();
@@ -39,7 +36,7 @@ public class PanteaoDAO {
 
     public static void Inserir(Panteao panteao){
         String sql = "insert into panteao (nomeCampanha, codigoDeus)" +
-                "VALUES" +
+                " VALUES" +
                 "(?,?);";
 
         try {

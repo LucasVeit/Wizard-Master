@@ -10,9 +10,6 @@ import java.util.ArrayList;
 
 public class CidadeDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
-    //String sql = null;
-    //Statement declaracao;
-    //ResultSet resultado;
 
     public static ArrayList<Cidade> Listar(){
         ArrayList<Cidade> cidades = new ArrayList<>();
@@ -71,8 +68,8 @@ public class CidadeDAO {
     }
 
     public static void Atualizar(Cidade cidade){
-        String sql = "UPDATE cidade SET nomeCidade = ?, nomeCampanha = ?, comercio = ?, clima = ?, vegetacao = ?, populacao = ?, formaGoverno = ?, descricao = ?" +
-                " WHERE codigoCidade = ?";
+        String sql = "update cidade set nomeCidade = ?, nomeCampanha = ?, comercio = ?, clima = ?, vegetacao = ?, populacao = ?, formaGoverno = ?, descricao = ?" +
+                " where codigoCidade = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -97,13 +94,51 @@ public class CidadeDAO {
     }
 
     public static void Remover(Cidade cidade){
-        String sql = "DELETE FROM cidade WHERE codigoCidade = ?";
+        String sql = "delete from cidade where codigoCidade = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, cidade.getCodigo());
 
             ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir!");
+            e.printStackTrace();
+        }
+    }
+
+    public static void InserirLider(Cidade cidade, String lider){
+        String sql = "insert into LiderCidade (codigoCidade, codigoLider)" +
+                " VALUES" +
+                "(?,?);";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, cidade.getCodigo());
+            ps.setInt(2, LiderDAO.GetLider(lider, cidade.getNomeCampanha()).getCodigoLider());
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao inserir!");
+            e.printStackTrace();
+        }
+    }
+
+    public static void RemoverLider(Cidade cidade, String lider){
+        String sql = "delete from LiderCidade where codigoCidade = ? and codigoLider = ?;";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, cidade.getCodigo());
+            ps.setInt(2, LiderDAO.GetLider(lider, cidade.getNomeCampanha()).getCodigoLider());
+
+            ps.executeUpdate();
+
             JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
 
         } catch (SQLException e) {

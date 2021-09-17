@@ -2,9 +2,12 @@ package Controller;
 
 import Model.ConnectPostgre;
 import Model.Cidade;
+import Model.DAO.New.CidadeDAO;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -139,16 +142,12 @@ public class criarCidadeController implements Initializable, controlledScreen {
         column9.setCellValueFactory(new PropertyValueFactory<>("descricao"));
 
         columnLider.setCellValueFactory(stringStringCellDataFeatures -> new ReadOnlyStringWrapper(stringStringCellDataFeatures.getValue()));
-        /*
-        ObservableList<criarCidade> cidade = FXCollections.observableArrayList("FUNCAO DAO()");
+        ObservableList<Cidade> cidade = FXCollections.observableArrayList(CidadeDAO.Listar());
         tableView.setItems(cidade);
 
         for(int i = 0; i < tableView.getItems().size(); ++i){
             valoresTabela.put(i, tableView.getItems().get(i));
         }
-
-         */
-
     }
 
     private void pegarValores(){
@@ -163,6 +162,8 @@ public class criarCidadeController implements Initializable, controlledScreen {
         tableView.getItems().add(cidadeAtual);
         valoresTabela.put(i, cidadeAtual);
         ++i;
+
+        initTable();
 
         for(int i = 0; i < tableViewLider.getItems().size(); ++i){
             arrayLideres.add(tableViewLider.getItems().get(i));

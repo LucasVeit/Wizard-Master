@@ -9,9 +9,6 @@ import java.util.ArrayList;
 
 public class MundoDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
-    //String sql = null;
-    //Statement declaracao;
-    //ResultSet resultado;
 
     public static ArrayList<Mundo> Listar(){
         ArrayList<Mundo> mundos = new ArrayList<>();
@@ -39,7 +36,7 @@ public class MundoDAO {
 
     public static void Inserir(Mundo mundo){
         String sql = "insert into mundo (nomeCampanha, nomePlano)" +
-                "VALUES" +
+                " VALUES" +
                 "(?,?);";
 
         try {

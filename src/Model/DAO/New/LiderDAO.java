@@ -9,9 +9,6 @@ import java.util.ArrayList;
 
 public class LiderDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
-    //String sql = null;
-    //Statement declaracao;
-    //ResultSet resultado;
 
     public static ArrayList<Lider> Listar(){
         ArrayList<Lider> lideres = new ArrayList<>();
@@ -41,7 +38,7 @@ public class LiderDAO {
 
     public static void Inserir(Lider lider){
         String sql = "insert into lider (nomeLider, descricao, nomeCampanha)" +
-                "VALUES" +
+                " VALUES" +
                 "(?,?,?);";
 
         try {
@@ -95,5 +92,31 @@ public class LiderDAO {
             JOptionPane.showMessageDialog(null, "Erro ao excluir!");
             e.printStackTrace();
         }
+    }
+
+    public static Lider GetLider(String nome, String campanha){
+        Lider lider = new Lider();
+        String sql = "select * from Lider where nome = '" + nome + "' and nomeCampanha = '" + campanha + "';";
+
+        try {
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while (resultado.next()) {
+                int codigo = resultado.getInt("codigoLider");
+                String nomeLider = resultado.getString("nomeLider");
+                String descricao = resultado.getString("descricao");
+                String nomeCampanha = resultado.getString("nomeCampanha");
+
+                lider = new Lider(codigo, nomeLider, descricao, nomeCampanha);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao recuperar lista!");
+            e.printStackTrace();
+        }
+
+        return lider;
+
     }
 }
