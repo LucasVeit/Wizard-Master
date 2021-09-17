@@ -5,10 +5,7 @@ import Model.ConnectPostgre;
 import Model.Monstro.CaracteristicaMonstro;
 
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class CidadeDAO {
@@ -28,12 +25,16 @@ public class CidadeDAO {
             while (resultado.next()) {
                 int codigo = resultado.getInt("codigoCidade");
                 String nomeCidade = resultado.getString("nomeCidade");
-                String comercio;
-                String clima;
-                String vegetacao;
-                int populacao;
-                String formaGoverno;
-                String descricao;
+                String nomeCampanha = resultado.getString("nomeCampanha");
+                String comercio = resultado.getString("comercio");
+                String clima = resultado.getString("clima");
+                String vegetacao = resultado.getString("vegetacao");
+                int populacao = resultado.getInt("populacao");
+                String formaGoverno = resultado.getString("formaGoverno");
+                String descricao = resultado.getString("descricao");
+
+                Cidade cidade = new Cidade(codigo, nomeCidade, nomeCampanha, comercio, clima, vegetacao, populacao, formaGoverno, descricao);
+                cidades.add(cidade);
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro ao recuperar lista de clientes!");
@@ -41,17 +42,37 @@ public class CidadeDAO {
         }
 
         return cidades;
-
-
-
-
     }
 
-    public static void Inserir(){
+    public static void Inserir(Cidade cidade){
+        String sql = "insert into cidade (nomeCidade, nomeCampanha, comercio, clima, vegetacao, populacao, formaGoverno, descricao)" +
+                "VALUES" +
+                "(?,?,?,?,?,?,?,?);";
 
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, cidade.getNomeCidade());
+            ps.setString(2, cidade.getNomeCampanha());
+            ps.setString(3, cidade.getComercio());
+            ps.setString(4, cidade.getClima());
+            ps.setString(5, cidade.getVegetacao());
+            ps.setInt(6, cidade.getPopulacao());
+            ps.setString(7, cidade.getFormaGoverno());
+            ps.setString(8, cidade.getDescricao());
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao inserir!");
+            e.printStackTrace();
+        }
     }
 
     public static void Atualizar(){
+        String sql = "UPDATE cidade SET nome = ?, email = ?, "
+                + "telefone = ?, curso = ?, ra = ?, anoIngresso = ? WHERE codigo = ?"; //salvar no banco de dados
 
     }
 

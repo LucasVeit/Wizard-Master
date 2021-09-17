@@ -1,7 +1,7 @@
 package Controller;
 
 import Model.ConnectPostgre;
-import Model.criarCidade;
+import Model.Cidade;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -27,25 +27,25 @@ public class criarCidadeController implements Initializable, controlledScreen {
 
     screensController myController;
     @FXML
-    private TableView<criarCidade> tableView;
+    private TableView<Cidade> tableView;
     @FXML
     private TableView<String> tableViewLider;
     @FXML
     TableColumn<String, String> columnLider;
     @FXML
-    TableColumn<criarCidade, SimpleStringProperty> column1;
+    TableColumn<Cidade, SimpleStringProperty> column1;
     @FXML
-    TableColumn<criarCidade, SimpleStringProperty>  column2;
+    TableColumn<Cidade, SimpleStringProperty>  column2;
     @FXML
-    TableColumn<criarCidade, SimpleStringProperty>  column3;
+    TableColumn<Cidade, SimpleStringProperty>  column3;
     @FXML
-    TableColumn<criarCidade, SimpleStringProperty>  column4;
+    TableColumn<Cidade, SimpleStringProperty>  column4;
     @FXML
-    TableColumn<criarCidade, SimpleStringProperty>  column5;
+    TableColumn<Cidade, SimpleStringProperty>  column5;
     @FXML
-    TableColumn<criarCidade, SimpleStringProperty>  column6;
+    TableColumn<Cidade, SimpleStringProperty>  column6;
     @FXML
-    TableColumn<criarCidade, SimpleStringProperty>  column7;
+    TableColumn<Cidade, SimpleStringProperty>  column7;
     @FXML
     private TextField nomeCidade;
     @FXML
@@ -74,9 +74,9 @@ public class criarCidadeController implements Initializable, controlledScreen {
     private Button adicionarLider;
     @FXML
     private Button removerLider;
-    private criarCidade cidadeAtual;
-    private criarCidade cidadeAntiga;
-    private HashMap<Integer, criarCidade> valoresTabela;
+    private Cidade cidadeAtual;
+    private Cidade cidadeAntiga;
+    private HashMap<Integer, Cidade> valoresTabela;
     private ArrayList<String> arrayLideres;
     private static Connection con = ConnectPostgre.ConnectDatabase();
     int i = 0;
@@ -104,7 +104,7 @@ public class criarCidadeController implements Initializable, controlledScreen {
                     comercio.setText(cidadeAntiga.getComercio());
                     clima.setText(cidadeAntiga.getClima());
                     vegetacao.setText(cidadeAntiga.getVegetacao());
-                    populacao.setText(cidadeAntiga.getPopulacao());
+                    populacao.setText(String.valueOf(cidadeAntiga.getPopulacao()));
                     formaGoverno.setText(cidadeAntiga.getFormaGoverno());
                     descricao.setText(cidadeAntiga.getDescricao());
                 }
@@ -150,7 +150,7 @@ public class criarCidadeController implements Initializable, controlledScreen {
     }
 
     private void pegarValores(){
-        cidadeAtual = new criarCidade(nomeCidade.getText(), comercio.getText(), clima.getText(), vegetacao.getText(), populacao.getText(), formaGoverno.getText(), descricao.getText());
+        cidadeAtual = new Cidade(0, nomeCidade.getText(), comercio.getText(), clima.getText(), vegetacao.getText(), Integer.parseInt(populacao.getText()), formaGoverno.getText(), descricao.getText());
     }
 
     @FXML

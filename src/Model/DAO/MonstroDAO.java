@@ -91,7 +91,7 @@ public class MonstroDAO {
 
                 Monstro monstro = new Monstro(nomeMonstro, descricao, foto, classeArmadura, pontosVidaBase, tendencia, nivel, pontosExperiencia,
                 formaCorporal, tamanho, deslocamentoBase, ListCaracteristica(nomeMonstro), constituicao, carisma, destreza, forca, inteligencia, sabedoria);
-                 monstros.add(monstro);
+                monstros.add(monstro);
             }
 
         } catch(SQLException e){

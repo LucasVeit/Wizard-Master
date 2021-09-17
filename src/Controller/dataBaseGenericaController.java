@@ -389,7 +389,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
         list.clear();
 
         for(int i = 1; i < object.size(); ++i){
-            Text subtitle = new Text( tableView.getColumns().get(i).getText()+ "\n");
+            Text subtitle = new Text( tableView.getColumns().get(i).getText()+ ": ");
             subtitle.setFont(Font.font("Sylfaen", 30));
             subtitle.setFill(Color.rgb(40, 2, 2));
             list.add(subtitle);
@@ -407,12 +407,12 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
         if(String.valueOf(object.get(2)).equals("Arma")){
             Arma arma = ItemDAO.getArma(String.valueOf(object.get(0)));
 
-            Text subtitle01 = new Text( "Tipo" + "\n");
+            Text subtitle01 = new Text( "Tipo: ");
             subtitle01.setFont(Font.font("Sylfaen", 30));
             subtitle01.setFill(Color.rgb(40, 2, 2));
             list.add(subtitle01);
 
-            Text text01 = new Text(arma.getTipo() + ": ");
+            Text text01 = new Text(arma.getTipo() + "\n");
             text01.setFont(Font.font("Sylfaen", 24));
             text01.setFill(Color.rgb(63, 4, 4));
             list.add(text01);
@@ -426,7 +426,8 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             text02.setFont(Font.font("Sylfaen", 24));
             text02.setFill(Color.rgb(63, 4, 4));
             list.add(text02);
-            if(!arma.getPropriedadeArma().isEmpty()) {
+
+            if(arma.getPropriedadeArma().size() > 0) {
                 for (int i = 0; i < arma.getPropriedadeArma().size(); i++) {
                     Text subtitle03 = new Text(arma.getPropriedadeArma().get(i).getNome() + ": ");
                     subtitle03.setFont(Font.font("Sylfaen", 30));
@@ -452,7 +453,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
         }else if(String.valueOf(object.get(2)).equals("armaduraEscudo")){
             ArmaduraEscudo armaduraEscudo = ItemDAO.getArmaduraEscudo(String.valueOf(object.get(0)));
 
-            Text subtitle01 = new Text( "Classe Armadura" + "\n");
+            Text subtitle01 = new Text( "Classe Armadura: ");
             subtitle01.setFont(Font.font("Sylfaen", 30));
             subtitle01.setFill(Color.rgb(40, 2, 2));
             list.add(subtitle01);
@@ -462,7 +463,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             text01.setFill(Color.rgb(63, 4, 4));
             list.add(text01);
 
-            Text subtitle02 = new Text( "Possui modificar de destreza?" + "\n");
+            Text subtitle02 = new Text( "Possui modificar de destreza? ");
             subtitle02.setFont(Font.font("Sylfaen", 30));
             subtitle02.setFill(Color.rgb(40, 2, 2));
             list.add(subtitle02);
@@ -479,7 +480,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
                 list.add(text02);
             }
 
-            Text subtitle03 = new Text( "Modificador máximo de destreza" + "\n");
+            Text subtitle03 = new Text( "Modificador máximo de destreza: ");
             subtitle03.setFont(Font.font("Sylfaen", 30));
             subtitle03.setFill(Color.rgb(40, 2, 2));
             list.add(subtitle03);
@@ -489,7 +490,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             text03.setFill(Color.rgb(63, 4, 4));
             list.add(text03);
 
-            Text subtitle04 = new Text( "Força necessária" + "\n");
+            Text subtitle04 = new Text( "Força necessária: ");
             subtitle04.setFont(Font.font("Sylfaen", 30));
             subtitle04.setFill(Color.rgb(40, 2, 2));
             list.add(subtitle04);
@@ -499,7 +500,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             text04.setFill(Color.rgb(63, 4, 4));
             list.add(text04);
 
-            Text subtitle05 = new Text( "Tipo" + "\n");
+            Text subtitle05 = new Text( "Tipo: ");
             subtitle05.setFont(Font.font("Sylfaen", 30));
             subtitle05.setFill(Color.rgb(40, 2, 2));
             list.add(subtitle05);
@@ -509,7 +510,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             text05.setFill(Color.rgb(63, 4, 4));
             list.add(text05);
 
-            Text subtitle06 = new Text( "Possui desvantagem para furtividade?" + "\n");
+            Text subtitle06 = new Text( "Possui desvantagem para furtividade?" );
             subtitle06.setFont(Font.font("Sylfaen", 30));
             subtitle06.setFill(Color.rgb(40, 2, 2));
             list.add(subtitle06);
@@ -526,7 +527,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
                 list.add(text06);
             }
 
-            Text subtitle07 = new Text( "Tempo para equipar" + "\n");
+            Text subtitle07 = new Text( "Tempo para equipar: ");
             subtitle07.setFont(Font.font("Sylfaen", 30));
             subtitle07.setFill(Color.rgb(40, 2, 2));
             list.add(subtitle07);
@@ -536,7 +537,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             text07.setFill(Color.rgb(63, 4, 4));
             list.add(text07);
 
-            Text subtitle08 = new Text( "Tempo para desequipar" + "\n");
+            Text subtitle08 = new Text( "Tempo para desequipar: ");
             subtitle08.setFont(Font.font("Sylfaen", 30));
             subtitle08.setFill(Color.rgb(40, 2, 2));
             list.add(subtitle08);
@@ -549,7 +550,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
         }else if(String.valueOf(object.get(2)).equals("Item Mágico")){
             ItemMagico itemMagico = ItemDAO.getItemMagico(String.valueOf(object.get(0)));
 
-            Text subtitle01 = new Text( "Tipo" + "\n");
+            Text subtitle01 = new Text( "Tipo: ");
             subtitle01.setFont(Font.font("Sylfaen", 30));
             subtitle01.setFill(Color.rgb(40, 2, 2));
             list.add(subtitle01);
@@ -559,7 +560,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             text01.setFill(Color.rgb(63, 4, 4));
             list.add(text01);
 
-            Text subtitle02 = new Text( "Raridade" + "\n");
+            Text subtitle02 = new Text( "Raridade: ");
             subtitle02.setFont(Font.font("Sylfaen", 30));
             subtitle02.setFill(Color.rgb(40, 2, 2));
             list.add(subtitle02);
@@ -569,7 +570,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             text02.setFill(Color.rgb(63, 4, 4));
             list.add(text02);
 
-            Text subtitle03 = new Text( "Requisito" + "\n");
+            Text subtitle03 = new Text( "Requisito: ");
             subtitle03.setFont(Font.font("Sylfaen", 30));
             subtitle03.setFill(Color.rgb(40, 2, 2));
             list.add(subtitle03);

@@ -465,15 +465,15 @@ create table Aparencia (
 );
 
 create table Personagem (
-	codigoPersonagem serial,
+	codigoPersonagem serial, 
 	nomeJogador varchar(30) not null,
 	nomeCampanha varchar(100) not null,
 	personagemRaca varchar(30) not null,
 	personagemClasse varchar(30) not null,
-	codigoDeus integer,
+	codigoDeus integer,--
 	codigoAparencia integer,
-	arquetipo varchar(30),
-	nomeAntecedente varchar(30),
+	arquetipo varchar(30),--
+	nomeAntecedente varchar(30),--
 	coordenadaX integer,
 	coordenadaY integer,
 	tendencia varchar(30) not null,
