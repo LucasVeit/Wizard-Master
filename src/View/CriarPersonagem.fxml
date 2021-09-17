@@ -32,7 +32,7 @@
                <children>
                   <ScrollPane prefHeight="238.0" prefWidth="1091.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1021.0" prefWidth="1075.0" styleClass="background" stylesheets="@style.css">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1022.0" prefWidth="1062.0" styleClass="background" stylesheets="@style.css">
                            <children>
                               <VBox layoutX="10.0" layoutY="10.0" prefHeight="1021.0" prefWidth="938.0" spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                                  <children>
@@ -529,7 +529,7 @@
                   <Insets left="42.0" />
                </BorderPane.margin>
                <content>
-                  <AnchorPane prefHeight="460.0" prefWidth="1066.0" styleClass="background" stylesheets="@style.css">
+                  <AnchorPane prefHeight="459.0" prefWidth="1063.0" styleClass="background" stylesheets="@style.css">
                      <children>
                         <VBox layoutX="20.0" layoutY="20.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                            <children>
