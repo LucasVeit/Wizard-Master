@@ -1,19 +1,23 @@
 package Model;
 
-import javafx.beans.property.SimpleStringProperty;
-
-public class criarCidade {
-
+public class Cidade {
+    private int codigo;
     private String nomeCidade;
+    private String nomeCampanha;
     private String comercio;
     private String clima;
     private String vegetacao;
-    private String populacao;
+    private int populacao;
     private String formaGoverno;
     private String descricao;
 
-    public criarCidade(String nomeCidade, String comercio, String clima, String vegetacao, String populacao, String formaGoverno, String descricao) {
+    public Cidade() {
+    }
+
+    public Cidade(int codigo, String nomeCidade, String nomeCampanha, String comercio, String clima, String vegetacao, int populacao, String formaGoverno, String descricao) {
+        this.codigo = codigo;
         this.nomeCidade = nomeCidade;
+        this.nomeCampanha = nomeCampanha;
         this.comercio = comercio;
         this.clima = clima;
         this.vegetacao = vegetacao;
@@ -22,12 +26,28 @@ public class criarCidade {
         this.descricao = descricao;
     }
 
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
     public String getNomeCidade() {
         return nomeCidade;
     }
 
     public void setNomeCidade(String nomeCidade) {
         this.nomeCidade = nomeCidade;
+    }
+
+    public String getNomeCampanha() {
+        return nomeCampanha;
+    }
+
+    public void setNomeCampanha(String nomeCampanha) {
+        this.nomeCampanha = nomeCampanha;
     }
 
     public String getComercio() {
@@ -54,11 +74,11 @@ public class criarCidade {
         this.vegetacao = vegetacao;
     }
 
-    public String getPopulacao() {
+    public int getPopulacao() {
         return populacao;
     }
 
-    public void setPopulacao(String populacao) {
+    public void setPopulacao(int populacao) {
         this.populacao = populacao;
     }
 

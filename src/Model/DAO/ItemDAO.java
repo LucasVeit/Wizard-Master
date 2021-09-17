@@ -130,35 +130,35 @@ public class ItemDAO {
             Statement declaracao = con.createStatement();
             ResultSet resultado = declaracao.executeQuery(sql);
 
-            String tipo = resultado.getString("tipo");
-            String dano = resultado.getString("dano");
-            ArrayList<PropriedadeArma> propriedadeArma = getPropriedadeArma(nomeItem);
-            arma = new Arma(tipo, dano, propriedadeArma);
+            while(resultado.next()) {
+                String tipo = resultado.getString("tipo");
+                String dano = resultado.getString("dano");
+                ArrayList<PropriedadeArma> propriedadeArma = getPropriedadeArma(nomeItem);
+                arma = new Arma(tipo, dano, propriedadeArma);
+            }
 
         }catch(SQLException e){
             System.out.println("Error");
         }
 
         return arma;
-
     }
 
     public static ArrayList<PropriedadeArma> getPropriedadeArma(String nome){
         ArrayList<PropriedadeArma> propriedadearmas = new ArrayList<>();
-        String sql = "select * from ArmaPropriedadeArma " +
-                "inner join PropriedadeArma on" +
-                "ArmaPropriedadeArma.nomePropriedade = PropriedadeArma.nomePropriedade" +
+        String sql = "select ArmaPropriedadeArma.nomePropriedade, PropriedadeArma.descricao as descricao, ArmaPropriedadeArma.descricao as descricaoArma " +
+                "from ArmaPropriedadeArma " +
+                "inner join PropriedadeArma on " +
+                "ArmaPropriedadeArma.nomePropriedade = PropriedadeArma.nomePropriedade " +
                 "where ArmaPropriedadeArma.nomeItem = '" + nome + "';";
-
         try{
             Statement declaracao = con.createStatement();
             ResultSet resultado = declaracao.executeQuery(sql);
 
             while(resultado.next()){
-                  String nomePropriedade = resultado.getString("ArmaPropriedadeArma.nomePropriedade");
-                  String descricaoPropriedade = resultado.getString("PropriedadeArma.descricao");
-                  String descricaoCaracteristica = resultado.getString("ArmaPropriedadeArma.descricao");
-
+                String nomePropriedade = resultado.getString("nomepropriedade");
+                String descricaoPropriedade = resultado.getString("descricao");
+                String descricaoCaracteristica = resultado.getString("descricaoarma");
                 PropriedadeArma propriedadeArma = new PropriedadeArma(nomePropriedade, descricaoPropriedade, descricaoCaracteristica);
 
                 propriedadearmas.add(propriedadeArma);
@@ -166,7 +166,7 @@ public class ItemDAO {
             }
 
         }catch(SQLException e){
-            System.out.println("Error");
+            System.out.println("Error on getPropriedadeArma");
         }
         return propriedadearmas;
     }
@@ -179,11 +179,11 @@ public class ItemDAO {
             Statement declaracao = con.createStatement();
             ResultSet resultado = declaracao.executeQuery(sql);
 
-            resultado.next();
-            float deslocamento = resultado.getFloat("deslocamento");
-            float capacidadeCarga = resultado.getFloat("capacidadeCarga");
-            montaria = new Montaria(deslocamento, capacidadeCarga);
-
+            while(resultado.next()) {
+                float deslocamento = resultado.getFloat("deslocamento");
+                float capacidadeCarga = resultado.getFloat("capacidadeCarga");
+                montaria = new Montaria(deslocamento, capacidadeCarga);
+            }
 
         }catch(SQLException e){
             System.out.println("Error");
@@ -200,25 +200,25 @@ public class ItemDAO {
             Statement declaracao = con.createStatement();
             ResultSet resultado = declaracao.executeQuery(sql);
 
-            resultado.next();
-            int classeArmadura = resultado.getInt("classeArmadura");
-            boolean modificadorDes = resultado.getBoolean("modificadorDes");
-            int maxModificador = resultado.getInt("maxModificador");
-            int forcaNecessaria = resultado.getInt("forcaNecessaria");
-            String tipo =  resultado.getString("tipo");
-            boolean furtividade =  resultado.getBoolean("furtividade");
+            while(resultado.next()) {
+                int classeArmadura = resultado.getInt("classeArmadura");
+                boolean modificadorDes = resultado.getBoolean("modificadorDes");
+                int maxModificador = resultado.getInt("maxModificador");
+                int forcaNecessaria = resultado.getInt("forcaNecessaria");
+                String tipo = resultado.getString("tipo");
+                boolean furtividade = resultado.getBoolean("furtividade");
 
-            sql = "select * from Tempo where tipo = " + tipo.toString() + ";";
-            Statement declaracao2 = con.createStatement();
-            ResultSet resultado2 = declaracao2.executeQuery(sql);
-            resultado2.next();
+                sql = "select * from Tempo where tipo = '" + tipo.toString() + "';";
+                Statement declaracao2 = con.createStatement();
+                ResultSet resultado2 = declaracao2.executeQuery(sql);
+                resultado2.next();
 
-            int periodoEquipar = resultado2.getInt("equipar");
-            int periodoDesequipar = resultado2.getInt("desequipar");
-            String medidaPeriodo =   resultado2.getString("medida");
+                int periodoEquipar = resultado2.getInt("equipar");
+                int periodoDesequipar = resultado2.getInt("desequipar");
+                String medidaPeriodo = resultado2.getString("medida");
 
-            armaduraEscudo = new ArmaduraEscudo(classeArmadura, modificadorDes, maxModificador, forcaNecessaria, tipo, furtividade, periodoEquipar, periodoDesequipar, medidaPeriodo);
-
+                armaduraEscudo = new ArmaduraEscudo(classeArmadura, modificadorDes, maxModificador, forcaNecessaria, tipo, furtividade, periodoEquipar, periodoDesequipar, medidaPeriodo);
+            }
         }catch(SQLException e){
             System.out.println("Error");
         }
@@ -234,12 +234,12 @@ public class ItemDAO {
             Statement declaracao = con.createStatement();
             ResultSet resultado = declaracao.executeQuery(sql);
 
-            resultado.next();
-            String tipo = resultado.getString("tipo");
-            String raridade = resultado.getString("raridade");
-            String requisito = resultado.getString("requisito");
-            itemMagico = new ItemMagico(tipo, raridade, requisito);
-
+            while(resultado.next()) {
+                String tipo = resultado.getString("tipo");
+                String raridade = resultado.getString("raridade");
+                String requisito = resultado.getString("requisito");
+                itemMagico = new ItemMagico(tipo, raridade, requisito);
+            }
         }catch(SQLException e){
             System.out.println("Error");
         }
