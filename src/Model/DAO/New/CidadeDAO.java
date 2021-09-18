@@ -34,7 +34,6 @@ public class CidadeDAO {
                 cidades.add(cidade);
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Erro ao recuperar lista!");
             e.printStackTrace();
         }
 

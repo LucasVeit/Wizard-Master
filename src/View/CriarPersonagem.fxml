@@ -529,7 +529,7 @@
                   <Insets left="42.0" />
                </BorderPane.margin>
                <content>
-                  <AnchorPane prefHeight="459.0" prefWidth="1063.0" styleClass="background" stylesheets="@style.css">
+                  <AnchorPane prefHeight="459.0" prefWidth="1063.0" styleClass="background-personagem" stylesheets="@style.css">
                      <children>
                         <VBox layoutX="20.0" layoutY="20.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                            <children>
