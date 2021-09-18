@@ -12,7 +12,7 @@ public class PanteaoDAO {
 
     public static ArrayList<Panteao> Listar(){
         ArrayList<Panteao> pantoes = new ArrayList<>();
-        String sql = "select * from Panteao";
+        String sql = "select * from PanteaoCampanha";
 
         try {
             Statement declaracao = con.createStatement();
@@ -35,7 +35,7 @@ public class PanteaoDAO {
     }
 
     public static void Inserir(Panteao panteao){
-        String sql = "insert into panteao (nomeCampanha, codigoDeus)" +
+        String sql = "insert into PanteaoCampanha (nomeCampanha, codigoDeus)" +
                 " VALUES" +
                 "(?,?);";
 
@@ -55,7 +55,7 @@ public class PanteaoDAO {
     }
 
     public static void Remover(Panteao panteao){
-        String sql = "DELETE FROM panteao WHERE nomeCampanha = ? and codigoDeus = ?;";
+        String sql = "DELETE FROM PanteaoCampanha WHERE nomeCampanha = ? and codigoDeus = ?;";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);

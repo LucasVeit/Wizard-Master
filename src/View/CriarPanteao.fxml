@@ -39,18 +39,11 @@
                                                         <Font name="Sylfaen" size="18.0" />
                                                     </font>
                                                 </Label>
-                                                <ComboBox prefHeight="35.0" prefWidth="252.0" styleClass="Button" stylesheets="@style.css" />
+                                                <ComboBox fx:id="comboBox" prefHeight="35.0" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" />
                                             </children>
                                         </VBox>
-                                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
-                                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
                                     </children>
                                 </VBox>
-                                <TableView prefHeight="189.0" prefWidth="366.0">
-                                    <columns>
-                                        <TableColumn prefWidth="213.0" text="Deus" />
-                                    </columns>
-                                </TableView>
                             </children>
                             <HBox.margin>
                                 <Insets />
@@ -67,7 +60,7 @@
                                                         <Font name="Sylfaen" size="18.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField editable="false" />
+                                                <TextField fx:id="nomeDeus" editable="false" />
                                             </children>
                                         </VBox>
                                         <VBox spacing="5.0">
@@ -77,7 +70,7 @@
                                                         <Font name="Sylfaen" size="18.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField editable="false" />
+                                                <TextField fx:id="mitologia" editable="false" />
                                             </children>
                                         </VBox>
                                         <VBox spacing="5.0">
@@ -87,7 +80,7 @@
                                                         <Font name="Sylfaen" size="18.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField editable="false" />
+                                                <TextField fx:id="dominio" editable="false" />
                                             </children>
                                         </VBox>
                                         <VBox spacing="5.0">
@@ -97,7 +90,7 @@
                                                         <Font name="Sylfaen" size="18.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField editable="false" />
+                                                <TextField fx:id="tendencia" editable="false" />
                                             </children>
                                         </VBox>
                                     </children>
@@ -111,7 +104,7 @@
                                                         <Font name="Sylfaen" size="18.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField editable="false" />
+                                                <TextField fx:id="simbolo" editable="false" />
                                             </children>
                                         </VBox>
                                         <VBox spacing="5.0">
@@ -121,7 +114,7 @@
                                                         <Font name="Sylfaen" size="18.0" />
                                                     </font>
                                                 </Label>
-                                                <TextField editable="false" prefHeight="0.0" prefWidth="414.0" />
+                                                <TextField fx:id="descricao" editable="false" prefHeight="0.0" prefWidth="414.0" />
                                             </children>
                                         </VBox>
                                     </children>
@@ -133,11 +126,10 @@
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="216.0" prefWidth="84.0" spacing="20.0">
                             <children>
-                                <Button fx:id="adicionar" mnemonicParsing="false" prefHeight="40.0" prefWidth="73.0" styleClass="Button" stylesheets="@style.css" text="Adicionar">
+                                <Button fx:id="adicionar" mnemonicParsing="false" onAction="#adicionar" prefHeight="40.0" prefWidth="73.0" styleClass="Button" stylesheets="@style.css" text="Adicionar">
                            <VBox.margin>
                               <Insets top="20.0" />
                            </VBox.margin></Button>
-                                <Button fx:id="atualizar" mnemonicParsing="false" prefHeight="40.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" text="Atualizar" />
                             </children>
                             <HBox.margin>
                                 <Insets top="30.0" />
@@ -161,11 +153,11 @@
                                         <Insets />
                                     </VBox.margin>
                                 </ButtonBar>
-                                <Button fx:id="remover" mnemonicParsing="false" prefHeight="42.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" text="Remover">
+                                <Button fx:id="remover" mnemonicParsing="false" onAction="#remover" prefHeight="42.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" text="Remover">
                                     <VBox.margin>
                                         <Insets />
                                     </VBox.margin></Button>
-                                <Button fx:id="limpar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" text="Limpar">
+                                <Button fx:id="limpar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#limpar" prefHeight="40.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" text="Limpar">
                                     <VBox.margin>
                                         <Insets />
                                     </VBox.margin>
@@ -179,10 +171,14 @@
                 </HBox>
             </top>
             <bottom>
-                <TableView prefHeight="370.0" prefWidth="1006.0" BorderPane.alignment="CENTER">
+                <TableView fx:id="tableView" prefHeight="370.0" prefWidth="1006.0" BorderPane.alignment="CENTER">
                     <BorderPane.margin>
                         <Insets bottom="70.0" left="150.0" right="150.0" />
                     </BorderPane.margin>
+               <columns>
+                  <TableColumn fx:id="column1" prefWidth="75.0" text="nome Campanha" />
+                  <TableColumn fx:id="column2" prefWidth="75.0" text="codigo Deus" />
+               </columns>
                 </TableView>
             </bottom>
         </BorderPane>

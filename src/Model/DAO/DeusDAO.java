@@ -87,4 +87,56 @@ public class DeusDAO {
         }
         return deus;
     }
+
+    public static Deus GetDeusID(int cod){
+
+        String sql = "select * from Deus where codigoDeus = '" + cod + "';";
+        Deus deus = new Deus();
+
+        try{
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while(resultado.next()) {
+                int codigo = resultado.getInt("codigoDeus");
+                String nome = resultado.getString("nomeDeus");
+                String mitologia = resultado.getString("mitologia");
+                String dominio = resultado.getString("dominio");
+                String tendencia = resultado.getString("tendencia");
+                String simbolo = resultado.getString("simbolo");
+                String descricao = resultado.getString("descricao");
+                deus = new Deus(codigo, nome, mitologia, dominio, tendencia, simbolo, descricao);
+            }
+        }catch(SQLException e){
+            System.out.println("Error");
+        }
+        return deus;
+    }
+    public static ArrayList<Deus> Listar(){
+        ArrayList<Deus> deuses = new ArrayList<>();
+        String sql = "select * from Deus";
+
+        try{
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while(resultado.next()) {
+                int codigo = resultado.getInt("codigoDeus");
+                String nome = resultado.getString("nomeDeus");
+                String mitologia = resultado.getString("mitologia");
+                String dominio = resultado.getString("dominio");
+                String tendencia = resultado.getString("tendencia");
+                String simbolo = resultado.getString("simbolo");
+                String descricao = resultado.getString("descricao");
+                Deus deus = new Deus(codigo, nome, mitologia, dominio, tendencia, simbolo, descricao);
+
+                deuses.add(deus);
+            }
+        }catch(SQLException e){
+            System.out.println("Error");
+        }
+
+        return deuses;
+    }
+
 }

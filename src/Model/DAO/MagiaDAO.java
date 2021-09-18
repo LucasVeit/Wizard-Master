@@ -72,7 +72,6 @@ public class MagiaDAO {
             ResultSet resultado = declaracao.executeQuery(sql);
 
             while(resultado.next()){
-
                 SimpleStringProperty nomeMagia = new SimpleStringProperty(resultado.getString("nomeMagia"));
                 SimpleStringProperty tipo = new SimpleStringProperty(resultado.getString("tipo"));
                 SimpleIntegerProperty nivel = new SimpleIntegerProperty(resultado.getInt("nivel"));

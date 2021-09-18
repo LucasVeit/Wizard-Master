@@ -3,11 +3,14 @@ package Controller;
 import Model.ConnectPostgre;
 import Model.Cidade;
 import Model.DAO.New.CidadeDAO;
+import Model.DAO.New.FaccaoDAO;
 import Model.DAO.New.LiderDAO;
 import Model.Lider;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -22,7 +25,6 @@ import sample.main;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class criarCidadeController implements Initializable, controlledScreen {
@@ -37,7 +39,7 @@ public class criarCidadeController implements Initializable, controlledScreen {
     @FXML
     TableColumn<Cidade, SimpleIntegerProperty> column1;
     @FXML
-    TableColumn<Cidade, SimpleStringProperty>  column2;
+    TableColumn<Cidade, SimpleStringProperty> column2;
     @FXML
     TableColumn<Cidade, SimpleStringProperty>  column3;
     @FXML
@@ -82,13 +84,10 @@ public class criarCidadeController implements Initializable, controlledScreen {
     private Button removerLider;
     private Cidade cidadeAtual;
     private Cidade cidadeAntiga;
-    private ArrayList<String> arrayLideres;
-    private static Connection con = ConnectPostgre.ConnectDatabase();
     String lider;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        arrayLideres = new ArrayList<>();
         reloadCidade();
         initTable();
         initComboBox();
@@ -104,6 +103,7 @@ public class criarCidadeController implements Initializable, controlledScreen {
                     atualizar.setDisable(false);
                     adicionarLider.setDisable(false);
                     removerLider.setDisable(false);
+
                     nomeCidade.setText(cidadeAntiga.getNomeCidade());
                     comercio.setText(cidadeAntiga.getComercio());
                     clima.setText(cidadeAntiga.getClima());
@@ -111,6 +111,15 @@ public class criarCidadeController implements Initializable, controlledScreen {
                     populacao.setText(String.valueOf(cidadeAntiga.getPopulacao()));
                     formaGoverno.setText(cidadeAntiga.getFormaGoverno());
                     descricao.setText(cidadeAntiga.getDescricao());
+
+                    ObservableList<Cidade> cidade = FXCollections.observableArrayList(CidadeDAO.Listar());
+
+                    if(cidade.size() > 0){
+                        tableView.setItems(cidade);
+                    }
+
+                    refreshLider();
+                    initComboBox();
                 }
             }});
 
@@ -118,6 +127,16 @@ public class criarCidadeController implements Initializable, controlledScreen {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 lider = tableViewLider.getSelectionModel().getSelectedItem();
+            }
+        });
+
+        populacao.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    populacao.setText(newValue.replaceAll("[^\\d]", ""));
+                }
             }
         });
     }
@@ -153,6 +172,17 @@ public class criarCidadeController implements Initializable, controlledScreen {
         }
     }
 
+    private void refreshLider(){
+        ArrayList<String> lideres = CidadeDAO.ListarLiderCidade(cidadeAntiga);
+        tableViewLider.getItems().clear();
+        if(lideres.size() > 0){
+            tableViewLider.getItems().clear();
+            for(int i = 0; i < lideres.size(); i++){
+                tableViewLider.getItems().add(lideres.get(i));
+            }
+        }
+    }
+
 
     @FXML
     private void adicionar(ActionEvent event){
@@ -162,13 +192,6 @@ public class criarCidadeController implements Initializable, controlledScreen {
         //adicionar no banco de dados
 
         refreshTable();
-        /*
-        for(int i = 0; i < tableViewLider.getItems().size(); ++i){
-            arrayLideres.add(tableViewLider.getItems().get(i));
-            System.out.println(arrayLideres.get(i));
-        }
-
-         */
         clearLabels();
     }
 
@@ -181,6 +204,7 @@ public class criarCidadeController implements Initializable, controlledScreen {
         refreshTable();
         reloadCidade();
         clearLabels();
+        tableViewLider.getItems().clear();
     }
 
     @FXML
@@ -190,6 +214,7 @@ public class criarCidadeController implements Initializable, controlledScreen {
         refreshTable();
         reloadCidade();
         clearLabels();
+        tableViewLider.getItems().clear();
 
     }
 
@@ -215,24 +240,26 @@ public class criarCidadeController implements Initializable, controlledScreen {
 
         clearLabels();
         reloadCidade();
+        tableViewLider.getItems().clear();
     }
 
     @FXML
     private void adicionarLider(ActionEvent event){
-        tableViewLider.getItems().add(comboBox.getValue());
+        CidadeDAO.InserirLider(cidadeAntiga, comboBox.getValue());
+        refreshLider();
     }
 
     @FXML
     private void removerLider(ActionEvent event){
-        tableViewLider.getItems().remove(lider);
-        arrayLideres.remove(lider);
+        CidadeDAO.RemoverLider(cidadeAntiga, lider);
+        refreshLider();
     }
 
     public void initComboBox(){
+        comboBox.getItems().clear();
         ArrayList<Lider> lider = LiderDAO.Listar();
         for(int i = 0; i < lider.size(); ++i){
             comboBox.getItems().add(lider.get(i).getNomeLider());
         }
-
     }
 }

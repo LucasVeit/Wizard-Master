@@ -5,6 +5,7 @@ import Controller.dataResultTableRow;
 import Model.ConnectPostgre;
 import Model.Item.ItemMagico;
 import Model.Monstro.CaracteristicaMonstro;
+import Model.Mundo;
 import Model.Plano;
 import Model.Regra;
 
@@ -99,15 +100,38 @@ public class PlanoDAO {
 
             while(resultado.next()) {
                 String nome = resultado.getString("nomePlano");
-                String descricao = resultado.getString("nomePlano");
-                String corCortina = resultado.getString("nomePlano");
-                String corPoco = resultado.getString("nomePlano");
+                String descricao = resultado.getString("descricao");
+                String corCortina = resultado.getString("corCortina");
+                String corPoco = resultado.getString("corPoco");
                 plano = new Plano(nome, descricao, corCortina, corPoco);
             }
         }catch(SQLException e){
             System.out.println("Error");
         }
         return plano;
+    }
+
+    public static ArrayList<Plano> Listar(){
+        ArrayList<Plano> planos = new ArrayList<>();
+        String sql = "select * from Plano";
+
+        try{
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while(resultado.next()) {
+                String nome = resultado.getString("nomePlano");
+                String descricao = resultado.getString("nomePlano");
+                String corCortina = resultado.getString("nomePlano");
+                String corPoco = resultado.getString("nomePlano");
+                Plano plano = new Plano(nome, descricao, corCortina, corPoco);
+                planos.add(plano);
+            }
+        }catch(SQLException e){
+            System.out.println("Error");
+        }
+
+        return planos;
     }
 
 }

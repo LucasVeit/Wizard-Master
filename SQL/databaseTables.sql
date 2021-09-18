@@ -95,7 +95,7 @@ create table SubRaca (
 	sabedoria integer not null, 
 	inteligencia integer not null,
 	carisma integer not null,
-	primary key (nomeSubRaca),
+	primary key (nomeSubRaca, nomeRaca),
 	foreign key (nomeRaca) references Raca(nomeRaca)
 );
 
@@ -109,7 +109,7 @@ create table Item (
 	peso numeric(7,2) not null,
 	primary key (nomeItem)
 );
--- To-do : criar assertion que o item sendo inserido nas tabelas de itens tem que ter a categoria em item
+
 create table Arma (
 	nomeItem text,
 	tipo varchar(50) not null,
@@ -337,24 +337,7 @@ create table ClassePericia (
 create table Campanha (
 	nomeCampanha varchar(100),
 	descricao text DEFAULT 'Os aventureiros se esqueceram de incluir um bom bardo na caravana, portanto os acontecimentos dessa aventura foram esquecidos há muito tempo',
-	mapaAtual integer,
 	primary key (nomeCampanha)
-);
-
-create table Mapa (
-	codigoMapa serial,
-	nomeCampanha varchar(100) not null,
-	mapa text not null,
-	primary key (codigoMapa),
-	foreign key (nomeCampanha) references Campanha (nomeCampanha)
-);
-
-create table Anotacao (
-	codigoAnotacao serial,
-	nomeCampanha varchar(100) not null,
-	anotacao text,
-	primary key (codigoAnotacao),
-	foreign key (nomeCampanha) references Campanha (nomeCampanha)
 );
 
 create table Lider (
@@ -362,6 +345,7 @@ create table Lider (
     nomeLider varchar(50) not null,
     descricao text,
     nomeCampanha varchar(100) not null,
+    constraint liderCampanha UNIQUE (nomeLider, nomeCampanha),
     primary key (codigoLider),
     foreign key (nomeCampanha) references Campanha (nomeCampanha)
 );
@@ -376,6 +360,7 @@ create table Cidade (
 	populacao integer not null,
 	formaGoverno varchar(30) not null,
 	descricao text,
+    constraint cidadeCampanha UNIQUE (nomeCidade, nomeCampanha),
 	primary key (codigoCidade),
 	foreign key (nomeCampanha) references Campanha (nomeCampanha)	
 );
@@ -395,6 +380,7 @@ create table Faccao (
 	populacao integer not null,
 	formaGoverno varchar(30) not null,
 	descricao text,
+    constraint faccaoCampanha UNIQUE (nomeFaccao, nomeCampanha),
 	primary key (codigoFaccao),
 	foreign key (nomeCampanha) references Campanha (nomeCampanha)	
 );
@@ -456,6 +442,7 @@ create table Aparencia (
 	nomePersonagem varchar(30),
 	altura numeric(7, 2),
 	peso numeric(7, 2),
+	foto varchar(150) DEFAULT 'player_padrao.jpg',
 	corOlhos varchar(30),
 	idade integer,
 	corPele varchar(30),
@@ -467,14 +454,12 @@ create table Personagem (
 	codigoPersonagem serial, 
 	nomeJogador varchar(30) not null,
 	nomeCampanha varchar(100) not null,
-	personagemSubRaca varchar(60) not null,
+	personagemRaca varchar(30) not null,
 	personagemClasse varchar(30) not null,
-	codigoDeus integer,--
+	codigoDeus integer,
 	codigoAparencia integer,
-	arquetipo varchar(30),--
-	nomeAntecedente varchar(30),--
-	coordenadaX integer,
-	coordenadaY integer,
+	arquetipo varchar(30),
+	nomeAntecedente varchar(30),
 	tendencia varchar(30) not null,
 	percepcaoPassiva integer not null,
 	numeroInspiracao integer DEFAULT 0,
@@ -488,7 +473,7 @@ create table Personagem (
 	platina integer,
 	electro integer,
 	classeArmadura integer,
-	deslocamento numeric(3,1),
+	deslocamento numeric(3, 1),
 	caracteristicaAdicional text,
 	vinculo text,
 	defeito text,
@@ -496,7 +481,7 @@ create table Personagem (
 	tracoPersonalidade text,
 	primary key (codigoPersonagem),
 	foreign key (nomeCampanha) references Campanha (nomeCampanha),
-	foreign key (personagemSubRaca) references SubRaca (nomeSubRaca),
+	foreign key (personagemRaca) references Raca (nomeRaca),
 	foreign key (personagemClasse) references Classe (nomeClasse),
 	foreign key (nomeAntecedente) references Antecedente (nomeAntecedente),
 	foreign key (codigoDeus) references Deus (codigoDeus),
@@ -537,7 +522,7 @@ create table PersonagemPericia (
 );
 
 create table PersonagemMagia (
-	codigoPersonagem integer, -- personagem deve possuir um espaço de magia para aquele nivel para poder usar ela
+	codigoPersonagem integer,
 	nomeMagia varchar(30),
 	primary key (codigoPersonagem, nomeMagia),
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem),

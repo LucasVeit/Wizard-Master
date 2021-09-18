@@ -79,8 +79,10 @@ public class LiderDAO {
     }
 
     public static void Remover(Lider lider){
-        String sql = "DELETE FROM lider WHERE codigoLider = ?";
+        String sql = "delete from lider where codigoLider = ?";
 
+        RemoverID(lider.getCodigoLider(), "Faccao", "Lider");
+        RemoverID(lider.getCodigoLider(), "Cidade", "Lider");
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, lider.getCodigoLider());
@@ -94,10 +96,22 @@ public class LiderDAO {
         }
     }
 
+    public static void RemoverID(int id, String nomeTabela, String nomeCampo){
+        String sql = "delete from Lider" + nomeTabela + "  WHERE codigo" + nomeCampo + " = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static Lider GetLider(String nome, String campanha){
         Lider lider = new Lider();
-        String sql = "select * from Lider where nome = '" + nome + "' and nomeCampanha = '" + campanha + "';";
-
+        String sql = "select * from Lider where nomeLider = '" + nome + "' and nomeCampanha = '" + campanha + "';";
         try {
             Statement declaracao = con.createStatement();
             ResultSet resultado = declaracao.executeQuery(sql);

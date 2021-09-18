@@ -95,6 +95,8 @@ public class CidadeDAO {
     public static void Remover(Cidade cidade){
         String sql = "delete from cidade where codigoCidade = ?";
 
+        LiderDAO.RemoverID(cidade.getCodigo(), "Cidade", "Cidade");
+
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, cidade.getCodigo());
@@ -106,6 +108,30 @@ public class CidadeDAO {
             JOptionPane.showMessageDialog(null, "Erro ao excluir!");
             e.printStackTrace();
         }
+    }
+
+
+    public static ArrayList<String> ListarLiderCidade(Cidade cidade){
+        ArrayList<String> lideres = new ArrayList<>();
+        String sql = "select nomeLider from (select * from liderCidade where codigoCidade = "+ cidade.getCodigo() + ") as liderCidade " +
+                "inner join lider " +
+                "on lider.codigoLider = liderCidade.codigoLider;";
+
+        try {
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while (resultado.next()) {
+                String nomeLider = resultado.getString("nomeLider");
+                lideres.add(nomeLider);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao recuperar lista!");
+            e.printStackTrace();
+        }
+
+        return lideres;
     }
 
     public static void InserirLider(Cidade cidade, String lider){

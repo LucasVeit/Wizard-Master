@@ -166,7 +166,7 @@ public class ItemDAO {
             }
 
         }catch(SQLException e){
-            System.out.println("Error on getPropriedadeArma");
+            System.out.println("Error");
         }
         return propriedadearmas;
     }

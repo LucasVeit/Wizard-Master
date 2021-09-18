@@ -3,6 +3,7 @@ package Model.DAO.New;
 import Model.Cidade;
 import Model.Faccao;
 import Model.ConnectPostgre;
+import Model.Lider;
 
 import javax.swing.*;
 import java.sql.*;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 
 public class FaccaoDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
+
     public static ArrayList<Faccao> Listar(){
         ArrayList<Faccao> faccoes = new ArrayList<>();
         String sql = "select * from Faccao";
@@ -39,7 +41,7 @@ public class FaccaoDAO {
 
     public static void Inserir(Faccao faccao){
         String sql = "insert into faccao (nomeFaccao, nomeCampanha, populacao, formaGoverno, descricao)" +
-                " VALUES" +
+                " VALUES " +
                 "(?,?,?,?,?);";
 
         try {
@@ -86,6 +88,8 @@ public class FaccaoDAO {
     public static void Remover(Faccao faccao){
         String sql = "DELETE FROM faccao WHERE codigoFaccao = ?";
 
+        LiderDAO.RemoverID(faccao.getCodigo(), "Faccao", "Faccao");
+
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, faccao.getCodigo());
@@ -97,6 +101,29 @@ public class FaccaoDAO {
             JOptionPane.showMessageDialog(null, "Erro ao excluir!");
             e.printStackTrace();
         }
+    }
+
+    public static ArrayList<String> ListarLiderFaccao(Faccao faccao){
+        ArrayList<String> lideres = new ArrayList<>();
+        String sql = "select nomeLider from (select * from liderFaccao where codigoFaccao = "+ faccao.getCodigo() + ") as liderFaccao " +
+                "inner join lider " +
+                "on lider.codigoLider = liderFaccao.codigoLider;";
+
+        try {
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while (resultado.next()) {
+                String nomeLider = resultado.getString("nomeLider");
+                lideres.add(nomeLider);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao recuperar lista!");
+            e.printStackTrace();
+        }
+
+        return lideres;
     }
 
     public static void InserirLider(Faccao faccao, String lider){
