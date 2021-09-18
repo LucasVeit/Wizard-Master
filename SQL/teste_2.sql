@@ -1,11 +1,11 @@
-insert into Personagem (nomeJogador, nomeCampanha, personagemRaca, personagemClasse, 	codigoDeus,	codigoAparencia, arquetipo,	nomeAntecedente, coordenadaX, coordenadaY, tendencia, percepcaoPassiva,	numeroInspiracao, pontosVidaAtual, pontosVidaTotal,	pontosExperiencia, capacidadeCarga,	cobre, prata, ouro, platina, electro, classeArmadura, deslocamento, caracteristicaAdicional, vinculo, defeito, ideal, tracoPersonalidade) values 
-	('Igor', 'Lorin', 'Elfo', 'Bardo', 1, NULL, NULL, NULL, NULL, NULL, 'NB', 3, 1,20,	20,	300, 6, 5, 4, 6, 3, 4, 10, NULL, NULL, NULL, NULL, NULL, NULL),
-	('Lucas', 'Lorin', 'Elfo', 'Mago', 1, NULL, NULL, NULL, NULL, NULL, 'NB', 3, 1, 7,	21,	4500, 6, 5, 4, 6, 3, 4, 10, NULL, NULL, NULL, NULL, NULL, NULL);
+insert into Personagem (nomeJogador, nomeCampanha, personagemSubRaca, personagemClasse, 	codigoDeus,	codigoAparencia, arquetipo,	nomeAntecedente, coordenadaX, coordenadaY, tendencia, percepcaoPassiva,	numeroInspiracao, pontosVidaAtual, pontosVidaTotal,	pontosExperiencia, capacidadeCarga,	cobre, prata, ouro, platina, electro, classeArmadura, deslocamento, caracteristicaAdicional, vinculo, defeito, ideal, tracoPersonalidade) values 
+	('Igor', 'Lorin', 'Elfo', 'Bardo', 1, NULL, NULL, NULL, NULL, NULL, 'NB', 3, 1,20,	20,	300, 6, 5, 4, 6, 3, 4, 10, 2, NULL, NULL, NULL, NULL, NULL),
+	('Lucas', 'Lorin', 'Elfo', 'Mago', 1, NULL, NULL, NULL, NULL, NULL, 'NB', 3, 1, 7,	21,	4500, 6, 5, 4, 6, 3, 4, 10, 13, NULL, NULL, NULL, NULL, NULL);
 
 
-insert into Aparencia (nomePersonagem, altura, peso, foto, corOlhos, idade, corPele, corCabelo) values 
-('Igor', 1.80, 65, NULL, 'verde', 21, 'branca', 'castanho'),
-('Lucas', 1.85, 70, NULL, 'castanho', 23, 'branca', 'preto');
+insert into Aparencia (nomePersonagem, altura, peso, corOlhos, idade, corPele, corCabelo) values 
+('Sassa', 1.80, 65, 'verde', 21, 'branca', 'castanho'),
+('Spalshz', 1.85, 70, 'castanho', 23, 'branca', 'preto');
 
 insert into PersonagemHabilidade (codigoPersonagem,	nomeHabilidade,	valor) values
 	(1, 'Força', 12),

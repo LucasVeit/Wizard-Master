@@ -1,3 +1,4 @@
+--Relatório de campanhas
 select foo.nomeCampanha, descricao, foo.count as "Anotacoes", foo2.count as "Qtde. de cidades", foo2.min as "Cidade com menor população",
 foo2.max as "Cidade com maior população", round(foo2.avg,2) as "Média de população das cidades", foo3.count as "Qtde. de Líderes",
 foo4.count as "Qtde. de mapas cadastrados"
@@ -20,4 +21,4 @@ join (
 	select nomeCampanha, count(mapa)
 	from Mapa
 	group by nomeCampanha
-) as foo4 on foo4.nomeCampanha = Campanha.nomeCampanha
+) as foo4 on foo4.nomeCampanha = Campanha.nomeCampanha;

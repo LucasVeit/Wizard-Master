@@ -8,4 +8,4 @@ where Monstro.nivel = (
 		from Personagem
 		where nomeCampanha = 'Lorin') as foo
 		on PontosExperienciaNivel.pontosExperiencia <= foo.sum
-	)
+	);
