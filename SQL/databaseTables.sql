@@ -442,7 +442,6 @@ create table Aparencia (
 	nomePersonagem varchar(30),
 	altura numeric(7, 2),
 	peso numeric(7, 2),
-	foto varchar(150) DEFAULT 'player_padrao.jpg',
 	corOlhos varchar(30),
 	idade integer,
 	corPele varchar(30),
