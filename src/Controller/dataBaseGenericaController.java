@@ -610,7 +610,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
         list.clear();
 
         for(int i = 1; i < object.size(); ++i){
-            Text subtitle = new Text( tableView.getColumns().get(i).getText()+ "\n");
+            Text subtitle = new Text( tableView.getColumns().get(i).getText()+ ": ");
             subtitle.setFont(Font.font("Sylfaen", 30));
             subtitle.setFill(Color.rgb(40, 2, 2));
             list.add(subtitle);
@@ -621,6 +621,65 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             list.add(text);
         }
 
+        Text Carisma = new Text( "\nCarisma: ");
+        Carisma.setFont(Font.font("Sylfaen", 30));
+        Carisma.setFill(Color.rgb(40, 2, 2));
+        list.add(Carisma);
+
+        Text Carisma1 = new Text( String.valueOf(MonstroDAO.getHabilidade("Carisma", String.valueOf(object.get(0)))) + "\n");
+        Carisma1.setFont(Font.font("Sylfaen", 24));
+        Carisma1.setFill(Color.rgb(63, 4, 4));
+        list.add(Carisma1);
+
+        Text Constituição = new Text( "Constituição: ");
+        Constituição.setFont(Font.font("Sylfaen", 30));
+        Constituição.setFill(Color.rgb(40, 2, 2));
+        list.add(Constituição);
+
+        Text Constituição1 = new Text( String.valueOf(MonstroDAO.getHabilidade("Constituição", String.valueOf(object.get(0)))) + "\n");
+        Constituição1.setFont(Font.font("Sylfaen", 24));
+        Constituição1.setFill(Color.rgb(63, 4, 4));
+        list.add(Constituição1);
+
+        Text Destreza = new Text( "Destreza: ");
+        Destreza.setFont(Font.font("Sylfaen", 30));
+        Destreza.setFill(Color.rgb(40, 2, 2));
+        list.add(Destreza);
+
+        Text Destreza1 = new Text( String.valueOf(MonstroDAO.getHabilidade("Destreza", String.valueOf(object.get(0)))) + "\n");
+        Destreza1.setFont(Font.font("Sylfaen", 24));
+        Destreza1.setFill(Color.rgb(63, 4, 4));
+        list.add(Destreza1);
+
+        Text Forca = new Text( "Força: ");
+        Forca.setFont(Font.font("Sylfaen", 30));
+        Forca.setFill(Color.rgb(40, 2, 2));
+        list.add(Forca);
+
+        Text Forca1 = new Text( String.valueOf(MonstroDAO.getHabilidade("Força", String.valueOf(object.get(0)))) + "\n");
+        Forca1.setFont(Font.font("Sylfaen", 24));
+        Forca1.setFill(Color.rgb(63, 4, 4));
+        list.add(Forca1);
+
+        Text Inteligencia = new Text( "Inteligência: ");
+        Inteligencia.setFont(Font.font("Sylfaen", 30));
+        Inteligencia.setFill(Color.rgb(40, 2, 2));
+        list.add(Inteligencia);
+
+        Text Inteligencia1 = new Text( String.valueOf(MonstroDAO.getHabilidade("Inteligência", String.valueOf(object.get(0)))) + "\n");
+        Inteligencia1.setFont(Font.font("Sylfaen", 24));
+        Inteligencia1.setFill(Color.rgb(63, 4, 4));
+        list.add(Inteligencia1);
+
+        Text Sabedoria = new Text( "Sabedoria: ");
+        Sabedoria.setFont(Font.font("Sylfaen", 30));
+        Sabedoria.setFill(Color.rgb(40, 2, 2));
+        list.add(Sabedoria);
+
+        Text Sabedoria1 = new Text( String.valueOf(MonstroDAO.getHabilidade("Sabedoria", String.valueOf(object.get(0)))) + "\n\n");
+        Sabedoria1.setFont(Font.font("Sylfaen", 24));
+        Sabedoria1.setFill(Color.rgb(63, 4, 4));
+        list.add(Sabedoria1);
 
         ArrayList<CaracteristicaMonstro> caracteristicaMonstros = MonstroDAO.ListCaracteristica(String.valueOf(object.get(0)));
 

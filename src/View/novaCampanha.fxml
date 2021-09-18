@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.novaCampanhaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background-novaCampanha" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.novaCampanhaController">
     <children>
        <Pane layoutX="36.0" layoutY="29.0" prefHeight="664.0" prefWidth="1221.0" styleClass="border-background" stylesheets="@style.css" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="29.0" />
        <Pane layoutX="47.0" layoutY="39.0" prefHeight="644.0" prefWidth="1200.0" styleClass="border-background" stylesheets="@style.css" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="39.0" />
@@ -26,7 +26,7 @@
                   <Insets left="40.0" right="55.0" top="55.0" />
                </BorderPane.margin>
                <buttons>
-                   <Button mnemonicParsing="false" onAction="#goToTelaInicio" prefHeight="10.0" prefWidth="60.0" styleClass="Button" stylesheets="@style.css" textFill="WHITE">
+                   <Button mnemonicParsing="false" onAction="#goToTelaInicio" prefHeight="10.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" textFill="WHITE">
                       <graphic>
                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -39,41 +39,41 @@
             </ButtonBar>
            </top>
            <center>
-            <HBox alignment="CENTER" prefHeight="605.0" prefWidth="988.0" spacing="50.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" prefHeight="605.0" prefWidth="988.0" spacing="20.0" BorderPane.alignment="CENTER">
                <children>
-                  <Pane prefHeight="441.0" prefWidth="250.0" styleClass="border-background" stylesheets="@style.css">
+                  <Pane prefHeight="404.0" prefWidth="250.0" styleClass="border-background" stylesheets="@style.css">
                      <HBox.margin>
-                        <Insets />
+                        <Insets top="40.0" />
                      </HBox.margin>
                      <children>
-                        <VBox alignment="CENTER" prefHeight="466.0" prefWidth="248.0" spacing="30.0">
+                        <VBox alignment="CENTER" layoutY="1.0" prefHeight="431.0" prefWidth="248.0" spacing="20.0">
                            <children>
-                              <Button onAction="#goToTelaCriarPersonagem" mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar personagem" textFill="#af4044">
+                              <Button mnemonicParsing="false" onAction="#goToTelaCriarPersonagem" prefHeight="10.0" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar personagem" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Button>
-                              <Button onAction="#goToTelaCriarMundo" mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar mundo" textFill="#af4044">
+                              <Button mnemonicParsing="false" onAction="#goToTelaCriarMundo" prefHeight="10.0" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar mundo" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Button>
-                              <Button onAction="#goToTelaCriarCidade" mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar cidade" textFill="#af4044">
+                              <Button mnemonicParsing="false" onAction="#goToTelaCriarCidade" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar cidade" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Button>
-                              <Button onAction="#goToTelaCriarPanteao" mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar panteão" textFill="#af4044">
+                              <Button mnemonicParsing="false" onAction="#goToTelaCriarPanteao" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar panteão" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Button>
-                              <Button onAction="#goToTelaCriarFaccao" mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar facção" textFill="#af4044">
+                              <Button mnemonicParsing="false" onAction="#goToTelaCriarFaccao" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar facção" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Button>
-                              <Button onAction="#goToTelaCriarLider" mnemonicParsing="false" styleClass="Button" stylesheets="@style.css" text="Criar líder" textFill="#af4044">
+                              <Button mnemonicParsing="false" onAction="#goToTelaCriarLider" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar líder" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -84,7 +84,7 @@
                   </Pane>
                </children>
                <BorderPane.margin>
-                  <Insets top="20.0" />
+                  <Insets top="10.0" />
                </BorderPane.margin>
             </HBox>
          </center>

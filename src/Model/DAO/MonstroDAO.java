@@ -101,12 +101,12 @@ public class MonstroDAO {
         return monstros;
     }
 
-    public int getHabilidade(String habilidade, String nomeMonstro){
-        sql = "select * from MonstroHabilidade where nomeMonstro = \'" + nomeMonstro + "\' and nomeHabilidade = \'" + habilidade + "\'";
+    public static int getHabilidade(String habilidade, String nomeMonstro){
+        String sql = "select * from MonstroHabilidade where nomeMonstro = \'" + nomeMonstro + "\' and nomeHabilidade = \'" + habilidade + "\'";
         int pontosHabilidade = 0;
 
         try{
-            declaracao = con.createStatement();
+            Statement declaracao = con.createStatement();
             ResultSet rs = declaracao.executeQuery(sql);
 
             while(rs.next()){

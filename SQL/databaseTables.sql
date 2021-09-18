@@ -95,7 +95,7 @@ create table SubRaca (
 	sabedoria integer not null, 
 	inteligencia integer not null,
 	carisma integer not null,
-	primary key (nomeSubRaca, nomeRaca),
+	primary key (nomeSubRaca),
 	foreign key (nomeRaca) references Raca(nomeRaca)
 );
 
