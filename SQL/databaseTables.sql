@@ -493,14 +493,6 @@ create table PontosExperienciaNivel (
 	primary key (pontosExperiencia)
 );
 
-create table PersonagemTalento (
-	codigoPersonagem integer,
-	nomeTalento varchar(30),
-	primary key (codigoPersonagem, nomeTalento),
-	foreign key (codigoPersonagem) references Personagem (codigoPersonagem),
-	foreign key (nomeTalento) references Talento (nomeTalento)
-);
-
 create table PersonagemItem (
 	codigoPersonagem integer,
 	nomeItem varchar(30),
@@ -514,7 +506,6 @@ create table PersonagemItem (
 create table PersonagemPericia (
 	codigoPersonagem integer,
 	nomePericia varchar(30),
-	modificador integer not null,
 	primary key (codigoPersonagem, nomePericia),
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem),
 	foreign key (nomePericia) references Pericia (nomePericia)
@@ -535,6 +526,14 @@ create table PersonagemHabilidade (
 	primary key (codigoPersonagem, nomeHabilidade),
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem),
 	foreign key (valor) references Habilidade (valor)
+);
+
+create table PersonagemTalento (
+	codigoPersonagem integer,
+	nomeTalento varchar(30),
+	primary key (codigoPersonagem, nomeTalento),
+	foreign key (codigoPersonagem) references Personagem (codigoPersonagem),
+	foreign key (nomeTalento) references Talento (nomeTalento)
 );
 
 --Trigger

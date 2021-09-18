@@ -1,4 +1,4 @@
-package Model;
+package Model.Personagem;
 
 public class Personagem {
     private int codigoAparencia;
