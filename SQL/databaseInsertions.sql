@@ -1460,7 +1460,7 @@ insert into CaracteristicaMonstro(nome, nomeMonstro, descricao) values
 	('Idiomas', 'Dragão Azul Ancião', 'Comum, Dracônico'),
 	('Idiomas', 'Chefe Goblin', 'Comum, Goblin'),
 	('Sentidos', 'Chefe Goblin', 'visão no escuro 18 m, Percepção passiva 9'),
-	('Perícias', 'Chefe Goblin', 'Furtividade +6'),
+	('Perícias', 'Chefe Goblin', 'Furtividade +6');
 
 insert into PontosExperienciaNivel (pontosExperiencia, nivel) values 
 	(0, 1),
