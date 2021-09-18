@@ -1,3 +1,4 @@
+--Quantas espécies de cada tamanho existem no mundo
 select tamanho, sum(cnt)
 from (
 	select tamanho, count(*) as cnt
@@ -8,4 +9,4 @@ from (
 	from Monstro
 	group by tamanho
 	) as foo
-group by tamanho
+group by tamanho;

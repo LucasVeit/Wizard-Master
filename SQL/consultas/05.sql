@@ -1,3 +1,4 @@
+--Listagem de líderes e quantas pessoas cada um governa
 select nomeLider as "Lider", sum(populacao) as "Populacao"
 from Lider join (
 	select codigoLider, populacao
@@ -22,4 +23,4 @@ from Lider join (
 		on LiderFaccao.codigoFaccao = foo.codigoFaccao
 	) as foo2
 	on foo2.codigoLider = Lider.codigoLider
-	group by nomeLider
+	group by nomeLider;

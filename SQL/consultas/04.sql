@@ -1,3 +1,4 @@
+--Soma do preço de todos os itens na moeda mais barata pc (peça de cobre)
 select categoria, ROUND(AVG(custo),2)
 from(
 		(select categoria, custo
@@ -20,4 +21,4 @@ from(
 		from item
 		where moeda = 'pe')
 	) as foo
-group by categoria
+group by categoria;

@@ -2,4 +2,4 @@
 
 select ROUND(AVG(pontosVidaAtual), 2) as "avg_curr_life", ROUND(AVG(pontosVidaTotal), 2) as "avg_max_life"
 from Personagem
-where nomeCampanha = 'Lorin'
+where nomeCampanha = 'Lorin';

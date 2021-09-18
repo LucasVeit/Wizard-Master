@@ -1,10 +1,11 @@
+--Seleciona monstros de nivel similar ao nivel total do grupo
 select nomeMonstro, nivel
 from Monstro
 where Monstro.nivel = (
-	select MAX(nivel) as "avg_party_level"
+	select MAX(nivel) as "Nivel do grupo"
 	from PontosExperienciaNivel join 
-		(select SUM(pontosExperiencia) as "avg_party_xp"
+		(select SUM(pontosExperiencia)
 		from Personagem
 		where nomeCampanha = 'Lorin') as foo
-		on PontosExperienciaNivel.pontosExperiencia <= foo.avg_party_xp
-	)
+		on PontosExperienciaNivel.pontosExperiencia <= foo.sum
+	);
