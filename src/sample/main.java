@@ -13,7 +13,7 @@ public class main extends Application {
     public static String screen2ID = "databaseGenerica";
     public static String screen2File = "/View/databaseGenerica.fxml";
     public static String screen3ID = "novaCampanha";
-    public static String screen3File = "/View/novaCampanha.fxml";
+    public static String screen3File = "/View/Campanha.fxml";
     public static String screen4ID = "telaResultado";
     public static String screen4File = "/View/telaResultado.fxml";
     public static String screen5ID = "criarCidade";

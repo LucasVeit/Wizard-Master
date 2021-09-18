@@ -8,7 +8,7 @@ import sample.main;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class novaCampanhaController implements Initializable, controlledScreen {
+public class CampanhaController implements Initializable, controlledScreen {
 
     screensController myController;
 
