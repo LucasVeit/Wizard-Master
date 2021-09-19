@@ -194,7 +194,6 @@ public class ItemDAO {
     public static ArmaduraEscudo getArmaduraEscudo(String nomeItem){
         String sql = "select * from ArmaduraEscudo where nomeItem = '" + nomeItem + "';";
         ArmaduraEscudo armaduraEscudo = new ArmaduraEscudo();
-        System.out.println(sql);
 
         try{
             Statement declaracao = con.createStatement();

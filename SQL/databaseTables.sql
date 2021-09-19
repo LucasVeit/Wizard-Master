@@ -495,7 +495,7 @@ create table PontosExperienciaNivel (
 
 create table PersonagemItem (
 	codigoPersonagem integer,
-	nomeItem varchar(30),
+	nomeItem text,
 	quantidade integer,
 	equipado boolean,
 	primary key (codigoPersonagem, nomeItem),

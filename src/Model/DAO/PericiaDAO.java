@@ -68,13 +68,11 @@ public class PericiaDAO {
         try{
             Statement declaracao = con.createStatement();
             ResultSet resultado = declaracao.executeQuery(sql);
-            System.out.println("olaa");
 
             while(resultado.next()){
                 String nome = resultado.getString("nomePericia");
 
                 strings.add(nome);
-                System.out.println(nome);
             }
 
         }catch(SQLException e){

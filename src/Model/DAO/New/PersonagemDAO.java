@@ -1,7 +1,9 @@
 package Model.DAO.New;
 
+import Model.Cidade;
 import Model.ConnectPostgre;
 import Model.Personagem.Personagem;
+import Model.Personagem.PersonagemItem;
 
 import javax.swing.*;
 import java.sql.*;
@@ -253,7 +255,7 @@ public class PersonagemDAO {
 
             ps.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            System.out.println("Aparencia Inserida com sucesso!");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar!");
             e.printStackTrace();
@@ -374,10 +376,10 @@ public class PersonagemDAO {
 
             ps.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+            JOptionPane.showMessageDialog(null, "Item Atualizado com sucesso!");
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Erro ao excluir!");
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar!");
             e.printStackTrace();
         }
     }
@@ -660,7 +662,6 @@ public class PersonagemDAO {
 
     }
 
-
     public static ArrayList<String> ListAntecedente(){
         ArrayList<String> strings = new ArrayList<>();
         String sql = "select nomeAntecedente from Antecedente;";
@@ -678,5 +679,93 @@ public class PersonagemDAO {
             System.out.println("Error");
         }
         return strings;
+    }
+
+    public static ArrayList<PersonagemItem> ListarItens(Personagem personagem){
+        ArrayList<PersonagemItem> itens = new ArrayList<>();
+        String sql = "select * from personagemItem where codigoPersonagem = " + personagem.getCodigoPersonagem() + ";";
+
+        try {
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while (resultado.next()) {
+
+                String nomeItem = resultado.getString("nomeItem");
+                int quantidade = resultado.getInt("quantidade");
+                boolean equipado = resultado.getBoolean("equipado");
+                PersonagemItem item = new PersonagemItem(personagem.getCodigoPersonagem(), nomeItem, quantidade, equipado);
+                itens.add(item);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao recuperar lista!");
+            e.printStackTrace();
+        }
+
+        return itens;
+    }
+
+    public static ArrayList<String> ListarPericias(Personagem personagem){
+        ArrayList<String> nomes = new ArrayList<>();
+        String sql = "select nomePericia from personagemPericia where codigoPersonagem = " + personagem.getCodigoPersonagem() + ";";
+
+        try {
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while (resultado.next()) {
+                String nome = resultado.getString("nomePericia");
+                nomes.add(nome);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao recuperar lista!");
+            e.printStackTrace();
+        }
+
+        return nomes;
+    }
+
+    public static ArrayList<String> ListarMagias(Personagem personagem){
+        ArrayList<String> nomes = new ArrayList<>();
+        String sql = "select nomeMagia from personagemMagia where codigoPersonagem = " + personagem.getCodigoPersonagem() + ";";
+
+        try {
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while (resultado.next()) {
+                String nome = resultado.getString("nomeMagia");
+                nomes.add(nome);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao recuperar lista!");
+            e.printStackTrace();
+        }
+
+        return nomes;
+    }
+
+    public static ArrayList<String> ListarTalentos(Personagem personagem){
+        ArrayList<String> nomes = new ArrayList<>();
+        String sql = "select nomeTalento from personagemTalento where codigoPersonagem = " + personagem.getCodigoPersonagem() + ";";
+
+        try {
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while (resultado.next()) {
+                String nome = resultado.getString("nomeTalento");
+                nomes.add(nome);
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao recuperar lista!");
+            e.printStackTrace();
+        }
+
+        return nomes;
     }
 }
