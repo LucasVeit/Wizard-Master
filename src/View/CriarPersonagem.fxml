@@ -524,7 +524,7 @@
             </TableView>
          </bottom>
          <left>
-            <ScrollPane prefHeight="215.0" prefWidth="1078.0" BorderPane.alignment="CENTER">
+            <ScrollPane prefHeight="579.0" prefWidth="1078.0" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets left="42.0" />
                </BorderPane.margin>
@@ -535,16 +535,17 @@
                            <children>
                               <HBox prefHeight="200.0" prefWidth="1053.0" spacing="20.0">
                                  <children>
-                                    <TableView prefHeight="175.0" prefWidth="237.0">
+                                    <TableView fx:id="tableViewA" prefHeight="175.0" prefWidth="237.0">
                                       <columns>
-                                        <TableColumn prefWidth="72.0" text="Item" />
-                                        <TableColumn prefWidth="82.0" text="Quantidade" />
-                                          <TableColumn prefWidth="82.0" text="Equipado" />
+                                          <TableColumn fx:id="ColumnA1" prefWidth="75.0" text="Codigo Personagem" />
+                                        <TableColumn fx:id="ColumnA2" prefWidth="72.0" text="Item" />
+                                        <TableColumn fx:id="ColumnA3" prefWidth="82.0" text="Quantidade" />
+                                          <TableColumn fx:id="ColumnA4" prefWidth="82.0" text="Equipado" />
                                       </columns>
                                     </TableView>
                                     <VBox prefHeight="195.0" prefWidth="129.0" spacing="20.0">
                                        <children>
-                                          <ComboBox prefWidth="150.0" promptText="Equipado" styleClass="Button" stylesheets="@style.css" />
+                                          <ComboBox fx:id="comboBoxItem" prefWidth="150.0" promptText="Equipado" styleClass="Button" stylesheets="@style.css" />
                                           <VBox>
                                              <children>
                                                 <Label text="Nome do item">
@@ -552,7 +553,7 @@
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField prefHeight="25.0" prefWidth="121.0" />
+                                                <TextField fx:id="nomeItemItem" prefHeight="25.0" prefWidth="121.0" />
                                              </children>
                                           </VBox>
                                           <VBox>
@@ -562,21 +563,21 @@
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField prefHeight="25.0" prefWidth="121.0" />
+                                                <TextField fx:id="quantidadeItem" prefHeight="25.0" prefWidth="121.0" />
                                              </children>
                                           </VBox>
                                        </children>
                                     </VBox>
                                     <VBox alignment="CENTER" prefHeight="195.0" prefWidth="129.0" spacing="20.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
-                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
+                                          <Button fx:id="adicionarItem" mnemonicParsing="false" onAction="#adicionarItem" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
+                                          <Button fx:id="removerItem" mnemonicParsing="false" onAction="#removerItem" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
                                        </children>
                                     </VBox>
-                                    <TableView prefHeight="200.0" prefWidth="200.0">
+                                    <TableView fx:id="tableViewB" prefHeight="200.0" prefWidth="200.0">
                                       <columns>
-                                        <TableColumn prefWidth="100.0" text="Perícia" />
-                                        <TableColumn prefWidth="99.0" text="Modificador" />
+                                        <TableColumn fx:id="columnB1" prefWidth="100.0" text="Codigo Personagem" />
+                                        <TableColumn fx:id="ColumnB2" prefWidth="99.0" text="Pericia" />
                                       </columns>
                                     </TableView>
                                     <VBox prefHeight="195.0" prefWidth="129.0" spacing="20.0">
@@ -588,34 +589,25 @@
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField prefHeight="25.0" prefWidth="121.0" />
-                                             </children>
-                                          </VBox>
-                                          <VBox>
-                                             <children>
-                                                <Label text="Modificador">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField editable="false" prefHeight="25.0" prefWidth="121.0" />
+                                                <ComboBox fx:id="comboBoxPericia1" prefWidth="150.0" promptText="Pericia" styleClass="Button" stylesheets="@style.css" />
                                              </children>
                                           </VBox>
                                        </children>
                                     </VBox>
                                     <VBox alignment="CENTER" prefHeight="195.0" prefWidth="129.0" spacing="20.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
-                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
+                                          <Button fx:id="adicionarPericia" mnemonicParsing="false" onAction="#adicionarPericia" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
+                                          <Button fx:id="removerPericia" mnemonicParsing="false" onAction="#removerPericia" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
                                        </children>
                                     </VBox>
                                  </children>
                               </HBox>
                               <HBox prefHeight="200.0" prefWidth="1053.0" spacing="20.0">
                                  <children>
-                                    <TableView prefHeight="175.0" prefWidth="237.0">
+                                    <TableView fx:id="tableViewC" prefHeight="175.0" prefWidth="237.0">
                                        <columns>
-                                          <TableColumn prefWidth="237.0" text="Magia" />
+                                          <TableColumn fx:id="columnC1" prefWidth="75.0" text="Codigo Personagem" />
+                                          <TableColumn fx:id="ColumnC2" prefWidth="237.0" text="Magia" />
                                        </columns>
                                     </TableView>
                                     <VBox prefHeight="195.0" prefWidth="129.0" spacing="20.0">
@@ -627,20 +619,21 @@
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField prefHeight="25.0" prefWidth="121.0" />
+                                                <ComboBox fx:id="comboBoxMagia" prefWidth="150.0" promptText="Magia" styleClass="Button" stylesheets="@style.css" />
                                              </children>
                                           </VBox>
                                        </children>
                                     </VBox>
                                     <VBox alignment="CENTER" prefHeight="195.0" prefWidth="129.0" spacing="20.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
-                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
+                                          <Button fx:id="adicionarMagia" mnemonicParsing="false" onAction="#adicionarMagia" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
+                                          <Button fx:id="removerMagia" mnemonicParsing="false" onAction="#removerMagia" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
                                        </children>
                                     </VBox>
-                                    <TableView prefHeight="200.0" prefWidth="200.0">
+                                    <TableView fx:id="tableViewD" prefHeight="200.0" prefWidth="200.0">
                                        <columns>
-                                          <TableColumn prefWidth="200.0" text="Talento" />
+                                          <TableColumn fx:id="columnD1" prefWidth="75.0" text="Codigo Personagem" />
+                                          <TableColumn fx:id="columnD2" prefWidth="200.0" text="Talento" />
                                        </columns>
                                     </TableView>
                                     <VBox prefHeight="195.0" prefWidth="129.0" spacing="20.0">
@@ -652,7 +645,7 @@
                                                       <Font size="14.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField editable="false" prefHeight="25.0" prefWidth="121.0" />
+                                                <ComboBox fx:id="comboBoxTalento" prefWidth="150.0" promptText="Talento" styleClass="Button" stylesheets="@style.css" />
                                              </children>
                                           </VBox>
                                        </children>

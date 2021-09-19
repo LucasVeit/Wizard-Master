@@ -95,7 +95,7 @@ create table SubRaca (
 	sabedoria integer not null, 
 	inteligencia integer not null,
 	carisma integer not null,
-	primary key (nomeSubRaca, nomeRaca),
+	primary key (nomeSubRaca),
 	foreign key (nomeRaca) references Raca(nomeRaca)
 );
 
@@ -453,7 +453,7 @@ create table Personagem (
 	codigoPersonagem serial, 
 	nomeJogador varchar(30) not null,
 	nomeCampanha varchar(100) not null,
-	personagemRaca varchar(30) not null,
+	personagemSubRaca varchar(30) not null,
 	personagemClasse varchar(30) not null,
 	codigoDeus integer,
 	codigoAparencia integer,
@@ -480,7 +480,7 @@ create table Personagem (
 	tracoPersonalidade text,
 	primary key (codigoPersonagem),
 	foreign key (nomeCampanha) references Campanha (nomeCampanha),
-	foreign key (personagemRaca) references Raca (nomeRaca),
+	foreign key (personagemSubRaca) references SubRaca (nomeSubRaca),
 	foreign key (personagemClasse) references Classe (nomeClasse),
 	foreign key (nomeAntecedente) references Antecedente (nomeAntecedente),
 	foreign key (codigoDeus) references Deus (codigoDeus),
@@ -491,14 +491,6 @@ create table PontosExperienciaNivel (
 	pontosExperiencia integer,
 	nivel integer not null,
 	primary key (pontosExperiencia)
-);
-
-create table PersonagemTalento (
-	codigoPersonagem integer,
-	nomeTalento varchar(30),
-	primary key (codigoPersonagem, nomeTalento),
-	foreign key (codigoPersonagem) references Personagem (codigoPersonagem),
-	foreign key (nomeTalento) references Talento (nomeTalento)
 );
 
 create table PersonagemItem (
@@ -514,7 +506,6 @@ create table PersonagemItem (
 create table PersonagemPericia (
 	codigoPersonagem integer,
 	nomePericia varchar(30),
-	modificador integer not null,
 	primary key (codigoPersonagem, nomePericia),
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem),
 	foreign key (nomePericia) references Pericia (nomePericia)
@@ -535,6 +526,14 @@ create table PersonagemHabilidade (
 	primary key (codigoPersonagem, nomeHabilidade),
 	foreign key (codigoPersonagem) references Personagem (codigoPersonagem),
 	foreign key (valor) references Habilidade (valor)
+);
+
+create table PersonagemTalento (
+	codigoPersonagem integer,
+	nomeTalento varchar(30),
+	primary key (codigoPersonagem, nomeTalento),
+	foreign key (codigoPersonagem) references Personagem (codigoPersonagem),
+	foreign key (nomeTalento) references Talento (nomeTalento)
 );
 
 --Trigger

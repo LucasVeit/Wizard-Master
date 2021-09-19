@@ -2,7 +2,7 @@ package Model.DAO.New;
 
 import Model.Cidade;
 import Model.ConnectPostgre;
-import Model.Personagem;
+import Model.Personagem.Personagem;
 
 import javax.swing.*;
 import java.sql.*;
