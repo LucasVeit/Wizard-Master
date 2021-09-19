@@ -93,7 +93,7 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="903.0" spacing="20.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#goToBusca01" prefHeight="46.0" prefWidth="110.0" styleClass="Button" stylesheets="@style.css" text="Busca01" textFill="#af4044">
+                        <Button mnemonicParsing="false" onAction="#goToBusca01" prefHeight="46.0" prefWidth="110.0" styleClass="Button" stylesheets="@style.css" text=" Busca 01" textFill="#af4044">
                            <font>
                               <Font name="Sylfaen" size="20.0" />
                            </font>

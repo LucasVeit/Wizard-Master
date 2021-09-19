@@ -42,8 +42,14 @@
                                                 <ComboBox fx:id="comboBox" prefHeight="35.0" prefWidth="158.0" styleClass="Button" stylesheets="@style.css" />
                                             </children>
                                         </VBox>
-                                        <Button fx:id="adicionarLider" mnemonicParsing="false" onAction="#adicionarLider" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" textFill="#af4044" />
-                                        <Button fx:id="removerLider" mnemonicParsing="false" onAction="#removerLider" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" textFill="#af4044" />
+                                        <Button fx:id="adicionarLider" mnemonicParsing="false" onAction="#adicionarLider" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" textFill="#af4044">
+                                 <font>
+                                    <Font name="Sylfaen" size="14.0" />
+                                 </font></Button>
+                                        <Button fx:id="removerLider" mnemonicParsing="false" onAction="#removerLider" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" textFill="#af4044">
+                                 <font>
+                                    <Font name="Sylfaen" size="14.0" />
+                                 </font></Button>
                                     </children>
                                 </VBox>
                                 <TableView fx:id="tableViewLider" prefHeight="189.0" prefWidth="248.0">
@@ -111,19 +117,25 @@
                                 <Insets left="30.0" right="30.0" />
                             </HBox.margin>
                         </VBox>
-                        <VBox alignment="CENTER" prefHeight="216.0" prefWidth="84.0" spacing="20.0">
+                        <VBox alignment="CENTER" prefHeight="159.0" prefWidth="95.0" spacing="20.0">
                             <children>
-                                <Button fx:id="adicionar" mnemonicParsing="false" onAction="#adicionar" prefHeight="40.0" prefWidth="73.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" textFill="#af4044">
+                                <Button fx:id="adicionar" mnemonicParsing="false" onAction="#adicionar" prefHeight="40.0" prefWidth="91.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" textFill="#af4044">
                            <VBox.margin>
                               <Insets top="20.0" />
-                           </VBox.margin></Button>
-                                <Button fx:id="atualizar" mnemonicParsing="false" onAction="#atualizar" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Atualizar" textFill="#af4044" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Sylfaen" size="14.0" />
+                           </font></Button>
+                                <Button fx:id="atualizar" mnemonicParsing="false" onAction="#atualizar" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Atualizar" textFill="#af4044">
+                           <font>
+                              <Font name="Sylfaen" size="14.0" />
+                           </font></Button>
                             </children>
                             <HBox.margin>
                                 <Insets top="30.0" />
                             </HBox.margin>
                         </VBox>
-                        <VBox alignment="TOP_RIGHT" prefHeight="189.0" prefWidth="40.0" spacing="20.0">
+                        <VBox alignment="TOP_RIGHT" prefHeight="189.0" prefWidth="106.0" spacing="20.0">
                             <children>
                                 <ButtonBar prefHeight="48.0" prefWidth="83.0">
                                     <buttons>
@@ -141,14 +153,20 @@
                                         <Insets />
                                     </VBox.margin>
                                 </ButtonBar>
-                                <Button fx:id="remover" mnemonicParsing="false" onAction="#remover" prefHeight="42.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" text="Remover" textFill="#af4044">
-                                    <VBox.margin>
-                                        <Insets />
-                                    </VBox.margin></Button>
-                                <Button fx:id="limpar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#limpar" prefHeight="40.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" text="Limpar" textFill="#af4044">
+                                <Button fx:id="remover" mnemonicParsing="false" onAction="#remover" prefHeight="42.0" prefWidth="79.0" styleClass="Button" stylesheets="@style.css" text="Remover" textFill="#af4044">
                                     <VBox.margin>
                                         <Insets />
                                     </VBox.margin>
+                           <font>
+                              <Font name="Sylfaen" size="14.0" />
+                           </font></Button>
+                                <Button fx:id="limpar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#limpar" prefHeight="40.0" prefWidth="78.0" styleClass="Button" stylesheets="@style.css" text="Limpar" textFill="#af4044">
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                           <font>
+                              <Font name="Sylfaen" size="14.0" />
+                           </font>
                                 </Button>
                             </children>
                             <HBox.margin>
@@ -164,12 +182,12 @@
                         <Insets bottom="70.0" left="150.0" right="150.0" />
                     </BorderPane.margin>
                <columns>
-                  <TableColumn fx:id="column1" prefWidth="75.0" text="Código da facção" />
-                  <TableColumn fx:id="column2" prefWidth="132.0" text="Nome da Facção" />
-                  <TableColumn fx:id="column3" prefWidth="143.0" text="Nome da campanha" />
-                  <TableColumn fx:id="column4" prefWidth="99.0" text="População" />
-                  <TableColumn fx:id="column5" prefWidth="124.0" text="Forma de Governo" />
-                  <TableColumn fx:id="column6" prefWidth="102.0" text="Descrição" />
+                  <TableColumn fx:id="column1" prefWidth="176.0" text="Código da facção" />
+                  <TableColumn fx:id="column2" prefWidth="147.0" text="Nome da Facção" />
+                  <TableColumn fx:id="column3" prefWidth="193.0" text="Nome da campanha" />
+                  <TableColumn fx:id="column4" prefWidth="143.0" text="População" />
+                  <TableColumn fx:id="column5" prefWidth="172.0" text="Forma de Governo" />
+                  <TableColumn fx:id="column6" prefWidth="147.0" text="Descrição" />
                </columns>
                 </TableView>
             </bottom>
