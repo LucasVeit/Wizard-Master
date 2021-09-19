@@ -37,8 +37,8 @@ public class Personagem {
     private String ideal;
     private String tracoPersonalidade;
     private int carisma;
-    private int constituição;
-    private int força;
+    private int constituicao;
+    private int forca;
     private int destreza;
     private int sabedoria;
     private int inteligencia;
@@ -46,7 +46,7 @@ public class Personagem {
     public Personagem() {
     }
 
-    public Personagem(int codigoAparencia, String nomePersonagem, float altura, float peso, String corOlhos, int idade, String corPele, String corCabelo, int codigoPersonagem, String nomeJogador, String nomeCampanha, String personagemSubRaca, String personagemClasse, int deus, String arquetipo, String nomeAntecedente, int coordenadaX, int coordenadaY, String tendencia, int percepcaoPassiva, int numeroInspiracao, int pontosVidaAtual, int pontosVidaTotal, int pontosExperiencia, int capacidadeCarga, int cobre, int prata, int ouro, int platina, int electro, int classeArmadura, float deslocamento, String caracteristicaAdicional, String vinculo, String defeito, String ideal, String tracoPersonalidade, int carisma, int constituição, int força, int destreza, int sabedoria, int inteligencia) {
+    public Personagem(int codigoAparencia, String nomePersonagem, float altura, float peso, String corOlhos, int idade, String corPele, String corCabelo, int codigoPersonagem, String nomeJogador, String nomeCampanha, String personagemSubRaca, String personagemClasse, int deus, String arquetipo, String nomeAntecedente, String tendencia, int percepcaoPassiva, int numeroInspiracao, int pontosVidaAtual, int pontosVidaTotal, int pontosExperiencia, int capacidadeCarga, int cobre, int prata, int ouro, int platina, int electro, int classeArmadura, float deslocamento, String caracteristicaAdicional, String vinculo, String defeito, String ideal, String tracoPersonalidade, int carisma, int constituicao, int forca, int destreza, int sabedoria, int inteligencia) {
         this.codigoAparencia = codigoAparencia;
         this.nomePersonagem = nomePersonagem;
         this.altura = altura;
@@ -83,8 +83,8 @@ public class Personagem {
         this.ideal = ideal;
         this.tracoPersonalidade = tracoPersonalidade;
         this.carisma = carisma;
-        this.constituição = constituição;
-        this.força = força;
+        this.constituicao = constituicao;
+        this.forca = forca;
         this.destreza = destreza;
         this.sabedoria = sabedoria;
         this.inteligencia = inteligencia;
@@ -378,20 +378,20 @@ public class Personagem {
         this.carisma = carisma;
     }
 
-    public int getConstituição() {
-        return constituição;
+    public int getConstituicao() {
+        return constituicao;
     }
 
-    public void setConstituição(int constituição) {
-        this.constituição = constituição;
+    public void setConstituicao(int constituicao) {
+        this.constituicao = constituicao;
     }
 
-    public int getForça() {
-        return força;
+    public int getForca() {
+        return forca;
     }
 
-    public void setForça(int força) {
-        this.força = força;
+    public void setForca(int forca) {
+        this.forca = forca;
     }
 
     public int getDestreza() {
