@@ -43,10 +43,10 @@
                <children>
                   <Pane prefHeight="404.0" prefWidth="250.0" styleClass="border-background" stylesheets="@style.css">
                      <HBox.margin>
-                        <Insets bottom="100.0" top="40.0" />
+                        <Insets bottom="30.0" top="40.0" />
                      </HBox.margin>
                      <children>
-                        <VBox alignment="CENTER" layoutY="1.0" prefHeight="485.0" prefWidth="248.0" spacing="20.0">
+                        <VBox alignment="CENTER" layoutY="1.0" prefHeight="423.0" prefWidth="248.0" spacing="20.0">
                            <children>
                               <Button fx:id="criarPersonagem" mnemonicParsing="false" onAction="#goToTelaCriarPersonagem" prefHeight="10.0" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar personagem" textFill="#af4044">
                                  <font>
@@ -88,6 +88,43 @@
                </BorderPane.margin>
             </HBox>
          </center>
+         <bottom>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="903.0" spacing="20.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Busca01">
+                           <font>
+                              <Font />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Busca 02">
+                           <font>
+                              <Font />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox spacing="20.0">
+                     <children>
+                        <Button onAction="#goToTelaIntervalo" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Intervalo">
+                           <font>
+                              <Font />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" styleClass="Button" stylesheets="@style.css" text="Relatório da campanha">
+                           <font>
+                              <Font />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="30.0" />
+               </BorderPane.margin>
+            </HBox>
+         </bottom>
         </BorderPane>
     </children>
 </AnchorPane>

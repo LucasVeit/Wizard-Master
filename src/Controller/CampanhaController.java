@@ -68,4 +68,9 @@ public class CampanhaController implements Initializable, controlledScreen {
         myController.setScreen(main.screen10ID);
     }
 
+    @FXML
+    private void goToTelaIntervalo(ActionEvent event){
+        myController.setScreen(main.screen13ID);
+    }
+
 }
