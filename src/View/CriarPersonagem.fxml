@@ -62,7 +62,7 @@
                                              <children>
                                                 <Label text="Nome do Personagem">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="nomePersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -72,7 +72,7 @@
                                              <children>
                                                 <Label text="Classe da armadura">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="classeArmaduraPersonagem" editable="false" prefHeight="25.0" prefWidth="200.0" />
@@ -82,7 +82,7 @@
                                              <children>
                                                 <Label text="Altura">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="alturaPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -96,7 +96,7 @@
                                              <children>
                                                 <Label text="Cor da pele">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="corPelePersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -106,7 +106,7 @@
                                              <children>
                                                 <Label text="Idade">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="idadePersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -116,7 +116,7 @@
                                              <children>
                                                 <Label text="Peso">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="pesoPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -126,7 +126,7 @@
                                              <children>
                                                 <Label text="Cor dos olhos">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="corOlhosPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -140,7 +140,7 @@
                                              <children>
                                                 <Label text="Número Inspiração">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="numeroInspiracaoPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -150,7 +150,7 @@
                                              <children>
                                                 <Label text="Percepção passiva">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="percepcaoPassivaPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -160,7 +160,7 @@
                                              <children>
                                                 <Label text="Cor do cabelo">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="corCabeloPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -170,7 +170,7 @@
                                              <children>
                                                 <Label text="Nome do jogador">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="nomeJogadorPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -184,7 +184,7 @@
                                              <children>
                                                 <Label text="Capacidade de carga">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="capacidadeCargaPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -194,7 +194,7 @@
                                              <children>
                                                 <Label text="Pontos de Experiência">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="pontosExperienciaPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -204,7 +204,7 @@
                                              <children>
                                                 <Label text="Pontos de vida atual">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="pontosVidaAtualPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -214,7 +214,7 @@
                                              <children>
                                                 <Label text="Pontos de vida total">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="pontosVidaTotalPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -228,7 +228,7 @@
                                              <children>
                                                 <Label text="Platina">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="platinaPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -238,7 +238,7 @@
                                              <children>
                                                 <Label text="Ouro">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="ouroPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -248,7 +248,7 @@
                                              <children>
                                                 <Label text="Cobre">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="cobrePersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -258,7 +258,7 @@
                                              <children>
                                                 <Label text="Prata">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="prataPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -272,7 +272,7 @@
                                              <children>
                                                 <Label text="Electro">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="electroPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -282,7 +282,7 @@
                                              <children>
                                                 <Label text="Deslocamento">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="deslocamentoPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -292,7 +292,7 @@
                                              <children>
                                                 <Label text="Carisma">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="carismaPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -302,7 +302,7 @@
                                              <children>
                                                 <Label text="Constituição">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="constituicaoPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -316,7 +316,7 @@
                                              <children>
                                                 <Label text="Força">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="forcaPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -326,7 +326,7 @@
                                              <children>
                                                 <Label text="Destreza">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="destrezaPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -336,7 +336,7 @@
                                              <children>
                                                 <Label text="Sabedoria">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="sabedoriaPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -346,7 +346,7 @@
                                              <children>
                                                 <Label text="Inteligência">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="inteligenciaPersonagem" prefHeight="25.0" prefWidth="200.0" />
@@ -360,7 +360,7 @@
                                              <children>
                                                 <Label text="Característica adicional">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextArea fx:id="caracteristicaAdicionalPersonagem" prefHeight="60.0" prefWidth="450.0" stylesheets="@style.css" wrapText="true" />
@@ -370,7 +370,7 @@
                                              <children>
                                                 <Label text="Vínculo">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextArea fx:id="vinculoPersonagem" prefHeight="60.0" prefWidth="450.0" stylesheets="@style.css" wrapText="true" />
@@ -384,7 +384,7 @@
                                              <children>
                                                 <Label text="Defeito">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextArea fx:id="defeitoPersonagem" prefHeight="60.0" prefWidth="450.0" stylesheets="@style.css" wrapText="true" />
@@ -394,7 +394,7 @@
                                              <children>
                                                 <Label text="Ideal">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextArea fx:id="idealPersonagem" prefHeight="60.0" prefWidth="450.0" stylesheets="@style.css" wrapText="true" />
@@ -404,7 +404,7 @@
                                     </HBox>
                                     <Label text="Traço de personalidade">
                                        <font>
-                                          <Font size="14.0" />
+                                          <Font name="Sylfaen" size="16.0" />
                                        </font>
                                     </Label>
                                     <TextArea fx:id="tracoPersonalidadePersonagem" prefHeight="90.0" prefWidth="450.0" stylesheets="@style.css" wrapText="true">
@@ -435,14 +435,26 @@
                                     </Button>
                                 </buttons>
                               </ButtonBar>
-                              <Button fx:id="adicionarPersonagem" mnemonicParsing="false" onAction="#adicionarPersonagem" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
-                              <Button fx:id="removerPersonagem" mnemonicParsing="false" onAction="#removerPersonagem" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
-                              <Button fx:id="atualizarPersonagem" mnemonicParsing="false" onAction="#atualizarPersonagem" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Atualizar">
+                              <Button fx:id="adicionarPersonagem" mnemonicParsing="false" onAction="#adicionarPersonagem" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" textFill="#af4044">
+                                 <font>
+                                    <Font name="Sylfaen" size="14.0" />
+                                 </font></Button>
+                              <Button fx:id="removerPersonagem" mnemonicParsing="false" onAction="#removerPersonagem" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" textFill="#af4044">
+                                 <font>
+                                    <Font name="Sylfaen" size="14.0" />
+                                 </font></Button>
+                              <Button fx:id="atualizarPersonagem" mnemonicParsing="false" onAction="#atualizarPersonagem" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Atualizar" textFill="#af4044">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
+                                 <font>
+                                    <Font name="Sylfaen" size="14.0" />
+                                 </font>
                               </Button>
-                              <Button fx:id="limparPersonagem" mnemonicParsing="false" onAction="#limpar" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Limpar" />
+                              <Button fx:id="limparPersonagem" mnemonicParsing="false" onAction="#limpar" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Limpar" textFill="#af4044">
+                                 <font>
+                                    <Font name="Sylfaen" size="14.0" />
+                                 </font></Button>
                            </children>
                         </VBox>
                      </children>
@@ -525,7 +537,7 @@
                                              <children>
                                                 <Label text="Nome do item">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <ComboBox fx:id="comboBoxItem" prefWidth="150.0" promptText="Nome Item" styleClass="Button" stylesheets="@style.css" />
@@ -536,7 +548,7 @@
                                              <children>
                                                 <Label text="Quantidade">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <TextField fx:id="quantidadeItem" prefHeight="25.0" prefWidth="121.0" />
@@ -546,8 +558,14 @@
                                     </VBox>
                                     <VBox alignment="CENTER" prefHeight="195.0" prefWidth="129.0" spacing="20.0">
                                        <children>
-                                          <Button fx:id="adicionarItem" mnemonicParsing="false" onAction="#adicionarItem" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
-                                          <Button fx:id="removerItem" mnemonicParsing="false" onAction="#removerItem" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
+                                          <Button fx:id="adicionarItem" mnemonicParsing="false" onAction="#adicionarItem" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" textFill="#af4044">
+                                             <font>
+                                                <Font name="Sylfaen" size="14.0" />
+                                             </font></Button>
+                                          <Button fx:id="removerItem" mnemonicParsing="false" onAction="#removerItem" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" textFill="#af4044">
+                                             <font>
+                                                <Font name="Sylfaen" size="14.0" />
+                                             </font></Button>
                                        </children>
                                     </VBox>
                                     <TableView fx:id="tableViewB" prefHeight="200.0" prefWidth="200.0">
@@ -561,7 +579,7 @@
                                              <children>
                                                 <Label text="Nome da Perícia">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <ComboBox fx:id="comboBoxPericia" prefWidth="150.0" promptText="Pericia" styleClass="Button" stylesheets="@style.css" />
@@ -571,8 +589,14 @@
                                     </VBox>
                                     <VBox alignment="CENTER" prefHeight="195.0" prefWidth="129.0" spacing="20.0">
                                        <children>
-                                          <Button fx:id="adicionarPericia" mnemonicParsing="false" onAction="#adicionarPericia" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
-                                          <Button fx:id="removerPericia" mnemonicParsing="false" onAction="#removerPericia" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
+                                          <Button fx:id="adicionarPericia" mnemonicParsing="false" onAction="#adicionarPericia" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" textFill="#af4044">
+                                             <font>
+                                                <Font name="Sylfaen" size="14.0" />
+                                             </font></Button>
+                                          <Button fx:id="removerPericia" mnemonicParsing="false" onAction="#removerPericia" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" textFill="#af4044">
+                                             <font>
+                                                <Font name="Sylfaen" size="14.0" />
+                                             </font></Button>
                                        </children>
                                     </VBox>
                                  </children>
@@ -590,7 +614,7 @@
                                              <children>
                                                 <Label text="Nome da Magia">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <ComboBox fx:id="comboBoxMagia" prefWidth="150.0" promptText="Magia" styleClass="Button" stylesheets="@style.css" />
@@ -600,8 +624,14 @@
                                     </VBox>
                                     <VBox alignment="CENTER" prefHeight="195.0" prefWidth="129.0" spacing="20.0">
                                        <children>
-                                          <Button fx:id="adicionarMagia" mnemonicParsing="false" onAction="#adicionarMagia" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
-                                          <Button fx:id="removerMagia" mnemonicParsing="false" onAction="#removerMagia" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
+                                          <Button fx:id="adicionarMagia" mnemonicParsing="false" onAction="#adicionarMagia" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" textFill="#af4044">
+                                             <font>
+                                                <Font name="Sylfaen" size="14.0" />
+                                             </font></Button>
+                                          <Button fx:id="removerMagia" mnemonicParsing="false" onAction="#removerMagia" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" textFill="#af4044">
+                                             <font>
+                                                <Font name="Sylfaen" size="14.0" />
+                                             </font></Button>
                                        </children>
                                     </VBox>
                                     <TableView fx:id="tableViewD" prefHeight="200.0" prefWidth="200.0">
@@ -615,7 +645,7 @@
                                              <children>
                                                 <Label text="Nome do talento">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="Sylfaen" size="16.0" />
                                                    </font>
                                                 </Label>
                                                 <ComboBox fx:id="comboBoxTalento" prefWidth="150.0" promptText="Talento" styleClass="Button" stylesheets="@style.css" />
@@ -625,8 +655,14 @@
                                     </VBox>
                                     <VBox alignment="CENTER" prefHeight="195.0" prefWidth="129.0" spacing="20.0">
                                        <children>
-                                          <Button fx:id="adicionarTalento" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
-                                          <Button fx:id="removerTalento" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
+                                          <Button fx:id="adicionarTalento" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" textFill="#af4044">
+                                             <font>
+                                                <Font name="Sylfaen" size="14.0" />
+                                             </font></Button>
+                                          <Button fx:id="removerTalento" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" textFill="#af4044">
+                                             <font>
+                                                <Font name="Sylfaen" size="14.0" />
+                                             </font></Button>
                                        </children>
                                     </VBox>
                                  </children>
