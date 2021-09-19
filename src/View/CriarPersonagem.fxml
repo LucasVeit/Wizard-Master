@@ -38,9 +38,9 @@
                                  <children>
                                     <HBox spacing="20.0">
                                        <children>
-                                          <ComboBox prefWidth="150.0" promptText="Raça" styleClass="Button" stylesheets="@style.css" />
-                                          <ComboBox prefWidth="150.0" promptText="Classe" styleClass="Button" stylesheets="@style.css" />
-                                          <ComboBox prefWidth="150.0" promptText="Deus" styleClass="Button" stylesheets="@style.css" />
+                                          <ComboBox fx:id="comboBoxSubRaca" prefWidth="150.0" promptText="Sub Raça" styleClass="Button" stylesheets="@style.css" />
+                                          <ComboBox fx:id="comboBoxClasse" prefWidth="150.0" promptText="Classe" styleClass="Button" stylesheets="@style.css" />
+                                          <ComboBox fx:id="comboBoxDeus" prefWidth="150.0" promptText="Deus" styleClass="Button" stylesheets="@style.css" />
                                        </children>
                                        <VBox.margin>
                                           <Insets bottom="20.0" top="20.0" />
@@ -48,9 +48,9 @@
                                     </HBox>
                                     <HBox spacing="20.0">
                                        <children>
-                                          <ComboBox prefWidth="150.0" promptText="Arquétipo" styleClass="Button" stylesheets="@style.css" />
-                                          <ComboBox prefWidth="150.0" promptText="Antecendente" styleClass="Button" stylesheets="@style.css" />
-                                          <ComboBox prefWidth="150.0" promptText="Tendência" styleClass="Button" stylesheets="@style.css" />
+                                          <ComboBox fx:id="comboBoxArquetipo" prefWidth="150.0" promptText="Arquétipo" styleClass="Button" stylesheets="@style.css" />
+                                          <ComboBox fx:id="comboBoxAntecedente" prefWidth="150.0" promptText="Antecendente" styleClass="Button" stylesheets="@style.css" />
+                                          <ComboBox fx:id="comboBoxTendencia" prefWidth="150.0" promptText="Tendência" styleClass="Button" stylesheets="@style.css" />
                                        </children>
                                        <VBox.margin>
                                           <Insets bottom="20.0" />
@@ -60,41 +60,7 @@
                                        <children>
                                           <VBox spacing="5.0">
                                              <children>
-                                                <Label text="Coordenada X">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField editable="false" prefHeight="25.0" prefWidth="200.0" />
-                                             </children>
-                                          </VBox>
-                                          <VBox spacing="5.0">
-                                             <children>
-                                                <Label text="Coordenada Y">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField editable="false" prefHeight="25.0" prefWidth="200.0" />
-                                             </children>
-                                          </VBox>
-                                          <VBox spacing="5.0">
-                                             <children>
-                                                <Label text="Classe da armadura">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField editable="false" prefHeight="25.0" prefWidth="200.0" />
-                                             </children>
-                                          </VBox>
-                                       </children>
-                                    </HBox>
-                                    <HBox spacing="30.0">
-                                       <children>
-                                          <VBox spacing="5.0">
-                                             <children>
-                                                <Label text="Nome do Personagem">
+                                                <Label fx:id="nomePersonagem" text="Nome do Personagem">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -104,7 +70,41 @@
                                           </VBox>
                                           <VBox spacing="5.0">
                                              <children>
-                                                <Label text="Altura">
+                                                <Label fx:id="classeArmaduraPersonagem" text="Classe da armadura">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField editable="false" prefHeight="25.0" prefWidth="200.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label fx:id="alturaPersonagem" text="Altura">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="25.0" prefWidth="200.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox spacing="30.0">
+                                       <children>
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label fx:id="corPelePersonagem" text="Cor da pele">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField prefHeight="25.0" prefWidth="200.0" />
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="5.0">
+                                             <children>
+                                                <Label text="Idade">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -138,7 +138,7 @@
                                        <children>
                                           <VBox spacing="5.0">
                                              <children>
-                                                <Label text="Idade">
+                                                <Label text="Número Inspiração">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -148,7 +148,7 @@
                                           </VBox>
                                           <VBox spacing="5.0">
                                              <children>
-                                                <Label text="Cor da pele">
+                                                <Label text="Percepção passiva">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -182,7 +182,7 @@
                                        <children>
                                           <VBox spacing="5.0">
                                              <children>
-                                                <Label text="Percepção passiva">
+                                                <Label text="Capacidade de carga">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -192,7 +192,7 @@
                                           </VBox>
                                           <VBox spacing="5.0">
                                              <children>
-                                                <Label text="Número Inspiração">
+                                                <Label text="Pontos de Experiência">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -226,7 +226,7 @@
                                        <children>
                                           <VBox spacing="5.0">
                                              <children>
-                                                <Label text="Pontos de Experiência">
+                                                <Label text="Platina">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -236,7 +236,7 @@
                                           </VBox>
                                           <VBox spacing="5.0">
                                              <children>
-                                                <Label text="Capacidade de carga">
+                                                <Label text="Ouro">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -270,26 +270,6 @@
                                        <children>
                                           <VBox spacing="5.0">
                                              <children>
-                                                <Label text="Ouro">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField prefHeight="25.0" prefWidth="200.0" />
-                                             </children>
-                                          </VBox>
-                                          <VBox spacing="5.0">
-                                             <children>
-                                                <Label text="Platina">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField prefHeight="25.0" prefWidth="200.0" />
-                                             </children>
-                                          </VBox>
-                                          <VBox spacing="5.0">
-                                             <children>
                                                 <Label text="Electro">
                                                    <font>
                                                       <Font size="14.0" />
@@ -308,10 +288,6 @@
                                                 <TextField prefHeight="25.0" prefWidth="200.0" />
                                              </children>
                                           </VBox>
-                                       </children>
-                                    </HBox>
-                                    <HBox spacing="30.0">
-                                       <children>
                                           <VBox spacing="5.0">
                                              <children>
                                                 <Label text="Carisma">
@@ -332,6 +308,10 @@
                                                 <TextField prefHeight="25.0" prefWidth="200.0" />
                                              </children>
                                           </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox spacing="30.0">
+                                       <children>
                                           <VBox spacing="5.0">
                                              <children>
                                                 <Label text="Força">
@@ -352,10 +332,6 @@
                                                 <TextField prefHeight="25.0" prefWidth="200.0" />
                                              </children>
                                           </VBox>
-                                       </children>
-                                    </HBox>
-                                    <HBox spacing="30.0">
-                                       <children>
                                           <VBox spacing="5.0">
                                              <children>
                                                 <Label text="Sabedoria">
@@ -477,6 +453,7 @@
          <bottom>
             <TableView prefHeight="200.0" prefWidth="1065.0" BorderPane.alignment="CENTER">
               <columns>
+                  <TableColumn prefWidth="75.0" text="Codigo Aparencia" />
                   <TableColumn prefWidth="75.0" text="Nome do Personagem" />
                   <TableColumn prefWidth="75.0" text="Altura" />
                   <TableColumn prefWidth="75.0" text="Peso" />
@@ -484,7 +461,9 @@
                   <TableColumn prefWidth="75.0" text="Idade" />
                   <TableColumn prefWidth="75.0" text="Cor da pele" />
                 <TableColumn prefWidth="75.0" text="Cor de cabelo" />
+                  <TableColumn prefWidth="75.0" text="Codigo Personagem" />
                 <TableColumn prefWidth="88.0" text="Nome do jogador" />
+                  <TableColumn prefWidth="75.0" text="nome Campanha" />
                   <TableColumn prefWidth="62.0" text="Raça" />
                   <TableColumn prefWidth="75.0" text="Classe" />
                   <TableColumn prefWidth="75.0" text="Deus" />
@@ -652,8 +631,8 @@
                                     </VBox>
                                     <VBox alignment="CENTER" prefHeight="195.0" prefWidth="129.0" spacing="20.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
-                                          <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
+                                          <Button fx:id="adicionarTalento" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
+                                          <Button fx:id="removerTalento" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
                                        </children>
                                     </VBox>
                                  </children>

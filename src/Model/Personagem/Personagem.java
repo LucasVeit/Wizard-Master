@@ -12,13 +12,11 @@ public class Personagem {
     private int codigoPersonagem;
     private String nomeJogador;
     private String nomeCampanha;
-    private String personagemRaca;
+    private String personagemSubRaca;
     private String personagemClasse;
-    private int Deus;
+    private int deus;
     private String arquetipo;
     private String nomeAntecedente;
-    private int coordenadaX;
-    private int coordenadaY;
     private String tendencia;
     private int percepcaoPassiva;
     private int numeroInspiracao;;
@@ -38,17 +36,17 @@ public class Personagem {
     private String defeito;
     private String ideal;
     private String tracoPersonalidade;
-    private int Carisma;
-    private int Constituição;
-    private int Força;
-    private int Destreza;
+    private int carisma;
+    private int constituição;
+    private int força;
+    private int destreza;
     private int sabedoria;
     private int inteligencia;
 
     public Personagem() {
     }
 
-    public Personagem(int codigoAparencia, String nomePersonagem, float altura, float peso, String corOlhos, int idade, String corPele, String corCabelo, int codigoPersonagem, String nomeJogador, String nomeCampanha, String personagemRaca, String personagemClasse, int deus, String arquetipo, String nomeAntecedente, int coordenadaX, int coordenadaY, String tendencia, int percepcaoPassiva, int numeroInspiracao, int pontosVidaAtual, int pontosVidaTotal, int pontosExperiencia, int capacidadeCarga, int cobre, int prata, int ouro, int platina, int electro, int classeArmadura, float deslocamento, String caracteristicaAdicional, String vinculo, String defeito, String ideal, String tracoPersonalidade, int carisma, int constituição, int força, int destreza, int sabedoria, int inteligencia) {
+    public Personagem(int codigoAparencia, String nomePersonagem, float altura, float peso, String corOlhos, int idade, String corPele, String corCabelo, int codigoPersonagem, String nomeJogador, String nomeCampanha, String personagemSubRaca, String personagemClasse, int deus, String arquetipo, String nomeAntecedente, int coordenadaX, int coordenadaY, String tendencia, int percepcaoPassiva, int numeroInspiracao, int pontosVidaAtual, int pontosVidaTotal, int pontosExperiencia, int capacidadeCarga, int cobre, int prata, int ouro, int platina, int electro, int classeArmadura, float deslocamento, String caracteristicaAdicional, String vinculo, String defeito, String ideal, String tracoPersonalidade, int carisma, int constituição, int força, int destreza, int sabedoria, int inteligencia) {
         this.codigoAparencia = codigoAparencia;
         this.nomePersonagem = nomePersonagem;
         this.altura = altura;
@@ -60,13 +58,11 @@ public class Personagem {
         this.codigoPersonagem = codigoPersonagem;
         this.nomeJogador = nomeJogador;
         this.nomeCampanha = nomeCampanha;
-        this.personagemRaca = personagemRaca;
+        this.personagemSubRaca = personagemSubRaca;
         this.personagemClasse = personagemClasse;
-        Deus = deus;
+        this.deus = deus;
         this.arquetipo = arquetipo;
         this.nomeAntecedente = nomeAntecedente;
-        this.coordenadaX = coordenadaX;
-        this.coordenadaY = coordenadaY;
         this.tendencia = tendencia;
         this.percepcaoPassiva = percepcaoPassiva;
         this.numeroInspiracao = numeroInspiracao;
@@ -86,10 +82,10 @@ public class Personagem {
         this.defeito = defeito;
         this.ideal = ideal;
         this.tracoPersonalidade = tracoPersonalidade;
-        Carisma = carisma;
-        Constituição = constituição;
-        Força = força;
-        Destreza = destreza;
+        this.carisma = carisma;
+        this.constituição = constituição;
+        this.força = força;
+        this.destreza = destreza;
         this.sabedoria = sabedoria;
         this.inteligencia = inteligencia;
     }
@@ -182,12 +178,12 @@ public class Personagem {
         this.nomeCampanha = nomeCampanha;
     }
 
-    public String getPersonagemRaca() {
-        return personagemRaca;
+    public String getPersonagemSubRaca() {
+        return personagemSubRaca;
     }
 
-    public void setPersonagemRaca(String personagemRaca) {
-        this.personagemRaca = personagemRaca;
+    public void setPersonagemSubRaca(String personagemSubRaca) {
+        this.personagemSubRaca = personagemSubRaca;
     }
 
     public String getPersonagemClasse() {
@@ -199,11 +195,11 @@ public class Personagem {
     }
 
     public int getDeus() {
-        return Deus;
+        return deus;
     }
 
     public void setDeus(int deus) {
-        Deus = deus;
+        this.deus = deus;
     }
 
     public String getArquetipo() {
@@ -220,22 +216,6 @@ public class Personagem {
 
     public void setNomeAntecedente(String nomeAntecedente) {
         this.nomeAntecedente = nomeAntecedente;
-    }
-
-    public int getCoordenadaX() {
-        return coordenadaX;
-    }
-
-    public void setCoordenadaX(int coordenadaX) {
-        this.coordenadaX = coordenadaX;
-    }
-
-    public int getCoordenadaY() {
-        return coordenadaY;
-    }
-
-    public void setCoordenadaY(int coordenadaY) {
-        this.coordenadaY = coordenadaY;
     }
 
     public String getTendencia() {
@@ -391,35 +371,35 @@ public class Personagem {
     }
 
     public int getCarisma() {
-        return Carisma;
+        return carisma;
     }
 
     public void setCarisma(int carisma) {
-        Carisma = carisma;
+        this.carisma = carisma;
     }
 
     public int getConstituição() {
-        return Constituição;
+        return constituição;
     }
 
     public void setConstituição(int constituição) {
-        Constituição = constituição;
+        this.constituição = constituição;
     }
 
     public int getForça() {
-        return Força;
+        return força;
     }
 
     public void setForça(int força) {
-        Força = força;
+        this.força = força;
     }
 
     public int getDestreza() {
-        return Destreza;
+        return destreza;
     }
 
     public void setDestreza(int destreza) {
-        Destreza = destreza;
+        this.destreza = destreza;
     }
 
     public int getSabedoria() {
