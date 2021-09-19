@@ -696,7 +696,8 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
         }
 
 
-        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\staff.jpg");
+
+        javafx.scene.image.ImageView view = new ImageView(MonstroDAO.GetEnderecoFoto(String.valueOf(object.get(0))));
         staticImageView.setImage(view.getImage());
     }
 

@@ -144,4 +144,25 @@ public class MonstroDAO {
         return caracteristicas;
 
     }
+
+    public static String GetEnderecoFoto(String nomeMonstro){
+        String foto = null;
+        String sql = "select foto from Monstro where nomeMonstro = \'" + nomeMonstro + "\';";
+
+        try{
+            Statement declaracao = con.createStatement();
+            ResultSet rs = declaracao.executeQuery(sql);
+
+            while(rs.next()){
+                foto = rs.getString("foto");
+
+            }
+
+        } catch(SQLException e){
+            System.out.println("Error");
+        }
+
+        return foto;
+
+    }
 }
