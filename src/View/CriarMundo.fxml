@@ -99,10 +99,13 @@
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="216.0" prefWidth="84.0" spacing="20.0">
                             <children>
-                                <Button fx:id="adicionar" mnemonicParsing="false" onAction="#adicionar" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar">
+                                <Button fx:id="adicionar" mnemonicParsing="false" onAction="#adicionar" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" textFill="#af4044">
                            <VBox.margin>
                               <Insets top="20.0" />
-                           </VBox.margin></Button>
+                           </VBox.margin>
+                           <font>
+                              <Font name="Sylfaen" size="14.0" />
+                           </font></Button>
                             </children>
                             <HBox.margin>
                                 <Insets top="30.0" />
@@ -126,14 +129,20 @@
                                         <Insets />
                                     </VBox.margin>
                                 </ButtonBar>
-                                <Button fx:id="remover" mnemonicParsing="false" onAction="#remover" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover">
-                                    <VBox.margin>
-                                        <Insets />
-                                    </VBox.margin></Button>
-                                <Button fx:id="limpar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#limpar" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Limpar">
+                                <Button fx:id="remover" mnemonicParsing="false" onAction="#remover" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" textFill="#af4044">
                                     <VBox.margin>
                                         <Insets />
                                     </VBox.margin>
+                           <font>
+                              <Font name="Sylfaen" size="14.0" />
+                           </font></Button>
+                                <Button fx:id="limpar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#limpar" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Limpar" textFill="#af4044">
+                                    <VBox.margin>
+                                        <Insets />
+                                    </VBox.margin>
+                           <font>
+                              <Font name="Sylfaen" size="14.0" />
+                           </font>
                                 </Button>
                             </children>
                             <HBox.margin>

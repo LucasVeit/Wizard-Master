@@ -28,7 +28,7 @@
                                 <Insets left="40.0" right="55.0" top="55.0" />
                             </VBox.margin>
                             <buttons>
-                                <Button onAction="#goToCampanha" fx:id="btnVoltar" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="10.0" prefWidth="60.0" styleClass="Button" stylesheets="@style.css" textFill="WHITE">
+                                <Button fx:id="btnVoltar" contentDisplay="CENTER" mnemonicParsing="false" onAction="#goToCampanha" prefHeight="30.0" prefWidth="73.0" styleClass="Button" stylesheets="@style.css" textFill="WHITE">
                                     <graphic>
                                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
