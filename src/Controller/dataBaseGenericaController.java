@@ -64,13 +64,13 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
                         itemInfo();
                     }
                     else if(categoria.equals("Magia")){
-                        genericInfo("View\\Resources\\imageMagic.jpg");
+                        genericInfo("View\\Resources\\magic.png");
                     }
                     else if(categoria.equals("Monstro")){
                         monstroInfo();
                     }
                     else if(categoria.equals("Pericia")){
-                        genericInfo("View\\Resources\\imageMagic.jpg");
+                        genericInfo("View\\Resources\\pericia.png");
                     }
                     else if(categoria.equals("Plano")){
                         planoInfo();
@@ -358,7 +358,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             list.add(text);
         }
 
-        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\imageMagic.jpg");
+        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\god.png");
         staticImageView.setImage(view.getImage());
     }
 
@@ -379,7 +379,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             list.add(text);
         }
 
-        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\imageMagic.jpg"); // Adicionar foto de cada classe
+        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\class.png");
         staticImageView.setImage(view.getImage());
     }
 
@@ -401,7 +401,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
         }
 
 
-        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\staff.jpg");
+        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\item.png");
         staticImageView.setImage(view.getImage());
 
         if(String.valueOf(object.get(2)).equals("Arma")){
@@ -733,7 +733,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             list.add(text);
         }
 
-        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\staff.jpg");
+        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\plane.png");
         staticImageView.setImage(view.getImage());
     }
 
@@ -797,7 +797,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             list.add(text);
         }
 
-        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\staff.jpg");
+        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\talent.png");
         staticImageView.setImage(view.getImage());
     }
 
