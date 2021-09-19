@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Cidade;
+import Model.DAO.New.CidadeDAO;
 import Model.Personagem.*;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleFloatProperty;
@@ -23,7 +24,7 @@ public class criarPersonagemController implements Initializable, controlledScree
     @FXML
     TableColumn<PersonagemItem, SimpleIntegerProperty> column1;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column2;
+    TableColumn<PersonagemItem, SimpleStringProperty> column2;
     @FXML
     TableColumn<PersonagemItem, SimpleFloatProperty> column3;
     @FXML
@@ -81,15 +82,15 @@ public class criarPersonagemController implements Initializable, controlledScree
     @FXML
     TableColumn<PersonagemItem, SimpleIntegerProperty> column30;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column31;
+    TableColumn<PersonagemItem, SimpleStringProperty> column31;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column32;
+    TableColumn<PersonagemItem, SimpleStringProperty> column32;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column33;
+    TableColumn<PersonagemItem, SimpleStringProperty> column33;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column34;
+    TableColumn<PersonagemItem, SimpleStringProperty> column34;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column35;
+    TableColumn<PersonagemItem, SimpleStringProperty> column35;
     @FXML
     TableColumn<PersonagemItem, SimpleIntegerProperty> column36;
     @FXML
@@ -111,29 +112,21 @@ public class criarPersonagemController implements Initializable, controlledScree
     TableColumn<PersonagemItem, SimpleStringProperty> columnA2;
     @FXML
     TableColumn<PersonagemItem, SimpleIntegerProperty> columnA3;
-    @FXML
-    TableColumn<PersonagemItem, SimpleBooleanProperty> columnA4;
 
     @FXML
     private TableView<PersonagemPericia> tableViewB;
     @FXML
     TableColumn<PersonagemPericia, SimpleIntegerProperty> columnB1;
-    @FXML
-    TableColumn<PersonagemPericia, SimpleStringProperty> columnB2;
 
     @FXML
     private TableView<PersonagemMagia> tableViewC;
     @FXML
     TableColumn<PersonagemMagia, SimpleIntegerProperty> columnC1;
-    @FXML
-    TableColumn<PersonagemMagia, SimpleStringProperty> columnC2;
 
     @FXML
     private TableView<PersonagemTalento> tableViewD;
     @FXML
     TableColumn<PersonagemTalento, SimpleIntegerProperty> columnD1;
-    @FXML
-    TableColumn<PersonagemTalento, SimpleStringProperty> columnD2;
 
     @FXML
     private ComboBox<String> comboBoxItem;
@@ -171,6 +164,94 @@ public class criarPersonagemController implements Initializable, controlledScree
     @FXML
     private Button removerTalento;
 
+    @FXML
+    private Button adicionarPersonagem;
+    @FXML
+    private Button removerPersonagem;
+    @FXML
+    private Button atualizarPersonagem;
+    @FXML
+    private Button limparPersonagem;
+
+    @FXML
+    private ComboBox<String> comboBoxSubRaca;
+    @FXML
+    private ComboBox<String> comboBoxClasse;
+    @FXML
+    private ComboBox<String> comboBoxDeus;
+    @FXML
+    private ComboBox<String> comboBoxArquetipo;
+    @FXML
+    private ComboBox<String> comboBoxAntecedente;
+    @FXML
+    private ComboBox<String> comboBoxTendencia;
+
+    @FXML
+    private TextField nomePersonagem;
+    @FXML
+    private TextField classeArmaduraPersonagem;
+    @FXML
+    private TextField alturaPersonagem;
+    @FXML
+    private TextField corPelePersonagem;
+    @FXML
+    private TextField idadePersonagem;
+    @FXML
+    private TextField pesoPersonagem;
+    @FXML
+    private TextField corOlhosPersonagem;
+    @FXML
+    private TextField numeroInspiracaoPersonagem;
+    @FXML
+    private TextField percepcaoPassivaPersonagem;
+    @FXML
+    private TextField corCabeloPersonagem;
+    @FXML
+    private TextField nomeJogadorPersonagem;
+    @FXML
+    private TextField capacidadeCargaPersonagem;
+    @FXML
+    private TextField pontosExperienciaPersonagem;
+    @FXML
+    private TextField pontosVidaAtualPersonagem;
+    @FXML
+    private TextField pontosVidaTotalPersonagem;
+    @FXML
+    private TextField platinaPersonagem;
+    @FXML
+    private TextField ouroPersonagem;
+    @FXML
+    private TextField cobrePersonagem;
+    @FXML
+    private TextField prataPersonagem;
+    @FXML
+    private TextField electroPersonagem;
+    @FXML
+    private TextField deslocamentoPersonagem;
+    @FXML
+    private TextField carismaPersonagem;
+    @FXML
+    private TextField constituicaoPersonagem;
+    @FXML
+    private TextField forcaPersonagem;
+    @FXML
+    private TextField destrezaPersonagem;
+    @FXML
+    private TextField sabedoriaPersonagem;
+    @FXML
+    private TextField inteligenciaPersonagem;
+    @FXML
+    private TextArea vinculoPersonagem;
+    @FXML
+    private TextArea defeitoPersonagem;
+    @FXML
+    private TextArea idealPersonagem;
+    @FXML
+    private TextArea tracoPersonalidadePersonagem;
+    private Personagem personagemAtual;
+    private Personagem personagemAntigo;
+    String lider;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}
 
@@ -181,4 +262,7 @@ public class criarPersonagemController implements Initializable, controlledScree
     private void goToNovaCampanha(ActionEvent event){
         myController.setScreen(main.screen3ID);
     }{}
+
+
+
 }
