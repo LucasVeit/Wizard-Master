@@ -1,4 +1,4 @@
---Soma do preço de todos os itens na moeda mais barata pc (peça de cobre)
+--Media do preço de todos os itens na moeda mais barata pc (peça de cobre)
 select categoria, ROUND(AVG(custo),2)
 from(
 		(select categoria, custo
