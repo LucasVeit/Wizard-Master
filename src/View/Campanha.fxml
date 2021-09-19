@@ -93,28 +93,28 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="903.0" spacing="20.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Busca01">
+                        <Button onAction="#goToBusca01" mnemonicParsing="false" prefHeight="46.0" prefWidth="110.0" styleClass="Button" stylesheets="@style.css" text="Busca01">
                            <font>
-                              <Font />
+                              <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Busca 02">
+                        <Button onAction="#goToBusca02" mnemonicParsing="false" prefHeight="46.0" prefWidth="110.0" styleClass="Button" stylesheets="@style.css" text="Busca 02">
                            <font>
-                              <Font />
+                              <Font size="20.0" />
                            </font>
                         </Button>
                      </children>
                   </HBox>
-                  <HBox spacing="20.0">
+                  <HBox prefHeight="100.0" prefWidth="262.0" spacing="20.0">
                      <children>
-                        <Button onAction="#goToTelaIntervalo" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Intervalo">
+                        <Button mnemonicParsing="false" onAction="#goToTelaIntervalo" prefHeight="40.0" prefWidth="110.0" styleClass="Button" stylesheets="@style.css" text="Intervalo">
                            <font>
-                              <Font />
+                              <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" styleClass="Button" stylesheets="@style.css" text="Relatório da campanha">
+                        <Button mnemonicParsing="false" onAction="#goToTelaRelatorioCampanha" prefHeight="46.0" prefWidth="110.0" styleClass="Button" stylesheets="@style.css" text="Relatório">
                            <font>
-                              <Font />
+                              <Font size="20.0" />
                            </font>
                         </Button>
                      </children>
