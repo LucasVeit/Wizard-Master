@@ -95,7 +95,7 @@ create table SubRaca (
 	sabedoria integer not null, 
 	inteligencia integer not null,
 	carisma integer not null,
-	primary key (nomeSubRaca, nomeRaca),
+	primary key (nomeSubRaca),
 	foreign key (nomeRaca) references Raca(nomeRaca)
 );
 
@@ -453,7 +453,7 @@ create table Personagem (
 	codigoPersonagem serial, 
 	nomeJogador varchar(30) not null,
 	nomeCampanha varchar(100) not null,
-	personagemRaca varchar(30) not null,
+	personagemSubRaca varchar(30) not null,
 	personagemClasse varchar(30) not null,
 	codigoDeus integer,
 	codigoAparencia integer,
@@ -480,7 +480,7 @@ create table Personagem (
 	tracoPersonalidade text,
 	primary key (codigoPersonagem),
 	foreign key (nomeCampanha) references Campanha (nomeCampanha),
-	foreign key (personagemRaca) references Raca (nomeRaca),
+	foreign key (personagemSubRaca) references SubRaca (nomeSubRaca),
 	foreign key (personagemClasse) references Classe (nomeClasse),
 	foreign key (nomeAntecedente) references Antecedente (nomeAntecedente),
 	foreign key (codigoDeus) references Deus (codigoDeus),
