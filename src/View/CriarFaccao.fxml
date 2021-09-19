@@ -42,8 +42,8 @@
                                                 <ComboBox fx:id="comboBox" prefHeight="35.0" prefWidth="158.0" styleClass="Button" stylesheets="@style.css" />
                                             </children>
                                         </VBox>
-                                        <Button fx:id="adicionarLider" mnemonicParsing="false" onAction="#adicionarLider" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" />
-                                        <Button fx:id="removerLider" mnemonicParsing="false" onAction="#removerLider" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" />
+                                        <Button fx:id="adicionarLider" mnemonicParsing="false" onAction="#adicionarLider" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" textFill="#af4044" />
+                                        <Button fx:id="removerLider" mnemonicParsing="false" onAction="#removerLider" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" textFill="#af4044" />
                                     </children>
                                 </VBox>
                                 <TableView fx:id="tableViewLider" prefHeight="189.0" prefWidth="248.0">
@@ -113,11 +113,11 @@
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="216.0" prefWidth="84.0" spacing="20.0">
                             <children>
-                                <Button fx:id="adicionar" mnemonicParsing="false" onAction="#adicionar" prefHeight="40.0" prefWidth="73.0" styleClass="Button" stylesheets="@style.css" text="Adicionar">
+                                <Button fx:id="adicionar" mnemonicParsing="false" onAction="#adicionar" prefHeight="40.0" prefWidth="73.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" textFill="#af4044">
                            <VBox.margin>
                               <Insets top="20.0" />
                            </VBox.margin></Button>
-                                <Button fx:id="atualizar" mnemonicParsing="false" onAction="#atualizar" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Atualizar" />
+                                <Button fx:id="atualizar" mnemonicParsing="false" onAction="#atualizar" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Atualizar" textFill="#af4044" />
                             </children>
                             <HBox.margin>
                                 <Insets top="30.0" />
@@ -141,11 +141,11 @@
                                         <Insets />
                                     </VBox.margin>
                                 </ButtonBar>
-                                <Button fx:id="remover" mnemonicParsing="false" onAction="#remover" prefHeight="42.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" text="Remover">
+                                <Button fx:id="remover" mnemonicParsing="false" onAction="#remover" prefHeight="42.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" text="Remover" textFill="#af4044">
                                     <VBox.margin>
                                         <Insets />
                                     </VBox.margin></Button>
-                                <Button fx:id="limpar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#limpar" prefHeight="40.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" text="Limpar">
+                                <Button fx:id="limpar" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#limpar" prefHeight="40.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" text="Limpar" textFill="#af4044">
                                     <VBox.margin>
                                         <Insets />
                                     </VBox.margin>

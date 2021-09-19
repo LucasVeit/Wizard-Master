@@ -33,9 +33,9 @@
                                         <Image url="@Resources/pergaminho.png" />
                                     </image>
                                 </ImageView>
-                                <Label layoutX="38.0" layoutY="22.0" text="Campanhas" textFill="#3f0404">
+                                <Label layoutX="25.0" layoutY="22.0" prefHeight="38.0" prefWidth="157.0" text="Campanhas" textFill="#3f0404">
                                     <font>
-                                        <Font size="24.0" />
+                                        <Font name="Sylfaen" size="30.0" />
                                     </font>
                                 </Label>
                             </children>
@@ -49,7 +49,7 @@
          <top>
             <HBox alignment="CENTER_RIGHT" prefHeight="245.0" prefWidth="1155.0">
                <BorderPane.margin>
-                  <Insets left="55.0" right="70.0" top="55.0" />
+                  <Insets left="80.0" right="70.0" top="55.0" />
                </BorderPane.margin>
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="1080.0" spacing="30.0">
@@ -60,7 +60,7 @@
                                  <children>
                                     <Label text="Nome">
                                        <font>
-                                          <Font size="20.0" />
+                                          <Font name="Sylfaen" size="24.0" />
                                        </font>
                                     </Label>
                                     <TextField fx:id="Nome" editable="false" prefHeight="25.0" prefWidth="295.0">
@@ -74,7 +74,7 @@
                                  <children>
                                     <Label text="Descrição">
                                        <font>
-                                          <Font size="20.0" />
+                                          <Font name="Sylfaen" size="24.0" />
                                        </font></Label>
                                     <TextArea fx:id="descricao" prefHeight="200.0" prefWidth="200.0" />
                                  </children>
@@ -83,9 +83,18 @@
                         </VBox>
                         <VBox alignment="CENTER" prefHeight="227.0" prefWidth="100.0" spacing="20.0">
                            <children>
-                              <Button fx:id="carregar" mnemonicParsing="false" onAction="#goToCampanha" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Carregar" />
-                              <Button fx:id="atualizar" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Atualizar" />
-                              <Button fx:id="excluir" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Excluir" />
+                              <Button fx:id="carregar" mnemonicParsing="false" onAction="#goToCampanha" prefHeight="46.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Carregar" textFill="#af4044">
+                                 <font>
+                                    <Font name="Sylfaen" size="16.0" />
+                                 </font></Button>
+                              <Button fx:id="atualizar" mnemonicParsing="false" prefHeight="46.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Atualizar" textFill="#af4044">
+                                 <font>
+                                    <Font name="Sylfaen" size="16.0" />
+                                 </font></Button>
+                              <Button fx:id="excluir" mnemonicParsing="false" prefHeight="46.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Excluir" textFill="#af4044">
+                                 <font>
+                                    <Font name="Sylfaen" size="16.0" />
+                                 </font></Button>
                            </children></VBox>
                      </children>
                      <HBox.margin>
@@ -109,7 +118,7 @@
                          </ButtonBar>
                      </children>
                      <HBox.margin>
-                        <Insets right="20.0" top="20.0" />
+                        <Insets right="50.0" top="20.0" />
                      </HBox.margin>
                   </Pane>
                </children>
