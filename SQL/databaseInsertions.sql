@@ -1530,6 +1530,7 @@ insert into LiderCidade (codigoCidade, codigoLider) values
 	((select codigoCidade from Cidade where nomeCidade = 'Chordata'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
 	((select codigoCidade from Cidade where nomeCidade = 'Viirim'),(select codigoLider from Lider where nomeLider = 'Areqwa'));
 
+
 -- Creating indexes
 create index idx_MonstroHabilidade_nomeMonstro_nomeHabilidade on MonstroHabilidade using btree (nomeMonstro, nomeHabilidade);
 create index idx_Atributo_all on Atributo using btree (nivel, nomeClasse, bonusProficiencia);
