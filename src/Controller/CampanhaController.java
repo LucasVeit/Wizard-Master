@@ -3,6 +3,7 @@ package Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import sample.main;
 
 import java.net.URL;
@@ -11,6 +12,20 @@ import java.util.ResourceBundle;
 public class CampanhaController implements Initializable, controlledScreen {
 
     screensController myController;
+
+    @FXML
+    Button criarPersonagem;
+    @FXML
+    Button criarMundo;
+    @FXML
+    Button criarCidade;
+    @FXML
+    Button criarPanteao;
+    @FXML
+    Button criarFaccao;
+    @FXML
+    Button criarLider;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}
