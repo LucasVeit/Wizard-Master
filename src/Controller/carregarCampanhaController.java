@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Campanha;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,24 +18,26 @@ public class carregarCampanhaController implements Initializable, controlledScre
     screensController myController;
 
     @FXML
-    javafx.scene.control.Button carregar;
+    private Button carregar;
     @FXML
-    javafx.scene.control.Button atualizar;
+    private Button tualizar;
     @FXML
-    javafx.scene.control.Button excluir;
+    private Button excluir;
     @FXML
     TextField Nome;
     @FXML
-    javafx.scene.control.TextArea descricao;
+    private TextArea descricao;
     @FXML
-    TableView tableView;
+    private TableView<Campanha> tableView;
     @FXML
-    TableColumn columnNome;
+    private TableColumn<Campanha, String> columnNome;
     @FXML
-    TableColumn columnDescricao;
+    private TableColumn<Campanha, String> columnDescricao;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {}
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        initTable();
+    }
 
     @Override
     public void setScreenParent(screensController screenPage) { myController = screenPage; }
@@ -48,4 +51,9 @@ public class carregarCampanhaController implements Initializable, controlledScre
     private void goToCampanha(ActionEvent event){
         myController.setScreen(main.screen3ID);
     }
+
+    public void initTable(){
+
+    }
+
 }
