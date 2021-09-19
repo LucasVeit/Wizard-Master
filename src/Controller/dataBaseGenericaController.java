@@ -610,15 +610,17 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
         list.clear();
 
         for(int i = 1; i < object.size(); ++i){
-            Text subtitle = new Text( tableView.getColumns().get(i).getText()+ ": ");
-            subtitle.setFont(Font.font("Sylfaen", 30));
-            subtitle.setFill(Color.rgb(40, 2, 2));
-            list.add(subtitle);
+            if(i != 2) {
+                Text subtitle = new Text(tableView.getColumns().get(i).getText() + ": ");
+                subtitle.setFont(Font.font("Sylfaen", 30));
+                subtitle.setFill(Color.rgb(40, 2, 2));
+                list.add(subtitle);
 
-            Text text = new Text(String.valueOf(object.get(i)) + "\n");
-            text.setFont(Font.font("Sylfaen", 24));
-            text.setFill(Color.rgb(63, 4, 4));
-            list.add(text);
+                Text text = new Text(String.valueOf(object.get(i)) + "\n");
+                text.setFont(Font.font("Sylfaen", 24));
+                text.setFill(Color.rgb(63, 4, 4));
+                list.add(text);
+            }
         }
 
         Text Carisma = new Text( "\nCarisma: ");
@@ -695,8 +697,6 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             list.add(text);
         }
 
-
-
         javafx.scene.image.ImageView view = new ImageView(MonstroDAO.GetEnderecoFoto(String.valueOf(object.get(0))));
         staticImageView.setImage(view.getImage());
     }
@@ -765,7 +765,7 @@ public class dataBaseGenericaController extends TelaResultadoController implemen
             list.add(text);
         }
 
-        javafx.scene.image.ImageView view = new ImageView("View\\Resources\\staff.jpg");
+        javafx.scene.image.ImageView view = new ImageView(SubRacaDAO.GetEnderecoFoto(String.valueOf(object.get(1))));
         staticImageView.setImage(view.getImage());
     }
 

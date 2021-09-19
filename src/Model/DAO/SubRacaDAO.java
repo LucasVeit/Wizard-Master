@@ -107,4 +107,25 @@ public class SubRacaDAO {
         return subracas;
     }
 
+    public static String GetEnderecoFoto(String nomeRaca){
+        String foto = null;
+        String sql = "select caminhoImagem from Raca where nomeRaca = \'" + nomeRaca + "\';";
+
+        try{
+            Statement declaracao = con.createStatement();
+            ResultSet rs = declaracao.executeQuery(sql);
+
+            while(rs.next()){
+                foto = rs.getString("caminhoImagem");
+
+            }
+
+        } catch(SQLException e){
+            System.out.println("Error");
+        }
+
+        return foto;
+
+    }
+
 }
