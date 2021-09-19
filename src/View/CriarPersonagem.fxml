@@ -566,6 +566,11 @@
                                              <font>
                                                 <Font name="Sylfaen" size="14.0" />
                                              </font></Button>
+                                          <Button fx:id="atualizarItem" mnemonicParsing="false" onAction="#atualizarItem" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Atualizar" textFill="#af4044">
+                                             <font>
+                                                <Font name="Sylfaen" size="14.0" />
+                                             </font>
+                                          </Button>
                                        </children>
                                     </VBox>
                                     <TableView fx:id="tableViewB" prefHeight="200.0" prefWidth="200.0">
@@ -655,11 +660,11 @@
                                     </VBox>
                                     <VBox alignment="CENTER" prefHeight="195.0" prefWidth="129.0" spacing="20.0">
                                        <children>
-                                          <Button fx:id="adicionarTalento" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" textFill="#af4044">
+                                          <Button fx:id="adicionarTalento" mnemonicParsing="false" onAction="#adicionarTalento" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Adicionar" textFill="#af4044">
                                              <font>
                                                 <Font name="Sylfaen" size="14.0" />
                                              </font></Button>
-                                          <Button fx:id="removerTalento" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" textFill="#af4044">
+                                          <Button fx:id="removerTalento" mnemonicParsing="false" onAction="#removerTalento" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Remover" textFill="#af4044">
                                              <font>
                                                 <Font name="Sylfaen" size="14.0" />
                                              </font></Button>

@@ -124,19 +124,19 @@ public class criarPersonagemController implements Initializable, controlledScree
     TableColumn<PersonagemItem, SimpleBooleanProperty> columnA4;
 
     @FXML
-    private TableView<PersonagemPericia> tableViewB;
+    private TableView<String> tableViewB;
     @FXML
-    TableColumn<PersonagemPericia, SimpleStringProperty> columnB2;
+    TableColumn<String, String> columnB2;
 
     @FXML
-    private TableView<PersonagemMagia> tableViewC;
+    private TableView<String> tableViewC;
     @FXML
-    TableColumn<PersonagemMagia, SimpleStringProperty> columnC2;
+    TableColumn<String, String> columnC2;
 
     @FXML
-    private TableView<PersonagemTalento> tableViewD;
+    private TableView<String> tableViewD;
     @FXML
-    TableColumn<PersonagemTalento, SimpleStringProperty> columnD2;
+    TableColumn<String, String> columnD2;
 
     @FXML
     private ComboBox<String> comboBoxItem;
@@ -158,6 +158,8 @@ public class criarPersonagemController implements Initializable, controlledScree
 
     @FXML
     private Button adicionarItem;
+    @FXML
+    private Button atualizarItem;
     @FXML
     private Button removerItem;
 
@@ -288,6 +290,7 @@ public class criarPersonagemController implements Initializable, controlledScree
                     adicionarPersonagem.setDisable(true);
 
                     adicionarItem.setDisable(false);
+                    atualizarItem.setDisable(false);
                     removerItem.setDisable(false);
                     adicionarPericia.setDisable(false);
                     removerPericia.setDisable(false);
@@ -343,6 +346,11 @@ public class criarPersonagemController implements Initializable, controlledScree
                     if(personagens.size() > 0){
                         tableView.setItems(personagens);
                     }
+
+                    refreshItem();
+                    refreshPericia();
+                    refreshTalento();
+                    refreshMagia();
                 }
             }});
 
@@ -351,30 +359,37 @@ public class criarPersonagemController implements Initializable, controlledScree
         tableViewA.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
+                item = new PersonagemItem();
                 item.setNomeItem(tableViewA.getSelectionModel().getSelectedItem().getNomeItem());
                 item.setQuantidade(tableViewA.getSelectionModel().getSelectedItem().getQuantidade());
                 item.setEquipado(tableViewA.getSelectionModel().getSelectedItem().isEquipado());
+                comboBoxItem.setValue(tableViewA.getSelectionModel().getSelectedItem().getNomeItem());
+                quantidadeItem.setText(String.valueOf(tableViewA.getSelectionModel().getSelectedItem().getQuantidade()));
+                comboBoxEquipado.setValue(String.valueOf(tableViewA.getSelectionModel().getSelectedItem().isEquipado()));
             }
         });
 
         tableViewB.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                pericia = tableViewB.getSelectionModel().getSelectedItem().getNomePericia();
+                pericia = tableViewB.getSelectionModel().getSelectedItem();
+                comboBoxPericia.setValue(pericia);
             }
         });
 
         tableViewC.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                magia = tableViewC.getSelectionModel().getSelectedItem().getNomeMagia();
+                magia = tableViewC.getSelectionModel().getSelectedItem();
+                comboBoxMagia.setValue(magia);
             }
         });
 
         tableViewD.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                talento = tableViewD.getSelectionModel().getSelectedItem().getNomeTalento();
+                talento = tableViewD.getSelectionModel().getSelectedItem();
+                comboBoxTalento.setValue(talento);
             }
         });
 
@@ -446,25 +461,16 @@ public class criarPersonagemController implements Initializable, controlledScree
         column40.setCellValueFactory(new PropertyValueFactory<>("sabedoria"));
         column41.setCellValueFactory(new PropertyValueFactory<>("inteligencia"));
 
-        System.out.println("Etaa");
-        System.out.println("Etaa");
+
         columnA2.setCellValueFactory(new PropertyValueFactory<>("nomeItem"));
-        System.out.println("Etaa");
         columnA3.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
-        System.out.println("Etaaa");
         columnA4.setCellValueFactory(new PropertyValueFactory<>("equipado"));
-        System.out.println("Etax");
 
-        columnB2.setCellValueFactory(new PropertyValueFactory<>("nomePericia"));
+        columnB2.setCellValueFactory(stringStringCellDataFeatures -> new ReadOnlyStringWrapper(stringStringCellDataFeatures.getValue()));
 
-        System.out.println("Etaxa");
+        columnC2.setCellValueFactory(stringStringCellDataFeatures -> new ReadOnlyStringWrapper(stringStringCellDataFeatures.getValue()));
 
-        columnC2.setCellValueFactory(new PropertyValueFactory<>("nomeMagia"));
-        System.out.println("Etaxaa");
-
-        columnD2.setCellValueFactory(new PropertyValueFactory<>("nomeTalento"));
-        System.out.println("Etaxaa");
-        System.out.println("aonde para?");
+        columnD2.setCellValueFactory(stringStringCellDataFeatures -> new ReadOnlyStringWrapper(stringStringCellDataFeatures.getValue()));
 
         refreshTable();
     }
@@ -476,7 +482,6 @@ public class criarPersonagemController implements Initializable, controlledScree
         if(personagem.size() > 0){
             tableView.setItems(personagem);
         }
-        System.out.println("Mostrou tabela");
     }
 
     void reloadPersonagem(){
@@ -485,6 +490,7 @@ public class criarPersonagemController implements Initializable, controlledScree
         adicionarPersonagem.setDisable(false);
 
         adicionarItem.setDisable(true);
+        atualizarItem.setDisable(true);
         removerItem.setDisable(true);
         adicionarPericia.setDisable(true);
         removerPericia.setDisable(true);
@@ -603,72 +609,75 @@ public class criarPersonagemController implements Initializable, controlledScree
 
         }
 
-        refreshTable();
-        clearLabels();
+        refreshItem();
+    }
+    @FXML
+    private void atualizarItem(ActionEvent event){
+        if(comboBoxEquipado.getValue() == "true"){
+            PersonagemDAO.AtualizarItem(personagemAntigo, item.getNomeItem(), Integer.parseInt(quantidadeItem.getText()), true);
+
+        }else{
+            PersonagemDAO.AtualizarItem(personagemAntigo, item.getNomeItem(), Integer.parseInt(quantidadeItem.getText()), false);
+
+        }
+
+        refreshItem();
     }
 
     @FXML
     private void removerItem(ActionEvent event){
+        PersonagemDAO.RemoverItem(personagemAntigo, item.getNomeItem());
 
-
-
-        refreshTable();
-        clearLabels();
+        refreshItem();
     }
 
 
     @FXML
     private void adicionarPericia(ActionEvent event){
+        PersonagemDAO.InserirPericia(personagemAntigo, comboBoxPericia.getValue());
 
 
-        refreshTable();
-        clearLabels();
+        refreshPericia();
     }
 
     @FXML
     private void removerPericia(ActionEvent event){
+        PersonagemDAO.RemoverPericia(personagemAntigo, pericia);
 
 
 
-        refreshTable();
-        clearLabels();
+        refreshPericia();
     }
 
 
     @FXML
     private void adicionarMagia(ActionEvent event){
+        PersonagemDAO.InserirMagia(personagemAntigo, comboBoxMagia.getValue());
 
-
-
-        refreshTable();
-        clearLabels();
+        refreshMagia();
     }
 
     @FXML
     private void removerMagia(ActionEvent event){
+        PersonagemDAO.RemoverMagia(personagemAntigo, magia);
 
-
-
-        refreshTable();
-        clearLabels();
+        refreshMagia();
     }
 
 
     @FXML
     private void adicionarTalento(ActionEvent event){
+        PersonagemDAO.InserirTalento(personagemAntigo, comboBoxTalento.getValue());
 
 
-
-        refreshTable();
-        clearLabels();
+        refreshTalento();
     }
 
     @FXML
     private void removerTalento(ActionEvent event){
+        PersonagemDAO.RemoverTalento(personagemAntigo, talento);
 
-
-        refreshTable();
-        clearLabels();
+        refreshTalento();
     }
 
     public void initComboBox(){
@@ -690,10 +699,52 @@ public class criarPersonagemController implements Initializable, controlledScree
         comboBoxAntecedente.getItems().addAll(PersonagemDAO.ListAntecedente());
         comboBoxTendencia.getItems().addAll("Leal e Bom", "Neutro e Bom", "Caótico e Bom", "Leal e Neutro", "Neutro", "Caótico e Neutro", "Leal e Mal", "Neutro e Mal", "Caótico e Mal");
         comboBoxItem.getItems().addAll(ItemDAO.ListNomeItens());
-        comboBoxEquipado.getItems().addAll("true", "false");
+        comboBoxEquipado.getItems().addAll(String.valueOf(true), String.valueOf(false));
         comboBoxPericia.getItems().addAll(PericiaDAO.ListPericias());
         comboBoxMagia.getItems().addAll(MagiaDAO.ListMagias());
         comboBoxTalento.getItems().addAll(TalentoDAO.ListTalentos());
+    }
+
+
+    private void refreshItem(){
+        ArrayList<PersonagemItem> itens = PersonagemDAO.ListarItens(personagemAntigo);
+        tableViewA.getItems().clear();
+        if(itens.size() > 0){
+            for(int i = 0; i < itens.size(); i++){
+                tableViewA.getItems().add(itens.get(i));
+            }
+        }
+
+    }
+
+    private void refreshPericia(){
+        ArrayList<String> nomes = PersonagemDAO.ListarPericias(personagemAntigo);
+        tableViewB.getItems().clear();
+        if(nomes.size() > 0){
+            for(int i = 0; i < nomes.size(); i++){
+                tableViewB.getItems().add(nomes.get(i));
+            }
+        }
+    }
+
+    private void refreshMagia(){
+        ArrayList<String> nomes = PersonagemDAO.ListarMagias(personagemAntigo);
+        tableViewC.getItems().clear();
+        if(nomes.size() > 0){
+            for(int i = 0; i < nomes.size(); i++){
+                tableViewC.getItems().add(nomes.get(i));
+            }
+        }
+    }
+
+    private void refreshTalento(){
+        ArrayList<String> nomes = PersonagemDAO.ListarTalentos(personagemAntigo);
+        tableViewD.getItems().clear();
+        if(nomes.size() > 0){
+            for(int i = 0; i < nomes.size(); i++){
+                tableViewD.getItems().add(nomes.get(i));
+            }
+        }
     }
 
     public void Listeners(){
