@@ -1,19 +1,26 @@
 package Controller;
 
 import Model.Cidade;
+import Model.DAO.DeusDAO;
 import Model.DAO.New.CidadeDAO;
+import Model.DAO.New.LiderDAO;
+import Model.DAO.New.PersonagemDAO;
+import Model.Lider;
 import Model.Personagem.*;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleFloatProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import sample.main;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class criarPersonagemController implements Initializable, controlledScreen {
@@ -22,111 +29,111 @@ public class criarPersonagemController implements Initializable, controlledScree
     @FXML
     private TableView<Personagem> tableView;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column1;
+    TableColumn<Personagem, SimpleIntegerProperty> column1;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column2;
+    TableColumn<Personagem, SimpleStringProperty> column2;
     @FXML
-    TableColumn<PersonagemItem, SimpleFloatProperty> column3;
+    TableColumn<Personagem, SimpleFloatProperty> column3;
     @FXML
-    TableColumn<PersonagemItem, SimpleFloatProperty> column4;
+    TableColumn<Personagem, SimpleFloatProperty> column4;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column5;
+    TableColumn<Personagem, SimpleStringProperty> column5;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column6;
+    TableColumn<Personagem, SimpleIntegerProperty> column6;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column7;
+    TableColumn<Personagem, SimpleStringProperty> column7;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column8;
+    TableColumn<Personagem, SimpleStringProperty> column8;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column9;
+    TableColumn<Personagem, SimpleIntegerProperty> column9;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column10;
+    TableColumn<Personagem, SimpleStringProperty> column10;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column11;
+    TableColumn<Personagem, SimpleStringProperty> column11;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column12;
+    TableColumn<Personagem, SimpleStringProperty> column12;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column13;
+    TableColumn<Personagem, SimpleStringProperty> column13;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column14;
+    TableColumn<Personagem, SimpleIntegerProperty> column14;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column15;
+    TableColumn<Personagem, SimpleStringProperty> column15;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column16;
+    TableColumn<Personagem, SimpleStringProperty> column16;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column17;
+    TableColumn<Personagem, SimpleStringProperty> column17;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column18;
+    TableColumn<Personagem, SimpleIntegerProperty> column18;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column19;
+    TableColumn<Personagem, SimpleIntegerProperty> column19;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column20;
+    TableColumn<Personagem, SimpleIntegerProperty> column20;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column211;
+    TableColumn<Personagem, SimpleIntegerProperty> column21;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column22;
+    TableColumn<Personagem, SimpleIntegerProperty> column22;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column23;
+    TableColumn<Personagem, SimpleIntegerProperty> column23;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column24;
+    TableColumn<Personagem, SimpleIntegerProperty> column24;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column25;
+    TableColumn<Personagem, SimpleIntegerProperty> column25;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column26;
+    TableColumn<Personagem, SimpleIntegerProperty> column26;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column27;
+    TableColumn<Personagem, SimpleIntegerProperty> column27;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column28;
+    TableColumn<Personagem, SimpleIntegerProperty> column28;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column29;
+    TableColumn<Personagem, SimpleIntegerProperty> column29;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column30;
+    TableColumn<Personagem, SimpleIntegerProperty> column30;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column31;
+    TableColumn<Personagem, SimpleStringProperty> column31;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column32;
+    TableColumn<Personagem, SimpleStringProperty> column32;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column33;
+    TableColumn<Personagem, SimpleStringProperty> column33;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column34;
+    TableColumn<Personagem, SimpleStringProperty> column34;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> column35;
+    TableColumn<Personagem, SimpleStringProperty> column35;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column36;
+    TableColumn<Personagem, SimpleIntegerProperty> column36;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column37;
+    TableColumn<Personagem, SimpleIntegerProperty> column37;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column38;
+    TableColumn<Personagem, SimpleIntegerProperty> column38;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column39;
+    TableColumn<Personagem, SimpleIntegerProperty> column39;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column40;
+    TableColumn<Personagem, SimpleIntegerProperty> column40;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> column41;
+    TableColumn<Personagem, SimpleIntegerProperty> column41;
 
     @FXML
     private TableView<PersonagemItem> tableViewA;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> columnA1;
+    TableColumn<PersonagemItem, SimpleStringProperty> columnA1;
     @FXML
-    TableColumn<PersonagemItem, SimpleStringProperty> columnA2;
+    TableColumn<PersonagemItem, SimpleIntegerProperty> columnA2;
     @FXML
-    TableColumn<PersonagemItem, SimpleIntegerProperty> columnA3;
+    TableColumn<PersonagemItem, SimpleBooleanProperty> columnA3;
 
     @FXML
     private TableView<PersonagemPericia> tableViewB;
     @FXML
-    TableColumn<PersonagemPericia, SimpleIntegerProperty> columnB1;
+    TableColumn<PersonagemPericia, SimpleStringProperty> columnB1;
 
     @FXML
     private TableView<PersonagemMagia> tableViewC;
     @FXML
-    TableColumn<PersonagemMagia, SimpleIntegerProperty> columnC1;
+    TableColumn<PersonagemMagia, SimpleStringProperty> columnC1;
 
     @FXML
     private TableView<PersonagemTalento> tableViewD;
     @FXML
-    TableColumn<PersonagemTalento, SimpleIntegerProperty> columnD1;
+    TableColumn<PersonagemTalento, SimpleStringProperty> columnD1;
 
     @FXML
     private ComboBox<String> comboBoxItem;
@@ -241,6 +248,8 @@ public class criarPersonagemController implements Initializable, controlledScree
     @FXML
     private TextField inteligenciaPersonagem;
     @FXML
+    private TextArea caracteristicaAdicionalPersonagem;
+    @FXML
     private TextArea vinculoPersonagem;
     @FXML
     private TextArea defeitoPersonagem;
@@ -253,7 +262,78 @@ public class criarPersonagemController implements Initializable, controlledScree
     String lider;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {}
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.out.println("oi");
+        reloadPersonagem();
+        System.out.println("Bão?");
+        initTable();
+        initComboBox();
+        System.out.println("Sim e tu?");
+
+        tableView.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                personagemAntigo = tableView.getSelectionModel().getSelectedItem();
+                if (mouseEvent.getClickCount() == 2){
+
+
+                    removerPersonagem.setDisable(false);
+                    atualizarPersonagem.setDisable(false);
+                    adicionarPersonagem.setDisable(true);
+
+                    adicionarItem.setDisable(false);
+                    removerItem.setDisable(false);
+                    adicionarPericia.setDisable(false);
+                    removerPericia.setDisable(false);
+                    adicionarMagia.setDisable(false);
+                    removerMagia.setDisable(false);
+                    adicionarTalento.setDisable(false);
+                    removerTalento.setDisable(false);
+
+
+                    nomePersonagem.setText(personagemAntigo.getNomePersonagem());
+                    classeArmaduraPersonagem.setText(String.valueOf(personagemAntigo.getClasseArmadura()));
+                    alturaPersonagem.setText(String.valueOf(personagemAntigo.getAltura()));
+                    corPelePersonagem.setText(personagemAntigo.getCorPele());
+                    idadePersonagem.setText(String.valueOf(personagemAntigo.getIdade()));
+                    pesoPersonagem.setText(String.valueOf(personagemAntigo.getPeso()));
+                    corOlhosPersonagem.setText(personagemAntigo.getCorOlhos());
+                    numeroInspiracaoPersonagem.setText(String.valueOf(personagemAntigo.getNumeroInspiracao()));
+                    percepcaoPassivaPersonagem.setText(String.valueOf(personagemAntigo.getPercepcaoPassiva()));
+                    corCabeloPersonagem.setText(personagemAntigo.getCorCabelo());
+                    nomeJogadorPersonagem.setText(personagemAntigo.getNomeJogador());
+                    capacidadeCargaPersonagem.setText(String.valueOf(personagemAntigo.getCapacidadeCarga()));
+                    pontosExperienciaPersonagem.setText(String.valueOf(personagemAntigo.getPontosExperiencia()));
+                    pontosVidaAtualPersonagem.setText(String.valueOf(personagemAntigo.getPontosVidaAtual()));
+                    pontosVidaTotalPersonagem.setText(String.valueOf(personagemAntigo.getPontosVidaTotal()));
+                    platinaPersonagem.setText(String.valueOf(personagemAntigo.getPlatina()));
+                    ouroPersonagem.setText(String.valueOf(personagemAntigo.getOuro()));
+                    cobrePersonagem.setText(String.valueOf(personagemAntigo.getCobre()));
+                    prataPersonagem.setText(String.valueOf(personagemAntigo.getPrata()));
+                    electroPersonagem.setText(String.valueOf(personagemAntigo.getElectro()));
+                    deslocamentoPersonagem.setText(String.valueOf(personagemAntigo.getDeslocamento()));
+                    carismaPersonagem.setText(String.valueOf(personagemAntigo.getCarisma()));
+                    constituicaoPersonagem.setText(String.valueOf(personagemAntigo.getConstituicao()));
+                    forcaPersonagem.setText(String.valueOf(personagemAntigo.getForca()));
+                    destrezaPersonagem.setText(String.valueOf(personagemAntigo.getDestreza()));
+                    sabedoriaPersonagem.setText(String.valueOf(personagemAntigo.getSabedoria()));
+                    inteligenciaPersonagem.setText(String.valueOf(personagemAntigo.getInteligencia()));
+                    vinculoPersonagem.setText(personagemAntigo.getVinculo());
+                    defeitoPersonagem.setText(personagemAntigo.getDefeito());
+                    idealPersonagem.setText(personagemAntigo.getIdeal());
+                    tracoPersonalidadePersonagem.setText(personagemAntigo.getTracoPersonalidade());
+
+                    ObservableList<Personagem> personagens = FXCollections.observableArrayList(PersonagemDAO.Listar());
+
+                    if(personagens.size() > 0){
+                        tableView.setItems(personagens);
+                    }
+
+                    initComboBox();
+                }
+            }});
+
+    }
 
     @Override
     public void setScreenParent(screensController screenPage) { myController = screenPage; }
@@ -264,5 +344,321 @@ public class criarPersonagemController implements Initializable, controlledScree
     }{}
 
 
+    public void initTable(){
 
+        column1.setCellValueFactory(new PropertyValueFactory<>("codigoAparencia"));
+        column2.setCellValueFactory(new PropertyValueFactory<>("nomePersonagem"));
+        column3.setCellValueFactory(new PropertyValueFactory<>("altura"));
+        column4.setCellValueFactory(new PropertyValueFactory<>("peso"));
+        column5.setCellValueFactory(new PropertyValueFactory<>("corOlhos"));
+        column6.setCellValueFactory(new PropertyValueFactory<>("idade"));
+        column7.setCellValueFactory(new PropertyValueFactory<>("corPele"));
+        column8.setCellValueFactory(new PropertyValueFactory<>("corCabelo"));
+        column9.setCellValueFactory(new PropertyValueFactory<>("codigoPersonagem"));
+        column10.setCellValueFactory(new PropertyValueFactory<>("nomeJogador"));
+        column11.setCellValueFactory(new PropertyValueFactory<>("nomeCampanha"));
+        column12.setCellValueFactory(new PropertyValueFactory<>("personagemSubRaca"));
+        column13.setCellValueFactory(new PropertyValueFactory<>("personagemClasse"));
+        column14.setCellValueFactory(new PropertyValueFactory<>("deus"));
+        column15.setCellValueFactory(new PropertyValueFactory<>("arquetipo"));
+        column16.setCellValueFactory(new PropertyValueFactory<>("nomeAntecedente"));
+        column17.setCellValueFactory(new PropertyValueFactory<>("tendencia"));
+        column18.setCellValueFactory(new PropertyValueFactory<>("percepcaoPassiva"));
+        column19.setCellValueFactory(new PropertyValueFactory<>("numeroInspiracao"));
+        column20.setCellValueFactory(new PropertyValueFactory<>("pontosVidaAtual"));
+        column21.setCellValueFactory(new PropertyValueFactory<>("pontosVidaTotal"));
+        column22.setCellValueFactory(new PropertyValueFactory<>("pontosExperiencia"));
+        column23.setCellValueFactory(new PropertyValueFactory<>("capacidadeCarga"));
+        column24.setCellValueFactory(new PropertyValueFactory<>("cobre"));
+        column25.setCellValueFactory(new PropertyValueFactory<>("prata"));
+        column26.setCellValueFactory(new PropertyValueFactory<>("ouro"));
+        column27.setCellValueFactory(new PropertyValueFactory<>("platina"));
+        column28.setCellValueFactory(new PropertyValueFactory<>("electro"));
+        column29.setCellValueFactory(new PropertyValueFactory<>("classeArmadura"));
+        column30.setCellValueFactory(new PropertyValueFactory<>("deslocamento"));
+        column31.setCellValueFactory(new PropertyValueFactory<>("caracteristicaAdicional"));
+        column32.setCellValueFactory(new PropertyValueFactory<>("vinculo"));
+        column33.setCellValueFactory(new PropertyValueFactory<>("defeito"));
+        column34.setCellValueFactory(new PropertyValueFactory<>("ideal"));
+        column35.setCellValueFactory(new PropertyValueFactory<>("tracoPersonalidade"));
+        column36.setCellValueFactory(new PropertyValueFactory<>("carisma"));
+        column37.setCellValueFactory(new PropertyValueFactory<>("constituicao"));
+        column38.setCellValueFactory(new PropertyValueFactory<>("forca"));
+        column39.setCellValueFactory(new PropertyValueFactory<>("destreza"));
+        column40.setCellValueFactory(new PropertyValueFactory<>("sabedoria"));
+        column41.setCellValueFactory(new PropertyValueFactory<>("inteligencia"));
+        System.out.println("Eta");
+        columnA1.setCellValueFactory(new PropertyValueFactory<>("nomeItem"));
+        System.out.println("Etaa");
+        columnA2.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
+        System.out.println("Etaaa");
+        columnA3.setCellValueFactory(new PropertyValueFactory<>("equipado"));
+        System.out.println("Etax");
+        columnB1.setCellValueFactory(new PropertyValueFactory<>("nomePericia"));
+
+        System.out.println("Etaxa");
+        columnC1.setCellValueFactory(new PropertyValueFactory<>("nomeMagia"));
+        System.out.println("Etaxaa");
+        columnD1.setCellValueFactory(new PropertyValueFactory<>("nomeTalento"));
+        System.out.println("Etaxaa");
+        System.out.println("aonde para?");
+
+        refreshTable();
+    }
+
+
+    private void refreshTable(){
+        System.out.println("Será que aqui?");
+        tableView.getItems().clear();
+        System.out.println("aqui foi?");
+        ObservableList<Personagem> personagem = FXCollections.observableArrayList(PersonagemDAO.Listar());
+        System.out.println("e aqui?");
+        if(personagem.size() > 0){
+            tableView.setItems(personagem);
+        }
+        System.out.println("se foi aqui foi tudo");
+    }
+
+    void reloadPersonagem(){
+        removerPersonagem.setDisable(true);
+        atualizarPersonagem.setDisable(true);
+        adicionarPersonagem.setDisable(false);
+
+        adicionarItem.setDisable(false);
+        removerItem.setDisable(false);
+        adicionarPericia.setDisable(false);
+        removerPericia.setDisable(false);
+        adicionarMagia.setDisable(false);
+        removerMagia.setDisable(false);
+        adicionarTalento.setDisable(false);
+        removerTalento.setDisable(false);
+    }
+    
+    private void clearLabels(){
+        nomePersonagem.clear();
+        classeArmaduraPersonagem.clear();
+        alturaPersonagem.clear();
+        corPelePersonagem.clear();
+        idadePersonagem.clear();
+        pesoPersonagem.clear();
+        corOlhosPersonagem.clear();
+        numeroInspiracaoPersonagem.clear();
+        percepcaoPassivaPersonagem.clear();
+        corCabeloPersonagem.clear();
+        nomeJogadorPersonagem.clear();
+        capacidadeCargaPersonagem.clear();
+        pontosExperienciaPersonagem.clear();
+        pontosVidaAtualPersonagem.clear();
+        pontosVidaTotalPersonagem.clear();
+        platinaPersonagem.clear();
+        ouroPersonagem.clear();
+        cobrePersonagem.clear();
+        prataPersonagem.clear();
+        electroPersonagem.clear();
+        deslocamentoPersonagem.clear();
+        carismaPersonagem.clear();
+        constituicaoPersonagem.clear();
+        forcaPersonagem.clear();
+        destrezaPersonagem.clear();
+        sabedoriaPersonagem.clear();
+        inteligenciaPersonagem.clear();
+        vinculoPersonagem.clear();
+        defeitoPersonagem.clear();
+        idealPersonagem.clear();
+        tracoPersonalidadePersonagem.clear();
+        nomeItem.clear();
+        quantidadeItem.clear();
+    }
+
+    @FXML
+    private void limpar(ActionEvent event){
+
+        clearLabels();
+        reloadPersonagem();
+        tableViewA.getItems().clear();
+        tableViewB.getItems().clear();
+        tableViewC.getItems().clear();
+        tableViewD.getItems().clear();
+    }
+
+    @FXML
+    private void adicionarPersonagem(ActionEvent event){
+
+        personagemAtual = new Personagem(0, nomePersonagem.getText(), Integer.parseInt(alturaPersonagem.getText()), Integer.parseInt(pesoPersonagem.getText()),corOlhosPersonagem.getText(), Integer.parseInt(idadePersonagem.getText()), corPelePersonagem.getText(), corCabeloPersonagem.getText(), 0,
+        nomeJogadorPersonagem.getText(), "Lorin", comboBoxSubRaca.getValue(), comboBoxClasse.getValue(), DeusDAO.GetDeus(comboBoxDeus.getValue()).getCodigoDeus(), comboBoxArquetipo.getValue(), comboBoxAntecedente.getValue(), comboBoxTendencia.getValue(), Integer.parseInt(percepcaoPassivaPersonagem.getText()),
+                Integer.parseInt(numeroInspiracaoPersonagem.getText()), Integer.parseInt(pontosVidaAtualPersonagem.getText()), Integer.parseInt(pontosVidaTotalPersonagem.getText()), Integer.parseInt(pontosExperienciaPersonagem.getText()), Integer.parseInt(capacidadeCargaPersonagem.getText()), Integer.parseInt(cobrePersonagem.getText()),
+                Integer.parseInt(prataPersonagem.getText()), Integer.parseInt(ouroPersonagem.getText()), Integer.parseInt(platinaPersonagem.getText()), Integer.parseInt(electroPersonagem.getText()), Integer.parseInt(classeArmaduraPersonagem.getText()), Float.parseFloat(deslocamentoPersonagem.getText()), caracteristicaAdicionalPersonagem.getText(),
+                vinculoPersonagem.getText(), defeitoPersonagem.getText(), idealPersonagem.getText(), tracoPersonalidadePersonagem.getText(), Integer.parseInt(carismaPersonagem.getText()), Integer.parseInt(constituicaoPersonagem.getText()), Integer.parseInt(forcaPersonagem.getText()), Integer.parseInt(destrezaPersonagem.getText()), Integer.parseInt(sabedoriaPersonagem.getText()), Integer.parseInt(inteligenciaPersonagem.getText()));
+        PersonagemDAO.Inserir(personagemAtual);
+        //adicionar no banco de dados
+
+        refreshTable();
+        clearLabels();
+    }
+
+    @FXML
+    private void atualizarPersonagem(ActionEvent event){
+        personagemAtual = new Personagem(personagemAntigo.getCodigoAparencia(), nomePersonagem.getText(), Integer.parseInt(alturaPersonagem.getText()), Integer.parseInt(pesoPersonagem.getText()),corOlhosPersonagem.getText(), Integer.parseInt(idadePersonagem.getText()), corPelePersonagem.getText(), corCabeloPersonagem.getText(), personagemAntigo.getCodigoPersonagem(),
+                nomeJogadorPersonagem.getText(), "Lorin", comboBoxSubRaca.getValue(), comboBoxClasse.getValue(), DeusDAO.GetDeus(comboBoxDeus.getValue()).getCodigoDeus(), comboBoxArquetipo.getValue(), comboBoxAntecedente.getValue(), comboBoxTendencia.getValue(), Integer.parseInt(percepcaoPassivaPersonagem.getText()),
+                Integer.parseInt(numeroInspiracaoPersonagem.getText()), Integer.parseInt(pontosVidaAtualPersonagem.getText()), Integer.parseInt(pontosVidaTotalPersonagem.getText()), Integer.parseInt(pontosExperienciaPersonagem.getText()), Integer.parseInt(capacidadeCargaPersonagem.getText()), Integer.parseInt(cobrePersonagem.getText()),
+                Integer.parseInt(prataPersonagem.getText()), Integer.parseInt(ouroPersonagem.getText()), Integer.parseInt(platinaPersonagem.getText()), Integer.parseInt(electroPersonagem.getText()), Integer.parseInt(classeArmaduraPersonagem.getText()), Float.parseFloat(deslocamentoPersonagem.getText()), caracteristicaAdicionalPersonagem.getText(),
+                vinculoPersonagem.getText(), defeitoPersonagem.getText(), idealPersonagem.getText(), tracoPersonalidadePersonagem.getText(), Integer.parseInt(carismaPersonagem.getText()), Integer.parseInt(constituicaoPersonagem.getText()), Integer.parseInt(forcaPersonagem.getText()), Integer.parseInt(destrezaPersonagem.getText()), Integer.parseInt(sabedoriaPersonagem.getText()), Integer.parseInt(inteligenciaPersonagem.getText()));
+
+        PersonagemDAO.Atualizar(personagemAtual);
+        refreshTable();
+        reloadPersonagem();
+        clearLabels();
+        tableViewA.getItems().clear();
+        tableViewB.getItems().clear();
+        tableViewC.getItems().clear();
+        tableViewD.getItems().clear();
+    }
+
+    @FXML
+    private void removerPersonagem(ActionEvent event){
+        PersonagemDAO.Remover(personagemAntigo);
+        refreshTable();
+        reloadPersonagem();
+        clearLabels();
+        tableViewA.getItems().clear();
+        tableViewB.getItems().clear();
+        tableViewC.getItems().clear();
+        tableViewD.getItems().clear();
+
+    }
+
+
+
+    @FXML
+    private void adicionarItem(ActionEvent event){
+
+        personagemAtual = new Personagem(0, nomePersonagem.getText(), Integer.parseInt(alturaPersonagem.getText()), Integer.parseInt(pesoPersonagem.getText()),corOlhosPersonagem.getText(), Integer.parseInt(idadePersonagem.getText()), corPelePersonagem.getText(), corCabeloPersonagem.getText(), 0,
+                nomeJogadorPersonagem.getText(), "Lorin", comboBoxSubRaca.getValue(), comboBoxClasse.getValue(), DeusDAO.GetDeus(comboBoxDeus.getValue()).getCodigoDeus(), comboBoxArquetipo.getValue(), comboBoxAntecedente.getValue(), comboBoxTendencia.getValue(), Integer.parseInt(percepcaoPassivaPersonagem.getText()),
+                Integer.parseInt(numeroInspiracaoPersonagem.getText()), Integer.parseInt(pontosVidaAtualPersonagem.getText()), Integer.parseInt(pontosVidaTotalPersonagem.getText()), Integer.parseInt(pontosExperienciaPersonagem.getText()), Integer.parseInt(capacidadeCargaPersonagem.getText()), Integer.parseInt(cobrePersonagem.getText()),
+                Integer.parseInt(prataPersonagem.getText()), Integer.parseInt(ouroPersonagem.getText()), Integer.parseInt(platinaPersonagem.getText()), Integer.parseInt(electroPersonagem.getText()), Integer.parseInt(classeArmaduraPersonagem.getText()), Float.parseFloat(deslocamentoPersonagem.getText()), caracteristicaAdicionalPersonagem.getText(),
+                vinculoPersonagem.getText(), defeitoPersonagem.getText(), idealPersonagem.getText(), tracoPersonalidadePersonagem.getText(), Integer.parseInt(carismaPersonagem.getText()), Integer.parseInt(constituicaoPersonagem.getText()), Integer.parseInt(forcaPersonagem.getText()), Integer.parseInt(destrezaPersonagem.getText()), Integer.parseInt(sabedoriaPersonagem.getText()), Integer.parseInt(inteligenciaPersonagem.getText()));
+        PersonagemDAO.Inserir(personagemAtual);
+        //adicionar no banco de dados
+
+        refreshTable();
+        clearLabels();
+    }
+
+    @FXML
+    private void removerItem(ActionEvent event){
+
+        personagemAtual = new Personagem(0, nomePersonagem.getText(), Integer.parseInt(alturaPersonagem.getText()), Integer.parseInt(pesoPersonagem.getText()),corOlhosPersonagem.getText(), Integer.parseInt(idadePersonagem.getText()), corPelePersonagem.getText(), corCabeloPersonagem.getText(), 0,
+                nomeJogadorPersonagem.getText(), "Lorin", comboBoxSubRaca.getValue(), comboBoxClasse.getValue(), DeusDAO.GetDeus(comboBoxDeus.getValue()).getCodigoDeus(), comboBoxArquetipo.getValue(), comboBoxAntecedente.getValue(), comboBoxTendencia.getValue(), Integer.parseInt(percepcaoPassivaPersonagem.getText()),
+                Integer.parseInt(numeroInspiracaoPersonagem.getText()), Integer.parseInt(pontosVidaAtualPersonagem.getText()), Integer.parseInt(pontosVidaTotalPersonagem.getText()), Integer.parseInt(pontosExperienciaPersonagem.getText()), Integer.parseInt(capacidadeCargaPersonagem.getText()), Integer.parseInt(cobrePersonagem.getText()),
+                Integer.parseInt(prataPersonagem.getText()), Integer.parseInt(ouroPersonagem.getText()), Integer.parseInt(platinaPersonagem.getText()), Integer.parseInt(electroPersonagem.getText()), Integer.parseInt(classeArmaduraPersonagem.getText()), Float.parseFloat(deslocamentoPersonagem.getText()), caracteristicaAdicionalPersonagem.getText(),
+                vinculoPersonagem.getText(), defeitoPersonagem.getText(), idealPersonagem.getText(), tracoPersonalidadePersonagem.getText(), Integer.parseInt(carismaPersonagem.getText()), Integer.parseInt(constituicaoPersonagem.getText()), Integer.parseInt(forcaPersonagem.getText()), Integer.parseInt(destrezaPersonagem.getText()), Integer.parseInt(sabedoriaPersonagem.getText()), Integer.parseInt(inteligenciaPersonagem.getText()));
+        PersonagemDAO.Inserir(personagemAtual);
+        //adicionar no banco de dados
+
+        refreshTable();
+        clearLabels();
+    }
+
+
+    @FXML
+    private void adicionarPericia(ActionEvent event){
+
+        personagemAtual = new Personagem(0, nomePersonagem.getText(), Integer.parseInt(alturaPersonagem.getText()), Integer.parseInt(pesoPersonagem.getText()),corOlhosPersonagem.getText(), Integer.parseInt(idadePersonagem.getText()), corPelePersonagem.getText(), corCabeloPersonagem.getText(), 0,
+                nomeJogadorPersonagem.getText(), "Lorin", comboBoxSubRaca.getValue(), comboBoxClasse.getValue(), DeusDAO.GetDeus(comboBoxDeus.getValue()).getCodigoDeus(), comboBoxArquetipo.getValue(), comboBoxAntecedente.getValue(), comboBoxTendencia.getValue(), Integer.parseInt(percepcaoPassivaPersonagem.getText()),
+                Integer.parseInt(numeroInspiracaoPersonagem.getText()), Integer.parseInt(pontosVidaAtualPersonagem.getText()), Integer.parseInt(pontosVidaTotalPersonagem.getText()), Integer.parseInt(pontosExperienciaPersonagem.getText()), Integer.parseInt(capacidadeCargaPersonagem.getText()), Integer.parseInt(cobrePersonagem.getText()),
+                Integer.parseInt(prataPersonagem.getText()), Integer.parseInt(ouroPersonagem.getText()), Integer.parseInt(platinaPersonagem.getText()), Integer.parseInt(electroPersonagem.getText()), Integer.parseInt(classeArmaduraPersonagem.getText()), Float.parseFloat(deslocamentoPersonagem.getText()), caracteristicaAdicionalPersonagem.getText(),
+                vinculoPersonagem.getText(), defeitoPersonagem.getText(), idealPersonagem.getText(), tracoPersonalidadePersonagem.getText(), Integer.parseInt(carismaPersonagem.getText()), Integer.parseInt(constituicaoPersonagem.getText()), Integer.parseInt(forcaPersonagem.getText()), Integer.parseInt(destrezaPersonagem.getText()), Integer.parseInt(sabedoriaPersonagem.getText()), Integer.parseInt(inteligenciaPersonagem.getText()));
+        PersonagemDAO.Inserir(personagemAtual);
+        //adicionar no banco de dados
+
+        refreshTable();
+        clearLabels();
+    }
+
+    @FXML
+    private void removerPericia(ActionEvent event){
+
+        personagemAtual = new Personagem(0, nomePersonagem.getText(), Integer.parseInt(alturaPersonagem.getText()), Integer.parseInt(pesoPersonagem.getText()),corOlhosPersonagem.getText(), Integer.parseInt(idadePersonagem.getText()), corPelePersonagem.getText(), corCabeloPersonagem.getText(), 0,
+                nomeJogadorPersonagem.getText(), "Lorin", comboBoxSubRaca.getValue(), comboBoxClasse.getValue(), DeusDAO.GetDeus(comboBoxDeus.getValue()).getCodigoDeus(), comboBoxArquetipo.getValue(), comboBoxAntecedente.getValue(), comboBoxTendencia.getValue(), Integer.parseInt(percepcaoPassivaPersonagem.getText()),
+                Integer.parseInt(numeroInspiracaoPersonagem.getText()), Integer.parseInt(pontosVidaAtualPersonagem.getText()), Integer.parseInt(pontosVidaTotalPersonagem.getText()), Integer.parseInt(pontosExperienciaPersonagem.getText()), Integer.parseInt(capacidadeCargaPersonagem.getText()), Integer.parseInt(cobrePersonagem.getText()),
+                Integer.parseInt(prataPersonagem.getText()), Integer.parseInt(ouroPersonagem.getText()), Integer.parseInt(platinaPersonagem.getText()), Integer.parseInt(electroPersonagem.getText()), Integer.parseInt(classeArmaduraPersonagem.getText()), Float.parseFloat(deslocamentoPersonagem.getText()), caracteristicaAdicionalPersonagem.getText(),
+                vinculoPersonagem.getText(), defeitoPersonagem.getText(), idealPersonagem.getText(), tracoPersonalidadePersonagem.getText(), Integer.parseInt(carismaPersonagem.getText()), Integer.parseInt(constituicaoPersonagem.getText()), Integer.parseInt(forcaPersonagem.getText()), Integer.parseInt(destrezaPersonagem.getText()), Integer.parseInt(sabedoriaPersonagem.getText()), Integer.parseInt(inteligenciaPersonagem.getText()));
+        PersonagemDAO.Inserir(personagemAtual);
+        //adicionar no banco de dados
+
+        refreshTable();
+        clearLabels();
+    }
+
+
+    @FXML
+    private void adicionarMagia(ActionEvent event){
+
+        personagemAtual = new Personagem(0, nomePersonagem.getText(), Integer.parseInt(alturaPersonagem.getText()), Integer.parseInt(pesoPersonagem.getText()),corOlhosPersonagem.getText(), Integer.parseInt(idadePersonagem.getText()), corPelePersonagem.getText(), corCabeloPersonagem.getText(), 0,
+                nomeJogadorPersonagem.getText(), "Lorin", comboBoxSubRaca.getValue(), comboBoxClasse.getValue(), DeusDAO.GetDeus(comboBoxDeus.getValue()).getCodigoDeus(), comboBoxArquetipo.getValue(), comboBoxAntecedente.getValue(), comboBoxTendencia.getValue(), Integer.parseInt(percepcaoPassivaPersonagem.getText()),
+                Integer.parseInt(numeroInspiracaoPersonagem.getText()), Integer.parseInt(pontosVidaAtualPersonagem.getText()), Integer.parseInt(pontosVidaTotalPersonagem.getText()), Integer.parseInt(pontosExperienciaPersonagem.getText()), Integer.parseInt(capacidadeCargaPersonagem.getText()), Integer.parseInt(cobrePersonagem.getText()),
+                Integer.parseInt(prataPersonagem.getText()), Integer.parseInt(ouroPersonagem.getText()), Integer.parseInt(platinaPersonagem.getText()), Integer.parseInt(electroPersonagem.getText()), Integer.parseInt(classeArmaduraPersonagem.getText()), Float.parseFloat(deslocamentoPersonagem.getText()), caracteristicaAdicionalPersonagem.getText(),
+                vinculoPersonagem.getText(), defeitoPersonagem.getText(), idealPersonagem.getText(), tracoPersonalidadePersonagem.getText(), Integer.parseInt(carismaPersonagem.getText()), Integer.parseInt(constituicaoPersonagem.getText()), Integer.parseInt(forcaPersonagem.getText()), Integer.parseInt(destrezaPersonagem.getText()), Integer.parseInt(sabedoriaPersonagem.getText()), Integer.parseInt(inteligenciaPersonagem.getText()));
+        PersonagemDAO.Inserir(personagemAtual);
+        //adicionar no banco de dados
+
+        refreshTable();
+        clearLabels();
+    }
+
+    @FXML
+    private void removerMagia(ActionEvent event){
+
+        personagemAtual = new Personagem(0, nomePersonagem.getText(), Integer.parseInt(alturaPersonagem.getText()), Integer.parseInt(pesoPersonagem.getText()),corOlhosPersonagem.getText(), Integer.parseInt(idadePersonagem.getText()), corPelePersonagem.getText(), corCabeloPersonagem.getText(), 0,
+                nomeJogadorPersonagem.getText(), "Lorin", comboBoxSubRaca.getValue(), comboBoxClasse.getValue(), DeusDAO.GetDeus(comboBoxDeus.getValue()).getCodigoDeus(), comboBoxArquetipo.getValue(), comboBoxAntecedente.getValue(), comboBoxTendencia.getValue(), Integer.parseInt(percepcaoPassivaPersonagem.getText()),
+                Integer.parseInt(numeroInspiracaoPersonagem.getText()), Integer.parseInt(pontosVidaAtualPersonagem.getText()), Integer.parseInt(pontosVidaTotalPersonagem.getText()), Integer.parseInt(pontosExperienciaPersonagem.getText()), Integer.parseInt(capacidadeCargaPersonagem.getText()), Integer.parseInt(cobrePersonagem.getText()),
+                Integer.parseInt(prataPersonagem.getText()), Integer.parseInt(ouroPersonagem.getText()), Integer.parseInt(platinaPersonagem.getText()), Integer.parseInt(electroPersonagem.getText()), Integer.parseInt(classeArmaduraPersonagem.getText()), Float.parseFloat(deslocamentoPersonagem.getText()), caracteristicaAdicionalPersonagem.getText(),
+                vinculoPersonagem.getText(), defeitoPersonagem.getText(), idealPersonagem.getText(), tracoPersonalidadePersonagem.getText(), Integer.parseInt(carismaPersonagem.getText()), Integer.parseInt(constituicaoPersonagem.getText()), Integer.parseInt(forcaPersonagem.getText()), Integer.parseInt(destrezaPersonagem.getText()), Integer.parseInt(sabedoriaPersonagem.getText()), Integer.parseInt(inteligenciaPersonagem.getText()));
+        PersonagemDAO.Inserir(personagemAtual);
+        //adicionar no banco de dados
+
+        refreshTable();
+        clearLabels();
+    }
+
+
+    @FXML
+    private void adicionarTalento(ActionEvent event){
+
+        personagemAtual = new Personagem(0, nomePersonagem.getText(), Integer.parseInt(alturaPersonagem.getText()), Integer.parseInt(pesoPersonagem.getText()),corOlhosPersonagem.getText(), Integer.parseInt(idadePersonagem.getText()), corPelePersonagem.getText(), corCabeloPersonagem.getText(), 0,
+                nomeJogadorPersonagem.getText(), "Lorin", comboBoxSubRaca.getValue(), comboBoxClasse.getValue(), DeusDAO.GetDeus(comboBoxDeus.getValue()).getCodigoDeus(), comboBoxArquetipo.getValue(), comboBoxAntecedente.getValue(), comboBoxTendencia.getValue(), Integer.parseInt(percepcaoPassivaPersonagem.getText()),
+                Integer.parseInt(numeroInspiracaoPersonagem.getText()), Integer.parseInt(pontosVidaAtualPersonagem.getText()), Integer.parseInt(pontosVidaTotalPersonagem.getText()), Integer.parseInt(pontosExperienciaPersonagem.getText()), Integer.parseInt(capacidadeCargaPersonagem.getText()), Integer.parseInt(cobrePersonagem.getText()),
+                Integer.parseInt(prataPersonagem.getText()), Integer.parseInt(ouroPersonagem.getText()), Integer.parseInt(platinaPersonagem.getText()), Integer.parseInt(electroPersonagem.getText()), Integer.parseInt(classeArmaduraPersonagem.getText()), Float.parseFloat(deslocamentoPersonagem.getText()), caracteristicaAdicionalPersonagem.getText(),
+                vinculoPersonagem.getText(), defeitoPersonagem.getText(), idealPersonagem.getText(), tracoPersonalidadePersonagem.getText(), Integer.parseInt(carismaPersonagem.getText()), Integer.parseInt(constituicaoPersonagem.getText()), Integer.parseInt(forcaPersonagem.getText()), Integer.parseInt(destrezaPersonagem.getText()), Integer.parseInt(sabedoriaPersonagem.getText()), Integer.parseInt(inteligenciaPersonagem.getText()));
+        PersonagemDAO.Inserir(personagemAtual);
+        //adicionar no banco de dados
+
+        refreshTable();
+        clearLabels();
+    }
+
+    @FXML
+    private void removerTalento(ActionEvent event){
+
+        personagemAtual = new Personagem(0, nomePersonagem.getText(), Integer.parseInt(alturaPersonagem.getText()), Integer.parseInt(pesoPersonagem.getText()),corOlhosPersonagem.getText(), Integer.parseInt(idadePersonagem.getText()), corPelePersonagem.getText(), corCabeloPersonagem.getText(), 0,
+                nomeJogadorPersonagem.getText(), "Lorin", comboBoxSubRaca.getValue(), comboBoxClasse.getValue(), DeusDAO.GetDeus(comboBoxDeus.getValue()).getCodigoDeus(), comboBoxArquetipo.getValue(), comboBoxAntecedente.getValue(), comboBoxTendencia.getValue(), Integer.parseInt(percepcaoPassivaPersonagem.getText()),
+                Integer.parseInt(numeroInspiracaoPersonagem.getText()), Integer.parseInt(pontosVidaAtualPersonagem.getText()), Integer.parseInt(pontosVidaTotalPersonagem.getText()), Integer.parseInt(pontosExperienciaPersonagem.getText()), Integer.parseInt(capacidadeCargaPersonagem.getText()), Integer.parseInt(cobrePersonagem.getText()),
+                Integer.parseInt(prataPersonagem.getText()), Integer.parseInt(ouroPersonagem.getText()), Integer.parseInt(platinaPersonagem.getText()), Integer.parseInt(electroPersonagem.getText()), Integer.parseInt(classeArmaduraPersonagem.getText()), Float.parseFloat(deslocamentoPersonagem.getText()), caracteristicaAdicionalPersonagem.getText(),
+                vinculoPersonagem.getText(), defeitoPersonagem.getText(), idealPersonagem.getText(), tracoPersonalidadePersonagem.getText(), Integer.parseInt(carismaPersonagem.getText()), Integer.parseInt(constituicaoPersonagem.getText()), Integer.parseInt(forcaPersonagem.getText()), Integer.parseInt(destrezaPersonagem.getText()), Integer.parseInt(sabedoriaPersonagem.getText()), Integer.parseInt(inteligenciaPersonagem.getText()));
+        PersonagemDAO.Inserir(personagemAtual);
+        //adicionar no banco de dados
+
+        refreshTable();
+        clearLabels();
+    }
+
+    public void initComboBox(){
+         comboBoxSubRaca.getItems().clear();
+         comboBoxClasse.getItems().clear();
+         comboBoxDeus.getItems().clear();
+         comboBoxArquetipo.getItems().clear();
+         comboBoxAntecedente.getItems().clear();
+         comboBoxTendencia.getItems().clear();
+
+    }
 }
