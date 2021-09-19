@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import sample.main;
 
 import java.net.URL;
@@ -21,7 +22,9 @@ public class busca01Controller implements Initializable, controlledScreen {
     TableColumn populacao;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {}
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        initTable();
+    }
 
     @Override
     public void setScreenParent(screensController screenPage) { myController = screenPage; }
@@ -29,5 +32,13 @@ public class busca01Controller implements Initializable, controlledScreen {
     @FXML
     private void goToCampanha(ActionEvent event){
         myController.setScreen(main.screen3ID);
+    }
+
+    private void initTable(){
+        nomeLider.setCellValueFactory(new PropertyValueFactory<>("nomeLider"));
+        populacao.setCellValueFactory(new PropertyValueFactory<>("populacao"));
+
+        //ObservableList<Busca01> busca01 = FXCollections.observableArrayList(DAO.List()));
+        //tableView.setItems(busca01);
     }
 }
