@@ -595,6 +595,13 @@ public class criarPersonagemController implements Initializable, controlledScree
     @FXML
     private void adicionarItem(ActionEvent event){
 
+        if(comboBoxEquipado.getValue() == "true"){
+            PersonagemDAO.InserirItem(personagemAntigo, comboBoxItem.getValue(), Integer.parseInt(quantidadeItem.getText()), true);
+
+        }else{
+            PersonagemDAO.InserirItem(personagemAntigo, comboBoxItem.getValue(), Integer.parseInt(quantidadeItem.getText()), false);
+
+        }
 
         refreshTable();
         clearLabels();
