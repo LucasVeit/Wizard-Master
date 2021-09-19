@@ -62,5 +62,42 @@ public class ClasseDAO {
         return new dataResultTableRow(data);
     }
 
+    public static ArrayList<String> ListClasse(){
+        ArrayList<String> strings = new ArrayList<>();
+        String sql = "select nomeClasse from Classe;";
 
+        try{
+            Statement declaracao = con.createStatement();
+            ResultSet rs = declaracao.executeQuery(sql);
+
+            while(rs.next()){
+
+                String nome = rs.getString("nomeClasse");
+                strings.add(nome);
+            }
+
+        } catch(SQLException e){
+            System.out.println("Error");
+        }
+        return strings;
+    }
+
+    public static ArrayList<String> ListArquetipo(String classe){
+        ArrayList<String> strings = new ArrayList<>();
+        String sql = "select nomeArquetipo from Arquetipo where nomeClasse = '" + classe + "';";
+
+        try{
+            Statement declaracao = con.createStatement();
+            ResultSet rs = declaracao.executeQuery(sql);
+
+            while(rs.next()){
+                String nome = rs.getString("nomeArquetipo");
+                strings.add(nome);
+            }
+
+        } catch(SQLException e){
+            System.out.println("Error");
+        }
+        return strings;
+    }
 }

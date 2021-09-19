@@ -1485,8 +1485,8 @@ insert into PontosExperienciaNivel (pontosExperiencia, nivel) values
 	(355000, 20);
 
 --Campanha Dummy
-insert into Campanha (nomeCampanha,	descricao, mapaAtual) values
-	('Lorin', 'Campanha que eu mestrei sábado à noite durante o rolê só por diversão', (select codigoMapa from Mapa where mapa = 'lorin.jpg'));
+insert into Campanha (nomeCampanha,	descricao) values
+	('Lorin', 'Campanha que eu mestrei sábado à noite durante o rolê só por diversão');
 
 insert into Cidade (nomeCidade, nomeCampanha,	comercio, clima, vegetacao,	populacao, formaGoverno, descricao) values
 	('Ardat', 'Lorin', 'Inexistente', 'Quente', 'Praia', 50, 'Monarquia', 'Ilhota pouco habitada. Muitas lendas existem sobre esse lugar, mas porém é lar de muitas criaturas há muito tempo esquecidas pelo homem.'),
@@ -1529,15 +1529,6 @@ insert into LiderCidade (codigoCidade, codigoLider) values
 	((select codigoCidade from Cidade where nomeCidade = 'Carteia'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
 	((select codigoCidade from Cidade where nomeCidade = 'Chordata'),(select codigoLider from Lider where nomeLider = 'Areqwa')),
 	((select codigoCidade from Cidade where nomeCidade = 'Viirim'),(select codigoLider from Lider where nomeLider = 'Areqwa'));
-
-insert into Mapa (nomeCampanha,	mapa) values
-	('Lorin', 'lorin.jpg'),
-	('Lorin', 'climbUpMountain.jpg'),
-	('Lorin', 'hallOfSacredSpells.jpg');
-
-insert into Anotacao (nomeCampanha, anotacao) values
-	('Lorin', 'Podem haver mais comunidades e vilas espalhadas pelo mapa que não são classificadas como cidades pelo mapa político de Lorin'),
-	('Lorin', 'É de conhecimento popular que quanto mais a oeste do arquipélago, mais elevado é o perigo que os aventureiros correm');
 
 -- Creating indexes
 create index idx_MonstroHabilidade_nomeMonstro_nomeHabilidade on MonstroHabilidade using btree (nomeMonstro, nomeHabilidade);

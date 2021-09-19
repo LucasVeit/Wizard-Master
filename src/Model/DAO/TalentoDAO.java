@@ -86,4 +86,24 @@ public class TalentoDAO {
         }
         return bonusTalentos;
     }
+
+
+    public static ArrayList<String> ListTalentos(){
+        ArrayList<String> strings = new ArrayList<>();
+        String sql = "select nomeTalento from Talento";
+        try{
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while(resultado.next()){
+                String nome = resultado.getString("nomeTalento");
+
+                strings.add(nome);
+            }
+
+        }catch(SQLException e){
+            System.out.println("Error");
+        }
+        return strings;
+    }
 }

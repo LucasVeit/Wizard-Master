@@ -61,4 +61,25 @@ public class PericiaDAO {
 
         return new dataResultTableRow(data);
     }
+
+    public static ArrayList<String> ListPericias(){
+        ArrayList<String> strings = new ArrayList<>();
+        String sql = "select nomePericia from Pericia";
+        try{
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+            System.out.println("olaa");
+
+            while(resultado.next()){
+                String nome = resultado.getString("nomePericia");
+
+                strings.add(nome);
+                System.out.println(nome);
+            }
+
+        }catch(SQLException e){
+            System.out.println("Error");
+        }
+        return strings;
+    }
 }

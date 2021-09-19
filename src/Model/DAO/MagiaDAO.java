@@ -127,4 +127,23 @@ public class MagiaDAO {
         return magias;
     }
 
+    public static ArrayList<String> ListMagias(){
+        ArrayList<String> strings = new ArrayList<>();
+        String sql = "select nomeMagia from Magia";
+        try{
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while(resultado.next()){
+                String nome = resultado.getString("nomeMagia");
+
+                strings.add(nome);
+            }
+
+        }catch(SQLException e){
+            System.out.println("Error");
+        }
+        return strings;
+    }
+
 }

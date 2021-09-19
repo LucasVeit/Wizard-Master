@@ -245,4 +245,24 @@ public class ItemDAO {
         }
         return itemMagico;
     }
+
+    public static ArrayList<String> ListNomeItens(){
+        ArrayList<String> strings = new ArrayList<>();
+        String sql = "select nomeItem from Item";
+        try{
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while(resultado.next()){
+                String nomeItem = resultado.getString("nomeItem");
+
+
+                strings.add(nomeItem);
+            }
+
+        }catch(SQLException e){
+            System.out.println("Error");
+        }
+        return strings;
+    }
 }

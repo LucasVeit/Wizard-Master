@@ -139,4 +139,22 @@ public class DeusDAO {
         return deuses;
     }
 
+    public static ArrayList<String> ListarDeus(){
+        ArrayList<String> strings = new ArrayList<>();
+        String sql = "select nomeDeus from Deus";
+
+        try{
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while(resultado.next()) {
+                String nome = resultado.getString("nomeDeus");
+                strings.add(nome);
+            }
+        }catch(SQLException e){
+            System.out.println("Error");
+        }
+
+        return strings;
+    }
 }

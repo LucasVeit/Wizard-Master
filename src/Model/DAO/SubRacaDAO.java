@@ -85,4 +85,25 @@ public class SubRacaDAO {
         }
         return raca;
     }
+
+
+    public static ArrayList<String> ListSubRaca(){
+        ArrayList<String> subracas = new ArrayList<>();
+        String sql = "select nomeSubRaca from SubRaca;";
+
+        try{
+            Statement declaracao = con.createStatement();
+            ResultSet rs = declaracao.executeQuery(sql);
+
+            while(rs.next()){
+
+                String nome = rs.getString("nomeSubRaca");
+                subracas.add(nome);
+            }
+
+        } catch(SQLException e){
+            System.out.println("Error");
+        }
+        return subracas;
+    }
 }
