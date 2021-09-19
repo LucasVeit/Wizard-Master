@@ -97,22 +97,44 @@ public class PersonagemDAO {
     }
 
     public static void Inserir(Personagem personagem){
-        String sql = "insert into personagem (nomeJogador, nomeCampanha, personagemSubRaca, personagemClasse, codigoDeus, codigoAparencia, arquetipo, nomeAntecedente, " +
+        String sql = "insert into Personagem (nomeJogador, nomeCampanha, personagemSubRaca, personagemClasse, codigoDeus, codigoAparencia, arquetipo, nomeAntecedente, " +
                 "tendencia, percepcaoPassiva, numeroInspiracao, pontosVidaAtual, pontosVidaTotal, pontosExperiencia, capacidadeCarga, cobre, prata, ouro, platina" +
                 ", electro, classeArmadura, deslocamento, caracteristicaAdicional, vinculo, defeito, ideal, tracoPersonalidade)" +
                 "VALUES" +
                 "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
+        InserirAparencia(personagem.getNomePersonagem(), personagem.getAltura(), personagem.getPeso(), personagem.getCorOlhos(), personagem.getIdade(), personagem.getCorPele(), personagem.getCorCabelo());
+
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, personagem.getNomePersonagem());
+
+            ps.setString(1, personagem.getNomeJogador());
             ps.setString(2, personagem.getNomeCampanha());
-            ps.setString(3, personagem.getComercio());
-            ps.setString(4, personagem.getClima());
-            ps.setString(5, personagem.getVegetacao());
-            ps.setInt(6, personagem.getPopulacao());
-            ps.setString(7, personagem.getFormaGoverno());
-            ps.setString(8, personagem.getDescricao());
+            ps.setString(3, personagem.getPersonagemSubRaca());
+            ps.setString(4, personagem.getPersonagemClasse());
+            ps.setInt(6, personagem.getDeus());
+            ps.setInt(7, GetCodigoAparencia());
+            ps.setString(8, personagem.getArquetipo());
+            ps.setString(9, personagem.getNomeAntecedente());
+            ps.setString(10, personagem.getTendencia());
+            ps.setInt(11, personagem.getPercepcaoPassiva());
+            ps.setInt(12, personagem.getNumeroInspiracao());
+            ps.setInt(13, personagem.getPontosVidaAtual());
+            ps.setInt(14, personagem.getPontosVidaTotal());
+            ps.setInt(15, personagem.getPontosExperiencia());
+            ps.setInt(16, personagem.getCapacidadeCarga());
+            ps.setInt(17, personagem.getCobre());
+            ps.setInt(18, personagem.getPrata());
+            ps.setInt(19, personagem.getOuro());
+            ps.setInt(20, personagem.getPlatina());
+            ps.setInt(21, personagem.getElectro());
+            ps.setInt(22, personagem.getClasseArmadura());
+            ps.setFloat(23, personagem.getDeslocamento());
+            ps.setString(24, personagem.getCaracteristicaAdicional());
+            ps.setString(25, personagem.getVinculo());
+            ps.setString(26, personagem.getDefeito());
+            ps.setString(27, personagem.getIdeal());
+            ps.setString(28, personagem.getTracoPersonalidade());
 
             ps.executeUpdate();
 
@@ -122,32 +144,70 @@ public class PersonagemDAO {
             JOptionPane.showMessageDialog(null, "Erro ao inserir!");
             e.printStackTrace();
         }
+
+        inserirHabilidade(personagem, "Carisma", personagem.getCarisma());
+        inserirHabilidade(personagem, "Constituição", personagem.getConstituicao());
+        inserirHabilidade(personagem, "Força", personagem.getForca());
+        inserirHabilidade(personagem, "Destreza", personagem.getDestreza());
+        inserirHabilidade(personagem, "Sabedoria", personagem.getSabedoria());
+        inserirHabilidade(personagem, "Inteligência", personagem.getInteligencia());
     }
 
     public static void Atualizar(Personagem personagem){
-        String sql = "update personagem set nomePersonagem = ?, nomeCampanha = ?, comercio = ?, clima = ?, vegetacao = ?, populacao = ?, formaGoverno = ?, descricao = ?" +
+        String sql = "update personagem set nomeJogador = ?, nomeCampanha = ?, personagemSubRaca = ?, personagemClasse = ?, codigoDeus = ?, codigoAparencia = ?, arquetipo = ?, nomeAntecedente = ?, " +
+                "tendencia = ?, percepcaoPassiva = ?, numeroInspiracao = ?, pontosVidaAtual = ?, pontosVidaTotal = ?, pontosExperiencia = ?, capacidadeCarga = ?, cobre = ?, prata = ?, ouro = ?, platina = ?, " +
+                "electro = ?, classeArmadura = ?, deslocamento = ?, caracteristicaAdicional = ?, vinculo = ?, defeito = ?, ideal = ?, tracoPersonalidade  = ?" +
                 " where codigoPersonagem = ?";
 
+        
+        AtualizarAparencia(personagem.getNomePersonagem(), personagem.getAltura(), personagem.getPeso(), personagem.getCorOlhos(), personagem.getIdade(), personagem.getCorPele(), personagem.getCorCabelo(), personagem.getCodigoAparencia());
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, personagem.getNomePersonagem());
+
+            ps.setString(1, personagem.getNomeJogador());
             ps.setString(2, personagem.getNomeCampanha());
-            ps.setString(3, personagem.getComercio());
-            ps.setString(4, personagem.getClima());
-            ps.setString(5, personagem.getVegetacao());
-            ps.setInt(6, personagem.getPopulacao());
-            ps.setString(7, personagem.getFormaGoverno());
-            ps.setString(8, personagem.getDescricao());
-            ps.setInt(9, personagem.getCodigo());
+            ps.setString(3, personagem.getPersonagemSubRaca());
+            ps.setString(4, personagem.getPersonagemClasse());
+            ps.setInt(6, personagem.getDeus());
+            ps.setInt(7, GetCodigoAparencia());
+            ps.setString(8, personagem.getArquetipo());
+            ps.setString(9, personagem.getNomeAntecedente());
+            ps.setString(10, personagem.getTendencia());
+            ps.setInt(11, personagem.getPercepcaoPassiva());
+            ps.setInt(12, personagem.getNumeroInspiracao());
+            ps.setInt(13, personagem.getPontosVidaAtual());
+            ps.setInt(14, personagem.getPontosVidaTotal());
+            ps.setInt(15, personagem.getPontosExperiencia());
+            ps.setInt(16, personagem.getCapacidadeCarga());
+            ps.setInt(17, personagem.getCobre());
+            ps.setInt(18, personagem.getPrata());
+            ps.setInt(19, personagem.getOuro());
+            ps.setInt(20, personagem.getPlatina());
+            ps.setInt(21, personagem.getElectro());
+            ps.setInt(22, personagem.getClasseArmadura());
+            ps.setFloat(23, personagem.getDeslocamento());
+            ps.setString(24, personagem.getCaracteristicaAdicional());
+            ps.setString(25, personagem.getVinculo());
+            ps.setString(26, personagem.getDefeito());
+            ps.setString(27, personagem.getIdeal());
+            ps.setString(28, personagem.getTracoPersonalidade());
+            ps.setInt(29, personagem.getCodigoPersonagem());
 
             ps.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            JOptionPane.showMessageDialog(null, "Inserido com sucesso!");
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Erro ao atualizar!");
+            JOptionPane.showMessageDialog(null, "Erro ao inserir!");
             e.printStackTrace();
         }
+
+        AtualizarHabilidade(personagem, "Carisma", personagem.getCarisma());
+        AtualizarHabilidade(personagem, "Constituição", personagem.getConstituicao());
+        AtualizarHabilidade(personagem, "Força", personagem.getForca());
+        AtualizarHabilidade(personagem, "Destreza", personagem.getDestreza());
+        AtualizarHabilidade(personagem, "Sabedoria", personagem.getSabedoria());
+        AtualizarHabilidade(personagem, "Inteligência", personagem.getInteligencia());
     }
 
     public static void Remover(Personagem personagem){
@@ -156,6 +216,7 @@ public class PersonagemDAO {
         RemoverPericias(personagem);
         RemoverMagias(personagem);
         RemoverTalentos(personagem);
+        removerHabilidade(personagem);
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -168,7 +229,98 @@ public class PersonagemDAO {
             JOptionPane.showMessageDialog(null, "Erro ao excluir!");
             e.printStackTrace();
         }
+
+        RemoverAparencia(personagem);
     }
+
+    public static void InserirAparencia(String nomePersonagem, float altura, float peso, String corOlhos, int idade,
+                                        String corPele, String corCabelo){
+        String sql = "insert into Aparencia (nomePersonagem, altura, peso, corOlhos, idade, corPele, corCabelo)" +
+                "VALUES" +
+                "(?,?,?,?,?,?,?);";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nomePersonagem);
+            ps.setFloat(2, altura);
+            ps.setFloat(3, peso);
+            ps.setString(4, corOlhos);
+            ps.setInt(5, idade);
+            ps.setString(6, corPele);
+            ps.setString(7, corCabelo);
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar!");
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void AtualizarAparencia(String nomePersonagem, float altura, float peso, String corOlhos, int idade,
+                                        String corPele, String corCabelo, int codigoAparencia){
+        String sql = "update Aparencia set nomePersonagem = ?, altura = ?, peso = ?, corOlhos = ?, idade = ?, corPele = ?, corCabelo = ? " +
+                " where codigoAparencia = ?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, nomePersonagem);
+            ps.setFloat(2, altura);
+            ps.setFloat(3, peso);
+            ps.setString(4, corOlhos);
+            ps.setInt(5, idade);
+            ps.setString(6, corPele);
+            ps.setString(7, corCabelo);
+            ps.setInt(8, codigoAparencia);
+
+            ps.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar!");
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void RemoverAparencia(Personagem personagem) {
+        String sql = "delete from personagemAparencia where codigoAparencia = ?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, personagem.getCodigoAparencia());
+
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir!");
+            e.printStackTrace();
+        }
+    }
+
+    public static int GetCodigoAparencia(){
+        String sql = "select max(codigoAparencia) from Aparencia";
+        int codigo = 0;
+        try {
+            Statement declaracao = con.createStatement();
+            ResultSet resultado = declaracao.executeQuery(sql);
+
+            while(resultado.next()){
+                codigo = resultado.getInt("codigoAparencia");
+            }
+
+            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar!");
+            e.printStackTrace();
+        }
+
+        return codigo;
+    }
+
 
     public static void InserirItem(Personagem personagem, String nomeItem, int quant, boolean equip){
         String sql = "insert into PersonagemItem (codigoPersonagem, nomeItem, quantidade, equipado)" +
@@ -452,7 +604,7 @@ public class PersonagemDAO {
         }
     }
 
-    public static void atualizarHabilidade(Personagem personagem, String nomeHabilidade, int valor){
+    public static void AtualizarHabilidade(Personagem personagem, String nomeHabilidade, int valor){
         String sql = "update PersonagemHabilidade set valor = ?" +
                 " where codigoPersonagem = ? and nomeHabilidade = ?";
 
@@ -472,13 +624,12 @@ public class PersonagemDAO {
         }
     }
 
-    public static void removerHabilidade(Personagem personagem, String nomeHabilidade){
-        String sql = "delete from PersonagemHabilidade where codigoPersonagem = ? and nomeHabilidade = ?;";
+    public static void removerHabilidade(Personagem personagem){
+        String sql = "delete from PersonagemHabilidade where codigoPersonagem = ?;";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, personagem.getCodigoPersonagem());
-            ps.setString(2, nomeHabilidade);
 
             ps.executeUpdate();
 
