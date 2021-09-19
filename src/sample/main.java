@@ -32,6 +32,14 @@ public class main extends Application {
     public static String screen11File = "/View/novaCampanha.fxml";
     public static String screen12ID = "carregarCampanha";
     public static String screen12File = "/View/carregarCampanha.fxml";
+    public static String screen13ID = "intervalo";
+    public static String screen13File = "/View/intervalo.fxml";
+    public static String screen14ID = "relatorioCampanha";
+    public static String screen14File = "/View/relatorioCampanha.fxml";
+    public static String screen15ID = "busca01";
+    public static String screen15File = "/View/Busca01.fxml";
+    public static String screen16ID = "busca02";
+    public static String screen16File = "/View/Busca02.fxml";
 
 
     @Override
@@ -50,6 +58,10 @@ public class main extends Application {
         mainContainer.loadScreen(main.screen10ID, main.screen10File);
         mainContainer.loadScreen(main.screen11ID, main.screen11File);
         mainContainer.loadScreen(main.screen12ID, main.screen12File);
+        mainContainer.loadScreen(main.screen13ID, main.screen13File);
+        mainContainer.loadScreen(main.screen14ID, main.screen14File);
+        mainContainer.loadScreen(main.screen15ID, main.screen15File);
+        mainContainer.loadScreen(main.screen16ID, main.screen16File);
 
         mainContainer.setScreen(main.screen1ID);
 
