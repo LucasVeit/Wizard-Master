@@ -90,7 +90,7 @@
                               <Font name="Sylfaen" size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnCarregarCampanha" mnemonicParsing="false" prefHeight="46.0" prefWidth="204.0" styleClass="Button" stylesheets="@style.css" text="Carregar campanha" textFill="#af4044">
+                        <Button onAction="#goToCarregarCampanha" fx:id="btnCarregarCampanha" mnemonicParsing="false" prefHeight="46.0" prefWidth="204.0" styleClass="Button" stylesheets="@style.css" text="Carregar campanha" textFill="#af4044">
                            <font>
                               <Font name="Sylfaen" size="20.0" />
                            </font>

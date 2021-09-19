@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.carregarCampanhaController">
+    <children>
+        <Pane layoutX="36.0" layoutY="32.0" prefHeight="712.0" prefWidth="1100.0" styleClass="border-background" stylesheets="@style.css" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="32.0" />
+        <Pane layoutX="47.0" layoutY="44.0" prefHeight="690.0" prefWidth="1080.0" styleClass="border-background" stylesheets="@style.css" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="44.0" />
+        <BorderPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <bottom>
+                <FlowPane alignment="CENTER" columnHalignment="CENTER" BorderPane.alignment="CENTER">
+                    <children>
+                        <Pane>
+                            <children>
+                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@Resources/pergaminho.png" />
+                                    </image>
+                                </ImageView>
+                                <Label layoutX="38.0" layoutY="22.0" text="Campanhas" textFill="#3f0404">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets top="8.0" />
+                            </padding>
+                        </Pane>
+                    </children>
+                </FlowPane>
+            </bottom>
+         <top>
+            <HBox alignment="CENTER_RIGHT" prefHeight="245.0" prefWidth="1155.0">
+               <BorderPane.margin>
+                  <Insets left="55.0" right="70.0" top="55.0" />
+               </BorderPane.margin>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="1080.0" spacing="30.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="266.0" prefWidth="320.0">
+                           <children>
+                              <VBox prefHeight="65.0" prefWidth="100.0">
+                                 <children>
+                                    <Label text="Nome">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="Nome" editable="false" prefHeight="25.0" prefWidth="295.0">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="53.0" prefWidth="100.0">
+                                 <children>
+                                    <Label text="Descrição">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font></Label>
+                                    <TextArea fx:id="descricao" prefHeight="200.0" prefWidth="200.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="227.0" prefWidth="100.0" spacing="20.0">
+                           <children>
+                              <Button fx:id="carregar" mnemonicParsing="false" onAction="#goToCampanha" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Carregar" />
+                              <Button fx:id="atualizar" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Atualizar" />
+                              <Button fx:id="excluir" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="Button" stylesheets="@style.css" text="Excluir" />
+                           </children></VBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <Pane>
+                     <children>
+                         <ButtonBar buttonMinWidth="60.0">
+                             <buttons>
+                                 <Button mnemonicParsing="false" onAction="#goToTelaInicio" prefHeight="10.0" prefWidth="70.0" styleClass="Button" stylesheets="@style.css" textFill="WHITE">
+                                     <graphic>
+                                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                 <Image url="@Resources/seta.png" />
+                                             </image>
+                                         </ImageView>
+                                     </graphic>
+                                 </Button>
+                             </buttons>
+                         </ButtonBar>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="20.0" top="20.0" />
+                     </HBox.margin>
+                  </Pane>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <TableView fx:id="tableView" prefHeight="290.0" prefWidth="882.0">
+              <columns>
+                <TableColumn fx:id="columnNome" prefWidth="246.0" text="Nome" />
+                <TableColumn fx:id="columnDescricao" prefWidth="833.0" text="Descrição" />
+              </columns>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" left="100.0" right="100.0" />
+               </BorderPane.margin>
+            </TableView>
+         </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

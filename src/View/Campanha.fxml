@@ -48,32 +48,32 @@
                      <children>
                         <VBox alignment="CENTER" layoutY="1.0" prefHeight="485.0" prefWidth="248.0" spacing="20.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#goToTelaCriarPersonagem" prefHeight="10.0" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar personagem" textFill="#af4044">
+                              <Button fx:id="criarPersonagem" mnemonicParsing="false" onAction="#goToTelaCriarPersonagem" prefHeight="10.0" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar personagem" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#goToTelaCriarMundo" prefHeight="10.0" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar mundo" textFill="#af4044">
+                              <Button fx:id="criarMundo" mnemonicParsing="false" onAction="#goToTelaCriarMundo" prefHeight="10.0" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar mundo" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#goToTelaCriarCidade" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar cidade" textFill="#af4044">
+                              <Button fx:id="criarCidade" mnemonicParsing="false" onAction="#goToTelaCriarCidade" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar cidade" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#goToTelaCriarPanteao" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar panteão" textFill="#af4044">
+                              <Button fx:id="criarPanteao" mnemonicParsing="false" onAction="#goToTelaCriarPanteao" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar panteão" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#goToTelaCriarFaccao" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar facção" textFill="#af4044">
+                              <Button fx:id="criarFaccao" mnemonicParsing="false" onAction="#goToTelaCriarFaccao" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar facção" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#goToTelaCriarLider" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar líder" textFill="#af4044">
+                              <Button fx:id="criarLider" mnemonicParsing="false" onAction="#goToTelaCriarLider" prefWidth="200.0" styleClass="Button" stylesheets="@style.css" text="Criar líder" textFill="#af4044">
                                  <font>
                                     <Font size="20.0" />
                                  </font>

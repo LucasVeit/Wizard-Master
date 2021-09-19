@@ -1538,3 +1538,10 @@ insert into Mapa (nomeCampanha,	mapa) values
 insert into Anotacao (nomeCampanha, anotacao) values
 	('Lorin', 'Podem haver mais comunidades e vilas espalhadas pelo mapa que não são classificadas como cidades pelo mapa político de Lorin'),
 	('Lorin', 'É de conhecimento popular que quanto mais a oeste do arquipélago, mais elevado é o perigo que os aventureiros correm');
+
+-- Creating indexes
+create index idx_MonstroHabilidade_nomeMonstro_nomeHabilidade on MonstroHabilidade using btree (nomeMonstro, nomeHabilidade);
+create index idx_Atributo_all on Atributo using btree (nivel, nomeClasse, bonusProficiencia);
+create index idx_Monstro_nomeMonstro on Monstro using btree (nomeMonstro);
+create index idx_CaracteristicaMonstro_nome_nomeMonstro on CaracteristicaMonstro using btree (nome, nomeMonstro);
+create index idx_Item_nomeItem on Item using btree (nomeItem);
