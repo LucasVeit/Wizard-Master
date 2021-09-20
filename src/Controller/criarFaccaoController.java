@@ -1,8 +1,7 @@
 package Controller;
 
-import Model.ConnectPostgre;
-import Model.DAO.New.FaccaoDAO;
-import Model.DAO.New.LiderDAO;
+import Model.DAO.FaccaoDAO;
+import Model.DAO.LiderDAO;
 import Model.Faccao;
 import Model.Lider;
 import javafx.beans.property.ReadOnlyStringWrapper;
@@ -21,7 +20,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import sample.main;
 import java.net.URL;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 

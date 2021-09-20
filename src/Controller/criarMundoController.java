@@ -1,9 +1,7 @@
 package Controller;
 
-import Model.DAO.New.LiderDAO;
-import Model.DAO.New.MundoDAO;
+import Model.DAO.MundoDAO;
 import Model.DAO.PlanoDAO;
-import Model.Lider;
 import Model.Mundo;
 import Model.Plano;
 import javafx.beans.property.SimpleStringProperty;

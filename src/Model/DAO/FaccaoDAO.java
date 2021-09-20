@@ -1,10 +1,8 @@
-package Model.DAO.New;
+package Model.DAO;
 
 import Controller.CampanhaAtualController;
-import Model.Cidade;
 import Model.Faccao;
 import Model.ConnectPostgre;
-import Model.Lider;
 
 import javax.swing.*;
 import java.sql.*;

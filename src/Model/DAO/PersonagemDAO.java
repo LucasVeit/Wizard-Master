@@ -1,4 +1,4 @@
-package Model.DAO.New;
+package Model.DAO;
 
 import Controller.CampanhaAtualController;
 import Model.Cidade;

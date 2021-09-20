@@ -561,3 +561,10 @@ create trigger atualizar_classe_de_armadura
     after insert or update or delete on PersonagemItem
     for each row
     	execute procedure atualiza_armadura();
+
+-- Creating indexes
+create index idx_MonstroHabilidade_nomeMonstro_nomeHabilidade on MonstroHabilidade using btree (nomeMonstro, nomeHabilidade);
+create index idx_Atributo_all on Atributo using btree (nivel, nomeClasse, bonusProficiencia);
+create index idx_Monstro_nomeMonstro on Monstro using btree (nomeMonstro);
+create index idx_CaracteristicaMonstro_nome_nomeMonstro on CaracteristicaMonstro using btree (nome, nomeMonstro);
+create index idx_Item_nomeItem on Item using btree (nomeItem);

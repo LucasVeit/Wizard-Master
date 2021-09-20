@@ -1,11 +1,8 @@
 package Controller;
 
 import Model.*;
-import Model.DAO.New.CidadeDAO;
-import Model.DAO.New.LiderDAO;
-import Model.DAO.New.PanteaoDAO;
+import Model.DAO.PanteaoDAO;
 import Model.DAO.DeusDAO;
-import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;

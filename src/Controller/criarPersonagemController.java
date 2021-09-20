@@ -1,12 +1,7 @@
 package Controller;
 
-import Model.Cidade;
 import Model.DAO.*;
-import Model.DAO.New.CidadeDAO;
-import Model.DAO.New.LiderDAO;
-import Model.DAO.New.PersonagemDAO;
-import Model.Item.Item;
-import Model.Lider;
+import Model.DAO.PersonagemDAO;
 import Model.Personagem.*;
 import javafx.beans.property.*;
 import javafx.beans.value.ChangeListener;
@@ -287,7 +282,6 @@ public class criarPersonagemController implements Initializable, controlledScree
 
                 personagemAntigo = tableView.getSelectionModel().getSelectedItem();
                 if (mouseEvent.getClickCount() == 2){
-                    System.out.println(CampanhaAtualController.getCampanhaAtual().getNome());
 
                     removerPersonagem.setDisable(false);
                     atualizarPersonagem.setDisable(false);

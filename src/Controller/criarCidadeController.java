@@ -1,12 +1,9 @@
 package Controller;
 
-import Model.ConnectPostgre;
 import Model.Cidade;
-import Model.DAO.New.CidadeDAO;
-import Model.DAO.New.FaccaoDAO;
-import Model.DAO.New.LiderDAO;
+import Model.DAO.CidadeDAO;
+import Model.DAO.LiderDAO;
 import Model.Lider;
-import Model.Personagem.Personagem;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -24,7 +21,6 @@ import javafx.scene.input.MouseEvent;
 import sample.main;
 
 import java.net.URL;
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 

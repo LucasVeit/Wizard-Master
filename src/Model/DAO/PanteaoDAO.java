@@ -1,19 +1,19 @@
-package Model.DAO.New;
+package Model.DAO;
 
 import Controller.CampanhaAtualController;
 import Model.ConnectPostgre;
-import Model.Mundo;
+import Model.Panteao;
 
 import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class MundoDAO {
+public class PanteaoDAO {
     private static Connection con = ConnectPostgre.ConnectDatabase();
 
-    public static ArrayList<Mundo> Listar(){
-        ArrayList<Mundo> mundos = new ArrayList<>();
-        String sql = "select * from Mundo where nomeCampanha = '" + CampanhaAtualController.getCampanhaAtual().getNome() + "';";
+    public static ArrayList<Panteao> Listar(){
+        ArrayList<Panteao> pantoes = new ArrayList<>();
+        String sql = "select * from PanteaoCampanha where nomeCampanha = '" + CampanhaAtualController.getCampanhaAtual().getNome() + "';";
 
         try {
             Statement declaracao = con.createStatement();
@@ -21,10 +21,10 @@ public class MundoDAO {
 
             while (resultado.next()) {
                 String nomeCampanha = resultado.getString("nomeCampanha");
-                String nomePlano = resultado.getString("nomePlano");
+                int codigoDeus = resultado.getInt("codigoDeus");
 
-                Mundo mundo = new Mundo(nomeCampanha, nomePlano);
-                mundos.add(mundo);
+                Panteao panteao = new Panteao(nomeCampanha, codigoDeus);
+                pantoes.add(panteao);
             }
 
         } catch (SQLException e) {
@@ -32,18 +32,18 @@ public class MundoDAO {
             e.printStackTrace();
         }
 
-        return mundos;
+        return pantoes;
     }
 
-    public static void Inserir(Mundo mundo){
-        String sql = "insert into mundo (nomeCampanha, nomePlano)" +
+    public static void Inserir(Panteao panteao){
+        String sql = "insert into PanteaoCampanha (nomeCampanha, codigoDeus)" +
                 " VALUES" +
                 "(?,?);";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, mundo.getNomeCampanha());
-            ps.setString(2, mundo.getNomePlano());
+            ps.setString(1, panteao.getNomeCampanha());
+            ps.setInt(2, panteao.getCodigoDeus());
 
             ps.executeUpdate();
 
@@ -55,13 +55,13 @@ public class MundoDAO {
         }
     }
 
-    public static void Remover(Mundo mundo){
-        String sql = "DELETE FROM mundo WHERE nomeCampanha = ? and nomePlano = ?;";
+    public static void Remover(Panteao panteao){
+        String sql = "DELETE FROM PanteaoCampanha WHERE nomeCampanha = ? and codigoDeus = ?;";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, mundo.getNomeCampanha());
-            ps.setString(2, mundo.getNomePlano());
+            ps.setString(1, panteao.getNomeCampanha());
+            ps.setInt(2, panteao.getCodigoDeus());
 
             ps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Excluído com sucesso!");

@@ -1,7 +1,5 @@
 package Controller;
 
-import Model.Cidade;
-import Model.DAO.New.CidadeDAO;
 import Model.DAO.QueriesDAO;
 import Model.ListaLideres;
 import javafx.collections.FXCollections;

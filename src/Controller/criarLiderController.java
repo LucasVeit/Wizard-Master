@@ -1,10 +1,7 @@
 package Controller;
 
-import Model.Cidade;
-import Model.DAO.New.CidadeDAO;
-import Model.DAO.New.LiderDAO;
+import Model.DAO.LiderDAO;
 import Model.Lider;
-import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,7 +14,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import sample.main;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class criarLiderController implements Initializable, controlledScreen {
