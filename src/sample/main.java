@@ -1,6 +1,8 @@
 package sample;
 
+import Controller.CampanhaAtualController;
 import Controller.screensController;
+import Model.DAO.CampanhaDAO;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -44,7 +46,7 @@ public class main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
+        CampanhaAtualController.start();
         screensController mainContainer = new screensController();
         mainContainer.loadScreen(main.screen1ID, main.screen1File);
         mainContainer.loadScreen(main.screen2ID, main.screen2File);

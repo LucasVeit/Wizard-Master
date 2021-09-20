@@ -6,6 +6,7 @@ import Model.DAO.New.CidadeDAO;
 import Model.DAO.New.FaccaoDAO;
 import Model.DAO.New.LiderDAO;
 import Model.Lider;
+import Model.Personagem.Personagem;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -32,6 +33,8 @@ public class criarCidadeController implements Initializable, controlledScreen {
     screensController myController;
     @FXML
     private TableView<Cidade> tableView;
+    @FXML
+    private static TableView<Cidade> tableViewStatic;
     @FXML
     private TableView<String> tableViewLider;
     @FXML
@@ -88,6 +91,7 @@ public class criarCidadeController implements Initializable, controlledScreen {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableViewStatic = tableView;
         reloadCidade();
         initTable();
         initComboBox();
@@ -164,11 +168,11 @@ public class criarCidadeController implements Initializable, controlledScreen {
         refreshTable();
     }
 
-    private void refreshTable(){
-        tableView.getItems().clear();
+    public static void refreshTable(){
+        tableViewStatic.getItems().clear();
         ObservableList<Cidade> cidade = FXCollections.observableArrayList(CidadeDAO.Listar());
         if(cidade.size() > 0){
-            tableView.setItems(cidade);
+            tableViewStatic.setItems(cidade);
         }
     }
 
@@ -187,7 +191,7 @@ public class criarCidadeController implements Initializable, controlledScreen {
     @FXML
     private void adicionar(ActionEvent event){
 
-        cidadeAtual = new Cidade(0, nomeCidade.getText(), "Lorin", comercio.getText(), clima.getText(), vegetacao.getText(), Integer.parseInt(populacao.getText()), formaGoverno.getText(), descricao.getText());
+        cidadeAtual = new Cidade(0, nomeCidade.getText(),  CampanhaAtualController.getCampanhaAtual().getNome(), comercio.getText(), clima.getText(), vegetacao.getText(), Integer.parseInt(populacao.getText()), formaGoverno.getText(), descricao.getText());
         CidadeDAO.Inserir(cidadeAtual);
         //adicionar no banco de dados
 
@@ -240,6 +244,7 @@ public class criarCidadeController implements Initializable, controlledScreen {
 
         clearLabels();
         reloadCidade();
+        refreshTable();
         tableViewLider.getItems().clear();
     }
 

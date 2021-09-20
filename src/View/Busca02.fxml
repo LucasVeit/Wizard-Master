@@ -41,8 +41,8 @@
                     </BorderPane.margin>
                     <columns>
                         <TableColumn fx:id="nomeJogador" prefWidth="334.20001220703125" text="Jogador" />
-                        <TableColumn fx:id="nomeMonstro" prefWidth="398.0" text="Monstro" />
-                        <TableColumn fx:id="habilidade" prefWidth="346.0" text="Habilidade" />
+                        <TableColumn fx:id="nomeMonstro" prefWidth="398.0" text="Mais Forte Que" />
+                        <TableColumn fx:id="habilidade" prefWidth="346.0" text="Na Habilidade" />
                     </columns>
                 </TableView>
             </bottom>

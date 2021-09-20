@@ -29,6 +29,8 @@ public class criarMundoController implements Initializable, controlledScreen {
     @FXML
     private TableView<Mundo> tableView;
     @FXML
+    private static TableView<Mundo> tableViewStatic;
+    @FXML
     TableColumn<Mundo, SimpleStringProperty> column1;
     @FXML
     TableColumn<Mundo, SimpleStringProperty> column2;
@@ -51,6 +53,7 @@ public class criarMundoController implements Initializable, controlledScreen {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableViewStatic = tableView;
         reloadMundo();
         initTable();
         initComboBox();
@@ -114,11 +117,11 @@ public class criarMundoController implements Initializable, controlledScreen {
         refreshTable();
     }
 
-    private void refreshTable(){
-        tableView.getItems().clear();
+    public static void refreshTable(){
+        tableViewStatic.getItems().clear();
         ObservableList<Mundo> mundo = FXCollections.observableArrayList(MundoDAO.Listar());
         if(mundo.size() > 0){
-            tableView.setItems(mundo);
+            tableViewStatic.setItems(mundo);
         }
     }
 
@@ -126,7 +129,7 @@ public class criarMundoController implements Initializable, controlledScreen {
     @FXML
     private void adicionar(ActionEvent event){
 
-        Mundo mundoAtual = new Mundo("Lorin", comboBox.getValue());
+        Mundo mundoAtual = new Mundo( CampanhaAtualController.getCampanhaAtual().getNome(), comboBox.getValue());
         MundoDAO.Inserir(mundoAtual);
         //adicionar no banco de dados
 
@@ -153,6 +156,7 @@ public class criarMundoController implements Initializable, controlledScreen {
     @FXML
     private void limpar(ActionEvent event){
         clearLabels();
+        refreshTable();
         reloadMundo();
     }
 

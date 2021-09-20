@@ -31,6 +31,8 @@ public class criarFaccaoController implements Initializable, controlledScreen {
     @FXML
     private TableView<Faccao> tableView;
     @FXML
+    private static TableView<Faccao> tableViewStatic;
+    @FXML
     private TableView<String> tableViewLider;
     @FXML
     TableColumn<String, String> columnLider;
@@ -76,6 +78,7 @@ public class criarFaccaoController implements Initializable, controlledScreen {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableViewStatic = tableView;
         reloadFaccao();
         initTable();
         initComboBox();
@@ -149,11 +152,11 @@ public class criarFaccaoController implements Initializable, controlledScreen {
         refreshTable();
     }
 
-    private void refreshTable(){
-        tableView.getItems().clear();
+    public static void refreshTable(){
+        tableViewStatic.getItems().clear();
         ObservableList<Faccao> faccao = FXCollections.observableArrayList(FaccaoDAO.Listar());
         if(faccao.size() > 0){
-            tableView.setItems(faccao);
+            tableViewStatic.setItems(faccao);
         }
     }
 
@@ -161,7 +164,7 @@ public class criarFaccaoController implements Initializable, controlledScreen {
     @FXML
     private void adicionar(ActionEvent event){
 
-        faccaoAtual = new Faccao(0, nomeFaccao.getText(), "Lorin", Integer.parseInt(populacao.getText()), formaGoverno.getText(), descricao.getText());
+        faccaoAtual = new Faccao(0, nomeFaccao.getText(),  CampanhaAtualController.getCampanhaAtual().getNome(), Integer.parseInt(populacao.getText()), formaGoverno.getText(), descricao.getText());
         FaccaoDAO.Inserir(faccaoAtual);
         //adicionar no banco de dados
 
@@ -223,6 +226,7 @@ public class criarFaccaoController implements Initializable, controlledScreen {
 
         clearLabels();
         reloadFaccao();
+        refreshTable();
         tableViewLider.getItems().clear();
 
     }

@@ -28,7 +28,7 @@ public class CampanhaController implements Initializable, controlledScreen {
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {}
+    public void initialize(URL url, ResourceBundle resourceBundle) { }
 
     @Override
     public void setScreenParent(screensController screenPage) { myController = screenPage; }
@@ -41,51 +41,61 @@ public class CampanhaController implements Initializable, controlledScreen {
     @FXML
     private void goToTelaCriarCidade(ActionEvent event){
         myController.setScreen(main.screen5ID);
+        criarCidadeController.refreshTable();
     }
 
     @FXML
     private void goToTelaCriarFaccao(ActionEvent event){
         myController.setScreen(main.screen6ID);
+        criarFaccaoController.refreshTable();
     }
 
     @FXML
     private void goToTelaCriarLider(ActionEvent event){
         myController.setScreen(main.screen7ID);
+        criarLiderController.refreshTable();
     }
 
     @FXML
     private void goToTelaCriarMundo(ActionEvent event){
         myController.setScreen(main.screen8ID);
+        criarMundoController.refreshTable();
     }
 
     @FXML
     private void goToTelaCriarPanteao(ActionEvent event){
         myController.setScreen(main.screen9ID);
+        criarPanteaoController.refreshTable();
     }
 
     @FXML
     private void goToTelaCriarPersonagem(ActionEvent event){
         myController.setScreen(main.screen10ID);
+        criarPersonagemController.refreshTable();
     }
 
     @FXML
     private void goToTelaIntervalo(ActionEvent event){
         myController.setScreen(main.screen13ID);
+        intervalo.refreshTable();
     }
 
     @FXML
     private void goToTelaRelatorioCampanha(ActionEvent event){
         myController.setScreen(main.screen14ID);
+        relatorioCampanhaController.refreshTable();
     }
 
     @FXML
     private void goToBusca01(ActionEvent event){
         myController.setScreen(main.screen15ID);
+        busca01Controller.refreshTable();
     }
 
     @FXML
     private void goToBusca02(ActionEvent event){
         myController.setScreen(main.screen16ID);
+        busca02Controller.refreshTable();
     }
 
 }

@@ -32,6 +32,8 @@ public class criarPersonagemController implements Initializable, controlledScree
     @FXML
     private TableView<Personagem> tableView;
     @FXML
+    private static TableView<Personagem> tableViewStatic;
+    @FXML
     TableColumn<Personagem, SimpleIntegerProperty> column1;
     @FXML
     TableColumn<Personagem, SimpleStringProperty> column2;
@@ -273,6 +275,7 @@ public class criarPersonagemController implements Initializable, controlledScree
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableViewStatic = tableView;
         initTable();
         initComboBox();
         reloadPersonagem();
@@ -281,9 +284,10 @@ public class criarPersonagemController implements Initializable, controlledScree
         tableView.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
+
                 personagemAntigo = tableView.getSelectionModel().getSelectedItem();
                 if (mouseEvent.getClickCount() == 2){
-
+                    System.out.println(CampanhaAtualController.getCampanhaAtual().getNome());
 
                     removerPersonagem.setDisable(false);
                     atualizarPersonagem.setDisable(false);
@@ -476,11 +480,11 @@ public class criarPersonagemController implements Initializable, controlledScree
     }
 
 
-    private void refreshTable(){
-        tableView.getItems().clear();
+    public static void refreshTable(){
+        tableViewStatic.getItems().clear();
         ObservableList<Personagem> personagem = FXCollections.observableArrayList(PersonagemDAO.Listar());
         if(personagem.size() > 0){
-            tableView.setItems(personagem);
+            tableViewStatic.setItems(personagem);
         }
     }
 
@@ -543,6 +547,7 @@ public class criarPersonagemController implements Initializable, controlledScree
     private void limpar(ActionEvent event){
 
         clearLabels();
+        refreshTable();
         reloadPersonagem();
         tableViewA.getItems().clear();
         tableViewB.getItems().clear();
@@ -554,7 +559,7 @@ public class criarPersonagemController implements Initializable, controlledScree
     private void adicionarPersonagem(ActionEvent event){
 
         personagemAtual = new Personagem(0, nomePersonagem.getText(), Float.parseFloat(alturaPersonagem.getText()), Float.parseFloat(pesoPersonagem.getText()),corOlhosPersonagem.getText(), Integer.parseInt(idadePersonagem.getText()), corPelePersonagem.getText(), corCabeloPersonagem.getText(), 0,
-        nomeJogadorPersonagem.getText(), "Lorin", comboBoxSubRaca.getValue(), comboBoxClasse.getValue(), DeusDAO.GetDeus(comboBoxDeus.getValue()).getCodigoDeus(), comboBoxArquetipo.getValue(), comboBoxAntecedente.getValue(), comboBoxTendencia.getValue(), Integer.parseInt(percepcaoPassivaPersonagem.getText()),
+        nomeJogadorPersonagem.getText(), CampanhaAtualController.getCampanhaAtual().getNome(), comboBoxSubRaca.getValue(), comboBoxClasse.getValue(), DeusDAO.GetDeus(comboBoxDeus.getValue()).getCodigoDeus(), comboBoxArquetipo.getValue(), comboBoxAntecedente.getValue(), comboBoxTendencia.getValue(), Integer.parseInt(percepcaoPassivaPersonagem.getText()),
                 Integer.parseInt(numeroInspiracaoPersonagem.getText()), Integer.parseInt(pontosVidaAtualPersonagem.getText()), Integer.parseInt(pontosVidaTotalPersonagem.getText()), Integer.parseInt(pontosExperienciaPersonagem.getText()), Integer.parseInt(capacidadeCargaPersonagem.getText()), Integer.parseInt(cobrePersonagem.getText()),
                 Integer.parseInt(prataPersonagem.getText()), Integer.parseInt(ouroPersonagem.getText()), Integer.parseInt(platinaPersonagem.getText()), Integer.parseInt(electroPersonagem.getText()), Integer.parseInt(classeArmaduraPersonagem.getText()), Float.parseFloat(deslocamentoPersonagem.getText()), caracteristicaAdicionalPersonagem.getText(),
                 vinculoPersonagem.getText(), defeitoPersonagem.getText(), idealPersonagem.getText(), tracoPersonalidadePersonagem.getText(), Integer.parseInt(carismaPersonagem.getText()), Integer.parseInt(constituicaoPersonagem.getText()), Integer.parseInt(forcaPersonagem.getText()), Integer.parseInt(destrezaPersonagem.getText()), Integer.parseInt(sabedoriaPersonagem.getText()), Integer.parseInt(inteligenciaPersonagem.getText()));
@@ -568,7 +573,7 @@ public class criarPersonagemController implements Initializable, controlledScree
     @FXML
     private void atualizarPersonagem(ActionEvent event){
         personagemAtual = new Personagem(personagemAntigo.getCodigoAparencia(), nomePersonagem.getText(), Float.parseFloat(alturaPersonagem.getText()), Float.parseFloat(pesoPersonagem.getText()),corOlhosPersonagem.getText(), Integer.parseInt(idadePersonagem.getText()), corPelePersonagem.getText(), corCabeloPersonagem.getText(), personagemAntigo.getCodigoPersonagem(),
-                nomeJogadorPersonagem.getText(), "Lorin", comboBoxSubRaca.getValue(), comboBoxClasse.getValue(), DeusDAO.GetDeus(comboBoxDeus.getValue()).getCodigoDeus(), comboBoxArquetipo.getValue(), comboBoxAntecedente.getValue(), comboBoxTendencia.getValue(), Integer.parseInt(percepcaoPassivaPersonagem.getText()),
+                nomeJogadorPersonagem.getText(),  CampanhaAtualController.getCampanhaAtual().getNome(), comboBoxSubRaca.getValue(), comboBoxClasse.getValue(), DeusDAO.GetDeus(comboBoxDeus.getValue()).getCodigoDeus(), comboBoxArquetipo.getValue(), comboBoxAntecedente.getValue(), comboBoxTendencia.getValue(), Integer.parseInt(percepcaoPassivaPersonagem.getText()),
                 Integer.parseInt(numeroInspiracaoPersonagem.getText()), Integer.parseInt(pontosVidaAtualPersonagem.getText()), Integer.parseInt(pontosVidaTotalPersonagem.getText()), Integer.parseInt(pontosExperienciaPersonagem.getText()), Integer.parseInt(capacidadeCargaPersonagem.getText()), Integer.parseInt(cobrePersonagem.getText()),
                 Integer.parseInt(prataPersonagem.getText()), Integer.parseInt(ouroPersonagem.getText()), Integer.parseInt(platinaPersonagem.getText()), Integer.parseInt(electroPersonagem.getText()), Integer.parseInt(classeArmaduraPersonagem.getText()), Float.parseFloat(deslocamentoPersonagem.getText()), caracteristicaAdicionalPersonagem.getText(),
                 vinculoPersonagem.getText(), defeitoPersonagem.getText(), idealPersonagem.getText(), tracoPersonalidadePersonagem.getText(), Integer.parseInt(carismaPersonagem.getText()), Integer.parseInt(constituicaoPersonagem.getText()), Integer.parseInt(forcaPersonagem.getText()), Integer.parseInt(destrezaPersonagem.getText()), Integer.parseInt(sabedoriaPersonagem.getText()), Integer.parseInt(inteligenciaPersonagem.getText()));

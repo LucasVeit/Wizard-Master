@@ -1,6 +1,9 @@
 package Controller;
 
 import Model.DAO.MagiaDAO;
+import Model.DAO.QueriesDAO;
+import Model.Desafios;
+import Model.Intervalo;
 import Model.Magia;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,13 +26,19 @@ public class intervalo implements Initializable, controlledScreen {
     @FXML
     TableView tableView;
     @FXML
+    static TableView tableViewStatic;
+    @FXML
     TableColumn nivelGrupo;
+    @FXML
+    TableColumn nomeMonstro;
     @FXML
     TextField barraPesquisa;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableViewStatic = tableView;
         initTable();
+
     }
 
     @Override
@@ -42,18 +51,27 @@ public class intervalo implements Initializable, controlledScreen {
 
     @FXML
     private void Pesquisar(ActionEvent event){
-        tableView.getColumns().clear();
-        String pesquisa = barraPesquisa.getText();
+        tableView.getItems().clear();
+        int pesquisa = Integer.valueOf(barraPesquisa.getText());
 
-        //ObservableList<intervalo> nivel = FXCollections.observableArrayList(DAO.Search(pesquisa));
-        //tableView.setItems(nivel);
+        ObservableList<Intervalo> nivel = FXCollections.observableArrayList(QueriesDAO.Intervalo(pesquisa));
+        tableView.setItems(nivel);
     }
 
     private void initTable(){
-        nivelGrupo.setCellValueFactory(new PropertyValueFactory<>("nivelGrupo"));
+        nomeMonstro.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        nivelGrupo.setCellValueFactory(new PropertyValueFactory<>("nivel"));
 
-        //ObservableList<intervalo> nivel = FXCollections.observableArrayList(DAO.List()));
-        //tableView.setItems(nivel);
+        ObservableList<Intervalo> nivel = FXCollections.observableArrayList(QueriesDAO.Intervalo(10));
+        tableView.setItems(nivel);
+    }
+
+    public static void refreshTable() {
+        tableViewStatic.getItems().clear();
+        ObservableList<Intervalo> nivel = FXCollections.observableArrayList(QueriesDAO.Intervalo(10));
+        if (nivel.size() > 0) {
+            tableViewStatic.setItems(nivel);
+        }
     }
 
 }

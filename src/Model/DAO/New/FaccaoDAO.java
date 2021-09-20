@@ -1,5 +1,6 @@
 package Model.DAO.New;
 
+import Controller.CampanhaAtualController;
 import Model.Cidade;
 import Model.Faccao;
 import Model.ConnectPostgre;
@@ -14,7 +15,7 @@ public class FaccaoDAO {
 
     public static ArrayList<Faccao> Listar(){
         ArrayList<Faccao> faccoes = new ArrayList<>();
-        String sql = "select * from Faccao";
+        String sql = "select * from Faccao where nomeCampanha = '" + CampanhaAtualController.getCampanhaAtual().getNome() + "';";
 
         try {
             Statement declaracao = con.createStatement();

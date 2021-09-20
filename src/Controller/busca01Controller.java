@@ -1,5 +1,11 @@
 package Controller;
 
+import Model.Cidade;
+import Model.DAO.New.CidadeDAO;
+import Model.DAO.QueriesDAO;
+import Model.ListaLideres;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,12 +23,16 @@ public class busca01Controller implements Initializable, controlledScreen {
     @FXML
     TableView tableView;
     @FXML
+    static TableView tableViewStatic;
+    @FXML
     TableColumn nomeLider;
     @FXML
     TableColumn populacao;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableViewStatic = tableView;
+
         initTable();
     }
 
@@ -35,10 +45,19 @@ public class busca01Controller implements Initializable, controlledScreen {
     }
 
     private void initTable(){
-        nomeLider.setCellValueFactory(new PropertyValueFactory<>("nomeLider"));
+        nomeLider.setCellValueFactory(new PropertyValueFactory<>("nome"));
         populacao.setCellValueFactory(new PropertyValueFactory<>("populacao"));
 
-        //ObservableList<Busca01> busca01 = FXCollections.observableArrayList(DAO.List()));
-        //tableView.setItems(busca01);
+        ObservableList<ListaLideres> busca01 = FXCollections.observableArrayList(QueriesDAO.Lideres());
+        tableView.setItems(busca01);
     }
+
+    public static void refreshTable(){
+        tableViewStatic.getItems().clear();
+        ObservableList<ListaLideres> busca01 = FXCollections.observableArrayList(QueriesDAO.Lideres());
+        if(busca01.size() > 0){
+            tableViewStatic.setItems(busca01);
+        }
+    }
+
 }

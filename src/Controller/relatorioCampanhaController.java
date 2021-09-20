@@ -1,5 +1,10 @@
 package Controller;
 
+import Model.DAO.QueriesDAO;
+import Model.Desafios;
+import Model.Relatorio;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,22 +24,25 @@ public class relatorioCampanhaController implements Initializable, controlledScr
     @FXML
     TableView tableView;
     @FXML
+    static TableView tableViewStatic;
+    @FXML
     TableColumn nomeCampanha;
     @FXML
     TableColumn descricao;
     @FXML
     TableColumn numeroCidades;
     @FXML
+    TableColumn cidadeMenorPopulacao;
+    @FXML
     TableColumn cidadeMaiorPopulacao;
     @FXML
     TableColumn mediaPopulacaoCidades;
     @FXML
     TableColumn numeroLideres;
-    @FXML
-    TextField barraPesquisa;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableViewStatic = tableView;
         initTable();
     }
 
@@ -46,24 +54,26 @@ public class relatorioCampanhaController implements Initializable, controlledScr
         myController.setScreen(main.screen3ID);
     }
 
-    @FXML
-    private void Pesquisar(ActionEvent event){
-        tableView.getColumns().clear();
-        String pesquisa = barraPesquisa.getText();
-
-        //ObservableList<relatorioCampanha> nomeCampanha = FXCollections.observableArrayList(DAO.Search(pesquisa));
-        //tableView.setItems(nomeCampanha);
-    }
 
     private void initTable(){
-        nomeCampanha.setCellValueFactory(new PropertyValueFactory<>("campanha"));
+        nomeCampanha.setCellValueFactory(new PropertyValueFactory<>("nomeCampanha"));
         descricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
-        numeroCidades.setCellValueFactory(new PropertyValueFactory<>("numeroCidades"));
-        cidadeMaiorPopulacao.setCellValueFactory(new PropertyValueFactory<>("cidadeMaiorPopulacao"));
-        mediaPopulacaoCidades.setCellValueFactory(new PropertyValueFactory<>("mediaPopulacaoCidade"));
+        numeroCidades.setCellValueFactory(new PropertyValueFactory<>("cidades"));
+        cidadeMenorPopulacao.setCellValueFactory(new PropertyValueFactory<>("cidadeMenorPopulacao"));
+        cidadeMaiorPopulacao.setCellValueFactory(new PropertyValueFactory<>("CidadeMaiorPopulacao"));
+        mediaPopulacaoCidades.setCellValueFactory(new PropertyValueFactory<>("mediaPopulacao"));
         numeroLideres.setCellValueFactory(new PropertyValueFactory<>("numeroLideres"));
 
-        //ObservableList<relatorioCampanha> nomeCampanha = FXCollections.observableArrayList(DAO.List()));
-        //tableView.setItems(nomeCampanha);
+        ObservableList<Relatorio> nomeCampanha = FXCollections.observableArrayList(QueriesDAO.Relatorio());
+        tableView.setItems(nomeCampanha);
     }
+
+    public static void refreshTable() {
+        tableViewStatic.getItems().clear();
+        ObservableList<Relatorio> nomeCampanha = FXCollections.observableArrayList(QueriesDAO.Relatorio());
+        if (nomeCampanha.size() > 0) {
+            tableViewStatic.setItems(nomeCampanha);
+        }
+    }
+
 }

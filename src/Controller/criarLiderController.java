@@ -26,6 +26,8 @@ public class criarLiderController implements Initializable, controlledScreen {
     @FXML
     private TableView<Lider> tableView;
     @FXML
+    private static TableView<Lider> tableViewStatic;
+    @FXML
     TableColumn<Lider, SimpleStringProperty> column1;
     @FXML
     TableColumn<Lider, SimpleStringProperty>  column2;
@@ -52,6 +54,7 @@ public class criarLiderController implements Initializable, controlledScreen {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableViewStatic = tableView;
         reloadLider();
 
         initTable();
@@ -97,11 +100,11 @@ public class criarLiderController implements Initializable, controlledScreen {
         refreshTable();
     }
 
-    private void refreshTable(){
-        tableView.getItems().clear();
+    public static void refreshTable(){
+        tableViewStatic.getItems().clear();
         ObservableList<Lider> lider = FXCollections.observableArrayList(LiderDAO.Listar());
         if(lider.size() > 0){
-            tableView.setItems(lider);
+            tableViewStatic.setItems(lider);
         }
     }
 
@@ -115,7 +118,7 @@ public class criarLiderController implements Initializable, controlledScreen {
     @FXML
     private void adicionar(ActionEvent event){
 
-        liderAtual = new Lider(0, nomeLider.getText(), descricao.getText(), "Lorin");
+        liderAtual = new Lider(0, nomeLider.getText(), descricao.getText(), CampanhaAtualController.getCampanhaAtual().getNome());
         LiderDAO.Inserir(liderAtual);
         //adicionar no banco de dados
 
@@ -126,7 +129,7 @@ public class criarLiderController implements Initializable, controlledScreen {
     @FXML
     private void atualizar(ActionEvent event){
 
-        liderAtual = new Lider(liderAntigo.getCodigoLider(), nomeLider.getText(), descricao.getText() , "Lorin");
+        liderAtual = new Lider(liderAntigo.getCodigoLider(), nomeLider.getText(), descricao.getText(), CampanhaAtualController.getCampanhaAtual().getNome());
 
         LiderDAO.Atualizar(liderAtual);
         refreshTable();
@@ -153,6 +156,7 @@ public class criarLiderController implements Initializable, controlledScreen {
     private void limpar(ActionEvent event){
 
         clearLabels();
+        refreshTable();
         reloadLider();
     }
 

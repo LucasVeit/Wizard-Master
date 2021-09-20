@@ -61,7 +61,7 @@
                                         </TextField>
                                     </children>
                                 </HBox>
-                                <Button onAction="#Pesquisar" mnemonicParsing="false" prefHeight="34.0" prefWidth="100.0" styleClass="Button" stylesheets="@style.css" text="Pesquisar" textFill="#9c4c50">
+                                <Button mnemonicParsing="false" onAction="#Pesquisar" prefHeight="34.0" prefWidth="100.0" styleClass="Button" stylesheets="@style.css" text="Pesquisar" textFill="#9c4c50">
                                     <HBox.margin>
                                         <Insets left="20.0" right="20.0" />
                                     </HBox.margin>
@@ -88,7 +88,8 @@
                         <Insets bottom="70.0" left="150.0" right="150.0" />
                     </BorderPane.margin>
                     <columns>
-                        <TableColumn fx:id="nivelGrupo" prefWidth="978.3999877691269" text="Nível do grupo" />
+                  <TableColumn fx:id="nomeMonstro" prefWidth="453.0" text="Nome do Monstro" />
+                        <TableColumn fx:id="nivelGrupo" prefWidth="601.0" text="Nível" />
                     </columns>
                 </TableView>
             </bottom>

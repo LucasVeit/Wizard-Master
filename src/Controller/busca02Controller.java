@@ -1,5 +1,10 @@
 package Controller;
 
+import Model.DAO.QueriesDAO;
+import Model.Desafios;
+import Model.ListaLideres;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,6 +22,8 @@ public class busca02Controller implements Initializable, controlledScreen {
     @FXML
     TableView tableView;
     @FXML
+    static TableView tableViewStatic;
+    @FXML
     TableColumn nomeJogador;
     @FXML
     TableColumn nomeMonstro;
@@ -25,6 +32,7 @@ public class busca02Controller implements Initializable, controlledScreen {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableViewStatic = tableView;
         initTable();
     }
 
@@ -37,11 +45,20 @@ public class busca02Controller implements Initializable, controlledScreen {
     }
 
     private void initTable(){
-        nomeJogador.setCellValueFactory(new PropertyValueFactory<>("nomeJogador"));
-        nomeMonstro.setCellValueFactory(new PropertyValueFactory<>("nomeMonstro"));
+        nomeJogador.setCellValueFactory(new PropertyValueFactory<>("jogador"));
+        nomeMonstro.setCellValueFactory(new PropertyValueFactory<>("monstro"));
         habilidade.setCellValueFactory(new PropertyValueFactory<>("habilidade"));
 
-        //ObservableList<Busca02> busca02 = FXCollections.observableArrayList(DAO.List()));
-        //tableView.setItems(busca02);
+        ObservableList<Desafios> desafios = FXCollections.observableArrayList(QueriesDAO.Desafios());
+        tableView.setItems(desafios);
     }
+
+    public static void refreshTable() {
+        tableViewStatic.getItems().clear();
+        ObservableList<Desafios> desafios = FXCollections.observableArrayList(QueriesDAO.Desafios());
+        if (desafios.size() > 0) {
+            tableViewStatic.setItems(desafios);
+        }
+    }
+
 }

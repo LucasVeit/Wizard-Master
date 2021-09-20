@@ -58,7 +58,7 @@
                                           <Font name="Sylfaen" size="24.0" />
                                        </font>
                                     </Label>
-                                    <TextField prefHeight="25.0" prefWidth="397.0">
+                                    <TextField fx:id="nome" prefHeight="25.0" prefWidth="397.0">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
@@ -75,7 +75,7 @@
                                           <Font name="Sylfaen" size="24.0" />
                                        </font>
                                     </Label>
-                                    <TextArea prefHeight="50.0" prefWidth="595.0" wrapText="true">
+                                    <TextArea fx:id="descricao" prefHeight="50.0" prefWidth="595.0" wrapText="true">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
@@ -85,7 +85,7 @@
                                     <Insets left="100.0" right="100.0" />
                                  </VBox.margin>
                               </VBox>
-                              <Button mnemonicParsing="false" onAction="#goToCampanha" prefHeight="46.0" prefWidth="120.0" styleClass="Button" stylesheets="@style.css" text="Criar" textFill="#af4044">
+                              <Button fx:id="criar" mnemonicParsing="false" onAction="#goToCampanha" prefHeight="46.0" prefWidth="120.0" styleClass="Button" stylesheets="@style.css" text="Criar" textFill="#af4044">
                                  <font>
                                     <Font name="Sylfaen" size="24.0" />
                                  </font>

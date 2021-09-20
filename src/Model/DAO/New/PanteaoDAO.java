@@ -1,5 +1,6 @@
 package Model.DAO.New;
 
+import Controller.CampanhaAtualController;
 import Model.ConnectPostgre;
 import Model.Panteao;
 
@@ -12,7 +13,7 @@ public class PanteaoDAO {
 
     public static ArrayList<Panteao> Listar(){
         ArrayList<Panteao> pantoes = new ArrayList<>();
-        String sql = "select * from PanteaoCampanha";
+        String sql = "select * from PanteaoCampanha where nomeCampanha = '" + CampanhaAtualController.getCampanhaAtual().getNome() + "';";
 
         try {
             Statement declaracao = con.createStatement();

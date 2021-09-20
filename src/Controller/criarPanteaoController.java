@@ -30,6 +30,8 @@ public class criarPanteaoController implements Initializable, controlledScreen {
     @FXML
     private TableView<Panteao> tableView;
     @FXML
+    private static TableView<Panteao> tableViewStatic;
+    @FXML
     TableColumn<Panteao, SimpleStringProperty> column1;
     @FXML
     TableColumn<Panteao, SimpleIntegerProperty> column2;
@@ -59,6 +61,7 @@ public class criarPanteaoController implements Initializable, controlledScreen {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        tableViewStatic = tableView;
         reloadPanteao();
         initTable();
         initComboBox();
@@ -127,11 +130,11 @@ public class criarPanteaoController implements Initializable, controlledScreen {
         refreshTable();
     }
 
-    private void refreshTable(){
-        tableView.getItems().clear();
+    public static void refreshTable(){
+        tableViewStatic.getItems().clear();
         ObservableList<Panteao> panteao = FXCollections.observableArrayList(PanteaoDAO.Listar());
         if(panteao.size() > 0){
-            tableView.setItems(panteao);
+            tableViewStatic.setItems(panteao);
         }
     }
 
@@ -139,7 +142,7 @@ public class criarPanteaoController implements Initializable, controlledScreen {
     @FXML
     private void adicionar(ActionEvent event){
 
-        Panteao panteaoAtual = new Panteao("Lorin", DeusDAO.GetDeus(comboBox.getValue()).getCodigoDeus());
+        Panteao panteaoAtual = new Panteao( CampanhaAtualController.getCampanhaAtual().getNome(), DeusDAO.GetDeus(comboBox.getValue()).getCodigoDeus());
         PanteaoDAO.Inserir(panteaoAtual);
         //adicionar no banco de dados
 
@@ -170,6 +173,7 @@ public class criarPanteaoController implements Initializable, controlledScreen {
     private void limpar(ActionEvent event){
         clearLabels();
         reloadPanteao();
+        refreshTable();
     }
 
     public void initComboBox(){
